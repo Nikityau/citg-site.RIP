@@ -8,4 +8,4 @@ import "normalize.css"
 import "./assets/fonts/fonts.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
-root.render(<App />);
+root.render(<App/>);
