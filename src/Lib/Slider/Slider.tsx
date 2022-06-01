@@ -89,6 +89,7 @@ const Slider = ({
     }
   };
 
+
   return (
     <div className={slider.container}>
       <div className={slider.tittle}>
