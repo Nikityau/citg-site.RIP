@@ -25,9 +25,12 @@ const Party = () => {
   };
 
   useEffect(() => {
-    InfinitLoop(ball1.current, InfinityLoopDirection.RIGHT);
+    const timeout = InfinitLoop(ball1.current, InfinityLoopDirection.RIGHT);
 
-    return () => {};
+    return () => {
+      if(timeout)
+        clearTimeout(timeout)
+    };
   }, []);
 
   return (

@@ -6,21 +6,21 @@ import { EventType, onChangeIndex } from "../Slider.interface/Slider.event.type"
 
 export class SliderSwipeController implements ISliderSwipeBase {
   swipe_el: HTMLElement | null = null;
-  _index: number = 0;
+  _index = 0;
   _swipe_type: Slider_Type.VERTICAL | Slider_Type.HORIZONTAL = Slider_Type.HORIZONTAL;
 
-  change_index: onChangeIndex = (i) => {};
+  change_index: onChangeIndex = (i) => { return i };
 
-  private _start_x: number = 0;
-  private _start_y: number = 0;
+  private _start_x = 0;
+  private _start_y = 0;
 
-  private _last_x: number = 0;
-  private _last_y: number = 0;
+  private _last_x = 0;
+  private _last_y = 0;
 
   private _swipe_x_direction: "left" | "right" | "none" = "none";
   private _swipe_y_direction: "up" | "down" | "none" = "none";
 
-  private _is_down: boolean = false;
+  private _is_down = false;
 
   constructor(
     swipe_el: HTMLElement,

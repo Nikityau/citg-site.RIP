@@ -60,9 +60,9 @@ const Navigation = ({
       >
         <Link
           to={home}
-          data-mouse-focus={true}
-          children={<h4 data-mouse-focus={true}>Главная</h4>}
-        />
+          data-mouse-focus={true}>
+            <h4 data-mouse-focus={true}>Главная</h4>
+        </Link>
       </div>
       <div
         onClick={GoUp}
@@ -74,9 +74,9 @@ const Navigation = ({
       >
         <Link
           to={middle}
-          children={<h4 data-mouse-focus={true}>Проекты</h4>}
-          data-mouse-focus={true}
-        />
+          data-mouse-focus={true}>
+            <h4 data-mouse-focus={true}>Проекты</h4>
+        </Link>
         {isPopUp && (
           <div className={navigation.arrow} data-mouse-focus={true}>
             <img
@@ -96,9 +96,9 @@ const Navigation = ({
       >
         <Link
           to={end}
-          children={<h4 data-mouse-focus={true}>Команда</h4>}
-          data-mouse-focus={true}
-        />
+          data-mouse-focus={true}>
+            <h4 data-mouse-focus={true}>Команда</h4>
+        </Link>
       </div>
       <Circle />
     </nav>

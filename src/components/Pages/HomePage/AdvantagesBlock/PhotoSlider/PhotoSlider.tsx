@@ -14,7 +14,6 @@ import evolve from '../../../../../assets/images/evolve.png';
 import create from '../../../../../assets/images/create.png';
 
 function PhotoSlider() {
-  useEffect(() => {}, []);
 
   return (
     <div className={photoslider.container}>

@@ -87,7 +87,7 @@ const BigLogo = () => {
     if (window.screen.width <= 500) return;
     if (!mediumCircle.current) return;
 
-    let animation = new AnimationLevitation(mediumCircle.current, 20, 80);
+    const animation = new AnimationLevitation(mediumCircle.current, 20, 80);
 
     return animation.Start();
   };

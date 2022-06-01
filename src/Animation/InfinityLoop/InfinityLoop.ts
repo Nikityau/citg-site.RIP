@@ -9,12 +9,12 @@ export enum InfinityLoopDirection {
 export class InfinityLoop implements IAnimationInterface {
   element: HTMLElement;
   delay: number;
-  timeout: NodeJS.Timeout = setTimeout(() => {}, 0);
+  timeout: NodeJS.Timeout = setTimeout(() => { return }, 0);
 
-  private a: number = 5;
-  private scale: number = 40;
-  private fi: number = 0;
-  private r: number = 200;
+  private a = 5;
+  private scale = 40;
+  private fi = 0;
+  private r = 200;
 
   private _direction: InfinityLoopDirection = InfinityLoopDirection.RIGHT;
 
@@ -26,7 +26,7 @@ export class InfinityLoop implements IAnimationInterface {
     cx: number,
     cy: number,
     direction: InfinityLoopDirection = InfinityLoopDirection.RIGHT,
-    delay: number = 20
+    delay = 20
   ) {
     this.element = el;
     this.delay = delay;

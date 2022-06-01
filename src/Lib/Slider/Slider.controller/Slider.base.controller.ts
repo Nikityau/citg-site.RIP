@@ -11,8 +11,8 @@ import { SliderArrowController } from "../Slider.arrow.controller/Slider.arrow.c
 
 import { ISliderArrowBase } from "../Slider.arrow.controller/Slider.arrow.base/Slider.arrow.base";
 import { ISliderSwipeBase } from "../Slider.swipe/Slider.swipe.base/Slider.swipe.base";
-import { SliderSwipeController } from "../Slider.swipe/Slider.swipe.controller";
 import { ISliderAutoplayBase } from "../Slider.autoplay/Slider.autoplay.base/Slider.autoplay.base";
+import { SliderSwipeController } from "../Slider.swipe/Slider.swipe.controller";
 import { SliderAutoplayController } from "../Slider.autoplay/Slider.autoplay.controller";
 import { EventType } from "../Slider.interface/Slider.event.type";
 
@@ -23,17 +23,17 @@ export class SliderBaseController {
   private _left_arrow: HTMLElement | null = null;
   private _right_arrow: HTMLElement | null = null;
 
-  private _gap: number = 20;
-  private _el_on_scrn: number = 1;
+  private _gap = 20;
+  private _el_on_scrn = 1;
 
   private focus: focus = "center";
 
   private _infinite_pos: "left_copy" | "main" | "right_copy" = "main";
 
-  private _index: number = 1;
-  private _element_length: number = 0;
+  private _index = 1;
+  private _element_length = 0;
   private _conditional_center: number = this._index;
-  private _change_index: (i: number) => void = (i) => {};
+  private _change_index: (i: number) => void = (i) => { return };
 
   private _slider_options: ISliderOptions = {
     slider_type: Slider_Type.DEFAULT,
@@ -41,14 +41,14 @@ export class SliderBaseController {
     slider_back_type: SliderBack_Type.DEFAULT,
     slider_element_type: SliderElement_Type.DEFAULT,
   };
-  private _pagination_option: boolean = false;
+  private _pagination_option = false;
   private _autoplay_option: ISliderAutoplayOptions = {
     autoplay: false,
     smooth: false,
     delay: 0,
     swipe: "unset",
   };
-  private _progressbar_option: boolean = false;
+  private _progressbar_option = false;
 
   //Modules
   private _arrow_controller: ISliderArrowBase | null = null;
@@ -372,7 +372,7 @@ export class SliderBaseController {
         this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 - this._gap / 2 + "px";
     }
   }
-  private Set_focus_on_el(el: HTMLElement, off: boolean = false) {
+  private Set_focus_on_el(el: HTMLElement, off = false) {
     if (!this._slider || !this._slider_track) return;
 
     const children = this._slider_track.children;

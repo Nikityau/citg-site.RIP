@@ -21,9 +21,9 @@ export class MathUtils {
   }
   static PointsCoordsOnCircle(
     angle: number,
-    r: number = 1,
-    cx: number = 0,
-    cy: number = 0
+    r = 1,
+    cx = 0,
+    cy = 0
   ): { x: number; y: number } {
     const x = -Math.cos(MathUtils.RadianCircle(angle)) * r + cx;
     const y = -Math.sin(MathUtils.RadianCircle(angle)) * r + cy;

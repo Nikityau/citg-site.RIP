@@ -3,13 +3,13 @@ import { Logger } from "../../Logger/Logger";
 
 export class AnimationLevitation implements IAnimationInterface {
   element: HTMLElement;
-  timeout: NodeJS.Timeout = global.setTimeout(() => {}, 0);
+  timeout: NodeJS.Timeout = global.setTimeout(() => { return }, 0);
   delay: number;
   private border: number;
   private coeff: number;
   private coeffIncrease: number;
 
-  public constructor(element: HTMLElement, border: number = 20, delay = 50, coeffInc: number = 1) {
+  public constructor(element: HTMLElement, border = 20, delay = 50, coeffInc = 1) {
     this.element = element;
     this.delay = delay;
     this.border = border;

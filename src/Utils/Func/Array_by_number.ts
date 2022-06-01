@@ -1,5 +1,5 @@
 export const Array_by_number = (num: number): number[] => {
-  let arr: number[] = [];
+  const arr: number[] = [];
 
   for (let i = 0; i < num; ++i) {
     arr.push(i);

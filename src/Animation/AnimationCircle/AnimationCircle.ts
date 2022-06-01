@@ -14,11 +14,11 @@ export class AnimationCircle implements IAnimationInterface {
   private cx: number;
   private cy: number;
   private _r: number;
-  private angle: number = 0;
+  private angle = 0;
   delay: number;
-  timeout = setTimeout(() => {}, 0);
+  timeout = setTimeout(() => { return }, 0);
 
-  private isMobile: boolean = false;
+  private isMobile = false;
 
   constructor(
     el: HTMLElement,
@@ -27,7 +27,7 @@ export class AnimationCircle implements IAnimationInterface {
     cy: number,
     r: number,
     sun: ICoords | null = null,
-    delay: number = 20,
+    delay = 20,
     mobile = false
   ) {
     this.element = el;
@@ -92,7 +92,7 @@ export class AnimationCircle implements IAnimationInterface {
       this.element.style.top = coord.y + "px";
       this.element.style.left = coord.x + "px";
 
-      return setTimeout(() => {});
+      return setTimeout(() => { return });
     }
 
     this.timeout = setInterval(() => {

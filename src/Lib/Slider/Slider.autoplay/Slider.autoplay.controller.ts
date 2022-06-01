@@ -5,11 +5,11 @@ import { EventType, onChangeIndex } from "../Slider.interface/Slider.event.type"
 export class SliderAutoplayController implements ISliderAutoplayBase {
   _elem: HTMLElement | null = null;
 
-  _index: number = 0;
-  change_index: onChangeIndex = (i) => {};
+  _index = 0;
+  change_index: onChangeIndex = (i) => { return };
 
-  _timeout: NodeJS.Timeout = setTimeout(() => {}, 0);
-  _delay: number = 0;
+  _timeout: NodeJS.Timeout = setTimeout(() => { return }, 0);
+  _delay = 0;
 
   private options: ISliderAutoplayOptions = {
     autoplay: false,

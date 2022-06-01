@@ -1,6 +1,6 @@
 export class CircleTrail {
   private _trail: HTMLElement;
-  private _isSet: boolean = false;
+  private _isSet = false;
   private _color: string;
   private _cx: number;
   private _cy: number;
@@ -11,8 +11,8 @@ export class CircleTrail {
     cx: number,
     cy: number,
     diameter: number,
-    border: number = 50,
-    color: string = "#C4C4C4"
+    border = 50,
+    color = "#C4C4C4"
   ) {
     this._trail = trail;
 

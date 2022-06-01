@@ -7,8 +7,8 @@ export class SliderArrowController implements ISliderArrowBase {
   _left_arrow: HTMLElement | null = null;
   _right_arrow: HTMLElement | null = null;
 
-  _index: number = 0;
-  _change_index: onChangeIndex = (i) => {};
+  _index = 0;
+  _change_index: onChangeIndex = (i) => { return };
 
   constructor() {
     this.on_Arrow_Click = this.on_Arrow_Click.bind(this);

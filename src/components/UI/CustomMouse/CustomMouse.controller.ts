@@ -9,16 +9,16 @@ export class CustomMouseController {
 
   private _defaule_size_of_add_point: IMouse;
 
-  private _x: number = 0;
-  private _y: number = 0;
+  private _x = 0;
+  private _y = 0;
 
-  private isLarge: boolean = false;
+  private isLarge = false;
 
-  private coeff: number = 0;
-  private borderUp: number = 0;
-  private borderBottom: number = 0;
+  private coeff = 0;
+  private borderUp = 0;
+  private borderBottom = 0;
 
-  constructor(mouse: HTMLElement, point: HTMLElement, initX: number = 0, initY: number = 0) {
+  constructor(mouse: HTMLElement, point: HTMLElement, initX = 0, initY = 0) {
     this._mouse = mouse;
     this._mouse_additional_point = point;
     this._defaule_size_of_add_point = { x: point.clientWidth, y: point.clientHeight };
@@ -60,7 +60,7 @@ export class CustomMouseController {
     this.ChangeSizeDown();
   }
 
-  private onMouseClick(e: MouseEvent) {}
+  private onMouseClick(e: MouseEvent) { return }
 
   private ToggleCursorSize() {
     if (this.isLarge) {

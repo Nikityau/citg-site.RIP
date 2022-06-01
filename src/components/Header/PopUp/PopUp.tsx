@@ -8,8 +8,8 @@ import popup from "./PopUp.module.scss";
 
 import img from "../../../assets/images/plug.png";
 
-const PopUp = React.forwardRef(
-  ({ popUpMouseLeave, popUpMouseEnter }: IPopUp, ref: React.ForwardedRef<HTMLDivElement>) => {
+const PopUp = React.forwardRef(({ popUpMouseLeave, popUpMouseEnter }: IPopUp, ref: React.ForwardedRef<HTMLDivElement>) => {
+
     return (
       <div
         className={popup.container}

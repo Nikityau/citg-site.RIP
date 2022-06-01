@@ -10,11 +10,21 @@ const TeamsPage = React.lazy(() => import("../../Pages/TeamsPage/TeamsPage"));
 const AppRouters = () => {
   return (
     <Switch>
-      <Route exact path={"/home"} children={<HomePage />} />
-      <Route exact path={"/projects"} children={<ProjectsPage />} />
-      <Route path={"/projects/:name"} children={<ProjectPage />} />
-      <Route exact path={"/team"} children={<TeamsPage />} />
-      <Route path={"/team/:name"} children={<TeamMemberPage />} />
+        <Route exact path={"/home"}>
+            <HomePage />
+        </Route>
+        <Route exact path={"/projects"}>
+            <ProjectsPage />
+        </Route>
+        <Route path={"/projects/:name"}>
+            <ProjectPage />
+        </Route>
+        <Route exact path={"/team"}>
+            <TeamsPage />
+        </Route>
+        <Route path={"/team/:name"}>
+            <TeamMemberPage />
+        </Route>
 
       <Route exact path={"/"}>
         <Redirect to={"/home"} />
