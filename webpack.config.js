@@ -72,7 +72,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html'),
             favicon: path.resolve(__dirname, 'public', 'logo.png'),
-            minify: true
+            minify: false
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[hash].bundle.css'
