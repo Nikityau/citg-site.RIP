@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-align: right;
+
+  .title {
+    h5 {
+      font-family: Inter, sans-serif;
+      font-weight: 600;
+      font-size: 2rem;
+    }
+
+    @media screen and (min-width: 2400px) {
+      h5 {
+        font-size: 1.8rem;
+      }
+    }
+    @media screen and (min-width: 2600px) {
+      h5 {
+        font-size: 1.65rem;
+      }
+    }
+    @media screen and (min-width: 3000px) {
+      h5 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .homeNumber {
+    margin-top: 15px;
+
+    span {
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.9rem;
+      line-height: 26px;
+    }
+    @media screen and (min-width: 2400px) {
+      span {
+        font-size: 1.7rem;
+      }
+    }
+    @media screen and (min-width: 2600px) {
+      span {
+        font-size: 1.55rem;
+      }
+    }
+    @media screen and (min-width: 3000px) {
+      span {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .linksTo {
+    margin-top: -8px;
+    display: flex;
+    flex-direction: column;
+
+    span:first-child {
+      position: relative;
+      top: 7px;
+      color: #f24e1e;
+      font-size: 1.3rem;
+    }
+    span {
+      font-family: Roboto, sans-serif;
+      font-weight: 400;
+      font-size: 2.05rem;
+      line-height: 26px;
+    }
+
+    @media screen and (min-width: 2400px) {
+      span:first-child {
+        font-size: 1.17rem;
+      }
+      span {
+        font-size: 1.8rem;
+      }
+    }
+    @media screen and (min-width: 2600px) {
+      span:first-child {
+        font-size: 1.13rem;
+      }
+      span {
+        font-size: 1.7rem;
+      }
+    }
+    @media screen and (min-width: 3000px) {
+      span:first-child {
+        font-size: 1.04rem;
+      }
+      span {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .email {
+    margin-top: 15px;
+
+    a {
+      font-size: 1.9rem;
+    }
+
+    @media screen and (min-width: 2400px) {
+      a {
+        font-size: 1.8rem;
+      }
+    }
+    @media screen and (min-width: 2600px) {
+      a {
+        font-size: 1.65rem;
+      }
+    }
+    @media screen and (min-width: 3000px) {
+      a {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

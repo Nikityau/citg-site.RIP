@@ -1,0 +1,374 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+
+  .innerContainer {
+    max-width: 1615px;
+    height: 100%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 500px) {
+      max-width: 100vw;
+      overflow: hidden;
+      padding-bottom: 50px;
+    }
+
+    @media screen and (min-width: 3000px) {
+      position: relative;
+    }
+
+    .pageNum {
+      position: absolute;
+      top: 10px;
+      left: 0;
+
+      @media screen and (max-width: 500px) {
+        top: 0;
+      }
+    }
+
+    .title {
+      position: relative;
+      right: 0;
+      top: 0;
+
+      h4,
+      p {
+        text-align: right;
+      }
+
+      h4 {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        color: #f8682a;
+        font-size: 3rem;
+      }
+
+      p {
+        font-family: Inter, sans-serif;
+        font-weight: 200;
+        font-size: 1.5rem;
+        color: #fff;
+      }
+
+      @media screen and (max-width: 500px) {
+        position: absolute;
+        top: 2px;
+        right: 5%;
+
+        h4 {
+          font-family: "Sansation", sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 2.5rem;
+          line-height: 28px;
+
+          color: #f8682a;
+        }
+        p {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: 1000px) {
+        h4 {
+          font-size: 3.5rem;
+        }
+        p {
+          font-size: 1.8rem;
+        }
+      }
+      @media screen and (min-width: 2500px) {
+        h4 {
+          font-size: 2.7rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      @media screen and (min-width: 3000px) {
+        h4 {
+          font-size: 2.8rem;
+        }
+        p {
+          font-size: 1.55rem;
+        }
+      }
+    }
+
+    .purpleGradient {
+      position: absolute;
+      right: -5%;
+      top: -10%;
+      width: 20vw;
+      height: 20vw;
+      filter: blur(180px);
+      z-index: -1;
+      mix-blend-mode: overlay;
+      background: linear-gradient(90deg, #bf3fa1, #470036);
+
+      @media screen and (max-width: 500px) {
+        left: 0;
+        right: 0;
+        top: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background: linear-gradient(
+          19.36deg,
+          rgba(51, 49, 125, 0.52) -8.78%,
+          rgba(71, 0, 54, 0) 82.01%
+        );
+        mix-blend-mode: normal;
+        filter: blur(100px);
+      }
+
+      @media screen and (min-width: 3000px) {
+        right: -100%;
+        width: 28vw;
+        height: 28vw;
+        border-radius: 50%;
+        filter: blur(200px);
+      }
+    }
+    .orangeGradient {
+      position: absolute;
+      left: -10%;
+      bottom: 20%;
+      width: 30vw;
+      height: 30vw;
+      background: linear-gradient(300.09deg, #71192a 53.97%, rgba(113, 25, 42, 0) 122.69%);
+      mix-blend-mode: lighten;
+      filter: blur(300px);
+      z-index: -1;
+
+      @media screen and (max-width: 500px) {
+        bottom: -200px;
+        left: -40%;
+
+        width: 180vw;
+        height: 500px;
+
+        background: linear-gradient(0deg, #581422 70%, rgba(113, 25, 42, 0));
+        mix-blend-mode: normal;
+        filter: blur(130px);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+
+        z-index: -2;
+      }
+      @media screen and (min-width: 3000px) {
+        bottom: 5%;
+        left: -100%;
+        filter: blur(400px);
+      }
+    }
+
+    .gamesList {
+      width: 100%;
+      padding-top: 3%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+
+      .gamesListInnerWrapper {
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .button {
+        margin-top: 40px;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .gamesListMobVer {
+      width: 100%;
+      display: none;
+
+      padding-top: 60px;
+
+      .gamesListMobVerTittle {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        h5 {
+          text-align: center;
+          max-width: 300px;
+          font-family: "Inter", sans-serif;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 2.6rem;
+          line-height: 21px;
+
+          color: #ffffff;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        display: block;
+      }
+
+      .gamesListMobVerSlider {
+        position: relative;
+        margin-top: 30px;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+
+        .gamesListMobVerSliderTrack {
+          position: absolute;
+          top: 0;
+          left: -280px;
+
+          height: 100%;
+
+          display: flex;
+          align-items: center;
+          gap: 25px;
+
+          transition: all 0.3s;
+
+          .gamesListMobVerSliderElement {
+            width: 300px;
+            height: 80%;
+            border-radius: 13px;
+
+            background: rgba(10, 10, 10, 0.7) no-repeat;
+            background-size: cover;
+
+            transition: all 0.3s;
+          }
+        }
+      }
+      .gamesListMobVerSliderPagination {
+        width: 100%;
+
+        padding: 20px 0;
+
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+
+        .gamesListMobVerPaginationCircle {
+          width: 6px;
+          height: 6px;
+
+          border-radius: 50%;
+
+          background: rgba(12, 17, 23, 0.5);
+        }
+      }
+      .gamesListMobVerAdditionalBlocks {
+        width: 100%;
+        height: 250px;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .gamesListMobVerAdditionalBlock {
+          width: 42%;
+          height: 75%;
+
+          border-radius: 13px;
+
+          background: rgba(0, 0, 0, 0.18);
+        }
+      }
+      .gamesListMobVerButton {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .sliderContainer {
+      margin-top: 30px;
+
+      width: 100%;
+      height: 550px;
+    }
+
+    .sliderMobVerPlug {
+      display: none;
+
+      padding-top: 80px;
+
+      width: 100%;
+
+      .sliderMobVerPlugTittle {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        h5 {
+          font-family: "Inter", sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 3.5rem;
+          line-height: 28px;
+
+          color: #f8682a;
+        }
+      }
+      .sliderMobVerPlugSlider {
+        width: 90%;
+        height: 250px;
+
+        margin: 20px auto 30px;
+
+        background: rgba(24, 25, 33, 0.5);
+        border-radius: 13px;
+
+        padding: 10px 0;
+
+        .sliderMobVerPlugElem {
+          width: 95%;
+          height: 92%;
+
+          border-radius: 13px;
+
+          margin: 0 auto;
+
+          background: #2d2028;
+        }
+        .sliderMobVerPagination {
+          width: 100%;
+
+          display: flex;
+          justify-content: center;
+          gap: 5px;
+
+          padding: 8px 0;
+
+          .sliderMobVerPaginationCircle {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #a4b3cd;
+          }
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        display: block;
+      }
+    }
+  }
+}

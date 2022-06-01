@@ -1,0 +1,117 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 10px;
+    padding-bottom: 50px;
+    z-index: -20;
+
+    height: 80vh;
+  }
+
+  .outerContainerWrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+
+    .innerContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      @media screen and (min-width: 3000px) {
+        justify-content: end;
+      }
+
+      width: 80%;
+      height: 70%;
+      background: rgba(0, 5, 30, 0.3);
+
+      @media screen and (max-width: 500px) {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .button {
+        position: absolute;
+        bottom: -3%;
+        right: 0;
+      }
+
+      .innerWrapper {
+        position: relative;
+        width: 90%;
+        height: 90%;
+
+        @media screen and (max-width: 500px) {
+        }
+        @media screen and (min-width: 3000px) {
+          width: 64%;
+        }
+
+        .title {
+          h3 {
+            font-family: Inter, sans-serif;
+            font-weight: 500;
+            font-size: 4rem;
+            color: #f4682c;
+          }
+
+          @media screen and (max-width: 500px) {
+            h3 {
+              font-family: "Sansation", sans-serif;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 4.5rem;
+              line-height: 140%;
+
+              letter-spacing: -0.3px;
+
+              color: #f4682c;
+            }
+          }
+
+          @media screen and (min-width: 3000px) {
+            h3 {
+              font-size: 2.5rem;
+            }
+          }
+        }
+
+        .skills {
+          padding-top: 5%;
+          width: 85%;
+          height: 100%;
+
+          display: flex;
+          flex-wrap: wrap;
+
+          @media screen and (max-width: 500px) {
+            display: none;
+          }
+        }
+
+        .skillMobVer {
+          padding-top: 10px;
+          height: 100%;
+          display: none;
+
+          overflow: hidden;
+
+          @media screen and (max-width: 500px) {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+          }
+        }
+      }
+    }
+  }
+}

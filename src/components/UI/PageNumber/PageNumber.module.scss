@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+
+  .line {
+    width: 271px;
+    height: 16px;
+    margin-right: 20px;
+    background: linear-gradient(90deg, #fc6727 -1.85%, #f3682c 106.83%);
+
+    transition: all 0.3s;
+
+    @media screen and (max-width: 500px) {
+      width: 100px;
+      height: 18px;
+    }
+    @media screen and (min-width: 3000px) {
+      width: 0;
+      margin-right: 0;
+    }
+  }
+
+  .number {
+    span {
+      font-family: Inter, sans-serif;
+      font-weight: 200;
+      font-size: 4rem;
+      color: #dc6041;
+    }
+
+    @media screen and (max-width: 500px) {
+      span {
+        font-size: 5rem;
+      }
+    }
+    @media screen and (min-width: 3000px) {
+      span {
+        font-size: 3.5rem;
+      }
+    }
+  }
+}

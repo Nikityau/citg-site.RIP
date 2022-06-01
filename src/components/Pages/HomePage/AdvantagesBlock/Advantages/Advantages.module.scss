@@ -1,0 +1,134 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  max-width: 550px;
+  min-width: 300px;
+  z-index: 1;
+
+  @media screen and (max-width: 500px) {
+    align-items: center;
+    height: 100%;
+  }
+
+  .title {
+    @media screen and (max-width: 500px) {
+      position: absolute;
+      top: 0;
+      right: 5%;
+    }
+
+    h3 {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 500;
+      font-size: 4.5rem;
+      color: #f4672b;
+
+      @media screen and (max-width: 500px) {
+        font-size: 4.5rem;
+
+        font-family: Sansation, sans-serif;
+      }
+      @media screen and (min-width: 2400px) {
+        font-size: 3.8rem;
+      }
+      @media screen and (min-width: 3000px) {
+        font-size: 3.5rem;
+      }
+      @media screen and (min-width: 3400px) {
+        font-size: 3.4rem;
+      }
+    }
+  }
+
+  .textStyle {
+    @media screen and (max-width: 500px) {
+      width: 90%;
+      height: 100%;
+    }
+
+    span {
+      font-family: Sansation, sans-serif;
+      font-weight: 500;
+      font-size: 2.3rem;
+
+      @media screen and (max-width: 500px) {
+        font-size: 2.7rem;
+      }
+      @media screen and (min-width: 2400px) {
+        font-size: 2rem;
+      }
+      @media screen and (min-width: 3000px) {
+        font-size: 1.8rem;
+      }
+      @media screen and (min-width: 3400px) {
+        font-size: 1.6rem;
+      }
+    }
+
+    p {
+      width: 350px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 2.2rem;
+
+      @media screen and (max-width: 500px) {
+        width: 100%;
+        font-size: 2.5rem;
+        text-align: left;
+      }
+      @media screen and (min-width: 2400px) {
+        font-size: 2rem;
+      }
+      @media screen and (min-width: 3000px) {
+        font-size: 1.8rem;
+      }
+      @media screen and (min-width: 3400px) {
+        font-size: 1.55rem;
+      }
+    }
+  }
+
+  .text {
+    @media screen and (max-width: 500px) {
+      width: 90%;
+
+      padding-top: 50px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 20px;
+      justify-content: start;
+
+      .bottomBlock {
+        display: none;
+      }
+      .middleBlock {
+        width: 100%;
+      }
+    }
+
+    .upperBlock {
+      margin-top: 20px;
+
+      @media screen and(max-width: 500px) {
+        margin-top: 0;
+      }
+    }
+
+    .middleBlock,
+    .bottomBlock {
+      margin-top: 20px;
+      min-width: 200px;
+      max-width: 300px;
+      text-align: left;
+
+      @media screen and (max-width: 500px) {
+        max-width: 100%;
+      }
+    }
+  }
+}

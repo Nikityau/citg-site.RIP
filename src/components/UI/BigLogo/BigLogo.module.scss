@@ -1,0 +1,193 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  .innerContainer {
+    position: absolute;
+    max-width: 1615px;
+    width: 100%;
+    height: 100%;
+
+    .mainCircle {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+
+      width: 410px;
+      height: 410px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 8px 7px 29px -22px rgba(136, 86, 242, 0.11);
+      filter: drop-shadow(28px 31px 60px rgba(0, 0, 0, 0.15));
+      background: radial-gradient(circle at center, #3e3c3c, #0a0a0a);
+
+      transition: all 0.5s;
+
+      @media screen and (max-width: 500px) {
+        width: 320px;
+        height: 320px;
+
+        left: 20%;
+      }
+
+      img {
+        width: 290px;
+        height: 290px;
+
+        background: linear-gradient(180deg, rgba(47, 46, 46, 0.63) 0%, rgba(61, 63, 68, 0.63) 100%);
+        box-shadow: inset 116px 10px 111px rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+
+        @media screen and (max-width: 500px) {
+          width: 220px;
+          height: 220px;
+        }
+      }
+    }
+    .mediumCircle,
+    .smallCircle,
+    .rotatingCircle {
+      position: absolute;
+    }
+
+    .mediumCircle {
+      top: 65%;
+      left: 45%;
+
+      width: 163px;
+      height: 163px;
+
+      border-radius: 50%;
+
+      background: radial-gradient(91.42% 91.42% at 76.81% 18.8%, #3e3c3c 0%, #0a0a0a 100%);
+      box-shadow: 56px -39px 50px rgba(0, 0, 0, 0.1),
+        inset 16px 19px 44px -22px rgba(86, 167, 242, 0.25),
+        inset -52px -9px 67px -42px rgba(149, 43, 37, 0.51);
+
+      transition: all 0.5s;
+
+      @media screen and (max-width: 500px) {
+        width: 140px;
+        height: 140px;
+
+        transition: all 0.3s;
+
+        animation: space_2;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      }
+    }
+    .smallCircle {
+      top: 38%;
+      left: 42%;
+
+      width: 95px;
+      height: 95px;
+
+      border-radius: 50%;
+      z-index: -1;
+
+      background: radial-gradient(91.42% 91.42% at 76.81% 18.8%, #3e3c3c 0%, #0a0a0a 100%);
+      box-shadow: 56px -39px 50px rgba(0, 0, 0, 0.1),
+        inset 16px 19px 44px -22px rgba(86, 167, 242, 0.25),
+        inset -52px -9px 67px -42px rgba(149, 43, 37, 0.51);
+
+      transition: all 0.2s;
+
+      @media screen and (max-width: 500px) {
+        width: 70px;
+        height: 70px;
+
+        animation: space;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      }
+    }
+    .rotatingCircle {
+      top: 30%;
+      left: 70%;
+
+      width: 109px;
+      height: 109px;
+
+      border-radius: 50%;
+      z-index: -1;
+
+      background: radial-gradient(91.42% 91.42% at 76.81% 18.8%, #3e3c3c 0%, #0a0a0a 100%);
+      box-shadow: -42px 30px 20px rgba(0, 0, 0, 0.1),
+        inset 16px 31px 44px -22px rgba(86, 167, 242, 0.25),
+        inset -52px -9px 67px -42px rgba(149, 43, 37, 0.51);
+
+      transition: all 0.1s;
+
+      @media screen and (max-width: 500px) {
+        width: 80px;
+        height: 80px;
+
+        animation: space_3;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    .circleTrail {
+      position: absolute;
+      top: 15%;
+      left: 60%;
+
+      width: 109px;
+      height: 109px;
+
+      border-radius: 50%;
+      border: 50px solid #c4c4c4;
+      z-index: -2;
+
+      mix-blend-mode: overlay;
+
+      @media screen and (max-width: 500px) {
+      }
+    }
+  }
+}
+
+@keyframes space {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-30%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes space_2 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-60%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes space_3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20%, 10%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

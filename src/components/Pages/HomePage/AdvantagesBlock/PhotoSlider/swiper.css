@@ -1,0 +1,19 @@
+.swiper-wrapper {
+  gap: 10px;
+}
+
+.swiper-pagination-progressbar {
+  width: 25% !important;
+
+  top: unset !important;
+  bottom: 8% !important;
+  left: 0 !important;
+
+  height: 1px !important;
+
+  background: #c4c4c4 !important;
+}
+
+.swiper-pagination-progressbar-fill {
+  background: #f6682b !important;
+}

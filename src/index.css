@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(5px, 5px + 0.2vw, 32px);
+  background: linear-gradient(180deg, #191e23 0%, #181d23 100%);
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  cursor: none;
+}

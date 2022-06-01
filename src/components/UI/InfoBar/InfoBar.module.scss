@@ -1,0 +1,129 @@
+.container {
+  min-width: 542px;
+  min-height: 170px;
+  position: absolute;
+  right: 0;
+  bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  background: rgba(26, 31, 37, 0.62);
+  box-shadow: 0px 50px 50px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.3s;
+
+  color: #d5d4e6;
+  padding: 15px;
+
+  border-radius: 13px;
+
+  overflow: hidden;
+
+  @media screen and (max-width: 500px) {
+    left: 0;
+    right: 0;
+
+    margin: 0 auto;
+
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    text-align: center;
+
+    min-width: 90%;
+    width: 90%;
+    bottom: 7%;
+  }
+
+  @media screen and (min-width: 1000px) {
+    right: -50px;
+  }
+  @media screen and (min-width: 2400px) {
+    right: 0;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 13px;
+    padding: 1px;
+    background: linear-gradient(180deg, #b13c3c 70%, #2d2028);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    @media screen and (max-width: 500px) {
+      background: linear-gradient(0deg, #b13c3c 0%, #2d2028);
+    }
+  }
+
+  .upperInfo p {
+    max-width: 400px;
+    font-family: Sansation, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  .bottomInfo p {
+    max-width: 400px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1.7rem;
+  }
+
+  .arrow {
+    display: none;
+
+    @media screen and (max-width: 500px) {
+      display: block;
+
+      margin-top: 5px;
+
+      transform: rotate(90deg);
+
+      img {
+        width: 45px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .upperInfo p {
+      font-size: 2.5rem;
+    }
+    .bottomInfo p {
+      font-size: 2rem;
+    }
+  }
+  @media screen and (min-width: 2400px) {
+    .upperInfo p {
+      font-size: 1.85rem;
+    }
+    .bottomInfo p {
+      font-size: 1.55rem;
+    }
+  }
+
+  @media screen and (min-width: 3000px) {
+    .upperInfo p {
+      font-size: 1.7rem;
+    }
+    .bottomInfo p {
+      font-size: 1.5rem;
+    }
+  }
+  @media screen and (min-width: 3500px) {
+    .upperInfo p {
+      font-size: 1.58rem;
+    }
+    .bottomInfo p {
+      font-size: 1.38rem;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.container {
+  .logo {
+    width: 200px;
+  }
+
+  .copyrigthText {
+    margin-top: 10px;
+
+    span {
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      color: #fff;
+      font-size: 2rem;
+    }
+
+    @media screen and (min-width: 3000px) {
+      span {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

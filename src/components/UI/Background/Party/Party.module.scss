@@ -1,0 +1,85 @@
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+  background: rgba(0, 5, 30, 0.3);
+  filter: blur(30px);
+
+  .ball_1,
+  .ball_2,
+  .ball_3 {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    filter: blur(100px);
+    border-radius: 50%;
+    transition: all 0.1s;
+    background: radial-gradient(circle at center, #ff7373 10%, #3502ff, transparent 90%);
+  }
+
+  .ball_2 {
+    background: radial-gradient(circle at center, #b073ff 10%, #ff5d02, transparent 90%);
+    animation: party_2;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+  .ball_3 {
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at center, #ffb673 10%, #5302ff, transparent 90%);
+    animation: party_3;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes party_1 {
+  0% {
+    top: 40%;
+    left: 10%;
+  }
+  25% {
+    top: 20%;
+    left: 20%;
+  }
+  50% {
+    left: 50%;
+    top: 20%;
+  }
+  75% {
+    left: 50%;
+    top: 40%;
+  }
+}
+@keyframes party_2 {
+  0% {
+    top: -20%;
+    left: -20%;
+  }
+  100% {
+    top: 120%;
+    left: 50%;
+  }
+}
+@keyframes party_3 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: 90%;
+  }
+  50% {
+    top: 90%;
+    left: 90%;
+  }
+  75% {
+    top: 90%;
+    left: -5%;
+  }
+}

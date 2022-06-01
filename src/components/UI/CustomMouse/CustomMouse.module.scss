@@ -1,0 +1,43 @@
+html {
+  cursor: none !important;
+}
+
+html:hover {
+  cursor: none !important;
+}
+
+*:hover {
+  cursor: none !important;
+}
+
+.mouse,
+.additionalPoint {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  background: #fff;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.additionalPoint {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+
+  z-index: 9998;
+
+  background: rgba(137, 148, 176, 0.5);
+
+  transition: transform 0.1s;
+}
