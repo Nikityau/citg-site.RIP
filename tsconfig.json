@@ -30,7 +30,6 @@
     "moduleResolution": "node",
 
     "target": "ES5",
-    "types": ["node", "jest"],
     "resolveJsonModule": true,
 
     "allowJs": true,
@@ -38,6 +37,8 @@
 
     "rootDir": "./src",
 
-    "outDir": "./dist/"
+    "outDir": "./dist/",
+
+    "declaration": false,
   }
 }

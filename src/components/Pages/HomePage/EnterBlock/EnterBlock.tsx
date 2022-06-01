@@ -1,36 +1,36 @@
-import React, { Profiler, useEffect } from "react";
+import React, { Profiler, useEffect } from 'react';
 
-import PageNumber from "../../../UI/PageNumber/PageNumber";
-import InfoBar from "../../../UI/InfoBar/InfoBar";
-import BigLogo from "../../../UI/BigLogo/BigLogo";
-import PurpleBackground from "../../../UI/Background/PurpleBackground/PurpleBackground";
+import PageNumber from '../../../UI/PageNumber/PageNumber';
+import InfoBar from '../../../UI/InfoBar/InfoBar';
+import BigLogo from '../../../UI/BigLogo/BigLogo';
+import PurpleBackground from '../../../UI/Background/PurpleBackground/PurpleBackground';
 
-import enterblock from "./EnterBlock.module.scss";
+import enterblock from './EnterBlock.module.scss';
 
-import noise from "../../../../assets/images/noise.png";
-import { Logger } from "../../../../Logger/Logger";
+import noise from '../../../../assets/images/noise.png';
+import { Logger } from '../../../../Logger/Logger';
 
-const EnterBlock = () => {
+function EnterBlock() {
   return (
-    <div className={enterblock.container} data-testid={"enter-block"}>
+    <div className={enterblock.container} data-testid="enter-block">
       <PurpleBackground />
       <BigLogo />
       <div className={enterblock.test} />
       <div className={enterblock.innerContainer}>
-        <div className={enterblock.title} data-testid={"enter-block-title"}>
+        <div className={enterblock.title} data-testid="enter-block-title">
           <div className={enterblock.titleWrapper}>
-            <h1 data-mouse-focus={true}>Center IT</h1>
-            <h1 data-mouse-focus={true}>Gravity</h1>
+            <h1 data-mouse-focus>Center IT</h1>
+            <h1 data-mouse-focus>Gravity</h1>
           </div>
-          <h4 data-mouse-focus={true}>Мощная среда для твоего развития</h4>
+          <h4 data-mouse-focus>Мощная среда для твоего развития</h4>
         </div>
         <div className={enterblock.pageNum}>
-          <PageNumber number={"01"} />
+          <PageNumber number="01" />
         </div>
         <InfoBar />
       </div>
     </div>
   );
-};
+}
 
 export default EnterBlock;

@@ -2,10 +2,12 @@ const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ESLintWebpackPlugin = require("eslint-webpack-plugin");
+
+
 
 module.exports = {
-    context: path.resolve(__dirname, "src"),
-    entry: "./index.tsx",
+    entry: path.resolve(__dirname, 'src',"index.tsx"),
     resolve: {
         extensions: [".js", ".ts", ".tsx", ".jsx"]
     },
@@ -21,7 +23,7 @@ module.exports = {
         historyApiFallback:true,
         compress:true,
         port: 3000,
-        open: true,
+        open: false,
         hot: true,
         client: {
             reconnect: true
@@ -90,6 +92,9 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].bundle.css'
+        }),
+        new ESLintWebpackPlugin({
+            extensions: ['js', 'ts', 'jsx', 'tsx']
         })
     ]
 }

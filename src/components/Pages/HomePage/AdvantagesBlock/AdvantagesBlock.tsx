@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
-//Components
-import Advantages from "./Advantages/Advantages";
-import RadialGradient from "../../../UI/Background/RadialGradient/RadialGradient";
-import PhotoSlider from "./PhotoSlider/PhotoSlider";
+// Components
+import Advantages from './Advantages/Advantages';
+import RadialGradient from '../../../UI/Background/RadialGradient/RadialGradient';
+import PhotoSlider from './PhotoSlider/PhotoSlider';
 
-//styles
-import advantagesblock from "./AdvantagesBlock.module.scss";
-import PageNumber from "../../../UI/PageNumber/PageNumber";
+// styles
+import advantagesblock from './AdvantagesBlock.module.scss';
+import PageNumber from '../../../UI/PageNumber/PageNumber';
 
-const AdvantagesBlock = () => {
+function AdvantagesBlock() {
   return (
-    <div className={advantagesblock.container} id={"advantages"}>
+    <div className={advantagesblock.container} id="advantages">
       <RadialGradient />
       <div className={advantagesblock.innerContainer}>
         <div className={advantagesblock.page}>
-          <PageNumber number={"01"} />
+          <PageNumber number="01" />
         </div>
         <div className={advantagesblock.advantages}>
           <Advantages />
@@ -26,6 +26,6 @@ const AdvantagesBlock = () => {
       </div>
     </div>
   );
-};
+}
 
 export default AdvantagesBlock;

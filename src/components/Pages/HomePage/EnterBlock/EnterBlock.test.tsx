@@ -1,72 +1,72 @@
-import { screen, render } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { screen, render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
-import EnterBlock from "./EnterBlock";
+import EnterBlock from './EnterBlock';
 
-describe("ENTER BLOCK TEST", () => {
-  describe("TITLE TEST", () => {
-    test("Title Loaded", () => {
+describe('ENTER BLOCK TEST', () => {
+  describe('TITLE TEST', () => {
+    test('Title Loaded', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("enter-block-title")).toBeInTheDocument();
+      expect(screen.getByTestId('enter-block-title')).toBeInTheDocument();
     });
-    test("Title Text", () => {
+    test('Title Text', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("enter-block-title")).toContainHTML("Center IT");
-      expect(screen.getByTestId("enter-block-title")).toContainHTML("Gravity");
-      expect(screen.getByTestId("enter-block-title")).toContainHTML(
-        "Мощная среда для твоего развития"
+      expect(screen.getByTestId('enter-block-title')).toContainHTML('Center IT');
+      expect(screen.getByTestId('enter-block-title')).toContainHTML('Gravity');
+      expect(screen.getByTestId('enter-block-title')).toContainHTML(
+        'Мощная среда для твоего развития',
       );
     });
   });
 
-  describe("ANIMATION LOGO TEST", () => {
-    test("Logo Loaded", () => {
+  describe('ANIMATION LOGO TEST', () => {
+    test('Logo Loaded', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("big-logo")).toBeInTheDocument();
+      expect(screen.getByTestId('big-logo')).toBeInTheDocument();
     });
-    test("Main Circle Loaded", () => {
+    test('Main Circle Loaded', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("big-logo-main")).toBeInTheDocument();
+      expect(screen.getByTestId('big-logo-main')).toBeInTheDocument();
     });
-    test("Medium Circle Loaded", () => {
+    test('Medium Circle Loaded', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("big-logo-medium-circle")).toBeInTheDocument();
+      expect(screen.getByTestId('big-logo-medium-circle')).toBeInTheDocument();
     });
-    test("Small Circle Loaded", () => {
+    test('Small Circle Loaded', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("big-logo-small-circle")).toBeInTheDocument();
+      expect(screen.getByTestId('big-logo-small-circle')).toBeInTheDocument();
     });
-    test("Rotating Circle Loaded", () => {
+    test('Rotating Circle Loaded', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("big-logo-small-circle")).toBeInTheDocument();
-    });
-  });
-
-  describe("PAGE NUM TEST", () => {
-    test("Page Num Loaded", () => {
-      render(<EnterBlock />);
-
-      expect(screen.getByTestId("page-number")).toBeInTheDocument();
-    });
-    test("Num 01", () => {
-      render(<EnterBlock />);
-
-      expect(screen.getByTestId("page-number")).toContainHTML("01");
+      expect(screen.getByTestId('big-logo-small-circle')).toBeInTheDocument();
     });
   });
 
-  describe("INFO BAR TEST", () => {
-    test("Info Bar Loaded", () => {
+  describe('PAGE NUM TEST', () => {
+    test('Page Num Loaded', () => {
       render(<EnterBlock />);
 
-      expect(screen.getByTestId("info-bar")).toBeInTheDocument();
+      expect(screen.getByTestId('page-number')).toBeInTheDocument();
+    });
+    test('Num 01', () => {
+      render(<EnterBlock />);
+
+      expect(screen.getByTestId('page-number')).toContainHTML('01');
+    });
+  });
+
+  describe('INFO BAR TEST', () => {
+    test('Info Bar Loaded', () => {
+      render(<EnterBlock />);
+
+      expect(screen.getByTestId('info-bar')).toBeInTheDocument();
     });
   });
 });

@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react';
 
-const Loader = () => {
+function Loader() {
   return (
     <div
       style={{
-        position: "relative",
-        top: "0",
-        left: "0",
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontSize: "5rem",
-        color: "#fff",
+        position: 'relative',
+        top: '0',
+        left: '0',
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '5rem',
+        color: '#fff',
       }}
     >
       Loading...
     </div>
   );
-};
+}
 
 export default Loader;

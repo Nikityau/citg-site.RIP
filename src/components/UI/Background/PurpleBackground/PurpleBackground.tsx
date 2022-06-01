@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import purpleback from "./PuprpleBackground.module.scss";
+import purpleback from './PuprpleBackground.module.scss';
 
-import noise from "../../../../assets/images/noise.png";
+import noise from '../../../../assets/images/noise.png';
 
-const PurpleBackground = () => {
+function PurpleBackground() {
   return (
     <>
       <div className={purpleback.noise}>
@@ -14,6 +14,6 @@ const PurpleBackground = () => {
       <div className={purpleback.orangeGradient} />
     </>
   );
-};
+}
 
 export default PurpleBackground;

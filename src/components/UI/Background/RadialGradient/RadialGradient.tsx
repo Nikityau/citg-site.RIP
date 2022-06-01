@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import radialgradient from "./RadialGradient.module.scss";
+import radialgradient from './RadialGradient.module.scss';
 
-const RadialGradient = () => {
+function RadialGradient() {
   return <div className={radialgradient.gradient} />;
-};
+}
 
 export default RadialGradient;

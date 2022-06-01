@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-//components
-import PhotoCard from "../../../../UI/PhotoCard/PhotoCard";
+// components
+import PhotoCard from '../../../../UI/PhotoCard/PhotoCard';
 
-//styles
-import photoslider from "./PhotoSlider.module.scss";
-import "./swiper.css";
+// styles
+import photoslider from './PhotoSlider.module.scss';
+import './swiper.css';
 
-//images
+// images
 
-import makeDream from "../../../../../assets/images/makeDream.png";
-import evolve from "../../../../../assets/images/evolve.png";
-import create from "../../../../../assets/images/create.png";
+import makeDream from '../../../../../assets/images/makeDream.png';
+import evolve from '../../../../../assets/images/evolve.png';
+import create from '../../../../../assets/images/create.png';
 
-const PhotoSlider = () => {
+function PhotoSlider() {
   useEffect(() => {}, []);
 
   return (
     <div className={photoslider.container}>
       <div className={photoslider.innerWrapper}>
-        <PhotoCard imgSrc={makeDream} title={"Создавай мечту"} />
-        <PhotoCard imgSrc={evolve} title={"Развивайся"} />
-        <PhotoCard imgSrc={create} title={"Твори"} />
+        <PhotoCard imgSrc={makeDream} title="Создавай мечту" />
+        <PhotoCard imgSrc={evolve} title="Развивайся" />
+        <PhotoCard imgSrc={create} title="Твори" />
       </div>
       <div className={photoslider.sliderPlug}>
         <div className={photoslider.slider}>
@@ -35,7 +35,7 @@ const PhotoSlider = () => {
           <div className={photoslider.pagination}>
             <div
               className={photoslider.paginationCircle}
-              style={{ background: "#F4682C", width: "19px", borderRadius: "16px" }}
+              style={{ background: '#F4682C', width: '19px', borderRadius: '16px' }}
             />
             <div className={photoslider.paginationCircle} />
             <div className={photoslider.paginationCircle} />
@@ -45,6 +45,6 @@ const PhotoSlider = () => {
       </div>
     </div>
   );
-};
+}
 
 export default PhotoSlider;
