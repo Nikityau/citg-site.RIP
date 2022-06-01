@@ -10,7 +10,7 @@ module.exports = {
         extensions: [".js", ".ts", ".tsx", ".jsx"]
     },
     output: {
-        filename: "[name].[hash].bundle.js",
+        filename: "[name].[contenthash].bundle.js",
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
@@ -36,7 +36,14 @@ module.exports = {
             },
             {
                 test: /\.module\.css$/,
-                use: ['style-loader','css-loader']
+                use: ['style-loader', {
+                    loader: "css-loader",
+                    options: {
+                        modules: {
+                            localIdentName: '[name]__[contenthash]'
+                        }
+                    }
+                }]
             },
             {
                 test: /\.s[ac]ss$/,
@@ -45,7 +52,14 @@ module.exports = {
             },
             {
                 test: /\.module\.s[ac]ss$/,
-                use: ["style-loader","css-loader", 'sass-loader']
+                use: ["style-loader",{
+                    loader: "css-loader",
+                    options: {
+                        modules: {
+                            localIdentName: '[name]__[contenthash]'
+                        }
+                    }
+                }, 'sass-loader']
             },
             {
                 test: /\.[cm]?js$/,
@@ -75,7 +89,7 @@ module.exports = {
             minify: false
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].bundle.css'
+            filename: '[name].[contenthash].bundle.css'
         })
     ]
 }
