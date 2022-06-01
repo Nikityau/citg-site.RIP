@@ -23,7 +23,7 @@ module.exports = {
         historyApiFallback:true,
         compress:true,
         port: 3000,
-        open: false,
+        open: true,
         hot: true,
         client: {
             reconnect: true
