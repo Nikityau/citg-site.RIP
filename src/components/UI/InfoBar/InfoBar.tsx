@@ -2,7 +2,7 @@ import React from 'react';
 
 import infobar from './InfoBar.module.scss';
 
-import arrow_img from '../../../assets/icons/futuristic_arrow.svg';
+import arrow_img from '../../../assets/icons/futuristic_arrow.png';
 
 function InfoBar() {
   return (

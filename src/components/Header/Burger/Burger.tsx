@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React  from "react";
 
 import BurgerLink from "./Burger.link/Burger.link";
 

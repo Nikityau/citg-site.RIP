@@ -5,13 +5,14 @@ import { ILogo, DeviceType } from "./Logo.inteface";
 
 import { GoUp } from "../../../Utils/GoUp";
 
-import logo_img from "../../../assets/icons/logo_2.svg";
-import logo_mob from "../../../assets/icons/logo_mobile.svg";
+import logo_img from "../../../assets/icons/logo.png";
+import logo_mob from "../../../assets/icons/logo.png";
 
 import logo from "./Logo.module.scss";
 
 const Logo = ({ link, text, version }: ILogo) => {
   const getLogoByVersion = () => {
+    console.log(logo_img)
     switch (version) {
       case DeviceType.DESKTOP:
         return logo_img;

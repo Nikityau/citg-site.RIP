@@ -4,7 +4,7 @@ export class MouseBaseController {
   private _x = 0;
   private _y = 0;
 
-  private onCoordsChange: (obj: IMouse) => void = (obj:IMouse) => { return };
+  private onCoordsChange: (obj: IMouse) => void = (obj:IMouse) => { return obj };
 
   constructor(callback: (obj: IMouse) => void) {
     this.MouseMove = this.MouseMove.bind(this);

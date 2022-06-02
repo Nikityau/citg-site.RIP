@@ -1,4 +1,4 @@
-import React, { Profiler, useEffect } from 'react';
+import React from 'react';
 
 import PageNumber from '../../../UI/PageNumber/PageNumber';
 import InfoBar from '../../../UI/InfoBar/InfoBar';
@@ -6,9 +6,6 @@ import BigLogo from '../../../UI/BigLogo/BigLogo';
 import PurpleBackground from '../../../UI/Background/PurpleBackground/PurpleBackground';
 
 import enterblock from './EnterBlock.module.scss';
-
-import noise from '../../../../assets/images/noise.png';
-import { Logger } from '../../../../Logger/Logger';
 
 function EnterBlock() {
   return (

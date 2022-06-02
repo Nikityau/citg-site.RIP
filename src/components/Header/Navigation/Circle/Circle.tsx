@@ -8,4 +8,6 @@ const Circle = React.forwardRef(({}, ref: React.ForwardedRef<HTMLDivElement>) =>
   );
 });
 
+Circle.displayName = "Circle";
+
 export default Circle;

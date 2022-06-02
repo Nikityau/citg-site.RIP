@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 import Circle from "./Circle/Circle";
@@ -10,8 +10,6 @@ import { INavInterface } from "./Navigation.interface";
 import { GoUp } from "../../../Utils/GoUp";
 
 import navigation from "./Navigation.module.scss";
-
-import arrow from "../../../assets/icons/arrow.svg";
 
 const nav = new NavigationClass(null, null, null, null, "/");
 
@@ -34,6 +32,8 @@ const Navigation = ({
     const end = document.getElementById("navigation-teams");
 
     if (!circle || !home || !middle || !end) return;
+
+    if(isPopUpOpen) {}
 
     nav.AddLinks(circle, home, middle, end);
   }, []);
@@ -79,12 +79,6 @@ const Navigation = ({
         </Link>
         {isPopUp && (
           <div className={navigation.arrow} data-mouse-focus={true}>
-            <img
-              src={arrow}
-              alt={"img"}
-              className={isPopUpOpen ? navigation.popUpOpen : ""}
-              data-mouse-focus={true}
-            />
           </div>
         )}
       </div>

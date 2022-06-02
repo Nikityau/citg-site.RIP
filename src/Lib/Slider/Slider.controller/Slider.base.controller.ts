@@ -33,7 +33,7 @@ export class SliderBaseController {
   private _index = 1;
   private _element_length = 0;
   private _conditional_center: number = this._index;
-  private _change_index: (i: number) => void = (i) => { return };
+  private _change_index: (i: number) => void = (i) => { return i};
 
   private _slider_options: ISliderOptions = {
     slider_type: Slider_Type.DEFAULT,

@@ -2,11 +2,7 @@ import React from 'react';
 
 import Party from '../../../UI/Background/Party/Party';
 import SkillCard from '../../../UI/SkillCard/SkillCard';
-import CommonButton from '../../../UI/Form/CommonButton/CommonButton';
-import PageNumber from '../../../UI/PageNumber/PageNumber';
 import ElementsSection from '../../../UI/ElementsSection/ElementsSection';
-
-import { ICommonButton } from '../../../UI/Form/CommonButton/CommonButton.interface';
 
 // styles
 import skillsblock from './SkillsPage.module.scss';

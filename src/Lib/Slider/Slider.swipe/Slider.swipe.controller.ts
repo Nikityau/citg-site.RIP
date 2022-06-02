@@ -107,6 +107,8 @@ export class SliderSwipeController implements ISliderSwipeBase {
   On_Mouse_up(e: Event) {
     this._is_down = false;
 
+    if(e) {}
+
     if (this._swipe_x_direction == "none" && this._swipe_y_direction == "none") return;
 
     if (this._swipe_x_direction == "left" || this._swipe_y_direction == "up") {
@@ -118,6 +120,8 @@ export class SliderSwipeController implements ISliderSwipeBase {
   }
   On_Touch_end(e: Event) {
     this._is_down = false;
+
+    if(e) {}
 
     if (this._swipe_x_direction == "none" && this._swipe_y_direction == "none") return;
 

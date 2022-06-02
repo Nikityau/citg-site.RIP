@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react';
+import React  from 'react';
 
 import EnterBlock from './EnterBlock/EnterBlock';
 import AdvantagesBlock from './AdvantagesBlock/AdvantagesBlock';

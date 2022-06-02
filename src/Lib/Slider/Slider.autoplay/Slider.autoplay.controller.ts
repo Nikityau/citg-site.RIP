@@ -6,7 +6,7 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
   _elem: HTMLElement | null = null;
 
   _index = 0;
-  change_index: onChangeIndex = (i) => { return };
+  change_index: onChangeIndex = (i) => { return i};
 
   _timeout: NodeJS.Timeout = setTimeout(() => { return }, 0);
   _delay = 0;

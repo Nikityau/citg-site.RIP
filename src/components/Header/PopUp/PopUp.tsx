@@ -32,4 +32,6 @@ const PopUp = React.forwardRef(({ popUpMouseLeave, popUpMouseEnter }: IPopUp, re
   }
 );
 
+PopUp.displayName = "PopUp";
+
 export default PopUp;

@@ -1,10 +1,5 @@
 import React, {
-  EventHandler,
-  MouseEventHandler,
-  ReactElement,
   useEffect,
-  useReducer,
-  useRef,
   useState,
 } from "react";
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import CommonButton from '../../../UI/Form/CommonButton/CommonButton';
 import AboutButton from '../../../UI/Form/AboutButton/AboutButton';
 import PageNumber from '../../../UI/PageNumber/PageNumber';
 

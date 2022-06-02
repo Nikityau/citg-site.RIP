@@ -7,7 +7,7 @@ import { GoUp } from "../../../../Utils/GoUp";
 
 import aboutbutton from "./AboutButton.module.scss";
 
-import arrow from "../../../../assets/icons/futuristic_arrow.svg";
+import arrow from "../../../../assets/icons/futuristic_arrow.png";
 
 const AboutButton = ({ path, about }: IAboutButton) => {
   return (

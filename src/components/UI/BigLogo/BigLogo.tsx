@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { AnimationLevitation } from "../../../Animation/AnimationLevitation/AnimationLevitation";
 import { AnimationCircle } from "../../../Animation/AnimationCircle/AnimationCircle";
 
 import biglogo from "./BigLogo.module.scss";
-import biglogo_img from "../../../assets/icons/BigLogo/Logo.svg";
-import { Logger } from "../../../Logger/Logger";
+import biglogo_img from "../../../assets/icons/BigLogo/big_logo.png";
 
 const BigLogo = () => {
   const container = useRef<HTMLDivElement | null>(null);

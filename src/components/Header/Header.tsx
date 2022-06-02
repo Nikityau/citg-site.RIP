@@ -31,7 +31,7 @@ const Header = () => {
 
     const offsetTop = headerRef.current.clientHeight;
 
-    popUpRef.current.style.top = offsetTop + 2 + "px";
+    popUpRef.current.style.top = offsetTop + "px";
     setIsPopUpOpen(true);
   };
 

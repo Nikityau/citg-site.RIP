@@ -1,19 +1,17 @@
 import React from 'react';
 
-import Logo from '../UI/Logo/Logo';
-import Mail from '../UI/Mail/Mail';
 import Contacts from '../UI/Contacts/Contacts';
 import Copyright from '../UI/Copyright/Copyright';
 
 import footer from './Footer.module.scss';
 
-import whatsapp_icon from '../../assets/icons/whatsapp.svg';
-import vk_icon from '../../assets/icons/vk.svg';
-import telegram_icon from '../../assets/icons/telegram.svg';
+import whatsapp_icon from '../../assets/icons/whatsapp.png';
+import vk_icon from '../../assets/icons/vk.png';
+import telegram_icon from '../../assets/icons/telegram.png';
 
-import whatsapp_mob_icon from '../../assets/icons/whatsapp-icon.svg';
-import telegram_mob_icon from '../../assets/icons/telegram-icon.svg';
-import vk_mob_icon from '../../assets/icons/vk-icon.svg';
+import whatsapp_mob_icon from '../../assets/icons/whatsapp_mob_icon.png';
+import telegram_mob_icon from '../../assets/icons/telegram_mob_icon.png';
+import vk_mob_icon from '../../assets/icons/vk_mob_icon.png';
 
 function Footer() {
   return (

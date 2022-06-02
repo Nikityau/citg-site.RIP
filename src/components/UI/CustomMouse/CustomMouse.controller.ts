@@ -1,7 +1,4 @@
-import { Subber } from "../../../Utils/Subber/Subber";
-
 import { IMouse } from "../../UtilsComponents/Mouse/Mouse.interface";
-import { TypeEvent } from "../../../Utils/Subber/Subber.TypeEvent.enum";
 
 export class CustomMouseController {
   private _mouse: HTMLElement;
@@ -53,14 +50,16 @@ export class CustomMouseController {
   }
 
   private onMouseEnter(e: MouseEvent) {
+    e.target
     this.ChangeSizeUp();
   }
 
   private onMouseLeave(e: MouseEvent) {
+    e.target
     this.ChangeSizeDown();
   }
 
-  private onMouseClick(e: MouseEvent) { return }
+  private onMouseClick(e: MouseEvent) { e.target; return }
 
   private ToggleCursorSize() {
     if (this.isLarge) {

@@ -1,5 +1,4 @@
 import { IAnimationInterface } from "../AnimationBase/Animation.interface";
-import { Logger } from "../../Logger/Logger";
 
 export class AnimationLevitation implements IAnimationInterface {
   element: HTMLElement;

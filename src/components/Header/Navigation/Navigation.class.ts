@@ -20,7 +20,7 @@ export class NavigationClass {
     this.middle = middle;
     this.end = end;
 
-    //this.Change(location);
+    this.Change(location);
   }
 
   private ChangePos(el: HTMLElement): Promise<{ x: number; y: number }> {

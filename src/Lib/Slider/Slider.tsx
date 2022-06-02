@@ -11,8 +11,6 @@ import { Slider_Type } from "./Slider.type/Slider_Type";
 import slider from "./Slider.module.scss";
 import "./Slider.scss";
 
-import slider_arrow from "../../assets/icons/arrow.svg";
-
 const slider_controller = new SliderBaseController();
 
 const Slider = ({
@@ -53,6 +51,10 @@ const Slider = ({
     slider_controller.Set_Autoplay();
 
     slider_controller.change_index = set_current_el_index;
+
+    if(swipe) {
+
+    }
 
     slider_controller.Options(
       slider_options,
@@ -103,14 +105,12 @@ const Slider = ({
             data-arrow={"left"}
             onSelectCapture={(e) => e.preventDefault()}
           >
-            <img src={slider_arrow} alt={"img"} onDragStart={(e) => e.preventDefault()} />
           </div>
           <div
             className={slider.rightArrow}
             id={`${unique_slider_id}_right_arrow`}
             data-arrow={"right"}
           >
-            <img src={slider_arrow} alt={"img"} onDragStart={(e) => e.preventDefault()} />
           </div>
         </>
       )}

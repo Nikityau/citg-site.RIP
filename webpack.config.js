@@ -13,6 +13,7 @@ module.exports = {
     },
     output: {
         filename: "[name].[contenthash].bundle.js",
+        assetModuleFilename: "assets/images/[name][ext]",
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
@@ -79,9 +80,9 @@ module.exports = {
                 use: ['babel-loader', 'ts-loader']
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/,
+                test: /\.(png|jpg|jpeg|gif|svg)$/,
                 type: 'asset/resource'
-            }
+            },
         ]
     },
     plugins: [
