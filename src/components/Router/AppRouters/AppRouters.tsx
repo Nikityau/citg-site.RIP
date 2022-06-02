@@ -1,11 +1,11 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ProjectPage from "../../Pages/ProjectPage/ProjectPage";
 import TeamMemberPage from "../../Pages/TeamMemberPage/TeamMemberPage";
 
-const HomePage = React.lazy(() => import("../../Pages/HomePage/HomePage"));
-const ProjectsPage = React.lazy(() => import("../../Pages/ProjectsPage/ProjectsPage"));
-const TeamsPage = React.lazy(() => import("../../Pages/TeamsPage/TeamsPage"));
+const HomePage = lazy(() => import("../../Pages/HomePage/HomePage"));
+const ProjectsPage = lazy(() => import("../../Pages/ProjectsPage/ProjectsPage"));
+const TeamsPage = lazy(() => import("../../Pages/TeamsPage/TeamsPage"));
 
 const AppRouters = () => {
   return (

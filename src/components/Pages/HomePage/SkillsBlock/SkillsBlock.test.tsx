@@ -22,9 +22,4 @@ describe('SKILLS PAGE TEST', () => {
     expect(skills).toBeInTheDocument();
     expect(skills.children.length).toBe(3);
   });
-  test('Button Loaded', () => {
-    render(<SkillsBlock />);
-
-    expect(screen.getByTestId('common-button')).toBeInTheDocument();
-  });
 });

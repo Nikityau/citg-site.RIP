@@ -12,11 +12,4 @@ describe('ADVANTAGES BLOCK TEST', () => {
     });
   });
 
-  describe('RIGHT SIDE TEST', () => {
-    test('Carousel is Loaded', () => {
-      render(<AdvantagesBlock />);
-
-      expect(screen.getByTestId('advantages-block-carousel')).toBeInTheDocument();
-    });
-  });
 });

@@ -1,7 +1,8 @@
-import plug from "../assets/images/plug.png";
-import { dataArr } from "./Syntetic.data.type";
-
 import { nanoid } from "nanoid";
+
+import plug from "../assets/images/plug.png";
+
+import { dataArr } from "./Syntetic.data.type";
 
 export interface IGame {
   gameImg: string;
