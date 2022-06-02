@@ -1,0 +1,40 @@
+.slider_progress-bar-back-line {
+  position: absolute;
+
+  background: #C4C4C4;
+  overflow: hidden;
+
+  .slider_progress-bar-progress-line {
+    width: 30%;
+    height: 100%;
+    background: #F6682B;
+
+    transition: all .3s;
+  }
+}
+
+.slider_progress-bar-back-line__top-left {
+  top: 0;
+  left: 0;
+}
+.slider_progress-bar-back-line__top-right {
+  top: 0;
+  right: 0;
+}
+.slider_progress-bar-back-line__bottom-left {
+  left: 5%;
+  bottom: 6%;
+}
+.slider_progress-bar-back-line__bottom-right {
+  right: 0;
+  bottom: 0;
+}
+
+.slider_progress-bar-back-line__vertical {
+  height: 330px;
+  width: 1px;
+}
+.slider_progress-bar-back-line__horizontal {
+  width: 330px;
+  height: 1px;
+}

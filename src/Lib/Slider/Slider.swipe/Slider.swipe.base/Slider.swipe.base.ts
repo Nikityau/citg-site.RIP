@@ -18,6 +18,9 @@ export interface ISliderSwipeBase {
   On_Touch_end(e: Event): void;
   On_Mouse_up(e: Event): void;
 
+  Autoplay_Subb()
+  Autoplay_Unsub()
+
   set index(i: number);
 
   set Change_index(callback: onChangeIndex);

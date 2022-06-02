@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
+import { nanoid } from 'nanoid'
 
-import { ISlider } from "./Slider.interface/Slider.interface";
+import { ISlider } from "./Slider.interface/Slider.interface.option";
 
 import SliderPagination from "./Slider.pagination/Slider.pagination";
 
 import { SliderBaseController } from "./Slider.controller/Slider.base.controller";
+import SliderProgressbar from "./Slider.progressbar/Slider.progressbar";
 
 import { Slider_Type } from "./Slider.type/Slider_Type";
 
 import slider from "./Slider.module.scss";
 import "./Slider.scss";
 
-const slider_controller = new SliderBaseController();
 
 const Slider = ({
   slider_options,
@@ -26,41 +27,48 @@ const Slider = ({
   title,
   swipe,
 }: ISlider) => {
-  const unique_slider_id = `slider_${slider_options.slider_type}_${slider_options.slider_back_type}_${slider_options.slider_element_type}_${slider_options.infinite_type}_${pagination.is}_${pagination.location}_${progressbar}_${autoplay.autoplay}`;
+  const [slider_base_controller, set_slider_base_controller] = useState<SliderBaseController>(new SliderBaseController())
 
   const [children_length, set_children_length] = useState<number>(0);
   const [current_el_index, set_current_el_index] = useState<number>(0);
 
+  const slider_ref = useRef<HTMLDivElement>(undefined)
+  const slider_track_ref = useRef<HTMLDivElement>(undefined)
+
+  const left_arrow_ref = useRef<HTMLDivElement>(undefined)
+  const right_arrow_ref = useRef<HTMLDivElement>(undefined)
+
+  const slider_pagination_ref = useRef<HTMLDivElement>(undefined)
+
+  const progress_bar_ref = useRef<HTMLDivElement>(undefined)
+
   useEffect(() => {
-    const slider = document.getElementById(unique_slider_id);
-    const slider_track = document.getElementById(`${unique_slider_id}_track`);
-    if (!slider || !slider_track) return;
+    if (!slider_ref.current || !slider_track_ref.current) return;
 
-    slider_controller.slider = slider;
-    slider_controller.slider_track = slider_track;
-    slider_controller.gap = gap;
+    slider_base_controller.slider = slider_ref.current;
+    slider_base_controller.slider_track = slider_track_ref.current;
+    slider_base_controller.gap = gap;
 
-    const left_arrow = document.getElementById(`${unique_slider_id}_left_arrow`);
-    const right_arrow = document.getElementById(`${unique_slider_id}_right_arrow`);
-
-    if (left_arrow && right_arrow) {
-      slider_controller.Set_Arrows(left_arrow, right_arrow);
+    if (left_arrow_ref.current && right_arrow_ref.current) {
+      slider_base_controller.Set_Arrows(left_arrow_ref.current, right_arrow_ref.current);
     }
 
-    slider_controller.Set_Swipes();
-    slider_controller.Set_Autoplay();
+    slider_base_controller.Set_Swipes();
+    slider_base_controller.Set_Autoplay();
 
-    slider_controller.change_index = set_current_el_index;
+    slider_base_controller.change_index = set_current_el_index;
 
-    if(swipe) {
-
-    }
-
-    slider_controller.Options(
+    slider_base_controller.Options(
       slider_options,
       pagination.is,
-      autoplay,
-      progressbar,
+        {
+          ...autoplay,
+          swipe: swipe ? autoplay.swipe ? true : false : false
+        },
+        {
+          options: progressbar,
+          back_line: progress_bar_ref.current,
+        },
       focus,
       elements_on_screen
     );
@@ -69,8 +77,8 @@ const Slider = ({
   useEffect(() => {
     const l = children?.toString().split(",").length || 0;
     set_children_length(l);
-    slider_controller.el_length = l;
-    slider_controller.onChildrenChanges();
+    slider_base_controller.el_length = l;
+    slider_base_controller.onChildrenChanges();
   }, [children]);
 
   const getSliderClass = (): string => {
@@ -101,14 +109,14 @@ const Slider = ({
         <>
           <div
             className={slider.leftArrow}
-            id={`${unique_slider_id}_left_arrow`}
             data-arrow={"left"}
+            ref={left_arrow_ref}
             onSelectCapture={(e) => e.preventDefault()}
           >
           </div>
           <div
             className={slider.rightArrow}
-            id={`${unique_slider_id}_right_arrow`}
+            ref={right_arrow_ref}
             data-arrow={"right"}
           >
           </div>
@@ -116,10 +124,10 @@ const Slider = ({
       )}
       <div
         className={slider.slider}
-        id={`slider_${slider_options.slider_type}_${slider_options.slider_back_type}_${slider_options.slider_element_type}_${slider_options.infinite_type}_${pagination.is}_${pagination.location}_${progressbar}_${autoplay.autoplay}`}
+        ref={slider_ref}
       >
         <div
-          id={`slider_${slider_options.slider_type}_${slider_options.slider_back_type}_${slider_options.slider_element_type}_${slider_options.infinite_type}_${pagination.is}_${pagination.location}_${progressbar}_${autoplay.autoplay}_track`}
+          ref={slider_track_ref}
           className={[slider.track, "slider-track", getSliderClass()].join(" ")}
           style={{ gap: gap + "px" }}
         >
@@ -131,8 +139,17 @@ const Slider = ({
           pagination_type={pagination.location}
           current_el_index={current_el_index}
           length={children_length}
+          id={`slider-pagination`}
+          ref={slider_pagination_ref}
         />
       )}
+      {
+        progressbar.appear &&
+          <SliderProgressbar appear={progressbar.appear}
+                             direction={progressbar.direction}
+                             position={progressbar.position}
+                             ref={progress_bar_ref}/>
+      }
     </div>
   );
 };

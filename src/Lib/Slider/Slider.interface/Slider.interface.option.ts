@@ -9,6 +9,9 @@ import {
 } from "../Slider.type/Slider_Type";
 
 import { ISliderAutoplayOptions } from "../Slider.autoplay/Slider.autoplay.interface/Slider.autoplay.options.interface";
+import {
+  ISliderProgressbarOption
+} from "../Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 
 export interface ISlider {
   slider_options: ISliderOptions;
@@ -19,7 +22,7 @@ export interface ISlider {
   swipe: boolean;
   gap: number;
   autoplay: ISliderAutoplayOptions;
-  progressbar: boolean;
+  progressbar: ISliderProgressbarOption;
   focus: focus;
   arrows: boolean;
   elements_on_screen: number;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {ForwardedRef, useEffect, useState} from "react";
 import { ISliderPagination } from "./Slider.pagination.interface/Slider.pagination.interface";
 import SliderPaginationCircle from "./Slider.pagination.circle/Slider.pagination.circle";
 
@@ -7,7 +7,7 @@ import { Slider_Type } from "../Slider.type/Slider_Type";
 
 import classes from "./Slider.pagination.module.scss";
 
-const SliderPagination = ({ length, pagination_type, current_el_index }: ISliderPagination) => {
+const SliderPagination = React.forwardRef(({ length, pagination_type, current_el_index, id }: ISliderPagination, ref:ForwardedRef<HTMLDivElement>) => {
   const [circle_array, set_circle_array] = useState<number[]>([]);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const SliderPagination = ({ length, pagination_type, current_el_index }: ISlider
   }, [length]);
 
   return (
-    <div
+    <div ref={ref} id={id}
       className={pagination_type == Slider_Type.VERTICAL ? classes.vertical : classes.horizontal}
     >
       {circle_array.map((circle, index) => {
@@ -38,6 +38,9 @@ const SliderPagination = ({ length, pagination_type, current_el_index }: ISlider
       })}
     </div>
   );
-};
+});
+
+
+SliderPagination.displayName = "SliderPagination"
 
 export default SliderPagination;

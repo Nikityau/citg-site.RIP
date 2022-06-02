@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import MiniGameImage from "../../../UI/MiniGameImage/MiniGameImage";
 import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
 import PageNumber from "../../../UI/PageNumber/PageNumber";
 
-import { IGame, SynteticAPI } from "../../../../SynteticData/SynteticAPI";
-import { dataArr } from "../../../../SynteticData/Syntetic.data.type";
+import {IGame, SynteticAPI} from "../../../../SynteticData/SynteticAPI";
+import {dataArr} from "../../../../SynteticData/Syntetic.data.type";
 
-import { TypeButton } from "../../../UI/Form/CommonButton/TypeButton.enum";
+import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
 
 import projectsbock from "./ProjectsBlock.module.scss";
 
@@ -22,6 +22,10 @@ import {
   SliderElement_Type,
 } from "../../../../Lib/Slider/Slider.type/Slider_Type";
 import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
+import {
+  ISliderProgressBarDirection,
+  ISliderProgressBarPosition
+} from "../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 
 const ProjectsBlock = () => {
   const [awards, setAwards] = useState<dataArr[] | []>([]);
@@ -124,7 +128,11 @@ const ProjectsBlock = () => {
             }}
             focus={"center"}
             elements_on_screen={3}
-            progressbar={false}
+            progressbar={{
+              appear: false,
+              position: ISliderProgressBarPosition.LEFT_BOTTOM,
+              direction: ISliderProgressBarDirection.HORIZONTAL
+            }}
             arrows={true}
             title={"Tittle"}
           >

@@ -1,20 +1,27 @@
-import { ISliderOptions } from "../Slider.interface/Slider.interface";
-import { ISliderAutoplayOptions } from "../Slider.autoplay/Slider.autoplay.interface/Slider.autoplay.options.interface";
+import {ISliderOptions} from "../Slider.interface/Slider.interface.option";
 import {
-  focus,
-  Infinite_Type,
-  Slider_Type,
-  SliderBack_Type,
-  SliderElement_Type,
-} from "../Slider.type/Slider_Type";
-import { SliderArrowController } from "../Slider.arrow.controller/Slider.arrow.controller";
+  ISliderProgressBarDirection,
+  ISliderProgressBarPosition
+} from '../Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option'
+import {ISliderAutoplayOptions} from "../Slider.autoplay/Slider.autoplay.interface/Slider.autoplay.options.interface";
+import {focus, Infinite_Type, Slider_Type, SliderBack_Type, SliderElement_Type,} from "../Slider.type/Slider_Type";
 
-import { ISliderArrowBase } from "../Slider.arrow.controller/Slider.arrow.base/Slider.arrow.base";
-import { ISliderSwipeBase } from "../Slider.swipe/Slider.swipe.base/Slider.swipe.base";
-import { ISliderAutoplayBase } from "../Slider.autoplay/Slider.autoplay.base/Slider.autoplay.base";
-import { SliderSwipeController } from "../Slider.swipe/Slider.swipe.controller";
-import { SliderAutoplayController } from "../Slider.autoplay/Slider.autoplay.controller";
-import { EventType } from "../Slider.interface/Slider.event.type";
+import {ISliderArrowBase} from "../Slider.arrow.controller/Slider.arrow.base/Slider.arrow.base";
+import {ISliderSwipeBase} from "../Slider.swipe/Slider.swipe.base/Slider.swipe.base";
+import {ISliderAutoplayBase} from "../Slider.autoplay/Slider.autoplay.base/Slider.autoplay.base";
+import {SliderArrowController} from "../Slider.arrow.controller/Slider.arrow.controller";
+import {SliderSwipeController} from "../Slider.swipe/Slider.swipe.controller";
+import {SliderAutoplayController} from "../Slider.autoplay/Slider.autoplay.controller";
+import {EventType} from "../Slider.interface/Slider.event.type";
+import {
+  ISliderProgressbarBase
+} from "../Slider.progressbar/Slider.progressbar.controller.base/Slider.progressbar.base.interface";
+import {
+  SliderProgressbarController
+} from "../Slider.progressbar/Slider.progressbar.controller/Slider.progressbar.controller";
+import {
+  SliderProgressbarEntry
+} from "../Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.entry";
 
 export class SliderBaseController {
   private _slider: HTMLElement | null = null;
@@ -48,12 +55,20 @@ export class SliderBaseController {
     delay: 0,
     swipe: "unset",
   };
-  private _progressbar_option = false;
+  private _progressbar_option:SliderProgressbarEntry = {
+    options: {
+      appear: false,
+      position: ISliderProgressBarPosition.LEFT_BOTTOM,
+      direction: ISliderProgressBarDirection.HORIZONTAL
+    },
+    back_line: undefined
+  };
 
   //Modules
   private _arrow_controller: ISliderArrowBase | null = null;
   private _swipe_controller: ISliderSwipeBase | null = null;
   private _autoplay_controller: ISliderAutoplayBase | null = null;
+  private _progressbar_controller: ISliderProgressbarBase | null = null;
 
   constructor() {
     this.onChangeIndex = this.onChangeIndex.bind(this);
@@ -119,12 +134,22 @@ export class SliderBaseController {
     this._autoplay_controller._index = this._index;
     this._autoplay_controller.Change_index = this.onChangeIndex;
   }
+  public Set_ProgressBar() {
+    if(!this._progressbar_controller)
+      this._progressbar_controller = new SliderProgressbarController();
+
+    if(!this._progressbar_option.back_line) return;
+    const progress_line = <HTMLElement>this._progressbar_option.back_line.children[0];
+
+    this._progressbar_controller.Options(this._progressbar_option.back_line, progress_line,
+        this._progressbar_option.options, this._element_length);
+  }
 
   public Options(
     slider_options: ISliderOptions,
     pagination: boolean,
     autoplay: ISliderAutoplayOptions,
-    progressbar: boolean,
+    progressbar: SliderProgressbarEntry,
     focus: focus,
     el_on_scrn: number
   ): void {
@@ -208,6 +233,9 @@ export class SliderBaseController {
       this._autoplay_controller.Stop();
       this._autoplay_controller.Start();
     }
+    if (this._progressbar_option.options.appear && !this._progressbar_controller) {
+      this.Set_ProgressBar()
+    }
   }
   private Clear_old() {
     if (!this._slider_track) return;
@@ -271,6 +299,7 @@ export class SliderBaseController {
     if (!this._slider || !this._slider_track) return;
 
     const el = <HTMLElement>this._slider_track.querySelector("[data-slider-el-index='1']");
+
     if (!el) return;
 
     this.Set_pos_by_el(el);
@@ -278,11 +307,13 @@ export class SliderBaseController {
 
   private Check_options() {
     if (!this._autoplay_option.swipe) {
+      this._swipe_controller.Autoplay_Unsub()
       this._swipe_controller = null;
     }
     if (!this._autoplay_option.autoplay) {
       this._autoplay_controller = null;
     }
+    this.Set_ProgressBar()
   }
   // </Set Options>
 
@@ -294,12 +325,20 @@ export class SliderBaseController {
 
   public onCheckIndex(i: number): number {
     if (i < 0) {
-      this._infinite_pos = "left_copy";
+      if(this._infinite_pos == "main")
+          this._infinite_pos = "left_copy";
+      if(this._infinite_pos == "right_copy")
+        this._infinite_pos = "main"
+
       return this._element_length - 1;
     }
 
     if (i > this._element_length - 1) {
-      this._infinite_pos = "right_copy";
+      if(this._infinite_pos == "main")
+        this._infinite_pos = "right_copy";
+      if(this._infinite_pos == "left_copy")
+        this._infinite_pos = "main";
+
       return 0;
     }
 
@@ -318,6 +357,10 @@ export class SliderBaseController {
     if (this._arrow_controller) this._arrow_controller.index = this._index;
     if (this._swipe_controller) this._swipe_controller.index = this._index;
     if (this._autoplay_controller) this._autoplay_controller._index = this._index;
+
+    if(this._progressbar_controller) {
+      this._progressbar_controller.Set_Progress(this._index)
+    }
 
     this.onChangeOffset();
   }
@@ -457,8 +500,7 @@ export class SliderBaseController {
   }
   private On_transition() {
     setTimeout(() => {
-      if (!this._slider_track) return;
-
+      if (!this._slider_track ) return;
       this._slider_track.style.transition = "all .3s";
     }, 50);
   }

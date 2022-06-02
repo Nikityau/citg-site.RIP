@@ -40,6 +40,13 @@ export class SliderSwipeController implements ISliderSwipeBase {
     this.On_Mouse_up = this.On_Mouse_up.bind(this);
     this.On_Touch_end = this.On_Touch_end.bind(this);
 
+    this.Autoplay_Subb = this.Autoplay_Subb.bind(this)
+    this.Autoplay_Unsub = this.Autoplay_Unsub.bind(this)
+
+    this.Autoplay_Subb()
+  }
+
+  Autoplay_Subb() {
     Subber.Subb(this.swipe_el, TypeEvent.MOUSE_DOWN, this.On_Click);
     Subber.Subb(this.swipe_el, TypeEvent.TOUCH_START, this.On_Touch);
 
@@ -48,6 +55,16 @@ export class SliderSwipeController implements ISliderSwipeBase {
 
     Subber.Subb(this.swipe_el, TypeEvent.MOUSE_UP, this.On_Mouse_up);
     Subber.Subb(this.swipe_el, TypeEvent.TOUCH_END, this.On_Touch_end);
+  }
+  Autoplay_Unsub() {
+    Subber.Unsubb(this.swipe_el, TypeEvent.MOUSE_DOWN, this.On_Click);
+    Subber.Unsubb(this.swipe_el, TypeEvent.TOUCH_START, this.On_Touch);
+
+    Subber.Unsubb(this.swipe_el, TypeEvent.MOUSE_MOVE, this.On_Mouse_move);
+    Subber.Unsubb(this.swipe_el, TypeEvent.TOUCH_MOVE, this.On_Swipe);
+
+    Subber.Unsubb(this.swipe_el, TypeEvent.MOUSE_UP, this.On_Mouse_up);
+    Subber.Unsubb(this.swipe_el, TypeEvent.TOUCH_END, this.On_Touch_end);
   }
 
   On_Click(e: Event) {

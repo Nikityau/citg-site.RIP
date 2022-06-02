@@ -32,6 +32,9 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
     if (this._delay == 0) return this._timeout;
 
     if (this.options.smooth) {
+      this._timeout = setInterval(() => {
+        this.change_index(this._index + 1, EventType.AUTOPLAY);
+      }, this._delay);
     } else {
       this._timeout = setInterval(() => {
         this.change_index(this._index + 1, EventType.AUTOPLAY);

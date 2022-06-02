@@ -10,13 +10,13 @@
     "start": "node ./server/index.js",
     "lint": "eslint --fix"
   },
-  "type": "module",
   "author": "Nikityau",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/eslint-parser": "^7.18.2",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "@babel/plugin-transform-runtime": "^7.18.2",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
