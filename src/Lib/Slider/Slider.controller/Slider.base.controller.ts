@@ -99,7 +99,6 @@ export class SliderBaseController {
 
         this._arrow_controller.Set_Arrows(slider_style);
     }
-
     public Set_Swipes() {
         if (!this._slider) return;
 
@@ -123,7 +122,6 @@ export class SliderBaseController {
 
         this._swipe_controller.Change_index = this.onChangeIndex;
     }
-
     public Set_Autoplay() {
         if (!this._slider_track || !this._slider) return;
 
@@ -139,7 +137,6 @@ export class SliderBaseController {
         this._autoplay_controller._index = this._index;
         this._autoplay_controller.Change_index = this.onChangeIndex;
     }
-
     public Set_ProgressBar() {
         if (!this._progressbar_controller)
             this._progressbar_controller = new SliderProgressbarController();
@@ -188,7 +185,7 @@ export class SliderBaseController {
             this._slider_options.slider_type == Slider_Type.SINGLE
         ) {
             this.focus = "no";
-            this._el_on_scrn = 1;
+            this._el_on_scrn = 2;
         }
 
         if (this._slider_options.slider_type == Slider_Type.SQUARE) {
@@ -197,20 +194,20 @@ export class SliderBaseController {
 
         this.Set_by_default();
     }
-
     private Set_by_default() {
         if (!this._slider_track || !this._slider) return;
 
-        const el_width =
+        let el_width =
             this._slider.clientWidth / this._el_on_scrn - this._gap / (this._el_on_scrn - 1);
 
         let el_height: number | null = null;
 
-        if (
-            this._slider_options.slider_type == Slider_Type.VERTICAL ||
-            this._slider_options.slider_type == Slider_Type.SINGLE
-        ) {
+        if (this._slider_options.slider_type == Slider_Type.VERTICAL) {
             el_height = this._slider.clientHeight - this._gap / (this._el_on_scrn - 1);
+        }
+
+        if(this._slider_options.slider_type == Slider_Type.SINGLE) {
+            el_width = this._slider.clientWidth;
         }
 
         const children = this._slider_track.children;
@@ -232,7 +229,6 @@ export class SliderBaseController {
 
         this.Set_by_options();
     }
-
     private Set_by_options() {
         this.Slider_type_init();
         if (this._autoplay_option.autoplay) {
@@ -246,7 +242,6 @@ export class SliderBaseController {
             this.Set_ProgressBar()
         }
     }
-
     private Clear_old() {
         if (!this._slider_track) return;
 
@@ -257,7 +252,6 @@ export class SliderBaseController {
 
         this.Update_main_els();
     }
-
     private Update_main_els() {
         if (!this._slider_track) return;
 
@@ -268,7 +262,6 @@ export class SliderBaseController {
 
         this._infinite_pos = "main";
     }
-
     private Slider_type_init() {
         if (!this._slider || !this._slider_track) return;
         this.Clear_old();
@@ -307,7 +300,6 @@ export class SliderBaseController {
             this.Slider_set_pos_default();
         }
     }
-
     private Slider_set_pos_default() {
         if (!this._slider || !this._slider_track) return;
 
@@ -317,7 +309,6 @@ export class SliderBaseController {
 
         this.Set_pos_by_el(el);
     }
-
     private Check_options() {
         if (!this._autoplay_option.swipe) {
             this._swipe_controller.Autoplay_Unsub()
@@ -336,7 +327,6 @@ export class SliderBaseController {
         this.Set_by_default();
         this.Check_options();
     }
-
     public onCheckIndex(i: number): number {
         if (i < 0) {
             if (this._infinite_pos == "main")
@@ -358,7 +348,6 @@ export class SliderBaseController {
 
         return i;
     }
-
     public onChangeIndex(i: number, event: EventType): void {
         if (event != EventType.AUTOPLAY && this._autoplay_controller) {
             this._autoplay_controller.Stop();
@@ -367,6 +356,7 @@ export class SliderBaseController {
 
         if(this._autoplay_option.smooth) {
             this._progressbar_controller.Set_Progress(i, true);
+
             return;
         }
 
@@ -384,7 +374,6 @@ export class SliderBaseController {
 
         this.onChangeOffset();
     }
-
     private onChangeOffset() {
         if (!this._slider_track || !this._slider) return;
 
@@ -416,7 +405,8 @@ export class SliderBaseController {
 
         if (
             this._slider_options.slider_type == Slider_Type.DEFAULT ||
-            this._slider_options.slider_type == Slider_Type.HORIZONTAL
+            this._slider_options.slider_type == Slider_Type.HORIZONTAL ||
+            this._slider_options.slider_type == Slider_Type.SINGLE
         ) {
             if (this.focus == "center" || this.focus == "no") {
                 this._slider_track.style.left =
@@ -435,7 +425,6 @@ export class SliderBaseController {
                 this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 - this._gap / 2 + "px";
         }
     }
-
     private Set_focus_on_el(el: HTMLElement, off = false) {
         if (!this._slider || !this._slider_track) return;
 
@@ -455,7 +444,6 @@ export class SliderBaseController {
             }, 200);
         }
     }
-
     private* Find_slider_el(): any {
         if (!this._slider_track || !this._slider) return null;
 
@@ -513,13 +501,11 @@ export class SliderBaseController {
 
         return el;
     }
-
     private Off_transition() {
         if (!this._slider_track) return;
 
         this._slider_track.style.transition = "none";
     }
-
     private On_transition() {
         setTimeout(() => {
             if (!this._slider_track) return;
@@ -537,23 +523,18 @@ export class SliderBaseController {
     public set el_length(l: number) {
         this._element_length = l;
     }
-
     public get el_length(): number {
         return this._element_length;
     }
-
     public set slider(slider: HTMLElement) {
         this._slider = slider;
     }
-
     public set slider_track(slider_track: HTMLElement) {
         this._slider_track = slider_track;
     }
-
     public set gap(g: number) {
         this._gap = g;
     }
-
     public set change_index(callback: (i: number) => void) {
         this._change_index = callback;
         this._change_index(this._index);

@@ -27,68 +27,94 @@ function PhotoSlider() {
 
     return (
         <div className={photoslider.container}>
-            <div className={photoslider.innerWrapper}>
-                <div className={photoslider.sliderContainer}>
+            {
+                window.screen.width >= 500 &&
+                <div className={photoslider.innerWrapper}>
+                    <div className={photoslider.sliderContainer}>
+                        <Slider
+                            slider_options={{
+                                slider_type: Slider_Type.HORIZONTAL,
+                                infinite_type: Infinite_Type.INFINITE,
+                                slider_back_type: SliderBack_Type.DEFAULT,
+                                slider_element_type: SliderElement_Type.CARD
+                            }}
+                            pagination={{
+                                is: false,
+                                location: Slider_Type.HORIZONTAL
+                            }}
+                            swipe={false}
+                            gap={20}
+                            autoplay={{
+                                autoplay: true,
+                                delay: 2000,
+                                swipe: false,
+                                smooth: true
+                            }}
+                            progressbar={{
+                                direction: ISliderProgressBarDirection.HORIZONTAL,
+                                position: ISliderProgressBarPosition.LEFT_BOTTOM,
+                                appear: true,
+                            }}
+                            focus={"no"}
+                            arrows={false}
+                            elements_on_screen={3}
+                            title={''}>
+                            <SliderElement title={'Создавай мечту'}>
+                                <img src={makeDream} alt={'img'}/>
+                            </SliderElement>
+                            <SliderElement title={'Развивайся'}>
+                                <img src={evolve} alt={'img'}/>
+                            </SliderElement>
+                            <SliderElement title={'Твори'}>
+                                <img src={sm_img} alt={'img'}/>
+                            </SliderElement>
+                        </Slider>
+                    </div>
+                </div>
+            }
+            {
+                window.screen.width < 500 &&
+                <div className={photoslider.mobVer}>
                     <Slider
                         slider_options={{
-                            slider_type: Slider_Type.HORIZONTAL,
-                            infinite_type: Infinite_Type.INFINITE,
-                            slider_back_type: SliderBack_Type.DEFAULT,
-                            slider_element_type: SliderElement_Type.CARD
+                            slider_element_type: SliderElement_Type.CARD,
+                            slider_back_type:SliderBack_Type.DEFAULT,
+                            infinite_type:Infinite_Type.INFINITE,
+                            slider_type:Slider_Type.SINGLE
                         }}
                         pagination={{
-                            is: false,
-                            location: Slider_Type.HORIZONTAL
+                            is:true,
+                            location:Slider_Type.HORIZONTAL
                         }}
-                        swipe={false}
+                        swipe={true}
                         gap={20}
                         autoplay={{
-                            autoplay: true,
-                            delay: 2000,
-                            swipe: false,
-                            smooth: true
+                            autoplay:true,
+                            swipe: true,
+                            smooth: false,
+                            delay: 2000
                         }}
                         progressbar={{
-                            direction: ISliderProgressBarDirection.HORIZONTAL,
-                            position: ISliderProgressBarPosition.LEFT_BOTTOM,
-                            appear: true,
+                            appear: false,
+                            position:ISliderProgressBarPosition.LEFT_BOTTOM,
+                            direction: ISliderProgressBarDirection.HORIZONTAL
                         }}
-                        focus={"no"}
+                        focus={'no'}
                         arrows={false}
                         elements_on_screen={3}
                         title={''}>
                         <SliderElement title={'Создавай мечту'}>
-                                <img src={makeDream} alt={'img'}/>
+                            <div className={'slider-img-el'} style={{ backgroundImage: `url(${makeDream})` }}/>
                         </SliderElement>
                         <SliderElement title={'Развивайся'}>
-                                <img src={evolve} alt={'img'}/>
+                            <div className={'slider-img-el'} style={{ backgroundImage: `url(${evolve})` }}/>
                         </SliderElement>
                         <SliderElement title={'Твори'}>
-                                <img src={sm_img} alt={'img'}/>
+                            <div className={'slider-img-el'} style={{ backgroundImage: `url(${sm_img})` }}/>
                         </SliderElement>
                     </Slider>
                 </div>
-            </div>
-            <div className={photoslider.sliderPlug}>
-                <div className={photoslider.slider}>
-                    <div className={photoslider.sliderCard}>
-                        <div
-                            className={photoslider.sliderCardImg}
-                            style={{backgroundImage: `url(${makeDream})`}}
-                        />
-                        <div className={photoslider.sliderCardText}> texts</div>
-                    </div>
-                    <div className={photoslider.pagination}>
-                        <div
-                            className={photoslider.paginationCircle}
-                            style={{background: '#F4682C', width: '19px', borderRadius: '16px'}}
-                        />
-                        <div className={photoslider.paginationCircle}/>
-                        <div className={photoslider.paginationCircle}/>
-                        <div className={photoslider.paginationCircle}/>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     );
 }

@@ -170,6 +170,11 @@
     .square {
     }
     .single {
+      height: 100%;
+
+      display: flex;
+
+      transition: all 0.3s;
     }
     .trackDefault,
     .horizontalTrack {
@@ -191,6 +196,14 @@
         transition: all 0.3s;
 
         user-select: none;
+
+        div {
+          width: 100%;
+          height: 100%;
+
+          background-size: 100%;
+          background-repeat: no-repeat;
+        }
 
         img {
           width: 100%;
