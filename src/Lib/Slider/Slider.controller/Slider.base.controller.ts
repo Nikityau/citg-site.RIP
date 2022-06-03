@@ -209,6 +209,9 @@ export class SliderBaseController {
         if(this._slider_options.slider_type == Slider_Type.SINGLE) {
             el_width = this._slider.clientWidth;
         }
+        if(this._slider_options.slider_type == Slider_Type.EXTENDED) {
+            el_width = this._slider.clientWidth * 3/4;
+        }
 
         const children = this._slider_track.children;
 
@@ -406,7 +409,8 @@ export class SliderBaseController {
         if (
             this._slider_options.slider_type == Slider_Type.DEFAULT ||
             this._slider_options.slider_type == Slider_Type.HORIZONTAL ||
-            this._slider_options.slider_type == Slider_Type.SINGLE
+            this._slider_options.slider_type == Slider_Type.SINGLE ||
+            this._slider_options.slider_type == Slider_Type.EXTENDED
         ) {
             if (this.focus == "center" || this.focus == "no") {
                 this._slider_track.style.left =

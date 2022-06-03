@@ -1,11 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
-import { nanoid } from 'nanoid'
 
-import { ISlider } from "./Slider.interface/Slider.interface.option";
+import {ISlider} from "./Slider.interface/Slider.interface.option";
 
 import SliderPagination from "./Slider.pagination/Slider.pagination";
 
-import { SliderBaseController } from "./Slider.controller/Slider.base.controller";
+import {SliderBaseController} from "./Slider.controller/Slider.base.controller";
 import SliderProgressbar from "./Slider.progressbar/Slider.progressbar";
 
 import {Slider_Type, SliderElement_Type} from "./Slider.type/Slider_Type";
@@ -132,7 +131,7 @@ const Slider = ({
         </>
       )}
       <div
-        className={slider.slider}
+        className={[slider.slider, slider_options.slider_type == Slider_Type.EXTENDED ? slider.sliderExtended : ''].join(' ')}
         ref={slider_ref}
       >
         <div
