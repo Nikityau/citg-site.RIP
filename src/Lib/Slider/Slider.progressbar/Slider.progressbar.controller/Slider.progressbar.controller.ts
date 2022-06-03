@@ -29,11 +29,18 @@ export class SliderProgressbarController implements ISliderProgressbarBase {
         this._max_index = max;
     }
 
-    public Set_Progress(i:number) {
+    public Set_Progress(i:number, percent: boolean = false) {
         if(!this._back_bar || !this._back_bar) return;
 
-
         const length_of_back_line = this.Get_Length();
+
+        if(percent) {
+            const in_px:number =  length_of_back_line * i / 100;
+
+            this.Progress(in_px);
+            return;
+        }
+
         const progress = i * length_of_back_line / (this._max_index - 1);
         this.Progress(progress);
     }

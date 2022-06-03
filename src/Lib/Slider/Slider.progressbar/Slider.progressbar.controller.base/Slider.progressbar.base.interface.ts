@@ -6,5 +6,5 @@ export interface ISliderProgressbarBase {
 
     Options(back_bar:HTMLElement, bar_line: HTMLElement, options:ISliderProgressbarOption, max:number);
 
-    Set_Progress(i:number)
+    Set_Progress(i:number, force:boolean)
 }

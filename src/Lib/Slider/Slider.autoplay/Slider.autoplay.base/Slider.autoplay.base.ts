@@ -2,7 +2,8 @@ import { ISliderAutoplayOptions } from "../Slider.autoplay.interface/Slider.auto
 import { onChangeIndex } from "../../Slider.interface/Slider.event.type";
 
 export interface ISliderAutoplayBase {
-  _elem: HTMLElement | null;
+  _slider:HTMLElement | null;
+  _slider_track: HTMLElement | null;
 
   _index: number;
   change_index: onChangeIndex;
