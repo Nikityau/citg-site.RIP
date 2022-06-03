@@ -34,7 +34,7 @@ function PhotoSlider() {
                             slider_type: Slider_Type.HORIZONTAL,
                             infinite_type: Infinite_Type.INFINITE,
                             slider_back_type: SliderBack_Type.DEFAULT,
-                            slider_element_type: SliderElement_Type.DEFAULT
+                            slider_element_type: SliderElement_Type.CARD
                         }}
                         pagination={{
                             is: false,
@@ -57,13 +57,13 @@ function PhotoSlider() {
                         arrows={false}
                         elements_on_screen={3}
                         title={''}>
-                        <SliderElement title={''}>
+                        <SliderElement title={'Создавай мечту'}>
                                 <img src={makeDream} alt={'img'}/>
                         </SliderElement>
-                        <SliderElement title={''}>
+                        <SliderElement title={'Развивайся'}>
                                 <img src={evolve} alt={'img'}/>
                         </SliderElement>
-                        <SliderElement title={''}>
+                        <SliderElement title={'Твори'}>
                                 <img src={sm_img} alt={'img'}/>
                         </SliderElement>
                     </Slider>

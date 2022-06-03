@@ -8,11 +8,10 @@ import SliderPagination from "./Slider.pagination/Slider.pagination";
 import { SliderBaseController } from "./Slider.controller/Slider.base.controller";
 import SliderProgressbar from "./Slider.progressbar/Slider.progressbar";
 
-import { Slider_Type } from "./Slider.type/Slider_Type";
+import {Slider_Type, SliderElement_Type} from "./Slider.type/Slider_Type";
 
 import slider from "./Slider.module.scss";
 import "./Slider.scss";
-
 
 const Slider = ({
   slider_options,
@@ -99,6 +98,16 @@ const Slider = ({
     }
   };
 
+  const getSliderClassByCards = () => {
+    switch (slider_options.slider_element_type) {
+      case SliderElement_Type.DEFAULT:
+        return 'slider-track__default-el';
+      case SliderElement_Type.CARD:
+        return 'slider-track__card-el';
+      default:
+        return 'slider-track__card-el'
+    }
+  }
 
   return (
     <div className={slider.container}>
@@ -128,7 +137,7 @@ const Slider = ({
       >
         <div
           ref={slider_track_ref}
-          className={[slider.track, "slider-track", getSliderClass()].join(" ")}
+          className={[slider.track, "slider-track", getSliderClass(), getSliderClassByCards()].join(" ")}
           style={{ gap: gap + "px" }}
         >
           {children}
