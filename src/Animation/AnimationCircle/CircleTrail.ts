@@ -12,7 +12,7 @@ export class CircleTrail {
     cy: number,
     diameter: number,
     border = 50,
-    color = "#C4C4C4"
+    color = "rgba(196,196,196,0.5)"
   ) {
     this._trail = trail;
 
@@ -56,6 +56,6 @@ export class CircleTrail {
     this._trail.style.width = this._diameter + "px";
     this._trail.style.height = this._diameter + "px";
 
-    this._trail.style.borderColor = "#fff";
+    this._trail.style.borderColor = "rgba(255,255,255,0.3)";
   }
 }

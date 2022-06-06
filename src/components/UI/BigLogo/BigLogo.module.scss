@@ -147,10 +147,10 @@
       height: 109px;
 
       border-radius: 50%;
-      border: 50px solid #c4c4c4;
-      z-index: -2;
+      border: 50px solid rgba(196, 196, 196, 0);
+      z-index: -10;
 
-      mix-blend-mode: overlay;
+      mix-blend-mode:multiply;
 
       @media screen and (max-width: 500px) {
       }
