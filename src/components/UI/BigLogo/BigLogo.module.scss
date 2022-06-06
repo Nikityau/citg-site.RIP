@@ -150,7 +150,9 @@
       border: 50px solid rgba(196, 196, 196, 0);
       z-index: -10;
 
-      mix-blend-mode:multiply;
+      mix-blend-mode: multiply;
+
+      opacity: .8;
 
       @media screen and (max-width: 500px) {
       }
