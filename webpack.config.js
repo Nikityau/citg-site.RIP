@@ -59,7 +59,7 @@ module.exports = {
                     loader: "css-loader",
                     options: {
                         modules: {
-                            localIdentName: '[name]__[contenthash]'
+                            localIdentName: '[name]-[local]__[contenthash]'
                         }
                     }
                 }, 'sass-loader']

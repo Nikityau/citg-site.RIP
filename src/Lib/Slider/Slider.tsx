@@ -7,7 +7,7 @@ import SliderPagination from "./Slider.pagination/Slider.pagination";
 import {SliderBaseController} from "./Slider.controller/Slider.base.controller";
 import SliderProgressbar from "./Slider.progressbar/Slider.progressbar";
 
-import {Slider_Type, SliderElement_Type} from "./Slider.type/Slider_Type";
+import {Slider_Type, SliderBack_Type, SliderElement_Type} from "./Slider.type/Slider_Type";
 
 import slider from "./Slider.module.scss";
 import "./Slider.scss";
@@ -109,7 +109,7 @@ const Slider = ({
   }
 
   return (
-    <div className={slider.container}>
+    <div className={[slider.container, slider_options.slider_back_type == SliderBack_Type.HALF_BLACK ? 'slider__half-back' : ''].join(' ')}>
       <div className={slider.tittle}>
         <h5>{title}</h5>
       </div>
