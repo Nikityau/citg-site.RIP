@@ -1,17 +1,16 @@
 import React from 'react';
+
 import PurpleBackground from '../../UI/Background/PurpleBackground/PurpleBackground';
+import ProjectsBlock from "./Projects.block/Projects.block";
+
+import './Projects.page.scss'
 
 function ProjectsPage() {
   return (
-    <div
-      data-testid="projects-page"
-      style={{
-        position: 'relative',
-        width: '100vw',
-        height: '100vh',
-      }}
-    >
-      <PurpleBackground />
+    <div className={'projects-page-container'}>
+        <div className={'projects-page-container_inner'}>
+            <ProjectsBlock/>
+        </div>
     </div>
   );
 }
