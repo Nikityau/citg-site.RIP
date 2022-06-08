@@ -1,8 +1,11 @@
 import React from 'react';
 
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
+import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 
 import './Projects.block.scss'
+
+import citg_plug from '../../../../assets/icons/citg-icons.svg'
 
 const ProjectsBlock = () => {
     return (

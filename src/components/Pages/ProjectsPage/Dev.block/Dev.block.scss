@@ -1,0 +1,17 @@
+.dev-block {
+  margin-top: 80px;
+
+  .dev-block_title {
+
+  }
+
+  .dev-block_dev-projects {
+    margin-top: 20px;
+
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

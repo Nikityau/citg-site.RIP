@@ -1,11 +1,12 @@
 import React, { lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import ProjectPage from "../../Pages/ProjectPage/ProjectPage";
+
 import TeamMemberPage from "../../Pages/TeamMemberPage/TeamMemberPage";
 
 const HomePage = lazy(() => import("../../Pages/HomePage/HomePage"));
 const ProjectsPage = lazy(() => import("../../Pages/ProjectsPage/ProjectsPage"));
 const TeamsPage = lazy(() => import("../../Pages/TeamsPage/TeamsPage"));
+const ProjectPage = lazy(() => import('../../Pages/ProjectPage/ProjectPage'))
 
 const AppRouters = () => {
   return (
@@ -16,13 +17,13 @@ const AppRouters = () => {
         <Route exact path={"/projects"}>
             <ProjectsPage />
         </Route>
-        <Route path={"/projects/:name"}>
+        <Route path={"/projects/:id/:name"}>
             <ProjectPage />
         </Route>
         <Route exact path={"/team"}>
             <TeamsPage />
         </Route>
-        <Route path={"/team/:name"}>
+        <Route path={"/team/:id/:name"}>
             <TeamMemberPage />
         </Route>
 
