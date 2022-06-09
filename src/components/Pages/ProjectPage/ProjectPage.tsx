@@ -24,8 +24,10 @@ function ProjectPage() {
     return (
         <div className={'project-page'}>
             <PreviewBlock/>
-            <div className={'project-page_inner-container'}>
-                <DescriptionBlock/>
+            <div className={'project-page_inner-container-wrapper'}>
+                <div className={'project-page_inner-container'}>
+                    <DescriptionBlock/>
+                </div>
             </div>
         </div>
     );
