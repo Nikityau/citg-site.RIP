@@ -1,0 +1,20 @@
+.supported-devices {
+  .supported-devices_logo {
+    h5 {
+      font-family: 'Inter',sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2.5rem;
+      line-height: 28px;
+
+      color: #FFFFFF;
+    }
+  }
+  .supported-devices_devices {
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
