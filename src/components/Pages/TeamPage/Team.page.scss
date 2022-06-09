@@ -1,0 +1,51 @@
+.team-page {
+  position: relative;
+
+  width: 100vw;
+
+  padding-bottom: 80px;
+
+  .team-page_container {
+    max-width: 1615px;
+
+    margin: 0 auto;
+
+    padding-top: 150px;
+
+    .team-page_title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1, p {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 7rem;
+        line-height: 17px;
+
+        color: #FFFFFF;
+
+      }
+      p {
+        width: 50%;
+
+        font-weight: 400;
+        font-size: 1.7rem;
+        letter-spacing: 0.045em;
+
+        color: #D5D4E6;
+
+        text-align: center;
+      }
+    }
+    .team-page_team {
+      padding-top: 60px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+}

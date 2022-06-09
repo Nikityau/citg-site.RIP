@@ -5,7 +5,7 @@ import TeamMemberPage from "../../Pages/TeamMemberPage/TeamMemberPage";
 
 const HomePage = lazy(() => import("../../Pages/HomePage/HomePage"));
 const ProjectsPage = lazy(() => import("../../Pages/ProjectsPage/ProjectsPage"));
-const TeamsPage = lazy(() => import("../../Pages/TeamsPage/TeamsPage"));
+const TeamPage = lazy(() => import("../../Pages/TeamPage/TeamPage"));
 const ProjectPage = lazy(() => import('../../Pages/ProjectPage/ProjectPage'))
 
 const AppRouters = () => {
@@ -21,7 +21,7 @@ const AppRouters = () => {
             <ProjectPage />
         </Route>
         <Route exact path={"/team"}>
-            <TeamsPage />
+            <TeamPage />
         </Route>
         <Route path={"/team/:id/:name"}>
             <TeamMemberPage />
