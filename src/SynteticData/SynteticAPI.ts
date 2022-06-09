@@ -2,85 +2,20 @@ import { nanoid } from "nanoid";
 
 import plug from "../assets/images/plug.png";
 
-import { dataArr } from "./Syntetic.data.type";
+import {MiniInfo, ProjectInfo} from "./Syntetic.data.type";
 
-export interface IGame {
-  gameImg: string;
-  id: string;
-}
+import { awards } from './Syntetic.data/awards'
+import { games } from './Syntetic.data/games'
+import { project } from './Syntetic.data/project'
 
 export class SynteticAPI {
-  static getAwards(): dataArr[] {
-    return [
-      {
-        imgSrc: plug,
-        id: nanoid(),
-      },
-      {
-        imgSrc: plug,
-        id: nanoid(),
-      },
-      {
-        imgSrc: plug,
-        id: nanoid(),
-      },
-      {
-        imgSrc: plug,
-        id: nanoid(),
-      },
-      {
-        imgSrc: plug,
-        id: nanoid(),
-      },
-      {
-        imgSrc: plug,
-        id: nanoid(),
-      },
-    ];
+  static getAwards(): MiniInfo[] {
+    return awards
   }
-
-  static getGames(): IGame[] {
-    return [
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-      {
-        gameImg: plug,
-        id: nanoid(),
-      },
-    ];
+  static getGames(): MiniInfo[] {
+    return games;
+  }
+  static getProject(): ProjectInfo {
+    return project;
   }
 }

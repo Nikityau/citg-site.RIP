@@ -12,12 +12,14 @@ module.exports = {
     output: {
         filename: "[name].[contenthash].bundle.js",
         assetModuleFilename: "assets/images/[name][ext]",
+        sourceMapFilename: "[name].js.map",
         path: path.resolve(__dirname, "dist"),
-        clean: true
+        publicPath: "/",
+        clean: true,
     },
     devServer: {
         static: {
-            directory: path.resolve(__dirname, 'public')
+            directory: path.resolve(__dirname, 'src')
         },
         historyApiFallback:true,
         compress:true,
@@ -86,7 +88,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html'),
-            favicon: path.resolve(__dirname, 'public', 'logo.png'),
+            favicon: path.resolve(__dirname, 'public', 'favicon.png'),
             minify: false
         }),
         new MiniCssExtractPlugin({

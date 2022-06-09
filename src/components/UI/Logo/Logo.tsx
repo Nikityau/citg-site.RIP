@@ -12,7 +12,6 @@ import logo from "./Logo.module.scss";
 
 const Logo = ({ link, text, version }: ILogo) => {
   const getLogoByVersion = () => {
-    console.log(logo_img)
     switch (version) {
       case DeviceType.DESKTOP:
         return logo_img;

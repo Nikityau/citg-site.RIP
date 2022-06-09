@@ -5,7 +5,7 @@ import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
 import PageNumber from "../../../UI/PageNumber/PageNumber";
 
 import {IGame, SynteticAPI} from "../../../../SynteticData/SynteticAPI";
-import {dataArr} from "../../../../SynteticData/Syntetic.data.type";
+import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
 
@@ -28,7 +28,7 @@ import {
 } from "../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 
 const ProjectsBlock = () => {
-    const [awards, setAwards] = useState<dataArr[] | []>([]);
+    const [awards, setAwards] = useState<MiniInfo[] | []>([]);
     const [games, setGames] = useState<IGame[] | []>([]);
 
     useEffect(() => {
