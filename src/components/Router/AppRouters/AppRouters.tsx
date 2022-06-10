@@ -17,13 +17,13 @@ const AppRouters = () => {
         <Route exact path={"/projects"}>
             <ProjectsPage />
         </Route>
-        <Route path={"/projects/:id/:name"}>
+        <Route exact path={"/projects/:id/:name"}>
             <ProjectPage />
         </Route>
         <Route exact path={"/team"}>
             <TeamPage />
         </Route>
-        <Route path={"/team/:id/:name"}>
+        <Route exact path={"/team/:id/:name"}>
             <TeamMemberPage />
         </Route>
 

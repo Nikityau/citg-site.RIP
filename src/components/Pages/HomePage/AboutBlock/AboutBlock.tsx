@@ -27,7 +27,7 @@ function AboutBlock() {
                 </p>
               </div>
               <div className={aboutblock.button}>
-                <AboutButton path="/teams" about="Команде" />
+                <AboutButton path="/team" about="Команде" />
               </div>
             </div>
           </div>
