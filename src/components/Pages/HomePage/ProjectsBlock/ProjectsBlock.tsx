@@ -51,7 +51,8 @@ const ProjectsBlock = () => {
                         data-testid={"projects-block-games-list"}
                     >
                         {games.map((game) => {
-                            return <MiniGameImage key={game.id} imgSrc={game.gameImg}/>;
+                            return <MiniGameImage key={game.id} imgSrc={game.imgSrc}
+                                                  game_id={`synt-game-${game.id}`} name={'synt-game'}/>;
                         })}
                     </div>
                     <div className={projectsbock.button}>

@@ -1,8 +1,9 @@
 import React from 'react';
-
-import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
+import {Link} from "react-router-dom";
 
 import './Projects.block.scss'
+
+import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 
 import Slider from "../../../../Lib/Slider/Slider";
 import {
@@ -17,6 +18,9 @@ import {
 } from "../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 import SliderBoxElements from "../../../../Lib/Slider/Slider.box.elements/Slider.box.elements";
 import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
+import ProjectCard, {ProjectType} from "../Project.card/Project.card";
+import plug from "../../../../assets/icons/citg-icons.svg";
+
 
 const ProjectsBlock = () => {
     return (
@@ -61,24 +65,43 @@ const ProjectsBlock = () => {
                             y: 2
                         }}>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                     </SliderBoxElements>
+
                     <SliderBoxElements
                         gap={20}
                         tiles={{
@@ -86,24 +109,43 @@ const ProjectsBlock = () => {
                             y: 2,
                         }}>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                     </SliderBoxElements>
+
                     <SliderBoxElements
                         gap={20}
                         tiles={{
@@ -111,22 +153,40 @@ const ProjectsBlock = () => {
                             y: 2
                         }}>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                         <SliderElement title={''}>
-                            <div/>
+                            <ProjectCard id={`syntetic-project-id-${Math.ceil(Math.random() * 1000)}`}
+                                         name={'Citg-plug'}
+                                         text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
+                                         img={plug} project={ProjectType.READY} />
                         </SliderElement>
                     </SliderBoxElements>
                 </Slider>

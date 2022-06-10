@@ -18,14 +18,14 @@ const PopUp = React.forwardRef(({ popUpMouseLeave, popUpMouseEnter }: IPopUp, re
         onMouseEnter={popUpMouseEnter}
       >
         <div className={popup.innerContainer}>
-          <MiniGameCard img={img} title={"title"} />
-          <MiniGameCard img={img} title={"title"} />
-          <MiniGameCard img={img} title={"title"} />
-          <MiniGameCard img={img} title={"title"} />
-          <MiniGameCard img={img} title={"title"} />
-          <MiniGameCard img={img} title={"title"} />
-          <MiniGameCard img={img} title={"title"} />
-          <MiniGameCard img={img} title={"title"} />
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
+          <MiniGameCard img={img} title={"title"} project_id={'synt'}/>
         </div>
       </div>
     );

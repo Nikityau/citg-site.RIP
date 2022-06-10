@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 import './Project.card.scss'
+import {GoUp} from "../../../../Utils/GoUp";
 
 export enum ProjectType {
     READY = 'ready',
@@ -19,6 +20,10 @@ interface IDevProjectCard {
 
 const ProjectCard = ({ name,img,id, text, project }:IDevProjectCard) => {
 
+    const onLinkClick = async () => {
+       await GoUp()
+    }
+
     const getClassByProjectType = () => {
         switch (project) {
             case ProjectType.COMPETITION:
@@ -31,9 +36,8 @@ const ProjectCard = ({ name,img,id, text, project }:IDevProjectCard) => {
         }
     }
 
-
     return (
-        <div className={['dev-project-card', getClassByProjectType()].join(' ')}>
+        <div className={['dev-project-card', getClassByProjectType()].join(' ')} onClick={onLinkClick}>
             <Link to={`/projects/${id}/${name}`}>
                 <div className={'dev-project-card_text'}>
                  <h4>{ name }</h4>
