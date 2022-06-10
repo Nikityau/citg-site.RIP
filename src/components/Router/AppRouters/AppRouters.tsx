@@ -23,7 +23,7 @@ const AppRouters = () => {
         <Route exact path={"/team"}>
             <TeamPage />
         </Route>
-        <Route exact path={"/team/:id/:name"}>
+        <Route path={"/team/:id/:name"}>
             <TeamMemberPage />
         </Route>
 
