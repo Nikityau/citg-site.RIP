@@ -27,6 +27,7 @@ export interface ISlider {
   arrows: boolean;
   elements_on_screen: number;
   title: string;
+  width: 'default' | 'stretched'
   children?: React.ReactNode;
 }
 

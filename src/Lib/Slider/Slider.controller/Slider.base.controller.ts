@@ -216,19 +216,31 @@ export class SliderBaseController {
         const children = this._slider_track.children;
 
         for (let i = 0; i < children.length; ++i) {
-            children[i].setAttribute("style", `width:${el_width}px`);
+            const el = <HTMLElement>children[i]
+
             children[i].setAttribute("data-slider-el-index", `${i}`);
 
+            el.style.width = el_width + "px";
+
             if (el_height) {
-                children[i].setAttribute("style", `width:${el_width - 5}px; height:${el_height}px`);
+                el.style.height = el_height + 'px'
             }
             if (this.focus != "no") {
-                children[i].setAttribute(
-                    "style",
-                    `width:${el_width - 5}px; height:${el_height}px; transform: scale(0.88)`
-                );
+                el.style.transform = 'scale(.88)'
             }
         }
+
+        Array.from(children).map(child => {
+            if(child.getAttribute('data-slider-box-els')) {
+                const width = child.clientWidth / 3 - this._gap
+                const height= child.clientHeight / 2 - this._gap
+                Array.from(child.children).map(box_child => {
+                    const el = <HTMLElement>box_child;
+                    el.style.width = width + 'px';
+                    el.style.height = height + 'px'
+                });
+            }
+        })
 
         this.Set_by_options();
     }
@@ -258,10 +270,15 @@ export class SliderBaseController {
     private Update_main_els() {
         if (!this._slider_track) return;
 
-        const main_el = this._slider_track.querySelectorAll("[data-slider-main-element='true']");
-        for (let i = 0; i < main_el.length; i++) {
-            main_el[i].setAttribute("data-slider-el-index", `${i}`);
-        }
+        const children = this._slider_track.children;
+
+        let inc_index = 0;
+        Array.from(children).map(child => {
+            if(child.getAttribute("data-slider-main-element")) {
+                child.setAttribute('data-slider-el-index', `${inc_index}`)
+                ++inc_index;
+            }
+        })
 
         this._infinite_pos = "main";
     }

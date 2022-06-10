@@ -21,6 +21,8 @@ export enum SliderElement_Type {
 export enum SliderBack_Type {
   DEFAULT = "default",
   HALF_BLACK = "half_black",
+  FULL_BLACK = 'full_black',
+  PARTY = 'party'
 }
 
 export type focus = "center" | "left" | "right" | "no";

@@ -4,7 +4,7 @@ import MiniGameImage from "../../../UI/MiniGameImage/MiniGameImage";
 import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
 import PageNumber from "../../../UI/PageNumber/PageNumber";
 
-import {IGame, SynteticAPI} from "../../../../SynteticData/SynteticAPI";
+import { SynteticAPI } from "../../../../SynteticData/SynteticAPI";
 import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
@@ -29,7 +29,7 @@ import {
 
 const ProjectsBlock = () => {
     const [awards, setAwards] = useState<MiniInfo[] | []>([]);
-    const [games, setGames] = useState<IGame[] | []>([]);
+    const [games, setGames] = useState<MiniInfo[] | []>([]);
 
     useEffect(() => {
         setAwards(SynteticAPI.getAwards());
@@ -91,6 +91,7 @@ const ProjectsBlock = () => {
                             focus={'center'}
                             arrows={false}
                             elements_on_screen={3}
+                            width={'default'}
                             title={''}>
                             <SliderElement title={''}>
                                <div style={{ backgroundImage: `url(${citg_plug})` }}/>
@@ -160,6 +161,7 @@ const ProjectsBlock = () => {
                                 position: ISliderProgressBarPosition.LEFT_BOTTOM,
                                 direction: ISliderProgressBarDirection.HORIZONTAL
                             }}
+                            width={'default'}
                             arrows={true}
                             title={"Tittle"}
                         >
@@ -207,6 +209,7 @@ const ProjectsBlock = () => {
                         focus={'no'}
                         arrows={false}
                         elements_on_screen={3}
+                        width={'default'}
                         title={''}>
                         {awards.map((award) => {
                             return (

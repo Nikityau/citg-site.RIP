@@ -18,8 +18,6 @@
 
     background: #fff;
 
-    transform: skew(10deg);
-
     .member-card_description {
       h5 {
         color: #201B1B;
@@ -88,7 +86,7 @@
 
     background: #F8682A;
     border: 0.99px solid #DC6041;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
     opacity: 0;
     pointer-events: none;
