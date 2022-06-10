@@ -34,7 +34,7 @@ const PreviewInfoBlock = () => {
                                link={''}/>
             </div>
             <div className={'preview-member-info-block_info'}>
-
+                <PreviewInfoBlock/>
             </div>
         </div>
     );
