@@ -3,8 +3,13 @@
 
   width: 100vw;
 
+  padding-bottom: 200px;
+
   .team-member-page__back {
-    position: relative;
+    position: absolute;
+
+    top: 0;
+    left: 0;
 
     width: 100%;
     height: 80vh;
@@ -13,5 +18,23 @@
       width: 100%;
       height: 100%;
     }
+  }
+
+  .team-member-page__gradient-gray {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80vh;
+
+    background: linear-gradient(360deg, #191E23 5.8%, rgba(26, 31, 36, 0) 49.94%);
+  }
+
+  .team-member-page_portfolio {
+    max-width: 1615px;
+
+    margin: 0 auto;
   }
 }

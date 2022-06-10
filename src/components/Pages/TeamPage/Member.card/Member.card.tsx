@@ -3,7 +3,7 @@ import React from 'react';
 import './Member.card.scss'
 import {Link} from "react-router-dom";
 
-interface IMemberCard {
+export interface IMemberCard {
     photo: string,
     full_name: string,
     skills: string[]
