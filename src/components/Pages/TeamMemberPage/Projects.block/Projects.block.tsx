@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './Projects.block.scss'
+
 const ProjectsBlock = () => {
     return (
-        <div>
+        <div className={'projects-portfolio-block'}>
             
         </div>
     );

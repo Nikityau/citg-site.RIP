@@ -1,0 +1,54 @@
+.skills-tile {
+  min-width: 251px;
+  height: 81px;
+
+  .software-skills-tile_tile {
+    width: 251px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    background: rgba(12, 17, 23, 0.5);
+
+    border-radius: 7px;
+
+    .software-skills-tile_skill {
+      width: 50px;
+      height: 50px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .skill-tile_skill {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 30px;
+
+    background: #17171B;
+    box-shadow: inset 0px -5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    span {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 3.5rem;
+      line-height: 35px;
+
+      letter-spacing: 0.045em;
+
+      color: #F8682A;
+    }
+  }
+}

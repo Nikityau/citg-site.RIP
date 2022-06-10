@@ -38,7 +38,7 @@ const ProjectCard = ({ name,img,id, text, project }:IDevProjectCard) => {
 
     return (
         <div className={['dev-project-card', getClassByProjectType()].join(' ')} onClick={onLinkClick}>
-            <Link to={`/projects/${id}/${name}`}>
+            <Link to={`/projects/${id}`}>
                 <div className={'dev-project-card_text'}>
                  <h4>{ name }</h4>
                  <p> { text } </p>

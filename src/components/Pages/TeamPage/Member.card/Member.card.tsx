@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Member.card.scss'
+
 import {Link} from "react-router-dom";
 
 export interface IMemberCard {
@@ -21,7 +22,7 @@ const MemberCard = ({full_name,skills, photo, link}:IMemberCard) => {
                 <p>{ skills.join(', ') }</p>
             </div>
             <div className={'member-card_button'}>
-                <Link to={`/team/${link}/${full_name}`}>
+                <Link to={`/team/${link}`}>
                     <span>show</span>
                     <span>more</span>
                 </Link>

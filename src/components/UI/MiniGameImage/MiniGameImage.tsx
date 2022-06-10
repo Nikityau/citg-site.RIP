@@ -13,7 +13,7 @@ const MiniGameImage = ({imgSrc, game_id, name}: IMiniGameImage) => {
 
     return (
         <div className={minigameimage.container} onClick={onLinkClick}>
-            <Link to={`/projects/${game_id}/${name}`}>
+            <Link to={`/projects/${game_id}`}>
                 <div style={{backgroundImage: `url(${imgSrc})`}} data-mouse-focus={true}/>
             </Link>
         </div>

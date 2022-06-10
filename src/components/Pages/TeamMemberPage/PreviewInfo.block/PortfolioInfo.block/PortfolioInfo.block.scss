@@ -1,0 +1,26 @@
+.portfolio-info-block {
+
+  .portfolio-info-block_skills-container {
+
+    display: grid;
+    gap: 5px;
+
+    .portfolio-info-block_skill-tittle {
+      h5 {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 2.5rem;
+        line-height: 30px;
+
+        color: #FFFFFF;
+      }
+    }
+
+    .portfolio-info-block_skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+}

@@ -14,7 +14,7 @@ const MiniGameCard = ({img, title, project_id}: IMiniGameCard) => {
 
     return (
         <div className={minigamecard.container} onClick={onLinkClick}>
-            <Link to={`/projects/${project_id}/${title}`}>
+            <Link to={`/projects/${project_id}`}>
                 <div className={minigamecard.img}>
                     <div style={{backgroundImage: `url(${img})`}}/>
                 </div>
