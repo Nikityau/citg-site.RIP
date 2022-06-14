@@ -24,7 +24,10 @@ export interface ISlider {
   autoplay: ISliderAutoplayOptions;
   progressbar: ISliderProgressbarOption;
   focus: focus;
-  arrows: boolean;
+  arrows: {
+    is: boolean,
+    direction: Slider_Type.VERTICAL | Slider_Type.HORIZONTAL
+  }
   elements_on_screen: number;
   title: string;
   width: 'default' | 'stretched'

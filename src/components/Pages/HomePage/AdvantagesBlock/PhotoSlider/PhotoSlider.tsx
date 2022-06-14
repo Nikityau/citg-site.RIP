@@ -56,9 +56,13 @@ function PhotoSlider() {
                                 appear: true,
                             }}
                             focus={"no"}
-                            arrows={false}
+                            arrows={{
+                                is: false,
+                                direction: Slider_Type.VERTICAL
+                            }}
                             elements_on_screen={3}
-                            title={''}>
+                            title={''}
+                            width={'default'}>
                             <SliderElement title={'Создавай мечту'}>
                                 <img src={makeDream} alt={'img'}/>
                             </SliderElement>
@@ -100,9 +104,14 @@ function PhotoSlider() {
                             direction: ISliderProgressBarDirection.HORIZONTAL
                         }}
                         focus={'no'}
-                        arrows={false}
+                        arrows={{
+                            is: false,
+                            direction: Slider_Type.HORIZONTAL
+                        }}
                         elements_on_screen={3}
-                        title={''}>
+                        title={''}
+                        width={"default"}
+                    >
                         <SliderElement title={'Создавай мечту'}>
                             <div className={'slider-img-el'} style={{ backgroundImage: `url(${makeDream})` }}/>
                         </SliderElement>

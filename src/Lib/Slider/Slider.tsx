@@ -49,7 +49,7 @@ const Slider = ({
         slider_base_controller.gap = gap;
 
         if (left_arrow_ref.current && right_arrow_ref.current) {
-            slider_base_controller.Set_Arrows(left_arrow_ref.current, right_arrow_ref.current);
+            slider_base_controller.Set_Arrows(left_arrow_ref.current, right_arrow_ref.current, arrows.direction);
         }
 
         slider_base_controller.Set_Swipes();
@@ -117,17 +117,19 @@ const Slider = ({
             <div className={slider.tittle}>
                 <h5>{title}</h5>
             </div>
-            {arrows && (
+            {arrows.is && (
                 <>
                     <div
-                        className={slider.leftArrow}
+                        className={[slider.leftArrow,
+                            arrows.direction === Slider_Type.HORIZONTAL ? '' : 'slider-arrow-vertical-top' ].join(' ')}
                         data-arrow={"left"}
                         ref={left_arrow_ref}
                         onSelectCapture={(e) => e.preventDefault()}
                     >
                     </div>
                     <div
-                        className={slider.rightArrow}
+                        className={[slider.rightArrow,
+                            arrows.direction === Slider_Type.HORIZONTAL ? '' : 'slider-arrow-vertical-bottom'].join(' ')}
                         ref={right_arrow_ref}
                         data-arrow={"right"}
                     >

@@ -4,7 +4,7 @@ import MiniGameImage from "../../../UI/MiniGameImage/MiniGameImage";
 import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
 import PageNumber from "../../../UI/PageNumber/PageNumber";
 
-import { SynteticAPI } from "../../../../SynteticData/SynteticAPI";
+import {SynteticAPI} from "../../../../SynteticData/SynteticAPI";
 import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
@@ -90,7 +90,10 @@ const ProjectsBlock = () => {
                                 appear: false
                             }}
                             focus={'center'}
-                            arrows={false}
+                            arrows={{
+                                is: false,
+                                direction: Slider_Type.VERTICAL
+                            }}
                             elements_on_screen={3}
                             width={'default'}
                             title={''}>
@@ -163,7 +166,10 @@ const ProjectsBlock = () => {
                                 direction: ISliderProgressBarDirection.HORIZONTAL
                             }}
                             width={'default'}
-                            arrows={true}
+                            arrows={{
+                                direction: Slider_Type.HORIZONTAL,
+                                is: true
+                            }}
                             title={"Tittle"}
                         >
                             {awards.map((award) => {
@@ -208,7 +214,10 @@ const ProjectsBlock = () => {
                             position: ISliderProgressBarPosition.LEFT_BOTTOM
                         }}
                         focus={'no'}
-                        arrows={false}
+                        arrows={{
+                            is: false,
+                            direction: Slider_Type.VERTICAL
+                        }}
                         elements_on_screen={3}
                         width={'default'}
                         title={''}>

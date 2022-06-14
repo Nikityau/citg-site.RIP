@@ -68,7 +68,10 @@ const DescriptionBlock = () => {
                             direction: ISliderProgressBarDirection.HORIZONTAL
                         }}
                         focus={'no'}
-                        arrows={true}
+                        arrows={{
+                            is: true,
+                            direction: Slider_Type.HORIZONTAL
+                        }}
                         elements_on_screen={3}
                         width={'stretched'}
                         title={''}>

@@ -6,8 +6,17 @@
 
   padding-top: 130px;
 
-  display: flex;
+  .preview-member-info-block_container {
+      display: flex;
+      gap: 20px;
 
-  gap: 20px;
+    .preview-member-info-block_skill-n-awards {
+      width: 80%;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
 }

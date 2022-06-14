@@ -1,8 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-import './Slider.box.elements.scss'
-
-import {BoxSettings} from "./Box.settings/Box.settings";
+import './Slider.box.elements.scss';
 
 interface ISliderBoxEls {
     tiles: {

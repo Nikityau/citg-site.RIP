@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 import './Projects.block.scss'
 
@@ -54,7 +53,10 @@ const ProjectsBlock = () => {
                         position: ISliderProgressBarPosition.LEFT_BOTTOM
                     }}
                     focus={'no'}
-                    arrows={true}
+                    arrows={{
+                        direction:Slider_Type.HORIZONTAL,
+                        is: true
+                    }}
                     elements_on_screen={1}
                     title={''}
                     width={'stretched'}>

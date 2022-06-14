@@ -1,4 +1,5 @@
 import { onChangeIndex } from "../../Slider.interface/Slider.event.type";
+import {Slider_Type} from "../../Slider.type/Slider_Type";
 
 export interface ISliderArrowBase {
   _left_arrow: HTMLElement | null;
@@ -12,11 +13,13 @@ export interface ISliderArrowBase {
     top,
     left,
     width,
+      direction
   }: {
     left: number;
     top: number;
     width: number;
     height: number;
+    direction: Slider_Type.VERTICAL | Slider_Type.HORIZONTAL
   }): void;
 
   on_Arrow_Click(e: Event): void;

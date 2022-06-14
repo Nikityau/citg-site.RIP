@@ -2,14 +2,14 @@ import React from 'react';
 
 import SoftwareSkillsTile from "./Software.skills.tile/Software.skills.tile";
 
-import './PortfolioInfo.block.scss'
+import './PortfolioSkills.block.scss'
 
 import figma_img from '../../../../../assets/icons/project/figma.svg'
 import ai_img from '../../../../../assets/icons/project/ai.svg'
 import ps_img from '../../../../../assets/icons/project/ps.svg'
 import SkillTile from "./Skill.tile/Skill.tile";
 
-const PortfolioInfoBlock = () => {
+const PortfolioSkillsBlock = () => {
     return (
         <div className={'portfolio-info-block'}>
             <div className={'portfolio-info-block_skills-container'}>
@@ -41,4 +41,4 @@ const PortfolioInfoBlock = () => {
     );
 };
 
-export default PortfolioInfoBlock;
+export default PortfolioSkillsBlock;

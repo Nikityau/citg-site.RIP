@@ -80,7 +80,7 @@ export class SliderBaseController {
     }
 
     // <Set Options>
-    public Set_Arrows(left: HTMLElement, right: HTMLElement) {
+    public Set_Arrows(left: HTMLElement, right: HTMLElement, direction: Slider_Type.HORIZONTAL | Slider_Type.VERTICAL) {
         if (!this._slider) return;
 
         this._arrow_controller = new SliderArrowController();
@@ -97,7 +97,7 @@ export class SliderBaseController {
         this._arrow_controller.index = this._index;
         this._arrow_controller.change_index = this.onChangeIndex;
 
-        this._arrow_controller.Set_Arrows(slider_style);
+        this._arrow_controller.Set_Arrows({...slider_style, direction});
     }
     public Set_Swipes() {
         if (!this._slider) return;
@@ -197,13 +197,16 @@ export class SliderBaseController {
     private Set_by_default() {
         if (!this._slider_track || !this._slider) return;
 
+
+        const gapOffset = this._el_on_scrn === 1 ? 0 : this._gap / (this._el_on_scrn - 1);
+
         let el_width =
-            this._slider.clientWidth / this._el_on_scrn - this._gap / (this._el_on_scrn - 1);
+            this._slider.clientWidth / this._el_on_scrn - gapOffset;
 
         let el_height: number | null = null;
 
         if (this._slider_options.slider_type == Slider_Type.VERTICAL) {
-            el_height = this._slider.clientHeight - this._gap / (this._el_on_scrn - 1);
+            el_height = this._slider.clientHeight - gapOffset;
         }
 
         if(this._slider_options.slider_type == Slider_Type.SINGLE) {
@@ -443,8 +446,10 @@ export class SliderBaseController {
         }
         if (this._slider_options.slider_type == Slider_Type.VERTICAL) {
             this._slider_track.style.top =
-                this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 - this._gap / 2 + "px";
+                this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 + "px";
         }
+
+        this.On_transition()
     }
     private Set_focus_on_el(el: HTMLElement, off = false) {
         if (!this._slider || !this._slider_track) return;

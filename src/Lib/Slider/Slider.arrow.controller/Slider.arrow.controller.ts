@@ -1,7 +1,8 @@
-import { Subber } from "../../../Utils/Subber/Subber";
-import { TypeEvent } from "../../../Utils/Subber/Subber.TypeEvent.enum";
-import { ISliderArrowBase } from "./Slider.arrow.base/Slider.arrow.base";
-import { EventType, onChangeIndex } from "../Slider.interface/Slider.event.type";
+import {Subber} from "../../../Utils/Subber/Subber";
+import {TypeEvent} from "../../../Utils/Subber/Subber.TypeEvent.enum";
+import {ISliderArrowBase} from "./Slider.arrow.base/Slider.arrow.base";
+import {EventType, onChangeIndex} from "../Slider.interface/Slider.event.type";
+import {Slider_Type} from "../Slider.type/Slider_Type";
 
 export class SliderArrowController implements ISliderArrowBase {
   _left_arrow: HTMLElement | null = null;
@@ -20,19 +21,31 @@ export class SliderArrowController implements ISliderArrowBase {
     top,
     left,
     width,
+      direction
   }: {
     left: number;
     top: number;
     width: number;
     height: number;
+    direction: Slider_Type.HORIZONTAL | Slider_Type.VERTICAL
   }) {
     if (!this._left_arrow || !this._right_arrow) return;
 
-    this._left_arrow.style.left = left - this._left_arrow.clientWidth / 2 + "px";
-    this._left_arrow.style.top = top + height / 2 - this._left_arrow.clientHeight / 2 + "px";
 
-    this._right_arrow.style.left = left + width - this._left_arrow.clientWidth / 2 + "px";
-    this._right_arrow.style.top = top + height / 2 - this._right_arrow.clientHeight / 2 + "px";
+    if(direction == Slider_Type.HORIZONTAL) {
+      this._left_arrow.style.left = left - this._left_arrow.clientWidth / 2 + "px";
+      this._left_arrow.style.top = top + height / 2 - this._left_arrow.clientHeight / 2 + "px";
+
+      this._right_arrow.style.left = left + width - this._left_arrow.clientWidth / 2 + "px";
+      this._right_arrow.style.top = top + height / 2 - this._right_arrow.clientHeight / 2 + "px";
+    } else {
+      this._left_arrow.style.left = left + width - this._left_arrow.clientWidth / 2 + "px";
+      this._left_arrow.style.top = top + height / 4 - this._left_arrow.clientHeight / 2 + "px";
+
+      this._right_arrow.style.left = left + width - this._left_arrow.clientWidth / 2 + "px";
+      this._right_arrow.style.top = top + height * 3/4 - this._right_arrow.clientHeight / 2 + "px";
+    }
+
 
     Subber.Subb(this._left_arrow, TypeEvent.CLICK, this.on_Arrow_Click);
     Subber.Subb(this._right_arrow, TypeEvent.CLICK, this.on_Arrow_Click);
