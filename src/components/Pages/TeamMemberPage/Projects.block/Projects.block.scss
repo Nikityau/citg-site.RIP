@@ -2,5 +2,37 @@
   position: relative;
 
   width: 100%;
-  height: 400px;
+
+  background: linear-gradient(180deg, #0C1117 11.66%, rgba(12, 17, 23, 0.5) 100%);
+  border-radius: 40px 40px 0px 0px;
+
+  padding-bottom: 140px;
+
+  z-index: 3;
+
+  .projects-portfolio-block_slider {
+    width: 98%;
+    height: 350px;
+
+    margin: 0 auto;
+
+    .projects-portfolio-block_slider-title {
+      padding-top: 20px;
+
+      h3 {
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 30px;
+
+        color: #FFFFFF;
+      }
+    }
+    .projects-portfolio-block_slider {
+
+      width: 100%;
+      height: 300px;
+    }
+  }
 }

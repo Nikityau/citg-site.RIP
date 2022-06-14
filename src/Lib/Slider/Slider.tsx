@@ -109,11 +109,24 @@ const Slider = ({
         }
     }
 
+    const getSliderBackClass = () => {
+        switch (slider_options.slider_back_type) {
+            case SliderBack_Type.DEFAULT:
+                return ''
+            case SliderBack_Type.FULL_BLACK:
+                return 'slider__full-black'
+            case SliderBack_Type.HALF_BLACK:
+                return 'slider__half-back'
+            case SliderBack_Type.PARTY:
+                return ''
+            default:
+                return ''
+        }
+    }
+
     return (
         <div
-            className={[slider.container,
-                slider_options.slider_back_type == SliderBack_Type.HALF_BLACK
-                    ? 'slider__half-back' : ''].join(' ')}>
+            className={[slider.container, getSliderBackClass()].join(' ')}>
             <div className={slider.tittle}>
                 <h5>{title}</h5>
             </div>

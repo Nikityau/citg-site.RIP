@@ -16,6 +16,8 @@
       height: 100%;
     }
   }
+
+
   .team-member-page__gradient-gray {
     position: absolute;
     top: 0;
@@ -27,9 +29,52 @@
     background: linear-gradient(360deg, #191E23 5.8%, rgba(26, 31, 36, 0) 49.94%);
   }
 
-  .team-member-page_portfolio {
-    width: 1615px;
+  .team-member-page__back-gradient-blue {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
-    margin: 0 auto;
+    transform: translateX(-20%);
+
+    width: 100%;
+    height: 90%;
+
+    background: linear-gradient(23.98deg, #33317D -0.19%, rgba(71, 0, 54, 0) 80.65%);
+    mix-blend-mode: normal;
+    filter: blur(100px);
+
+    z-index: -5;
+  }
+
+  .team-member-page__back-gradient-purple {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    transform: translateX(20%);
+
+    width: 100%;
+    height: 60%;
+
+    background: rgba(113, 25, 42, 0.3);
+    filter: blur(300px);
+
+    z-index: -5;
+  }
+
+  .team-member-page_portfolio {
+    position: relative;
+
+    width: 100%;
+
+    z-index: 0;
+
+    .team-member-page_inner-container {
+      width: 1615px;
+
+      margin: 0 auto;
+
+      z-index: 10;
+    }
   }
 }

@@ -15,8 +15,12 @@ function TeamMemberPage() {
             </div>
             <div className={'team-member-page__gradient-gray'}/>
             <div className={'team-member-page_portfolio'}>
-                <PreviewInfoBlock/>
-                <ProjectsBlock/>
+                <div className={'team-member-page_inner-container'}>
+                    <PreviewInfoBlock/>
+                    <ProjectsBlock/>
+                </div>
+                <div className={'team-member-page__back-gradient-blue'}/>
+                <div className={'team-member-page__back-gradient-purple'}/>
             </div>
         </div>
     );
