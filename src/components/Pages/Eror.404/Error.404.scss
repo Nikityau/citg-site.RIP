@@ -4,11 +4,121 @@
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .error-404__background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
-  color: #fff;
-  font-family: Sansation, sans-serif;
-  font-size: 10rem;
+    width: 100%;
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .error-404__error-left-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 400px;
+    height: 350px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .error-404__error-right-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 750px;
+    height: 230px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .error-404_container {
+    position: relative;
+
+    width: 1615px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    .error-404_404 {
+      position: absolute;
+      left: 50%;
+      top: 37%;
+
+      transform: translate(-50%, -50%);
+
+      h3 {
+        font-family: 'Sansation',sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 50rem;
+        line-height: 448px;
+        letter-spacing: 0.08em;
+
+        color: #A8ADB2;
+
+        text-shadow: -4px -4px 4px #1B2025, 4px 4px 4px #12171C;
+      }
+    }
+    .error-404_step-back {
+      position: absolute;
+      bottom: 33%;
+      left: 14%;
+
+      transform: translate(-50%, 50%);
+
+      p {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2.5rem;
+        line-height: 29px;
+
+        color: #FFFFFF;
+      }
+      .error-404_step-back-button {
+        margin-top: 15px;
+
+        width: 100%;
+
+
+
+        background: #F5682C;
+        box-shadow: 0px 20px 40px rgba(245, 104, 44, 0.2), inset 0px -3px 10px rgba(0, 0, 0, 0.37), inset 3px 1px 15px rgba(255, 255, 255, 0.5);
+        border-radius: 5px;
+
+        a {
+          width: 100%;
+          height: 100%;
+
+          padding: 20px 0;
+
+          display: flex;
+          justify-content: center;
+        }
+
+        span {
+          font-family: 'Sansation',sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 2rem;
+          line-height: 18px;
+
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
 }
