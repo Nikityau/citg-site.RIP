@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 
 import {MiniInfo} from "../Syntetic.data.type";
-import plug from "../../assets/images/plug.png";
+import plug from "../../assets/images/certificate_plug.png";
 
 export const awards: MiniInfo[] = [
     {

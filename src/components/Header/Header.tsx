@@ -58,7 +58,7 @@ const Header = () => {
   };
 
   return (
-    <header className={header.header} ref={headerRef}>
+    <header id={'header'} className={header.header} ref={headerRef}>
       <div className={header.innerWrapper}>
         <div className={header.container}>
           <Logo link={"/home"} text={"CITG"} version={DeviceType.DESKTOP} />

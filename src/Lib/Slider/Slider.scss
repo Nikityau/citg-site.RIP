@@ -1,5 +1,6 @@
 .current-slider-el {
   transform: scale(1) !important;
+  filter: grayscale(0%) !important;
 }
 .off-transition {
   transition: none !important;
@@ -112,4 +113,7 @@
 }
 .slider-arrow-vertical-bottom {
   transform: rotate(90deg);
+}
+.slider-element-bw {
+  filter: grayscale(100%);
 }

@@ -229,6 +229,7 @@ export class SliderBaseController {
                 el.style.height = el_height + 'px'
             }
             if (this.focus != "no") {
+                el.classList.add('slider-element-bw')
                 el.style.transform = 'scale(.88)'
             }
         }

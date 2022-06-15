@@ -26,6 +26,9 @@ import {
     ISliderProgressBarDirection,
     ISliderProgressBarPosition
 } from "../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
+import PopUpGallery from "../../../../Lib/PopUpGallery/PopUpGallery";
+
+import popUpGalleryController from "../../../../Lib/PopUpGallery/PopUpGallery.controller/PopUpGallery.controller";
 
 const ProjectsBlock = () => {
     const [awards, setAwards] = useState<MiniInfo[] | []>([]);
@@ -36,8 +39,18 @@ const ProjectsBlock = () => {
         setGames(SynteticAPI.getGames());
     }, []);
 
+    const onSliderElementClick = (e:React.MouseEvent<HTMLElement>) => {
+        const el = e.target as HTMLElement;
+        const el_index = el.getAttribute('data-slider-el-index')
+
+        if(!el_index) return
+
+        popUpGalleryController.Open(Number.parseInt(el_index))
+    }
+
     return (
         <div className={projectsbock.container}>
+            <PopUpGallery images={awards}/>
             <div className={projectsbock.innerContainer}>
                 <div className={projectsbock.purpleGradient}/>
                 <div className={projectsbock.orangeGradient}/>
@@ -174,7 +187,8 @@ const ProjectsBlock = () => {
                         >
                             {awards.map((award) => {
                                 return (
-                                    <SliderElement key={award.id} title={"text"}>
+                                    <SliderElement key={award.id} title={"text"}
+                                                   onClick={onSliderElementClick}>
                                         <img
                                             src={award.imgSrc}
                                             alt={"img"}
