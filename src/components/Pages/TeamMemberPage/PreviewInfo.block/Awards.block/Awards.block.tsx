@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import './Awards.block.scss'
 import Slider from "../../../../../Lib/Slider/Slider";
@@ -13,8 +13,16 @@ import {
     ISliderProgressBarPosition
 } from "../../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 import SliderPairSection from "../../../../../Lib/Slider/Slider.element.pair.section/Slider.pair.section";
+import {Img} from "../../../../../SynteticData/Syntetic.data.type";
 
-const AwardsBlock = () => {
+interface IAwardsBlock {
+    images: Img[]
+}
+
+import {MakePair} from "../../../../../Lib/Slider/Slider.utils/MakePair";
+
+const AwardsBlock = ({ images }:IAwardsBlock) => {
+
     return (
         <div className={'awards-block'}>
             <div className={'awards-block_title'}>
@@ -53,15 +61,21 @@ const AwardsBlock = () => {
                     elements_on_screen={1}
                     title={''}
                     width={"default"}>
-                    <SliderPairSection
-                        firstCell={<div/>}
-                        secondCell={<div/>}/>
-                    <SliderPairSection
-                        firstCell={<div/>}
-                        secondCell={<div/>}/>
-                    <SliderPairSection
-                        firstCell={<div/>}
-                        secondCell={<div/>}/>
+                    {
+                        MakePair(images).map(img => (
+                            <SliderPairSection key={img.firstEl.id}
+                                firstCell={
+                                    <div>
+                                        { img?.firstEl && <img src={ img.firstEl?.imgSrc } alt={'img'}/> }
+                                    </div>
+                                }
+                                secondCell={
+                                    <div>
+                                        { img?.secondEl && <img src={ img.secondEl?.imgSrc } alt={'img'}/> }
+                                    </div>
+                                }/>
+                        ))
+                    }
                 </Slider>
             </div>
         </div>

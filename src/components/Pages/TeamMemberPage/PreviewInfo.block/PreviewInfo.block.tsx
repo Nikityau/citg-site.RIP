@@ -4,6 +4,8 @@ import PortfolioSkillsBlock from "./PortfolioSkills.block/PortfolioSkills.block"
 import PortfolioCard from "./Portfolio.card/Portfolio.card";
 import AwardsBlock from "./Awards.block/Awards.block";
 
+import {MemberInfo} from "../../../../SynteticData/Syntetic.data.type";
+
 import './PreviewInfo.block.scss'
 
 import img_member from '../../../../assets/images/team-member/ded.png'
@@ -13,33 +15,29 @@ import tg_icon from '../../../../assets/icons/socials/telegram-white.svg'
 import be_icon from '../../../../assets/icons/socials/be-white.svg'
 
 
-const PreviewInfoBlock = () => {
+interface IPreviewInfoBlock {
+    memberInfo:MemberInfo
+}
+
+const PreviewInfoBlock = ({ memberInfo }:IPreviewInfoBlock) => {
+
+    console.log()
+
     return (
         <div className={'preview-member-info-block'}>
             <div className={'preview-member-info-block_container'}>
                 <PortfolioCard
-                    pdf_portfolio_link={''}
-                    social_media={[
-                        {
-                            link: 'https://behance.com',
-                            img: be_icon
-                        },
-                        {
-                            link: 'https://telegram.org',
-                            img: tg_icon
-                        },
-                        {
-                            link: 'https://vk.com',
-                            img: vk_icon
-                        }
-                    ]}
-                    photo={img_member}
-                    full_name={'Full Name'}
-                    skills={['illustrator', 'UI/UX-designer']}
-                    link={''}/>
+                    full_name={memberInfo?.full_name || 'Name Surname'}
+                    skills={memberInfo?.skills || ['skill_1', 'skill_2']}
+                    social_media={memberInfo?.social_links || []}
+                    photo={memberInfo?.photo?.imgSrc || ''}
+                    pdf_portfolio_link={memberInfo?.pdf_portfolio_link || ''}
+                    link={''}
+                />
                 <div className={'preview-member-info-block_skill-n-awards'}>
-                    <PortfolioSkillsBlock/>
-                    <AwardsBlock/>
+                    <PortfolioSkillsBlock skills={memberInfo?.skills || []}
+                                    software={memberInfo?.software || []}/>
+                    <AwardsBlock images={memberInfo?.achievement_n_awards || []}/>
                 </div>
             </div>
         </div>

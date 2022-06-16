@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './Projects.block.scss'
 import AboutMePart from "./AboutMe.part/AboutMe.part";
 import Slider from "../../../../Lib/Slider/Slider";
 import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
@@ -15,7 +14,17 @@ import {
     ISliderProgressBarPosition
 } from "../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 
-const ProjectsBlock = () => {
+import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
+
+import './Projects.block.scss'
+import ProjectCard, {ProjectType} from "../../ProjectsPage/Project.card/Project.card";
+
+interface IProjectsBlock {
+    my_works: MiniInfo[],
+    participation_in_projects: MiniInfo[]
+}
+
+const ProjectsBlock = ({ participation_in_projects, my_works }:IProjectsBlock) => {
     return (
         <div className={'projects-portfolio-block'}>
             <div className={'projects-portfolio-block_slider'}>
@@ -54,24 +63,21 @@ const ProjectsBlock = () => {
                     elements_on_screen={3}
                     title={''}
                     width={'stretched'}>
-                    <SliderElement title={''}>
-                        <div/>
-                    </SliderElement>
-                    <SliderElement title={''}>
-                        <div/>
-                    </SliderElement>
-                    <SliderElement title={''}>
-                        <div/>
-                    </SliderElement>
-                    <SliderElement title={''}>
-                        <div/>
-                    </SliderElement>
-                    <SliderElement title={''}>
-                        <div/>
-                    </SliderElement>
+                    {
+                        participation_in_projects.map(pip => (
+                            <SliderElement title={''} key={pip.id}>
+                                <ProjectCard
+                                    id={pip.id}
+                                    name={''}
+                                    img={pip.imgSrc}
+                                    text={''}
+                                    project={ProjectType.READY}/>
+                            </SliderElement>
+                        ))
+                    }
                 </Slider>
             </div>
-            <AboutMePart/>
+            <AboutMePart works={my_works}/>
         </div>
     );
 };

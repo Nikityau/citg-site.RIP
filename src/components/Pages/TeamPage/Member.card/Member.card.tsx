@@ -3,6 +3,7 @@ import React from 'react';
 import './Member.card.scss'
 
 import {Link} from "react-router-dom";
+import {GoUp} from "../../../../Utils/GoUp";
 
 export interface IMemberCard {
     photo: string,
@@ -12,6 +13,10 @@ export interface IMemberCard {
 }
 
 const MemberCard = ({full_name,skills, photo, link}:IMemberCard) => {
+    const Up = async () => {
+        await GoUp()
+    }
+
     return (
         <div className={'member-card'}>
             <div className={'member-card_photo'}>
@@ -21,7 +26,7 @@ const MemberCard = ({full_name,skills, photo, link}:IMemberCard) => {
                 <h5>{ full_name }</h5>
                 <p>{ skills.join(', ') }</p>
             </div>
-            <div className={'member-card_button'}>
+            <div className={'member-card_button'} onClick={Up}>
                 <Link to={`/team/${link}`}>
                     <span>show</span>
                     <span>more</span>

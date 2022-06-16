@@ -1,14 +1,12 @@
 import React from 'react';
 
+import {Img} from "../../../../../../SynteticData/Syntetic.data.type";
+
 import './Software.skills.tile.scss'
 
-export interface ISkill {
-    name: string
-    img: string,
-}
 
 export interface ISoftwareSkills {
-    skills: ISkill[]
+    skills: Img[]
 }
 
 const SoftwareSkillsTile = ({ skills }:ISoftwareSkills) => {
@@ -18,8 +16,8 @@ const SoftwareSkillsTile = ({ skills }:ISoftwareSkills) => {
                 {
                     skills.map(skill => {
                         return (
-                            <div key={skill.name} className={'software-skills-tile_skill'}>
-                                <img src={skill.img} alt={''}/>
+                            <div key={skill.id} className={'software-skills-tile_skill'}>
+                                <img src={skill.imgSrc} alt={''}/>
                             </div>
                         )
                     })

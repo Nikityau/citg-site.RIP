@@ -1,15 +1,23 @@
 import React from 'react';
 
 import SoftwareSkillsTile from "./Software.skills.tile/Software.skills.tile";
+import SkillTile from "./Skill.tile/Skill.tile";
+
+import {Img} from "../../../../../SynteticData/Syntetic.data.type";
 
 import './PortfolioSkills.block.scss'
 
 import figma_img from '../../../../../assets/icons/project/figma.svg'
 import ai_img from '../../../../../assets/icons/project/ai.svg'
 import ps_img from '../../../../../assets/icons/project/ps.svg'
-import SkillTile from "./Skill.tile/Skill.tile";
 
-const PortfolioSkillsBlock = () => {
+
+interface IPortfolioSkillsBlock {
+    skills: string[],
+    software: Img[]
+}
+
+const PortfolioSkillsBlock = ({skills, software}:IPortfolioSkillsBlock) => {
     return (
         <div className={'portfolio-info-block'}>
             <div className={'portfolio-info-block_skills-container'}>
@@ -18,23 +26,12 @@ const PortfolioSkillsBlock = () => {
                 </div>
                 <div className={'portfolio-info-block_skills'}>
                     <SoftwareSkillsTile
-                        skills={[
-                            {
-                                img: ai_img,
-                                name: 'adobe_illustrator'
-                            },
-                            {
-                                name: 'adobe_photoshop',
-                                img: ps_img,
-                            },
-                            {
-                                name: 'figma',
-                                img: figma_img
-                            }
-                        ]}/>
-                    <SkillTile skill={'UI/UX'}/>
-                    <SkillTile skill={'illustrator'}/>
-                    <SkillTile skill={'illustrator'}/>
+                        skills={software || []}/>
+                    {
+                        skills.map((skill, index) => (
+                            <SkillTile key={index} skill={skill}/>
+                        ))
+                    }
                 </div>
             </div>
         </div>

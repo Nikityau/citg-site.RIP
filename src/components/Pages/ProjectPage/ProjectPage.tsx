@@ -12,7 +12,7 @@ import PopUpGallery from "../../../Lib/PopUpGallery/PopUpGallery";
 
 function ProjectPage() {
 
-    const {id, name} = useParams()
+    const {id} = useParams()
     const [projectInfo, setProjectInfo] = useState<ProjectInfo>(undefined)
 
     useEffect(() => {

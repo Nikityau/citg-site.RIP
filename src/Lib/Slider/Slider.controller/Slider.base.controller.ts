@@ -334,8 +334,10 @@ export class SliderBaseController {
         this.Set_pos_by_el(el);
     }
     private Check_options() {
+        if(!this._swipe_controller) return
+
         if (!this._autoplay_option.swipe) {
-            this._swipe_controller.Autoplay_Unsub()
+            this._swipe_controller?.Autoplay_Unsub()
             this._swipe_controller = null;
         }
         if (!this._autoplay_option.autoplay) {

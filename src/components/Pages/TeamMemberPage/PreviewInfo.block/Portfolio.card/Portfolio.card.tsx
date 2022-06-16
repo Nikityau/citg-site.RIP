@@ -16,10 +16,10 @@ const PortfolioCard = (
         skills,
         social_media,
         pdf_portfolio_link,
-        link,
         photo
     }:IPortfolioCard
 ) => {
+
     return (
         <div className={'portfolio-card'}>
             <div className={'portfolio-card__mountain-back'}>
@@ -27,16 +27,18 @@ const PortfolioCard = (
             </div>
             <div className={'portfolio-card__blackout'}/>
             <div className={'portfolio-card_summary-download'}>
-                <div className={'portfolio-card_summary-icon'}>
-                    <img src={arrow_circle} alt={''}/>
-                </div>
-                <div className={'portfolio-card_download'}>
-                    <span>Summary</span>
-                </div>
+               <a href={pdf_portfolio_link} target={'_blank'}>
+                   <div className={'portfolio-card_summary-icon'}>
+                       <img src={arrow_circle} alt={'img'}/>
+                   </div>
+                   <div className={'portfolio-card_download'}>
+                       <span>Summary</span>
+                   </div>
+               </a>
             </div>
             <div className={'portfolio-card_portfolio'}>
                 <div className={'portfolio-card_photo'}>
-                    <img src={photo}/>
+                    <img src={photo} alt={'img'}/>
                 </div>
                 <div className={'portfolio-card_data'}>
                     <h4>{ full_name }</h4>
