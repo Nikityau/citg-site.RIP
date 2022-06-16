@@ -8,6 +8,7 @@ import './Project.page.scss'
 import {CiTG_API} from "../../../API/CiTG_API";
 import {readdirSync} from "fs";
 import {ProjectInfo} from "../../../SynteticData/Syntetic.data.type";
+import PopUpGallery from "../../../Lib/PopUpGallery/PopUpGallery";
 
 function ProjectPage() {
 
@@ -23,10 +24,11 @@ function ProjectPage() {
 
     return (
         <div className={'project-page'}>
+            <PopUpGallery images={projectInfo?.img_arr || []}/>
             <PreviewBlock/>
             <div className={'project-page_inner-container-wrapper'}>
                 <div className={'project-page_inner-container'}>
-                    <DescriptionBlock/>
+                    <DescriptionBlock images={projectInfo?.img_arr || []}/>
                 </div>
             </div>
         </div>

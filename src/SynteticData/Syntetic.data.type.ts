@@ -4,6 +4,7 @@ export type MiniInfo = {
 };
 
 export type Img = {
+  id: string
   imgSrc: string
 }
 

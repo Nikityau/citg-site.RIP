@@ -1,14 +1,9 @@
 import React from 'react';
+
 import SupportedDevicesPart from "./SupportedDevices.part/SupportedDevices.part";
 import ProjectLinkPart from "./ProjectLinks.part/ProjectLink.part";
 import Slider from "../../../../Lib/Slider/Slider";
 import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
-
-import './Description.block.scss'
-
-import slider_img_1 from '../../../../assets/images/projects/img_1.png'
-import slider_img_2 from '../../../../assets/images/projects/img_2.jpg'
-import slider_img_3 from '../../../../assets/images/projects/img_3.png'
 
 import {
     Infinite_Type,
@@ -21,7 +16,35 @@ import {
     ISliderProgressBarPosition
 } from "../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 
-const DescriptionBlock = () => {
+import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
+
+import './Description.block.scss'
+
+import slider_img_1 from '../../../../assets/images/projects/img_1.png'
+import slider_img_2 from '../../../../assets/images/projects/img_2.jpg'
+import slider_img_3 from '../../../../assets/images/projects/img_3.png'
+import popUpGalleryController from "../../../../Lib/PopUpGallery/PopUpGallery.controller/PopUpGallery.controller";
+
+interface IDescriptionBlock {
+    images: MiniInfo[]
+}
+
+const DescriptionBlock = ({ images }:IDescriptionBlock) => {
+
+    const onSliderElementClick = (e:React.MouseEvent<HTMLElement>) => {
+        const el = e.target as HTMLElement;
+        const el_index =
+            el.getAttribute('data-slider-el-index') ||
+            el.getAttribute('data-slider-left-el-index') ||
+            el.getAttribute('data-slider-right-el-index')
+
+        console.log(el)
+
+        if(!el_index) return
+
+        popUpGalleryController.Open(Number.parseInt(el_index))
+    }
+
     return (
         <div className={'description-block'}>
             <div className={'description-block_description'}>
@@ -74,16 +97,16 @@ const DescriptionBlock = () => {
                         }}
                         elements_on_screen={3}
                         width={'stretched'}
-                        title={''}>
-                        <SliderElement title={''}>
-                            <div style={{backgroundImage: `url(${slider_img_1})`}}/>
-                        </SliderElement>
-                        <SliderElement title={''}>
-                            <div style={{backgroundImage: `url(${slider_img_2})`}}/>
-                        </SliderElement>
-                        <SliderElement title={''}>
-                            <div style={{backgroundImage: `url(${slider_img_3})`}}/>
-                        </SliderElement>
+                        title={''}
+                        onClick={onSliderElementClick}
+                    >
+                        {
+                            images?.map(img => (
+                                <SliderElement title={''} key={img.id}>
+                                    <div style={{ backgroundImage: `url(${img?.imgSrc})` }}/>
+                                </SliderElement>
+                            ))
+                        }
                     </Slider>
                 </div>
             </div>

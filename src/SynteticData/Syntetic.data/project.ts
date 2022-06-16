@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid'
+
 import {ProjectInfo} from "../Syntetic.data.type";
 
 import background from '../../assets/images/syntetic-project-back.png'
@@ -24,12 +26,15 @@ export const project: ProjectInfo = {
         "Crewmates can win by completing all tasks or discovering and voting the impostor off the ship.",
     img_arr: [
         {
+            id: nanoid(),
             imgSrc: img_1,
         },
         {
+            id: nanoid(),
             imgSrc: img_2,
         },
         {
+            id: nanoid(),
             imgSrc: img_3
         }
     ],

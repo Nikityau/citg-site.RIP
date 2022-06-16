@@ -219,6 +219,8 @@
 
           background-size: 100% !important;
           background: rgba(255, 255, 255, 0.02) no-repeat;
+
+          pointer-events: none;
         }
 
         img {

@@ -3,6 +3,10 @@ import {TypeEvent} from "../../../Utils/Subber/Subber.TypeEvent.enum";
 
 let instance = null;
 
+function PreventScroll(e) {
+    e.preventDefault()
+}
+
 class PopUpGalleryController {
     private containerPhoto: HTMLElement | null = null;
     private photoTrack: HTMLElement | null = null;
@@ -60,6 +64,10 @@ class PopUpGalleryController {
         document.getElementById('header').style.zIndex = '0'
         document.getElementById('pop-up-gallery').style.display = 'block'
 
+        window.addEventListener('wheel', PreventScroll, { passive: false })
+
+        document.body.classList.add('no-scrollbar')
+
         this._index = index
 
         this.Set_opt_children()
@@ -77,6 +85,10 @@ class PopUpGalleryController {
     private CloseClick() {
         document.getElementById('pop-up-gallery').style.display = 'none'
         document.getElementById('header').style.zIndex = '50'
+
+        document.body.classList.remove('no-scrollbar')
+
+        window.removeEventListener('wheel', PreventScroll, false)
     }
 
     private ChangeImage() {
@@ -190,7 +202,7 @@ class PopUpGalleryController {
     }
 
     public Mount(index:number = 0) {
-        this.containerPhoto = document.querySelector('.pop-up-gallery_inner-container')
+        this.containerPhoto = document.querySelector('.pop-up-gallery_list-of-items')
         this.photoTrack = document.querySelector('.pop-up-gallery_items-track')
 
         this.closeButton = document.querySelector('.pop-up-gallery_close-pop-up')

@@ -31,6 +31,7 @@ export interface ISlider {
   elements_on_screen: number;
   title: string;
   width: 'default' | 'stretched'
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
   children?: React.ReactNode;
 }
 

@@ -1,7 +1,3 @@
-import { nanoid } from "nanoid";
-
-import plug from "../assets/images/plug.png";
-
 import {MiniInfo, ProjectInfo} from "./Syntetic.data.type";
 
 import { awards } from './Syntetic.data/awards'

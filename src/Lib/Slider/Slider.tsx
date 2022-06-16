@@ -24,7 +24,8 @@ const Slider = ({
                     arrows,
                     title,
                     swipe,
-                    width
+                    width,
+                    onClick
                 }: ISlider) => {
     const [slider_base_controller, set_slider_base_controller] = useState<SliderBaseController>(new SliderBaseController())
 
@@ -134,7 +135,7 @@ const Slider = ({
                 <>
                     <div
                         className={[slider.leftArrow,
-                            arrows.direction === Slider_Type.HORIZONTAL ? '' : 'slider-arrow-vertical-top' ].join(' ')}
+                            arrows.direction === Slider_Type.HORIZONTAL ? '' : 'slider-arrow-vertical-top'].join(' ')}
                         data-arrow={"left"}
                         ref={left_arrow_ref}
                         onSelectCapture={(e) => e.preventDefault()}
@@ -159,7 +160,7 @@ const Slider = ({
                 <div
                     ref={slider_track_ref}
                     className={[slider.track, "slider-track", getSliderClass(), getSliderClassByCards()].join(" ")}
-                    style={{gap: gap + "px"}}
+                    style={{gap: gap + "px"}} onClick={onClick}
                 >
                     {children}
                 </div>

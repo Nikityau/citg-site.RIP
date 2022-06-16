@@ -95,8 +95,6 @@ export class SliderSwipeController implements ISliderSwipeBase {
   On_Swipe(e: Event) {
     if (!this._is_down) return;
 
-    this.PreventLinks()
-
     if (this._swipe_type == Slider_Type.VERTICAL) {
       this.Vertical_Swipe(e);
 
@@ -110,8 +108,6 @@ export class SliderSwipeController implements ISliderSwipeBase {
   }
   On_Mouse_move(e: Event) {
     if (!this._is_down) return;
-
-    this.PreventLinks();
 
     if (this._swipe_type == Slider_Type.VERTICAL) {
       this.Vertical_Swipe(e);
@@ -171,7 +167,7 @@ export class SliderSwipeController implements ISliderSwipeBase {
 
     Array.from(children).map(child => {
       const el = <HTMLElement>child
-      el.style.pointerEvents = 'auto'
+      el.style.pointerEvents = 'all'
     })
   }
 
@@ -186,8 +182,10 @@ export class SliderSwipeController implements ISliderSwipeBase {
     }
     if (Math.abs(this._start_y - this._last_y) < 20) {
       this._swipe_y_direction = "none";
-
+      this.UnPreventLinks()
       return;
+    } else {
+      this.PreventLinks()
     }
     if (this._start_y > this._last_y) {
       this._swipe_y_direction = "down";
@@ -211,8 +209,10 @@ export class SliderSwipeController implements ISliderSwipeBase {
 
     if (Math.abs(this._start_x - this._last_x) < 20) {
       this._swipe_x_direction = "none";
-
+      this.UnPreventLinks()
       return;
+    } else {
+      this.PreventLinks()
     }
     if (this._start_x > this._last_x) {
       this._swipe_x_direction = "left";

@@ -41,7 +41,12 @@ const ProjectsBlock = () => {
 
     const onSliderElementClick = (e:React.MouseEvent<HTMLElement>) => {
         const el = e.target as HTMLElement;
-        const el_index = el.getAttribute('data-slider-el-index')
+        const el_index =
+            el.getAttribute('data-slider-el-index') ||
+            el.getAttribute('data-slider-left-el-index') ||
+            el.getAttribute('data-slider-right-el-index')
+
+
 
         if(!el_index) return
 
@@ -50,7 +55,7 @@ const ProjectsBlock = () => {
 
     return (
         <div className={projectsbock.container}>
-            <PopUpGallery images={awards}/>
+            <PopUpGallery images={awards || []}/>
             <div className={projectsbock.innerContainer}>
                 <div className={projectsbock.purpleGradient}/>
                 <div className={projectsbock.orangeGradient}/>
@@ -163,7 +168,7 @@ const ProjectsBlock = () => {
                                 is: true,
                                 location: Slider_Type.HORIZONTAL,
                             }}
-                            gap={20}
+                            gap={0}
                             swipe={true}
                             autoplay={{
                                 autoplay: true,
@@ -184,11 +189,11 @@ const ProjectsBlock = () => {
                                 is: true
                             }}
                             title={"Tittle"}
+                            onClick={onSliderElementClick}
                         >
                             {awards.map((award) => {
                                 return (
-                                    <SliderElement key={award.id} title={"text"}
-                                                   onClick={onSliderElementClick}>
+                                    <SliderElement key={award.id} title={"text"}>
                                         <img
                                             src={award.imgSrc}
                                             alt={"img"}
