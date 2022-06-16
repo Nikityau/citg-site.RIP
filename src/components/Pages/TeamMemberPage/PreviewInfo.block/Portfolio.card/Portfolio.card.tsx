@@ -31,8 +31,10 @@ const PortfolioCard = (
                    <div className={'portfolio-card_summary-icon'}>
                        <img src={arrow_circle} alt={'img'}/>
                    </div>
-                   <div className={'portfolio-card_download'}>
-                       <span>Summary</span>
+                   <div className={'portfolio-card_download-wrapper'}>
+                       <div className={'portfolio-card_download'}>
+                           <span>Summary</span>
+                       </div>
                    </div>
                </a>
             </div>
