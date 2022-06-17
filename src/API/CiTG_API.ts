@@ -1,6 +1,6 @@
 import {SynteticAPI} from "../SynteticData/SynteticAPI";
 
-import {MemberInfo, ProjectInfo} from "../SynteticData/Syntetic.data.type";
+import {MemberInfo, MemberWorksInfo, ProjectInfo} from "../SynteticData/Syntetic.data.type";
 
 export class CiTG_API {
     public static async getProjectById(id:string): Promise<ProjectInfo> {
@@ -12,5 +12,8 @@ export class CiTG_API {
     }
     public static async getMemberById(id:string):Promise<MemberInfo> {
         return SynteticAPI.getMemberInfo()
+    }
+    public static async getMemberAllWorks(member_id:string): Promise<MemberWorksInfo> {
+        return SynteticAPI.getMemberWorksInfo()
     }
 }

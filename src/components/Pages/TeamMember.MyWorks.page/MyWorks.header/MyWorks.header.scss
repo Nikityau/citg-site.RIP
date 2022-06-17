@@ -1,0 +1,92 @@
+.my-works_header {
+  position: relative;
+
+  width: 100%;
+  padding: 10px 0;
+
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: 10;
+
+  .my-works__header-gradient-gray {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+
+    background: linear-gradient(90deg, rgba(25, 30, 35, 0.46) 40%, rgba(26, 31, 36, 0) 61.17%);
+  }
+
+  .my-works_member-info {
+    position: relative;
+
+    max-width: 1615px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    overflow: hidden;
+
+    .my-works_member-img {
+      width: 70px;
+      height: 70px;
+
+      border-radius: 50%;
+
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .my-works_member-data {
+      display: grid;
+      gap: 5px;
+
+      .my-works_member-full-name {
+        h3 {
+          font-family: 'Sansation', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 2.7rem;
+          line-height: 27px;
+
+          text-align: center;
+          letter-spacing: 0.045em;
+
+          color: #FFFFFF;
+        }
+      }
+      .my-works_member-skills {
+        span {
+          font-family: 'Inter', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 1.5rem;
+          line-height: 17px;
+
+          text-align: center;
+          letter-spacing: 0.045em;
+
+          color: #DED9D9;
+
+          text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+      }
+    }
+  }
+}

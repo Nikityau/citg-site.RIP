@@ -1,17 +1,19 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom'
 
 import {Img} from "../../../../../SynteticData/Syntetic.data.type";
 
 import './AboutMe.part.scss'
 
 import img_plug from '../../../../../assets/images/citg_plug_rectangle.png'
-
+import {GoUp} from "../../../../../Utils/GoUp";
 
 interface IAboutMePart {
     works: Img[]
 }
 
 const AboutMePart = ({works}:IAboutMePart) => {
+    const { id } = useParams()
 
     const getTemplateType = (index):string => {
         if(index % 10 === 1) return 'about-me_template-item-1'
@@ -28,6 +30,10 @@ const AboutMePart = ({works}:IAboutMePart) => {
         return ''
     }
 
+    const Up = async () => {
+        await GoUp()
+    }
+
     return (
         <div className={'about-me'}>
             <div className={'about-me_title'}>
@@ -36,8 +42,13 @@ const AboutMePart = ({works}:IAboutMePart) => {
             <div className={'about-me_works'}>
                 {
                     works?.map((work, index) => (
-                        <div key={work.id} className={['about-me-template-item', getTemplateType(index + 1)].join(' ')}>
-                            <img src={work.imgSrc} alt={'img'}/>
+                        <div key={work.id} className={['about-me-template-item',
+                            getTemplateType(index + 1)].join(' ')}
+                            onClick={Up}
+                        >
+                            <Link to={`/team/${id}/my-works/${work.id}`}>
+                                <img src={work.imgSrc} alt={'img'}/>
+                            </Link>
                         </div>
                     ))
                 }
