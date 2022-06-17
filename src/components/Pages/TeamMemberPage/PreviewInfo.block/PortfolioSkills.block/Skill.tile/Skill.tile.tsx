@@ -6,9 +6,14 @@ export interface ISkillsTile {
 
 import '../Software.skills.tile/Software.skills.tile.scss'
 
-const SkillTile = ({ skill }:ISkillsTile) => {
+interface ISkillTile extends ISkillsTile {
+    onHover?: (e) => void
+    onHoverEnd?: (e) => void
+}
+
+const SkillTile = ({ skill, onHover, onHoverEnd }:ISkillTile) => {
     return (
-        <div className={'skills-tile'}>
+        <div className={'skills-tile'} onMouseEnter={onHover} onMouseLeave={onHoverEnd}>
             <div className={'skill-tile_skill'}>
                 <span>{ skill }</span>
             </div>
