@@ -26,7 +26,7 @@ const PortfolioSkillsBlock = ({skills, software}:IPortfolioSkillsBlock) => {
         setIsSkillsPopUpOpen(true)
 
         setSkillsPopUpPos({
-            x: target.parentElement.offsetLeft,
+            x: target.offsetLeft + target.clientWidth,
             y: target.offsetTop + target.clientHeight + 5
         })
     }
@@ -36,25 +36,26 @@ const PortfolioSkillsBlock = ({skills, software}:IPortfolioSkillsBlock) => {
 
     return (
         <div className={'portfolio-info-block'}>
-            <div className={['skills-pop-up', isSkillsPopUpOpen ? 'skills-pop-up_open' : ''].join(' ')}
-            style={{
-                left: skillsPopUpPos?.x + 'px',
-                top: skillsPopUpPos?.y + 'px'
-            }}
-            >
-                {
-                    skills.map(skill => (
-                        <div key={skill} className={'skills-pop-up_skill-tile'}>
-                            <span> { skill } </span>
-                        </div>
-                    ))
-                }
-            </div>
             <div className={'portfolio-info-block_skills-container'}>
                 <div className={'portfolio-info-block_skill-tittle'}>
                     <h5>Skills</h5>
                 </div>
                 <div className={'portfolio-info-block_skills'}>
+                    <div className={['skills-pop-up', isSkillsPopUpOpen ? 'skills-pop-up_open' : ''].join(' ')}
+                         style={{
+                             left: skillsPopUpPos?.x + 'px',
+                             top: skillsPopUpPos?.y + 'px',
+                             transform: `translateX(-100%)`
+                         }}
+                    >
+                        {
+                            skills.map(skill => (
+                                <div key={skill} className={'skills-pop-up_skill-tile'}>
+                                    <span> { skill } </span>
+                                </div>
+                            ))
+                        }
+                    </div>
                     <SoftwareSkillsTile
                         skills={software || []}/>
                     {

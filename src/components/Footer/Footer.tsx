@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import Contacts from '../UI/Contacts/Contacts';
 import Copyright from '../UI/Copyright/Copyright';
+import ArrowUp from "./ArrowUp/ArrowUp";
 
 import footer from './Footer.module.scss';
 
@@ -13,13 +14,28 @@ import whatsapp_mob_icon from '../../assets/icons/whatsapp_mob_icon.png';
 import telegram_mob_icon from '../../assets/icons/telegram_mob_icon.png';
 import vk_mob_icon from '../../assets/icons/vk_mob_icon.png';
 
+import ArrowUpController from "./ArrowUp/ArrowUp.controller";
+
+
 function Footer() {
+
+  useEffect(() => {
+    ArrowUpController.FindArrow()
+    ArrowUpController.FindFooter()
+    ArrowUpController.SubEvents()
+
+    return () => {
+      ArrowUpController.UnsubEvents()
+    }
+  }, [])
+
   return (
-    <div className={footer.container}>
+    <div className={footer.container} id={'footer'}>
+      <ArrowUp/>
       <div className={footer.copyrigth}>
         <Copyright />
       </div>
-      <div className={footer.innerContainer}>
+      <div className={footer.innerContainer} id={'footer-inner-container'}>
         <div className={footer.contacts}>
           <Contacts
             homeNumber="+123.456.789"
