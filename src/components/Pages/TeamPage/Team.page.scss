@@ -5,6 +5,10 @@
 
   padding-bottom: 80px;
 
+  @media screen and (max-width: 500px){
+    padding: 0 10px 80px;
+  }
+
   .team-page_container {
     max-width: 1615px;
 
@@ -12,10 +16,20 @@
 
     padding-top: 150px;
 
+    @media screen and (max-width: 500px){
+      max-width: 100%;
+
+      padding-top: 70px;
+    }
+
     .team-page_title {
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      @media screen and (max-width: 500px){
+        gap: 0;
+      }
 
       h1, p {
         font-family: 'Inter', sans-serif;
@@ -25,6 +39,10 @@
         line-height: 17px;
 
         color: #FFFFFF;
+
+        @media screen and (max-width: 500px){
+            font-size: 4rem;
+        }
 
       }
       p {
@@ -37,6 +55,12 @@
         color: #D5D4E6;
 
         text-align: center;
+
+        @media screen and (max-width: 500px){
+          width: 95%;
+
+          font-size: 2rem;
+        }
       }
     }
     .team-page_team {
