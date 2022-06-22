@@ -2,7 +2,9 @@
   margin-top: 80px;
 
   .dev-block_title {
-
+    @media screen and (max-width: 500px){
+      padding: 0 15px;
+    }
   }
 
   .dev-block_dev-projects {
@@ -13,5 +15,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
+    &:nth-child(n) {
+      margin-left: 10px;
+    }
   }
 }

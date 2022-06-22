@@ -5,12 +5,15 @@ import { GoUp } from "../../../../Utils/GoUp";
 
 import burgerLink from "./Burger.link.module.scss";
 
-const BurgerLink = ({ path, text }: { path: string; text: string }) => {
+const BurgerLink = ({ path, text, onClickCallback }: { path: string; text: string, onClickCallback?:() => void }) => {
   const location = useLocation();
 
   return (
     <div
-      onClick={GoUp}
+      onClick={() => {
+        GoUp()
+        onClickCallback()
+      }}
       className={burgerLink.container}
       style={{ background: location.pathname.includes(path) ? "rgba(0, 0, 0, 0.37)" : "" }}
     >

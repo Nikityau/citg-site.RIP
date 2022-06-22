@@ -59,6 +59,8 @@
       justify-content: center;
       align-items: center;
 
+      z-index: -1;
+
       img {
         height: 100%;
 
@@ -69,6 +71,24 @@
 }
 
 .dev-project-card__in-dev {
+
+  @media screen and (max-width: 500px){
+    .dev-project-card_text {
+      width: 85% !important;
+
+      justify-content: unset !important;
+      padding-top: 30px !important;
+      gap: 30px !important;
+
+      h4 {
+        font-size: 5rem !important;
+      }
+      p {
+        font-size: 3rem !important;
+      }
+    }
+  }
+
  a {
    .dev-project-card_text {
      display: flex;
@@ -83,6 +103,13 @@
   width: 523px;
 
   background: rgba(255, 255, 255, 0.02);
+
+  @media screen and (max-width: 500px){
+    width: 47%;
+    height: 200px;
+
+    overflow: hidden;
+  }
 
   a {
     .dev-project-card_text {

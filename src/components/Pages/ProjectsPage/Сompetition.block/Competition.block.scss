@@ -3,10 +3,22 @@
 
   width: 100%;
 
+  @media screen and (max-width: 500px) {
+    padding: 0 15px;
+  }
+
+  .competition-block_title {
+
+  }
+
   .competition-block_projects-list {
     margin-top: 20px;
 
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+
+    @media screen and (max-width: 500px) {
+    }
   }
 }

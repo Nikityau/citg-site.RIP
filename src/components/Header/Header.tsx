@@ -34,7 +34,6 @@ const Header = () => {
     popUpRef.current.style.top = offsetTop + "px";
     setIsPopUpOpen(true);
   };
-
   const popUpMouseEnter = () => {
     openPopUp();
   };
@@ -91,7 +90,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Burger isOpen={isPopUpOpen} />
+      <Burger isOpen={isPopUpOpen} onClick={onBurgerClick}/>
       <PopUp popUpMouseLeave={popUpMouseLeave} popUpMouseEnter={popUpMouseEnter} ref={popUpRef} />
     </header>
   );
