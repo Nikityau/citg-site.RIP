@@ -422,6 +422,9 @@ export class SliderBaseController {
 
             this.On_transition();
         }, 350);
+
+
+        console.log(this._slider, this._slider.clientWidth)
     }
 
     //</Events>
