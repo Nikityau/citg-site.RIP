@@ -17,20 +17,20 @@ const Party = () => {
   ): NodeJS.Timeout | undefined => {
     if (!el || !container.current) return;
 
-    const cx = container.current?.offsetLeft + container.current?.clientWidth / 2;
+   /* const cx = container.current?.offsetLeft + container.current?.clientWidth / 2;
     const cy = container.current?.offsetTop + container.current?.clientHeight / 2;
 
     const loop = new InfinityLoop(el, cx, cy, direction);
-    return loop.Start();
+    return loop.Start();*/
   };
 
   useEffect(() => {
-    const timeout = InfinitLoop(ball1.current, InfinityLoopDirection.RIGHT);
+    /*const timeout = InfinitLoop(ball1.current, InfinityLoopDirection.RIGHT);
 
     return () => {
       if(timeout)
         clearTimeout(timeout)
-    };
+    };*/
   }, []);
 
   return (
