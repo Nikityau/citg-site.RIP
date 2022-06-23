@@ -229,6 +229,9 @@ const ProjectsBlock = () => {
             }
             <div className={'projects-block-mob-ver'}>
                 <div ref={projectsBlock} className={['projects-block-mob-ver_container', isExpand ? '' : ''].join(' ')}>
+                    <div className={'projects-block-animations'}>
+                        <div className={'projects-block-animations_ball-1'}/>
+                    </div>
                     {
                         Array_by_number(10).map((item, index) => (
                             <div key={index} className={'projects-block-mob-ver_el'}>
