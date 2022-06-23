@@ -61,17 +61,66 @@ const DescriptionBlock = ({ images }:IDescriptionBlock) => {
                     Crewmates can win by completing all tasks or discovering and voting the impostor off the ship.
                 </p>
             </div>
-            <div className={'description-block_slider'}>
-                <div className={'description-block_slider-title'}>
-                    <h3>Screenshots</h3>
+            {
+                window.screen.width >= 500 &&
+                <div className={'description-block_slider'}>
+                    <div className={'description-block_slider-title'}>
+                        <h3>Screenshots</h3>
+                    </div>
+                    <div className={'description-block_slider-container'}>
+                        <Slider
+                            slider_options={{
+                                slider_type: Slider_Type.HORIZONTAL,
+                                slider_back_type: SliderBack_Type.DEFAULT,
+                                infinite_type: Infinite_Type.INFINITE,
+                                slider_element_type: SliderElement_Type.DEFAULT
+                            }}
+                            pagination={{
+                                location: Slider_Type.HORIZONTAL,
+                                is: true
+                            }}
+                            swipe={true}
+                            gap={20}
+                            autoplay={{
+                                autoplay: true,
+                                swipe: true,
+                                delay: 3000,
+                                smooth: false
+                            }}
+                            progressbar={{
+                                appear:false,
+                                position: ISliderProgressBarPosition.LEFT_BOTTOM,
+                                direction: ISliderProgressBarDirection.HORIZONTAL
+                            }}
+                            focus={'no'}
+                            arrows={{
+                                is: true,
+                                direction: Slider_Type.HORIZONTAL
+                            }}
+                            elements_on_screen={3}
+                            width={'stretched'}
+                            title={''}
+                            onClick={onSliderElementClick}
+                        >
+                            {
+                                images?.map(img => (
+                                    <SliderElement title={''} key={img.id}>
+                                        <div style={{ backgroundImage: `url(${img?.imgSrc})` }}/>
+                                    </SliderElement>
+                                ))
+                            }
+                        </Slider>
+                    </div>
                 </div>
-                <div className={'description-block_slider-container'}>
+            }
+            <div className={'description-block_mob-ver'}>
+                <div className={'description-block_mob-ver-slider'}>
                     <Slider
                         slider_options={{
-                            slider_type: Slider_Type.HORIZONTAL,
                             slider_back_type: SliderBack_Type.DEFAULT,
                             infinite_type: Infinite_Type.INFINITE,
-                            slider_element_type: SliderElement_Type.DEFAULT
+                            slider_element_type: SliderElement_Type.DEFAULT,
+                            slider_type: Slider_Type.HORIZONTAL
                         }}
                         pagination={{
                             location: Slider_Type.HORIZONTAL,
@@ -82,32 +131,58 @@ const DescriptionBlock = ({ images }:IDescriptionBlock) => {
                         autoplay={{
                             autoplay: true,
                             swipe: true,
-                            delay: 3000,
-                            smooth: false
+                            smooth: false,
+                            delay: 3000
                         }}
                         progressbar={{
-                            appear:false,
-                            position: ISliderProgressBarPosition.LEFT_BOTTOM,
-                            direction: ISliderProgressBarDirection.HORIZONTAL
+                            appear: false,
+                            direction: ISliderProgressBarDirection.HORIZONTAL,
+                            position: ISliderProgressBarPosition.LEFT_BOTTOM
                         }}
                         focus={'no'}
                         arrows={{
-                            is: true,
+                            is: false,
                             direction: Slider_Type.HORIZONTAL
                         }}
-                        elements_on_screen={3}
-                        width={'stretched'}
+                        elements_on_screen={1.3}
                         title={''}
-                        onClick={onSliderElementClick}
-                    >
-                        {
-                            images?.map(img => (
-                                <SliderElement title={''} key={img.id}>
-                                    <div style={{ backgroundImage: `url(${img?.imgSrc})` }}/>
-                                </SliderElement>
-                            ))
-                        }
+                        width={"stretched"}>
+                        <SliderElement title={''}>
+                            <div style={{
+                                backgroundImage: `url(${slider_img_1})`
+                            }}>
+                            </div>
+                        </SliderElement>
+                        <SliderElement title={''}>
+                            <div style={{
+                                backgroundImage: `url(${slider_img_2})`
+                            }}>
+                            </div>
+                        </SliderElement>
+                        <SliderElement title={''}>
+                            <div style={{
+                                backgroundImage: `url(${slider_img_3})`
+                            }}>
+                            </div>
+                        </SliderElement>
                     </Slider>
+                </div>
+                <div className={'description-block_mob-ver-descr'}>
+                    <div className={'description-block_mob-ver-text-descr'}>
+                        <p>
+                            Play online or over local WiFi with 4-15 players as you attempt to prep your spaceship for departure,
+                            but beware as one will be an impostor bent on killing everyone!
+                        </p>
+                        <p>
+                            Crewmates can win by completing all tasks or
+                            discovering and voting the impostor off the ship.
+                        </p>
+                    </div>
+                    <div className={'description-block_mob-ver-btn'}>
+                        <button>
+                            Show more
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className={'description-block_another-info'}>

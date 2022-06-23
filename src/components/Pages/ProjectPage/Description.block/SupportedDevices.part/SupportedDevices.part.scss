@@ -1,4 +1,6 @@
 .supported-devices {
+
+
   .supported-devices_logo {
     h5 {
       font-family: 'Inter',sans-serif;
@@ -14,7 +16,13 @@
     padding-top: 20px;
 
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     gap: 15px;
+
+    @media screen and (max-width: 500px){
+      flex-direction: row;
+      gap: 10px;
+    }
   }
 }
