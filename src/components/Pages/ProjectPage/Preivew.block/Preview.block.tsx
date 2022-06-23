@@ -17,6 +17,16 @@ const PreviewBlock = () => {
         e.preventDefault()
     }, [])
 
+    const onScroll = useCallback(e => {
+        if(window.scrollY == 0) {
+            GoUp()
+            window.addEventListener('touchmove', prevDef, { passive: false })
+
+            previewBlock.current.style.height = 100 + 'vh'
+
+            previewBlock.current.querySelector('h2').style.fontSize = 8 +'rem'
+        }
+    }, [])
 
     let startY = 0;
     let lastY = 0;
@@ -48,19 +58,14 @@ const PreviewBlock = () => {
     const onTouchEnd = (e: React.TouchEvent) => {
     }
 
-    window.addEventListener('scroll', e => {
-        if(window.scrollY == 0) {
-            GoUp()
-            window.addEventListener('touchmove', prevDef, { passive: false })
-
-            previewBlock.current.style.height = 100 + 'vh'
-
-            previewBlock.current.querySelector('h2').style.fontSize = 8 +'rem'
-        }
-    })
 
     useEffect(() => {
+        window.addEventListener('scroll', onScroll)
         window.addEventListener('touchmove', prevDef, { passive: false })
+        return () => {
+            window.removeEventListener('touchmove', prevDef, false)
+            window.removeEventListener('scroll', onScroll)
+        }
     }, [])
 
     return (

@@ -9,16 +9,17 @@ export interface IMemberCard {
     photo: string,
     full_name: string,
     skills: string[]
-    link: string
+    link: string,
+    onClick?: () => void
 }
 
-const MemberCard = ({full_name,skills, photo, link}:IMemberCard) => {
+const MemberCard = ({full_name,skills, photo, link, onClick}:IMemberCard) => {
     const Up = async () => {
         await GoUp()
     }
 
     return (
-        <div className={'member-card'}>
+        <div className={'member-card'} onClick={onClick}>
             <Link to={`/team/${link}`}>
                 <div className={'member-card_photo'}>
                     <img src={photo} alt={'img'}/>

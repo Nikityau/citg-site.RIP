@@ -9,7 +9,6 @@ import arrow_circle from '../../../../../assets/icons/aroow-circle.svg'
 
 import ImageLink from "../../../../UI/ImageLink/ImageLink";
 
-
 const PortfolioCard = (
     {
         full_name,

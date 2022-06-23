@@ -1,0 +1,165 @@
+.TMP_mob-ver {
+  position: relative;
+
+  display: none;
+
+  z-index: 2;
+
+  padding-top: 250px;
+
+  @media screen and (max-width: 500px){
+    display: block;
+  }
+
+  .TMP_mob-ver__preview-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 300px;
+    background: #d71010;
+
+    z-index: -1;
+  }
+
+  .TMP_mob-ver-main-field {
+    position: relative;
+
+    width: 100%;
+    min-height: 700px;
+
+    padding-bottom: 200px;
+
+    background: linear-gradient(180deg, #0C1117 11.66%, rgba(12, 17, 23, 0.5) 100%);
+    border-radius: 40px 40px 0px 0px;
+
+    padding-top: 80px;
+
+    .TMP_mob-ver-member-img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+
+      width: 110px;
+      height: 110px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      transform: translate(-50%, -50%);
+
+      background: #13181E;
+
+      overflow: hidden;
+
+      .TMP_mob-ver-member-img-wrapper {
+        width: 90%;
+        height: 90%;
+
+        background: black;
+
+        border-radius: 50%;
+
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    .TMP_mob-ver_summary {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        padding: 10px 10px;
+
+        background: #6C2AF8;
+        border: 0.99px solid #6C2AF8;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+
+        p {
+          font-family: 'Inter', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 2.3rem;
+          line-height: 14px;
+
+          color: #FFFFFF;
+        }
+        img {
+          width: 4.5rem;
+        }
+      }
+    }
+    .TMP_mob-ver_info-block {
+      width: 100%;
+
+      display: grid;
+      gap: 10px;
+
+      .TMP_mob-ver_member-name {
+        text-align: center;
+
+        h4 {
+          font-family: 'Inter', sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2.7rem;
+          line-height: 17px;
+          text-align: center;
+          letter-spacing: 0.045em;
+
+          color: #FFFFFF;
+        }
+      }
+      .TMP_mob-ver_member-skills {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+
+        p {
+          font-family: 'Inter', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 2rem;
+          line-height: 15px;
+          text-align: center;
+          letter-spacing: 0.045em;
+
+          color: #DED9D9;
+        }
+      }
+      .TMP_mob-ver_member-soft {
+        padding-top: 10px;
+
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 10px;
+
+        img {
+          width: 35px;
+        }
+      }
+    }
+  }
+}

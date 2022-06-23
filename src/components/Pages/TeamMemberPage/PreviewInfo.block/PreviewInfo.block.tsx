@@ -14,7 +14,6 @@ import vk_icon from '../../../../assets/icons/socials/vk-white.svg'
 import tg_icon from '../../../../assets/icons/socials/telegram-white.svg'
 import be_icon from '../../../../assets/icons/socials/be-white.svg'
 
-
 interface IPreviewInfoBlock {
     memberInfo:MemberInfo
 }
