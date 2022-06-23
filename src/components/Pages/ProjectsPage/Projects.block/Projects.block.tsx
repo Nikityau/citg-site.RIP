@@ -42,7 +42,7 @@ const ProjectsBlock = () => {
             projectsBlock.current.style.height = h + 20 + 'px'
 
         } else {
-            const lastChild = projectsBlock.current.children[1] as HTMLElement
+            const lastChild = projectsBlock.current.children[2] as HTMLElement
             const h = lastChild.offsetTop + lastChild.clientHeight
 
             GoUp()
@@ -231,6 +231,7 @@ const ProjectsBlock = () => {
                 <div ref={projectsBlock} className={['projects-block-mob-ver_container', isExpand ? '' : ''].join(' ')}>
                     <div className={'projects-block-animations'}>
                         <div className={'projects-block-animations_ball-1'}/>
+                        <div className={'projects-block-animations_ball-2'}/>
                     </div>
                     {
                         Array_by_number(10).map((item, index) => (

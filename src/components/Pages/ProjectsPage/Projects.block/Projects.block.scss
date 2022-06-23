@@ -156,6 +156,24 @@
 
     transition: all 0.1s;
   }
+  .projects-block-animations_ball-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100px;
+    height: 100px;
+
+    background: radial-gradient(circle at center, #b073ff 10%, #ff5d02, transparent 90%);
+
+    filter: blur(80px);
+
+    animation: meteor;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+
+    transition: all 0.1s;
+  }
 }
 
 @keyframes around {
@@ -174,5 +192,15 @@
   75% {
     top: 90%;
     left: -5%;
+  }
+}
+@keyframes meteor {
+  0% {
+    top: -20%;
+    left: -20%;
+  }
+  100% {
+    top: 120%;
+    left: 50%;
   }
 }
