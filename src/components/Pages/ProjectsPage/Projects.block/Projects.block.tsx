@@ -228,7 +228,6 @@ const ProjectsBlock = () => {
                 </div>
             }
             <div className={'projects-block-mob-ver'}>
-                <Party/>
                 <div ref={projectsBlock} className={['projects-block-mob-ver_container', isExpand ? '' : ''].join(' ')}>
                     {
                         Array_by_number(10).map((item, index) => (
