@@ -9,6 +9,7 @@ import {focus, Infinite_Type, Slider_Type, SliderBack_Type, SliderElement_Type,}
 import {ISliderArrowBase} from "../Slider.arrow.controller/Slider.arrow.base/Slider.arrow.base";
 import {ISliderSwipeBase} from "../Slider.swipe/Slider.swipe.base/Slider.swipe.base";
 import {ISliderAutoplayBase} from "../Slider.autoplay/Slider.autoplay.base/Slider.autoplay.base";
+
 import {SliderArrowController} from "../Slider.arrow.controller/Slider.arrow.controller";
 import {SliderSwipeController} from "../Slider.swipe/Slider.swipe.controller";
 import {SliderAutoplayController} from "../Slider.autoplay/Slider.autoplay.controller";
@@ -23,12 +24,17 @@ import {
     SliderProgressbarEntry
 } from "../Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.entry";
 
+import {ObserverBase} from "../../Observer/Observer.base";
+
+
 export class SliderBaseController {
     private _slider: HTMLElement | null = null;
     private _slider_track: HTMLElement | null = null;
 
     private _left_arrow: HTMLElement | null = null;
     private _right_arrow: HTMLElement | null = null;
+
+    private Observer: ObserverBase = null;
 
     private _gap = 20;
     private _el_on_scrn = 1;
@@ -77,6 +83,12 @@ export class SliderBaseController {
         this.onCheckIndex = this.onCheckIndex.bind(this);
         this.onChildrenChanges = this.onChildrenChanges.bind(this);
         this.onChangeOffset = this.onChangeOffset.bind(this);
+
+        this.Set_by_default = this.Set_by_default.bind(this)
+
+
+        this.Observer = new ObserverBase();
+        this.Observer.addCallback(this.Set_by_default)
     }
 
     // <Set Options>
@@ -87,6 +99,8 @@ export class SliderBaseController {
         this._arrow_controller.left_arrow = left;
         this._arrow_controller.right_arrow = right;
 
+
+
         const slider_style = {
             left: this._slider.offsetLeft,
             top: this._slider.offsetTop,
@@ -96,6 +110,16 @@ export class SliderBaseController {
 
         this._arrow_controller.index = this._index;
         this._arrow_controller.change_index = this.onChangeIndex;
+
+        this.Observer.addCallback(() => {
+            this._arrow_controller.Set_Arrows({
+                left: this._slider.offsetLeft,
+                top: this._slider.offsetTop,
+                width: this._slider.clientWidth,
+                height: this._slider.clientHeight,
+                direction
+            })
+        })
 
         this._arrow_controller.Set_Arrows({...slider_style, direction});
     }
@@ -196,7 +220,6 @@ export class SliderBaseController {
     }
     private Set_by_default() {
         if (!this._slider_track || !this._slider) return;
-
 
         const gapOffset = this._el_on_scrn === 1 ? 0 : this._gap / (this._el_on_scrn - 1);
 
@@ -424,7 +447,9 @@ export class SliderBaseController {
         }, 350);
 
 
-        console.log(this._slider, this._slider.clientWidth)
+        //console.log(this._slider, this._slider.clientWidth)
+
+        this.Observer.Watch()
     }
 
     //</Events>
@@ -560,6 +585,8 @@ export class SliderBaseController {
     }
     public set slider(slider: HTMLElement) {
         this._slider = slider;
+
+        this.Observer.setObserver(this._slider, 'clientWidth')
     }
     public set slider_track(slider_track: HTMLElement) {
         this._slider_track = slider_track;

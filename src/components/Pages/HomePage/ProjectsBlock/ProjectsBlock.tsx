@@ -63,20 +63,23 @@ const ProjectsBlock = () => {
                     <h4 data-mouse-focus={true}> У нас есть разные проекты </h4>
                     <p data-mouse-focus={true}> от Казуальных игр до настоящего искусственного интеллекта</p>
                 </div>
-                <div className={projectsbock.gamesList}>
-                    <div
-                        className={projectsbock.gamesListInnerWrapper}
-                        data-testid={"projects-block-games-list"}
-                    >
-                        {games.map((game) => {
-                            return <MiniGameImage key={game.id} imgSrc={game.imgSrc}
-                                                  game_id={`synt-game-${game.id}`} name={'synt-game'}/>;
-                        })}
+                {
+                    window.screen.width >= 500 &&
+                    <div className={projectsbock.gamesList}>
+                        <div
+                            className={projectsbock.gamesListInnerWrapper}
+                            data-testid={"projects-block-games-list"}
+                        >
+                            {games.map((game) => {
+                                return <MiniGameImage key={game.id} imgSrc={game.imgSrc}
+                                                      game_id={`synt-game-${game.id}`} name={'synt-game'}/>;
+                            })}
+                        </div>
+                        <div className={projectsbock.button}>
+                            <CommonButton type={TypeButton.Load} data={"/projects"} text={"Показать больше"}/>
+                        </div>
                     </div>
-                    <div className={projectsbock.button}>
-                        <CommonButton type={TypeButton.Load} data={"/projects"} text={"Показать больше"}/>
-                    </div>
-                </div>
+                }
 
                 <div className={projectsbock.gamesListMobVer}>
                     <div className={projectsbock.gamesListMobVerTittle}>

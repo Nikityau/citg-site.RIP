@@ -13,6 +13,8 @@ export class SliderArrowController implements ISliderArrowBase {
 
   constructor() {
     this.on_Arrow_Click = this.on_Arrow_Click.bind(this);
+
+    this.Set_Arrows = this.Set_Arrows.bind(this)
   }
 
   // <Set Options>

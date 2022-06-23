@@ -76,54 +76,51 @@ function PhotoSlider() {
                     </div>
                 </div>
             }
-            {
-                window.screen.width < 500 &&
-                <div className={photoslider.mobVer}>
-                    <Slider
-                        slider_options={{
-                            slider_element_type: SliderElement_Type.CARD,
-                            slider_back_type:SliderBack_Type.DEFAULT,
-                            infinite_type:Infinite_Type.INFINITE,
-                            slider_type:Slider_Type.SINGLE
-                        }}
-                        pagination={{
-                            is:true,
-                            location:Slider_Type.HORIZONTAL
-                        }}
-                        swipe={true}
-                        gap={20}
-                        autoplay={{
-                            autoplay:true,
-                            swipe: true,
-                            smooth: false,
-                            delay: 2000
-                        }}
-                        progressbar={{
-                            appear: false,
-                            position:ISliderProgressBarPosition.LEFT_BOTTOM,
-                            direction: ISliderProgressBarDirection.HORIZONTAL
-                        }}
-                        focus={'no'}
-                        arrows={{
-                            is: false,
-                            direction: Slider_Type.HORIZONTAL
-                        }}
-                        elements_on_screen={3}
-                        title={''}
-                        width={"default"}
-                    >
-                        <SliderElement title={'Создавай мечту'}>
-                            <div className={'slider-img-el'} style={{ backgroundImage: `url(${makeDream})` }}/>
-                        </SliderElement>
-                        <SliderElement title={'Развивайся'}>
-                            <div className={'slider-img-el'} style={{ backgroundImage: `url(${evolve})` }}/>
-                        </SliderElement>
-                        <SliderElement title={'Твори'}>
-                            <div className={'slider-img-el'} style={{ backgroundImage: `url(${sm_img})` }}/>
-                        </SliderElement>
-                    </Slider>
-                </div>
-            }
+            <div className={photoslider.mobVer}>
+                <Slider
+                    slider_options={{
+                        slider_element_type: SliderElement_Type.CARD,
+                        slider_back_type: SliderBack_Type.DEFAULT,
+                        infinite_type: Infinite_Type.INFINITE,
+                        slider_type: Slider_Type.SINGLE
+                    }}
+                    pagination={{
+                        is: true,
+                        location: Slider_Type.HORIZONTAL
+                    }}
+                    swipe={true}
+                    gap={20}
+                    autoplay={{
+                        autoplay: true,
+                        swipe: true,
+                        smooth: false,
+                        delay: 2000
+                    }}
+                    progressbar={{
+                        appear: false,
+                        position: ISliderProgressBarPosition.LEFT_BOTTOM,
+                        direction: ISliderProgressBarDirection.HORIZONTAL
+                    }}
+                    focus={'no'}
+                    arrows={{
+                        is: false,
+                        direction: Slider_Type.HORIZONTAL
+                    }}
+                    elements_on_screen={3}
+                    title={''}
+                    width={"default"}
+                >
+                    <SliderElement title={'Создавай мечту'}>
+                        <div className={'slider-img-el'} style={{backgroundImage: `url(${makeDream})`}}/>
+                    </SliderElement>
+                    <SliderElement title={'Развивайся'}>
+                        <div className={'slider-img-el'} style={{backgroundImage: `url(${evolve})`}}/>
+                    </SliderElement>
+                    <SliderElement title={'Твори'}>
+                        <div className={'slider-img-el'} style={{backgroundImage: `url(${sm_img})`}}/>
+                    </SliderElement>
+                </Slider>
+            </div>
         </div>
     );
 }

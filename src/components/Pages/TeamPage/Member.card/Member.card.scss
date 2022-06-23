@@ -6,14 +6,6 @@
 
   background: rgba(12, 17, 23, 0.5);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 50px 0;
-
-  gap: 50px;
-
   &:hover {
 
     background: #fff;
@@ -39,77 +31,100 @@
     width: 46%;
     height: 224px;
   }
-  
-  .member-card_photo {
-    width: 150px;
-    height: 150px;
 
-    border-radius: 50%;
-
-    overflow: hidden;
+  a {
+    width: 100%;
+    height: 100%;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 
+    padding: 50px 0;
+
+    gap: 50px;
+
     @media screen and (max-width: 500px){
-      width: 120px;
-      height: 120px;
+      gap: 10px;
+      padding: 15px 0 0 0;
     }
 
-    img {
-      width: 100%;
-      height: auto;
+    .member-card_photo {
+      width: 150px;
+      height: 150px;
+
+      border-radius: 50%;
+
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (max-width: 500px){
+        width: 120px;
+        height: 120px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
-  }
-  .member-card_description {
-    h5 {
-      font-family: 'Exo 2', sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 2.5rem;
-      line-height: 22px;
+    .member-card_description {
 
-      text-align: center;
-      letter-spacing: 0.045em;
+      @media screen and (max-width: 500px){
+        display: grid;
+        gap: 10px;
+      }
 
-      color: #fff;
+      h5 {
+        font-family: 'Exo 2', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2.5rem;
+        line-height: 22px;
+
+        text-align: center;
+        letter-spacing: 0.045em;
+
+        color: #fff;
+
+        transition: all .3s;
+
+        @media screen and (max-width: 500px){
+          font-size: 2.7rem;
+        }
+      }
+      p {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.4rem;
+        line-height: 15px;
+
+        text-align: center;
+        letter-spacing: 0.045em;
+
+        color: #848484;
+
+        @media screen and (max-width: 500px){
+          font-size: 2rem;
+        }
+      }
+    }
+    .member-card_button {
+      width: 150px;
+      height: 60px;
+
+      background: #F8682A;
+      border: 0.99px solid #DC6041;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+      opacity: 0;
+      pointer-events: none;
 
       transition: all .3s;
-    }
-    p {
-      font-family: 'Inter', sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 1.4rem;
-      line-height: 15px;
-
-      text-align: center;
-      letter-spacing: 0.045em;
-
-      color: #848484;
-    }
-  }
-  .member-card_button {
-    width: 150px;
-    height: 60px;
-
-    background: #F8682A;
-    border: 0.99px solid #DC6041;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition: all .3s;
-
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
-
-    a {
-      width: 100%;
-      height: 100%;
 
       display: flex;
       justify-content: center;
@@ -118,17 +133,22 @@
 
       gap: 2px;
 
-      span {
-        text-transform: uppercase;
-
-        font-family: 'Karla', sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.5rem;
-        line-height: 14px;
-
-        color: #FFFFFF;
+      @media screen and (max-width: 500px) {
+        display: none;
       }
+        span {
+          text-transform: uppercase;
+
+          font-family: 'Karla', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 1.5rem;
+          line-height: 14px;
+
+          color: #FFFFFF;
+        }
     }
   }
+
+
 }

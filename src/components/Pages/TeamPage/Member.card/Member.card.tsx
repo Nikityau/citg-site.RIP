@@ -19,19 +19,19 @@ const MemberCard = ({full_name,skills, photo, link}:IMemberCard) => {
 
     return (
         <div className={'member-card'}>
-            <div className={'member-card_photo'}>
-                <img src={photo} alt={'img'}/>
-            </div>
-            <div className={'member-card_description'}>
-                <h5>{ full_name }</h5>
-                <p>{ skills.join(', ') }</p>
-            </div>
-            <div className={'member-card_button'} onClick={Up}>
-                <Link to={`/team/${link}`}>
-                    <span>show</span>
-                    <span>more</span>
-                </Link>
-            </div>
+            <Link to={`/team/${link}`}>
+                <div className={'member-card_photo'}>
+                    <img src={photo} alt={'img'}/>
+                </div>
+                <div className={'member-card_description'}>
+                    <h5>{ full_name }</h5>
+                    <p>{ skills.join(', ') }</p>
+                </div>
+                <div className={'member-card_button'} onClick={Up}>
+                        <span>show</span>
+                        <span>more</span>
+                </div>
+            </Link>
         </div>
     );
 };

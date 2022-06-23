@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import { Link } from 'react-router-dom'
 
 import './Projects.block.scss'
@@ -21,17 +21,36 @@ import {
 import SliderBoxElements from "../../../../Lib/Slider/Slider.box.elements/Slider.box.elements";
 import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
-import plug from "../../../../assets/icons/citg-icons.svg";
 import Party from "../../../UI/Background/Party/Party";
+import {GoUp} from "../../../../Utils/GoUp";
 
-
+import plug from "../../../../assets/icons/citg-icons.svg";
+import citg_plug from '../../../../assets/images/citg_plug.png'
 
 const ProjectsBlock = () => {
-
+    const projectsBlock = useRef<HTMLDivElement>(null)
     const [isExpand, setIsExpand] = useState<boolean>(false)
 
     const changeExpand = () => {
         setIsExpand(prev => !prev)
+
+        if(!isExpand) {
+
+            const lastChild = projectsBlock.current.children[projectsBlock.current.children.length - 1] as HTMLElement
+            const h = lastChild.offsetTop + lastChild.clientHeight
+
+            projectsBlock.current.style.height = h + 20 + 'px'
+
+        } else {
+            const lastChild = projectsBlock.current.children[1] as HTMLElement
+            const h = lastChild.offsetTop + lastChild.clientHeight
+
+            GoUp()
+
+            setTimeout(() => {
+                projectsBlock.current.style.height = h + 20 + 'px'
+            }, 300)
+        }
     }
 
     return (
@@ -210,11 +229,12 @@ const ProjectsBlock = () => {
             }
             <div className={'projects-block-mob-ver'}>
                 <Party/>
-                <div className={['projects-block-mob-ver_container', isExpand ? 'projects-block-mob-ver_container-expand' : ''].join(' ')}>
+                <div ref={projectsBlock} className={['projects-block-mob-ver_container', isExpand ? '' : ''].join(' ')}>
                     {
                         Array_by_number(10).map((item, index) => (
                             <div key={index} className={'projects-block-mob-ver_el'}>
                                 <Link to={`/projects/synt-${index}`}>
+                                    <img src={citg_plug}/>
                                 </Link>
                             </div>
                         ))

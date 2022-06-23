@@ -3,8 +3,13 @@ import React, { useEffect, useRef } from "react";
 import { AnimationLevitation } from "../../../Animation/AnimationLevitation/AnimationLevitation";
 import { AnimationCircle } from "../../../Animation/AnimationCircle/AnimationCircle";
 
+import {ObserverBase} from "../../../Lib/Observer/Observer.base";
+
 import biglogo from "./BigLogo.module.scss";
 import biglogo_img from "../../../assets/icons/BigLogo/big_logo.png";
+
+
+const Observer = new ObserverBase()
 
 const BigLogo = () => {
   const container = useRef<HTMLDivElement | null>(null);
@@ -33,7 +38,6 @@ const BigLogo = () => {
     rotatingCircle.current.style.top = bc.offsetTop + "px";
     rotatingCircle.current.style.left = bc.offsetLeft + bc.width + bc.width / 4 + "px";
   };
-
   const rotateCircle = (): NodeJS.Timeout | undefined => {
     if (!rotatingCircle.current || !bigCircle.current || !container.current) return;
 
@@ -81,7 +85,6 @@ const BigLogo = () => {
 
     return animation.Start();
   };
-
   const mediumCircleAnimation = (): NodeJS.Timeout | undefined => {
     if (window.screen.width <= 500) return;
     if (!mediumCircle.current) return;
@@ -90,7 +93,6 @@ const BigLogo = () => {
 
     return animation.Start();
   };
-
   const smallCircleAnimation = (): NodeJS.Timeout | undefined => {
     if (window.screen.width <= 500) return;
     if (!smallCircle.current) return;
@@ -104,6 +106,11 @@ const BigLogo = () => {
     const _medium = mediumCircleAnimation();
     const _small = smallCircleAnimation();
     const _rotate = rotateCircle();
+
+    Observer.setObserver(bigCircle.current, 'offsetLeft')
+    //Observer.addCallback(rotateCircle)
+
+    Observer.Watch()
 
     return () => {
       if (_medium) clearTimeout(_medium);
