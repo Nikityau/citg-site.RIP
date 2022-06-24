@@ -30,12 +30,18 @@ export type ProjectInfo = {
     supported_devices: Device[]
 }
 
+export type Software = {
+    id: string
+    title: string
+    imgSrc: string
+}
+
 export type MemberInfo = {
     id: string,
     photo: Img
     full_name: string,
     skills: string[],
-    software: Img[]
+    software: Software[]
     social_links: Link[]
     achievement_n_awards: Img[]
     participation_in_projects: MiniInfo[]
@@ -48,7 +54,7 @@ export type Work = {
     name: string,
     description: string,
     img: string,
-    software_used: MiniInfo[],
+    software_used: Software[],
     development_stages: Img[]
 }
 

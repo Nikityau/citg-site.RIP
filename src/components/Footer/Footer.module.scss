@@ -199,3 +199,15 @@
     }
   }
 }
+
+.hide {
+  display: none !important;
+}
+.less {
+  @media screen and (max-width: 500px){
+    height: 80px;
+  }
+}
+.full {
+  height: 100% !important;
+}

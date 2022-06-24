@@ -18,9 +18,38 @@
 
     width: 100%;
     height: 300px;
-    background: #d71010;
+    background: transparent;
 
     z-index: -1;
+
+    .TMP_mob-ver__blur-overhead {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: rgba(26, 31, 37, 0.4);
+
+      z-index: 1;
+    }
+
+    .TMP_mob-ver__preview-back-img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: 100%;
+
+
+
+      img {
+        width: 100%;
+
+        filter: blur(20px);
+      }
+    }
   }
 
   .TMP_mob-ver-main-field {
@@ -29,12 +58,68 @@
     width: 100%;
     min-height: 700px;
 
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 
     background: linear-gradient(180deg, #0C1117 11.66%, rgba(12, 17, 23, 0.5) 100%);
     border-radius: 40px 40px 0px 0px;
 
     padding-top: 80px;
+
+    .TMP_mob-ver-main-field__purple-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: linear-gradient(30deg, #33317D -8.78%, rgba(71, 0, 54, 0) 82.01%);
+      mix-blend-mode: normal;
+      filter: blur(0px);
+
+      z-index: -1;
+    }
+    .TMP_mob-ver-main-field__red-back {
+      position: absolute;
+      top: 0;
+      right: -50%;
+
+      width: 100%;
+      height: 80%;
+
+      background: #71192A;
+      filter: blur(100px);
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+
+      z-index: -1;
+    }
+
+    .TMP_mob-ver-main-field_contact-me {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+
+       a {
+         display: block;
+         
+         width: 100%;
+
+         padding: 7px 0;
+
+         text-align: center;
+
+         font-family: 'Exo 2', sans-serif;
+         font-style: normal;
+         font-weight: 400;
+         font-size: 14px;
+         line-height: 17px;
+         letter-spacing: 0.045em;
+
+         color: #FFFFFF;
+       }
+    }
 
     .TMP_mob-ver-member-img {
       position: absolute;
@@ -159,6 +244,70 @@
         img {
           width: 35px;
         }
+      }
+    }
+
+    .TMP_mob-ver-inner-routers {
+      width: 90%;
+
+      margin: 50px auto 0;
+
+      .TMP_mob-ver-tabs {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+
+        .TMP_mob-ver-tab {
+          button {
+            background: transparent;
+            border: none;
+
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 2.7rem;
+            line-height: 19px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+          }
+
+          .TMP_mob-ver-tab-line {
+            width: 70%;
+            height: 3px;
+
+            background: #FFFFFF;
+            border-radius: 20px;
+
+            margin: 5px auto 0;
+
+            transition: all .3s;
+
+            opacity: 0;
+          }
+        }
+        .TMP_mob-ver-current-tab {
+          .TMP_mob-ver-tab-line {
+            opacity: 1;
+          }
+
+
+        }
+      }
+
+      .TMP_mob-ver-tab-content {
+        width: 100%;
+      }
+      .TMP_mob-ver-tab-block {
+        display: none;
+      }
+      .TMP_mob-ver-current-tab {
+        display: block;
       }
     }
   }

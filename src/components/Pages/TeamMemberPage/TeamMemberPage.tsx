@@ -51,7 +51,7 @@ function TeamMemberPage() {
                     </div>
                 </>
             }
-            <MobVersion/>
+            <MobVersion memberInfo={member}/>
         </div>
     );
 }

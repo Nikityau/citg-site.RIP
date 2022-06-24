@@ -16,6 +16,16 @@ import certificate_plug from '../../assets/images/certificate_plug.png'
 
 import citg_plug from '../../assets/images/citg_plug_rectangle.png'
 
+import samurai_img from '../../assets/images/gallery/samurai.png'
+import chiksa_img from '../../assets/images/gallery/chiksa.png'
+import strashna_img from '../../assets/images/gallery/strashna.png'
+import chelik_img from '../../assets/images/gallery/chelik.png'
+import jinx_img from '../../assets/images/gallery/jinx.png'
+import xz_img from '../../assets/images/gallery/xz.png'
+import dude_img from '../../assets/images/gallery/dude.png'
+import noga_img from '../../assets/images/gallery/noga.png'
+import navigation_img from '../../assets/images/gallery/navigation.png'
+
 export const member: MemberInfo = {
     id: nanoid(),
     photo: {
@@ -27,14 +37,17 @@ export const member: MemberInfo = {
     software: [
         {
             id: nanoid(),
+            title: 'photoshop',
             imgSrc: ai_img
         },
         {
             id: nanoid(),
+            title: 'illustrator',
             imgSrc: ps_img
         },
         {
             id: nanoid(),
+            title: 'figma',
             imgSrc: figma_img
         }
     ],
@@ -99,39 +112,39 @@ export const member: MemberInfo = {
     my_works: [
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: samurai_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: chiksa_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: strashna_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: chelik_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: jinx_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: xz_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: dude_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: noga_img
         },
         {
             id: nanoid(),
-            imgSrc: citg_plug
+            imgSrc: navigation_img
         },
     ],
     pdf_portfolio_link: 'https://cran.r-project.org/web/packages/V8/V8.pdf'

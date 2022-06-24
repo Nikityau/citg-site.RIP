@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { useParams, useLocation, useRouteMatch } from 'react-router-dom'
 
 import Contacts from '../UI/Contacts/Contacts';
 import Copyright from '../UI/Copyright/Copyright';
@@ -19,6 +20,9 @@ import ArrowUpController from "./ArrowUp/ArrowUp.controller";
 
 function Footer() {
 
+  const match_team_member = useRouteMatch('/team/:id')
+  const match_project = useRouteMatch('/projects/:id')
+
   useEffect(() => {
     ArrowUpController.FindArrow()
     ArrowUpController.FindFooter()
@@ -29,8 +33,12 @@ function Footer() {
     }
   }, [])
 
+  useEffect(() => {
+
+  }, [location])
+
   return (
-    <div className={footer.container} id={'footer'}>
+    <div className={[footer.container, (match_project || match_team_member) ? footer.less : ''].join(' ')} id={'footer'}>
       <ArrowUp/>
       <div className={footer.copyrigth}>
         <Copyright />
@@ -65,7 +73,7 @@ function Footer() {
         </div>
       </div>
       <div className={footer.mobVer}>
-        <div className={footer.mobVerLinksContainer}>
+        <div className={[footer.mobVerLinksContainer, (match_project || match_team_member) ? footer.full : ''].join(' ')}>
           <div className={footer.mobVerLink}>
             <a href="https://telegram.org">
               <img src={telegram_mob_icon} alt="img" />
@@ -82,7 +90,7 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className={footer.mobVerContacts}>
+        <div className={[footer.mobVerContacts, (match_project || match_team_member) ? footer.hide : ''].join(' ')}>
           <div className={footer.mobVerNumber}>
             <span>+123.456.789</span>
           </div>

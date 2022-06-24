@@ -1,6 +1,10 @@
 .skills-tile {
   height: 81px;
 
+  @media screen and (max-width: 500px){
+    height: auto;
+  }
+
   .software-skills-tile_tile {
     padding: 0 30px;
     height: 100%;
@@ -38,6 +42,14 @@
     box-shadow: inset 0px -5px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 
+    @media screen and (max-width: 500px){
+      display: inline;
+
+      padding: 20px 30px;
+
+      box-shadow: 0px 50px 50px rgba(0, 0, 0, 0.25), inset 0px -5px 4px rgba(0, 0, 0, 0.25);
+    }
+
     span {
       font-family: 'Inter', sans-serif;
       font-style: normal;
@@ -48,6 +60,10 @@
       letter-spacing: 0.045em;
 
       color: #F8682A;
+
+      @media screen and (max-width: 500px) {
+        font-size: 2.5rem;
+      }
     }
   }
 }
