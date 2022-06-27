@@ -242,7 +242,7 @@ const ProjectsBlock = () => {
                         }}
                         elements_on_screen={3}
                         width={'default'}
-                        title={''}>
+                        title={'Наши достижения и награды'}>
                         {awards.map((award) => {
                             return (
                                 <SliderElement key={award.id} title={"text"}>

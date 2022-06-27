@@ -101,6 +101,10 @@
         max-width: 100%;
         display: none;
       }
+      @media screen and (max-width: 1250px){
+        max-width: 100%;
+        padding: 0 20px;
+      }
 
       .contactUs {
         height: 100%;

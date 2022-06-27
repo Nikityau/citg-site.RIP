@@ -13,6 +13,13 @@
     top: 0;
     right: 0;
 
+    @media screen and (max-width: 500px){
+      left: 0;
+      width: 100%;
+
+      text-align: center;
+    }
+
     h5 {
       font-family: "Inter", sans-serif;
       font-style: normal;
@@ -21,6 +28,10 @@
       line-height: 28px;
 
       color: #f8682a;
+
+      @media screen and (max-width: 500px){
+        font-size: 3.3rem;
+      }
     }
   }
 

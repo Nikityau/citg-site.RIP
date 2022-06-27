@@ -327,6 +327,8 @@
     .sliderMobVer {
       display: none;
 
+      padding: 0 20px;
+
       @media screen and (max-width: 500px) {
         width: 100%;
         height: 450px;
