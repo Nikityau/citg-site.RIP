@@ -43,7 +43,7 @@ const Slider = ({
     const progress_bar_ref = useRef<HTMLDivElement>(undefined)
 
     useEffect(() => {
-       /* if (!slider_ref.current || !slider_track_ref.current) return;
+        if (!slider_ref.current || !slider_track_ref.current) return;
 
         slider_base_controller.slider = slider_ref.current;
         slider_base_controller.slider_track = slider_track_ref.current;
@@ -56,9 +56,9 @@ const Slider = ({
         slider_base_controller.Set_Swipes();
         slider_base_controller.Set_Autoplay();
 
-        slider_base_controller.change_index = set_current_el_index;*/
+        slider_base_controller.change_index = set_current_el_index;
 
-        /*slider_base_controller.Options(
+        slider_base_controller.Options(
             slider_options,
             pagination.is,
             {
@@ -71,7 +71,7 @@ const Slider = ({
             },
             focus,
             elements_on_screen
-        );*/
+        );
     }, []);
 
     useEffect(() => {
