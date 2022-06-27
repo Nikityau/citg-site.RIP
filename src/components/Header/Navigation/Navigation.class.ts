@@ -59,7 +59,7 @@ export class NavigationClass {
   }
 
   public async Change(location: string) {
-    if (location.includes("home")) {
+    /*if (location.includes("home")) {
       await this.ToHome();
       return;
     }
@@ -75,7 +75,7 @@ export class NavigationClass {
     }
 
     await this.ToHome();
-    return;
+    return;*/
   }
   public AddLinks(circle: HTMLElement, home: HTMLElement, middle: HTMLElement, end: HTMLElement) {
     this.circle = circle;
