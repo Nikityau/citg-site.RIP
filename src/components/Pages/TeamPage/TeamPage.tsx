@@ -3,6 +3,7 @@ import React from 'react';
 import MemberCard from "./Member.card/Member.card";
 
 //import {GoUp} from "../../../Utils/GoUp";
+
 import {Array_by_number} from "../../../Utils/Func/Array_by_number";
 
 import './Team.page.scss'
@@ -18,7 +19,7 @@ const TeamPage = () => {
 
     return (
         <div className={'team-page'}>
-            <div className={'team-page__gradient-purple'}/>
+            {/*<div className={'team-page__gradient-purple'}/>
             <div className={'team-page__gradient-red'}/>
             <div className={'team-page_container'}>
                 <div className={'team-page_title'}>
@@ -29,7 +30,7 @@ const TeamPage = () => {
                 <div className={'team-page_team'}>
 
                 </div>
-            </div>
+            </div>*/}
         </div>
     );
 };

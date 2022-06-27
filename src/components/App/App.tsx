@@ -21,9 +21,9 @@ function App() {
           return <CustomMouse x={mouse.x} y={mouse.y} />;
         }}
       />*/}
-      <Header />
+     {/* <Header />*/}
       <Router />
-      <Footer />
+      {/*<Footer />*/}
     </BrowserRouter>
   );
 }
