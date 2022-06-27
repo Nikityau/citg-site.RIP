@@ -1,16 +1,17 @@
 import React  from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import Header from "../Header/Header";
+/*import Header from "../Header/Header";
 import Router from "../Router/Router";
 import Footer from "../Footer/Footer";
 
 import CustomMouse from "../UI/CustomMouse/CustomMouse";
 import Mouse from "../UtilsComponents/Mouse/Mouse";
 
-import { IMouse } from "../UtilsComponents/Mouse/Mouse.interface";
+import { IMouse } from "../UtilsComponents/Mouse/Mouse.interface";*/
 
 import "./App.scss";
+import TeamPage from "../Pages/TeamPage/TeamPage";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
         }}
       />*/}
      {/* <Header />*/}
-      <Router />
+        <TeamPage/>
+      {/*<Router />*/}
       {/*<Footer />*/}
     </BrowserRouter>
   );
