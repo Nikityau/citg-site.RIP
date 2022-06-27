@@ -3,13 +3,8 @@ import React, { useEffect, useRef } from "react";
 import { AnimationLevitation } from "../../../Animation/AnimationLevitation/AnimationLevitation";
 import { AnimationCircle } from "../../../Animation/AnimationCircle/AnimationCircle";
 
-import {ObserverBase} from "../../../Lib/Observer/Observer.base";
-
 import biglogo from "./BigLogo.module.scss";
 import biglogo_img from "../../../assets/icons/BigLogo/big_logo.png";
-
-
-const Observer = new ObserverBase()
 
 const BigLogo = () => {
   const container = useRef<HTMLDivElement | null>(null);
@@ -38,7 +33,7 @@ const BigLogo = () => {
     rotatingCircle.current.style.top = bc.offsetTop + "px";
     rotatingCircle.current.style.left = bc.offsetLeft + bc.width + bc.width / 4 + "px";
   };
-  const rotateCircle = (): NodeJS.Timeout | undefined => {
+  const rotateCircle = (): () => void | undefined => {
     if (!rotatingCircle.current || !bigCircle.current || !container.current) return;
 
     const r = bigCircle.current.clientWidth / 2;
@@ -83,22 +78,27 @@ const BigLogo = () => {
       );
     }
 
-    return animation.Start();
+    animation.Start()
+
+    return animation.Stop;
   };
-  const mediumCircleAnimation = (): NodeJS.Timeout | undefined => {
+  const mediumCircleAnimation = (): () => void | undefined => {
     if (window.screen.width <= 500) return;
     if (!mediumCircle.current) return;
 
     const animation = new AnimationLevitation(mediumCircle.current, 20, 80);
+    animation.Start()
 
-    return animation.Start();
+    return animation.Stop;
   };
-  const smallCircleAnimation = (): NodeJS.Timeout | undefined => {
+  const smallCircleAnimation = (): () => void | undefined => {
     if (window.screen.width <= 500) return;
     if (!smallCircle.current) return;
 
     const animation = new AnimationLevitation(smallCircle.current, 8, 100, 0.8);
-    return animation.Start();
+    animation.Start()
+
+    return animation.Stop;
   };
 
   useEffect(() => {
@@ -107,17 +107,12 @@ const BigLogo = () => {
     const _small = smallCircleAnimation();
     const _rotate = rotateCircle();
 
-    Observer.setObserver(bigCircle.current, 'offsetLeft')
-    //Observer.addCallback(rotateCircle)
-
-    Observer.Watch()
-
     return () => {
-      if (_medium) clearTimeout(_medium);
+      if (_medium) _medium();
 
-      if (_small) clearTimeout(_small);
+      if (_small) _small();
 
-      if (_rotate) clearTimeout(_rotate);
+      if (_rotate) _rotate();
     };
   }, []);
 

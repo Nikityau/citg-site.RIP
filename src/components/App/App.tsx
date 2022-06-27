@@ -1,14 +1,15 @@
 import React  from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import Header from "../Header/Header";
-import Router from "../Router/Router";
-import Footer from "../Footer/Footer";
 
-import CustomMouse from "../UI/CustomMouse/CustomMouse";
+const Router = React.lazy(() => import('../Router/Router'))
+const Header = React.lazy(() => import('../Header/Header'))
+const Footer = React.lazy(() => import('../Footer/Footer'))
+
+/*import CustomMouse from "../UI/CustomMouse/CustomMouse";
 import Mouse from "../UtilsComponents/Mouse/Mouse";
 
-import { IMouse } from "../UtilsComponents/Mouse/Mouse.interface";
+import { IMouse } from "../UtilsComponents/Mouse/Mouse.interface";*/
 
 import "./App.scss";
 

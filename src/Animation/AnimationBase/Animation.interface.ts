@@ -3,6 +3,6 @@ export interface IAnimationInterface {
   timeout: NodeJS.Timeout;
   delay: number;
 
-  Start(): NodeJS.Timeout;
+  Start(): Promise<void>;
   Stop(): void;
 }

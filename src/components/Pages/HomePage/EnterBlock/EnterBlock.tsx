@@ -2,7 +2,9 @@ import React from 'react';
 
 import PageNumber from '../../../UI/PageNumber/PageNumber';
 import InfoBar from '../../../UI/InfoBar/InfoBar';
-import BigLogo from '../../../UI/BigLogo/BigLogo';
+
+const BigLogo = React.lazy(() => import('../../../UI/BigLogo/BigLogo'))
+
 import PurpleBackground from '../../../UI/Background/PurpleBackground/PurpleBackground';
 
 import enterblock from './EnterBlock.module.scss';

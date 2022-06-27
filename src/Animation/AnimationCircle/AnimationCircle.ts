@@ -14,7 +14,7 @@ export class AnimationCircle implements IAnimationInterface {
   private cx: number;
   private cy: number;
   private _r: number;
-  private angle = 0;
+  private angle:number = 0;
   delay: number;
   timeout = setTimeout(() => { return }, 0);
 
@@ -51,6 +51,8 @@ export class AnimationCircle implements IAnimationInterface {
     } else {
       this._trail = null;
     }
+
+    this.Stop = this.Stop.bind(this)
   }
 
   public get trail(): HTMLElement | null {
@@ -85,20 +87,18 @@ export class AnimationCircle implements IAnimationInterface {
     this._r = r;
   }
 
-  public Start(): NodeJS.Timeout {
+  public async Start(): Promise<void> {
     if (this.isMobile) {
-      const coord = MathUtils.PointsCoordsOnCircle(100, this._r, this.cx, this.cy);
+      const coord = await MathUtils.PointsCoordsOnCircle(100, this._r, this.cx, this.cy);
 
       this.element.style.top = coord.y + "px";
       this.element.style.left = coord.x + "px";
-
-      return setTimeout(() => { return });
     }
 
-    this.timeout = setInterval(() => {
+    this.timeout = setInterval( async () => {
       this.angle += 1;
 
-      const coord = MathUtils.PointsCoordsOnCircle(this.angle, this._r, this.cx, this.cy);
+      const coord = await MathUtils.PointsCoordsOnCircle(this.angle, this._r, this.cx, this.cy);
 
       this.element.style.top = coord.y + "px";
       this.element.style.left = coord.x + "px";
@@ -112,8 +112,6 @@ export class AnimationCircle implements IAnimationInterface {
         this.angle = 0;
       }
     }, this.delay);
-
-    return this.timeout;
   }
   public Stop(): void {
     clearInterval(this.timeout);

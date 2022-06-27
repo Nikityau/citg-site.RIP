@@ -37,8 +37,7 @@ export class NavigationClass {
 
     const pos = await this.ChangePos(this.home);
 
-    this.circle.style.left = pos.x - this.circle.clientWidth / 2 + "px";
-    this.circle.style.top = pos.y + this.additionalTopOffset + "px";
+    await this.SetByPos(pos)
   }
 
   private async ToMiddle() {
@@ -46,20 +45,22 @@ export class NavigationClass {
 
     const pos = await this.ChangePos(this.middle);
 
-    this.circle.style.left = pos.x - this.circle.clientWidth / 2 + "px";
-    this.circle.style.top = pos.y + this.additionalTopOffset + "px";
+    await this.SetByPos(pos)
   }
   private async ToEnd() {
     if (!this.end || !this.circle) return;
 
     const pos = await this.ChangePos(this.end);
+    await this.SetByPos(pos)
+  }
 
-    this.circle.style.left = pos.x - this.circle.clientWidth / 2 + "px";
-    this.circle.style.top = pos.y + this.additionalTopOffset + "px";
+  private async SetByPos(pos) {
+    this.circle.style.left = await (pos.x - this.circle.clientWidth / 2 + "px");
+    this.circle.style.top = await (pos.y + this.additionalTopOffset + "px");
   }
 
   public async Change(location: string) {
-    /*if (location.includes("home")) {
+    if (location.includes("home")) {
       await this.ToHome();
       return;
     }
@@ -75,7 +76,7 @@ export class NavigationClass {
     }
 
     await this.ToHome();
-    return;*/
+    return;
   }
   public AddLinks(circle: HTMLElement, home: HTMLElement, middle: HTMLElement, end: HTMLElement) {
     this.circle = circle;

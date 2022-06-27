@@ -1,11 +1,11 @@
 import React, { useCallback, useRef, useState } from "react";
 
 import Logo from "../UI/Logo/Logo";
-import Navigation from "./Navigation/Navigation";
 import PopUp from "./PopUp/PopUp";
 import Mail from "../UI/Mail/Mail";
 
-import Burger from "./Burger/Burger";
+const Navigation = React.lazy(() => import('./Navigation/Navigation'))
+const Burger = React.lazy(() => import('./Burger/Burger'))
 
 import { DeviceType } from "../UI/Logo/Logo.inteface";
 

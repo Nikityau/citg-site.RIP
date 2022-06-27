@@ -14,35 +14,14 @@ export class AnimationLevitation implements IAnimationInterface {
     this.border = border;
     this.coeff = border;
     this.coeffIncrease = coeffInc;
+
+    this.ClearInterval = this.ClearInterval.bind(this)
+    this.Stop = this.Stop.bind(this)
   }
 
   private GoUp() {
-    /*return new Promise((resolve) => {
-
-      const Up = async () => {
-        console.log('up')
-        if(this.coeff <= 1) {
-          this.DefaultCoeff();
-          return resolve(true)
-        }
-
-        this.coeff = this.coeff - this.coeffIncrease;
-
-        this.element.style.top = Number.parseFloat(this.element.style.top) - this.coeff + 'px';
-
-        setTimeout(async () => {
-          requestAnimationFrame(() => {
-            Up()
-          });
-        }, this.delay)
-      }
-      requestAnimationFrame(() => {
-        Up()
-      })
-    })*/
-
     this.timeout = setInterval(async () => {
-      this.coeff -= await this.coeffIncrease;
+      this.coeff -= await (this.coeffIncrease);
 
       this.element.style.top = await (Number.parseFloat(this.element.style.top) -
         this.coeff +
@@ -56,30 +35,8 @@ export class AnimationLevitation implements IAnimationInterface {
     }, this.delay);
   }
   private GoDown() {
-    /* return new Promise( (resolve) => {
-      const Up = async () => {
-        if(this.coeff <= 1) {
-          this.DefaultCoeff();
-          return resolve(false);
-        }
-
-        this.coeff = this.coeff - this.coeffIncrease;
-
-        this.element.style.top = Number.parseFloat(this.element.style.top) + this.coeff + 'px';
-
-        setTimeout(async () => {
-          requestAnimationFrame(() => {
-            Up()
-          })
-        }, this.delay)
-      }
-      requestAnimationFrame(() => {
-        Up()
-      })
-    })*/
-
     this.timeout = setInterval(async () => {
-      this.coeff -= await this.coeffIncrease;
+      this.coeff -= await (this.coeffIncrease);
 
       this.element.style.top = await (Number.parseFloat(this.element.style.top) +
         this.coeff +
@@ -99,27 +56,8 @@ export class AnimationLevitation implements IAnimationInterface {
     this.coeff = this.border;
   }
 
-  /*async AnimStart() {
-    try {
-      console.log('start')
-      await this.GoUp();
-      console.log('after up')
-      await this.GoDown();
-      console.log('after down')
-
-      setTimeout(() => {
-        console.log('repeat')
-        this.AnimStart()
-      }, this.delay)
-    } catch (e) {
-      Logger.Error('smth went wrong')
-    }
-  }*/
-
-  Start(): NodeJS.Timeout {
-    this.GoUp();
-
-    return this.timeout;
+  async Start(): Promise<void>{
+    await this.GoUp();
   }
   Stop(): void {
     this.ClearInterval();
