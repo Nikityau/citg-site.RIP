@@ -27,12 +27,7 @@ const TeamPage = () => {
                         многие из них являются бывшими учениками</p>
                 </div>
                 <div className={'team-page_team'}>
-                    {
-                        Array_by_number(8).map(item => (
-                            <MemberCard key={item} photo={ded_img} link={'001'} full_name={'Ded A.K.A Byiniй'}
-                                        skills={['illustrator', 'UI/UX-designer']} onClick={() => {}}/>
-                        ))
-                    }
+
                 </div>
             </div>
         </div>
