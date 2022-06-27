@@ -117,7 +117,7 @@ export class AnimationLevitation implements IAnimationInterface {
   }*/
 
   Start(): NodeJS.Timeout {
-    this.GoUp();
+    //this.GoUp();
 
     return this.timeout;
   }

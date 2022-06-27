@@ -95,7 +95,7 @@ export class AnimationCircle implements IAnimationInterface {
       return setTimeout(() => { return });
     }
 
-    this.timeout = setInterval(() => {
+    /*this.timeout = setInterval(() => {
       this.angle += 1;
 
       const coord = MathUtils.PointsCoordsOnCircle(this.angle, this._r, this.cx, this.cy);
@@ -111,7 +111,7 @@ export class AnimationCircle implements IAnimationInterface {
       if (this.angle >= 360) {
         this.angle = 0;
       }
-    }, this.delay);
+    }, this.delay);*/
 
     return this.timeout;
   }

@@ -15,10 +15,10 @@ export class MouseBaseController {
   }
 
   public Subscribe() {
-    window.addEventListener("mousemove", this.MouseMove);
+    //window.addEventListener("mousemove", this.MouseMove);
   }
   public Unsubscribe() {
-    window.removeEventListener("mousemove", this.MouseMove);
+    //window.removeEventListener("mousemove", this.MouseMove);
   }
 
   private MouseMove(e: MouseEvent) {
