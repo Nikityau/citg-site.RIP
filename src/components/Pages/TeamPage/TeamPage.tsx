@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import MemberCard from "./Member.card/Member.card";
 
@@ -12,6 +12,11 @@ import ded_img from '../../../assets/images/team-member/ded.png'
 
 
 const TeamPage = () => {
+
+    useEffect(() => {
+        console.log('render')
+    })
+
     const onClick = async () => {
         await GoUp()
     }
