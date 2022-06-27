@@ -14,10 +14,6 @@ export interface IMemberCard {
 }
 
 const MemberCard = ({full_name,skills, photo, link, onClick}:IMemberCard) => {
-  /*  const Up = async () => {
-        await GoUp()
-    }*/
-
     return (
         <div className={'member-card'} onClick={onClick}>
             <Link to={`/team/${link}`}>
@@ -28,7 +24,7 @@ const MemberCard = ({full_name,skills, photo, link, onClick}:IMemberCard) => {
                     <h5>{ full_name }</h5>
                     <p>{ skills.join(', ') }</p>
                 </div>
-                <div className={'member-card_button'} >
+                <div className={'member-card_button'} onClick={onClick}>
                         <span>show</span>
                         <span>more</span>
                 </div>
