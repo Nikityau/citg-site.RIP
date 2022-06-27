@@ -14,17 +14,17 @@ export class ObserverBase {
 
 
     private CallCbcks() {
-        this.callback.forEach(cb => cb())
+        this.callback.forEach(async cb => await cb())
     }
 
-    public Watch() {
+    public async Watch() {
         if(!this.target) return
 
         if(this.target instanceof HTMLElement) {
-            const state = this.target[this.observe_to]
+            const state = await this.target[this.observe_to]
             if(this.state != state) {
                 this.state = state;
-                this.CallCbcks()
+                await this.CallCbcks()
             }
         }
 

@@ -52,8 +52,8 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
 
     return this._timeout;
   }
-  Stop() {
-    clearTimeout(this._timeout);
+  async Stop() {
+    await clearTimeout(this._timeout);
   }
   Waiting(): NodeJS.Timeout {
     this.Stop();

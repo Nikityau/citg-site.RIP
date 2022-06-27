@@ -25,6 +25,7 @@ import {
 } from "../Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.entry";
 
 import {ObserverBase} from "../../Observer/Observer.base";
+import {log} from "util";
 
 
 export class SliderBaseController {
@@ -99,8 +100,6 @@ export class SliderBaseController {
         this._arrow_controller.left_arrow = left;
         this._arrow_controller.right_arrow = right;
 
-
-
         const slider_style = {
             left: this._slider.offsetLeft,
             top: this._slider.offsetTop,
@@ -123,6 +122,7 @@ export class SliderBaseController {
 
         this._arrow_controller.Set_Arrows({...slider_style, direction});
     }
+
     public Set_Swipes() {
         if (!this._slider) return;
 
@@ -146,6 +146,7 @@ export class SliderBaseController {
 
         this._swipe_controller.Change_index = this.onChangeIndex;
     }
+
     public Set_Autoplay() {
         if (!this._slider_track || !this._slider) return;
 
@@ -161,6 +162,7 @@ export class SliderBaseController {
         this._autoplay_controller._index = this._index;
         this._autoplay_controller.Change_index = this.onChangeIndex;
     }
+
     public Set_ProgressBar() {
         if (!this._progressbar_controller)
             this._progressbar_controller = new SliderProgressbarController();
@@ -218,7 +220,8 @@ export class SliderBaseController {
 
         this.Set_by_default();
     }
-    private Set_by_default() {
+
+    private async Set_by_default() {
         if (!this._slider_track || !this._slider) return;
 
         const gapOffset = this._el_on_scrn === 1 ? 0 : this._gap / (this._el_on_scrn - 1);
@@ -232,49 +235,53 @@ export class SliderBaseController {
             el_height = this._slider.clientHeight - gapOffset;
         }
 
-        if(this._slider_options.slider_type == Slider_Type.SINGLE) {
+        if (this._slider_options.slider_type == Slider_Type.SINGLE) {
             el_width = this._slider.clientWidth;
         }
-        if(this._slider_options.slider_type == Slider_Type.EXTENDED) {
-            el_width = this._slider.clientWidth * 3/4;
+        if (this._slider_options.slider_type == Slider_Type.EXTENDED) {
+            el_width = this._slider.clientWidth * 3 / 4;
         }
 
-        const children = this._slider_track.children;
+        const children = await Array.from(this._slider_track.children);
 
-        for (let i = 0; i < children.length; ++i) {
-            const el = <HTMLElement>children[i]
+        await children.map(async (child, index) => {
+            const el = <HTMLElement>child;
 
-            children[i].setAttribute("data-slider-el-index", `${i}`);
+            child.setAttribute("data-slider-el-index", `${index}`);
 
-            el.style.width = el_width + "px";
+            el.style.width = el_width + 'px';
 
             if (el_height) {
                 el.style.height = el_height + 'px'
             }
-            if (this.focus != "no") {
-                el.classList.add('slider-element-bw')
-                el.style.transform = 'scale(.88)'
-            }
-        }
 
-        Array.from(children).map( child => {
-            if(child.getAttribute('data-slider-box-els')) {
+            if (this.focus != 'no') {
+                await el.classList.add('slider-element-bw')
+                el.style.transform = ('scale(.88)')
+            }
+        })
+
+        await children.map(async child => {
+            if (child.getAttribute('data-slider-box-els')) {
                 const width = (child.clientWidth / 3 - this._gap)
-                const height= (child.clientHeight / 2 - this._gap)
-                Array.from(child.children).map( box_child => {
-                    const el = <HTMLElement>box_child;
-                    el.style.width = (width + 'px');
-                    el.style.height = (height + 'px')
+                const height = (child.clientHeight / 2 - this._gap)
+                await Array.from(child.children).map(async box_child => {
+                    const el = await <HTMLElement>box_child;
+                    await (() => {
+                        el.style.width = (width + 'px');
+                        el.style.height = (height + 'px')
+                    })()
                 });
             }
         })
 
         this.Set_by_options();
     }
-    private Set_by_options() {
+
+    private async Set_by_options() {
         this.Slider_type_init();
         if (this._autoplay_option.autoplay) {
-            this.Set_Autoplay();
+            await this.Set_Autoplay();
         }
         if (this._autoplay_controller) {
             this._autoplay_controller.Stop();
@@ -284,24 +291,26 @@ export class SliderBaseController {
             this.Set_ProgressBar()
         }
     }
+
     private Clear_old() {
         if (!this._slider_track) return;
 
-        const copy = this._slider_track.querySelectorAll("[data-copy-slider-el='true']");
+        const copy =  this._slider_track.querySelectorAll("[data-copy-slider-el='true']");
         for (let i = 0; i < copy.length; ++i) {
-            this._slider_track.removeChild(copy[i]);
+             this._slider_track.removeChild(copy[i]);
         }
 
         this.Update_main_els();
     }
-    private Update_main_els() {
+
+    private async Update_main_els() {
         if (!this._slider_track) return;
 
-        const children = this._slider_track.children;
+        const children = Array.from(this._slider_track.children);
 
         let inc_index = 0;
-        Array.from(children).map( child => {
-            if(child.getAttribute("data-slider-main-element")) {
+        await children.map(child => {
+            if (child.getAttribute("data-slider-main-element")) {
                 child.setAttribute('data-slider-el-index', `${inc_index}`)
                 ++inc_index;
             }
@@ -309,55 +318,58 @@ export class SliderBaseController {
 
         this._infinite_pos = "main";
     }
-    private Slider_type_init() {
+
+    private async Slider_type_init() {
         if (!this._slider || !this._slider_track) return;
+
          this.Clear_old();
 
         if (this._slider_options.infinite_type == Infinite_Type.INFINITE) {
-            const main = this._slider_track.children;
+            const main = Array.from(this._slider_track.children);
 
             const copy_left: Node[] = [];
             const copy_right: Node[] = [];
 
-            for (let i = 0; i < main.length; ++i) {
-                const copy_el_left = <HTMLElement>main[i].cloneNode(true);
-                const copy_el_right = <HTMLElement>main[i].cloneNode(true);
+            await main.map((el, index) => {
+                const copy_el_left = <HTMLElement>el.cloneNode(true);
+                const copy_el_right = <HTMLElement>el.cloneNode(true);
 
                 copy_el_left.removeAttribute("data-slider-el-index");
                 copy_el_left.removeAttribute("data-slider-main-element");
                 copy_el_right.removeAttribute("data-slider-el-index");
                 copy_el_right.removeAttribute("data-slider-main-element");
 
-                copy_el_left.setAttribute("data-slider-left-el-index", `${i}`);
+                copy_el_left.setAttribute("data-slider-left-el-index", `${index}`);
                 copy_el_left.setAttribute("data-copy-slider-el", "true");
-                copy_el_right.setAttribute("data-slider-right-el-index", `${i}`);
+                copy_el_right.setAttribute("data-slider-right-el-index", `${index}`);
                 copy_el_right.setAttribute("data-copy-slider-el", "true");
 
                 copy_left.push(copy_el_left);
                 copy_right.push(copy_el_right);
-            }
+            })
 
-            for (let i = copy_left.length - 1; i >= 0; --i) {
-                this._slider_track.prepend(copy_left[i]);
-            }
-            for (let i = 0; i < copy_right.length; ++i) {
-                this._slider_track.append(copy_right[i]);
-            }
+            this.Clear_old();
+
+            await copy_left.reverse().map(node => this._slider_track.prepend(node))
+
+            await copy_right.map(node => this._slider_track.append(node))
 
             this.Slider_set_pos_default();
         }
     }
-    private Slider_set_pos_default() {
+
+    private async Slider_set_pos_default() {
         if (!this._slider || !this._slider_track) return;
 
-        const el = <HTMLElement>this._slider_track.querySelector("[data-slider-el-index='1']");
+        const el = await <HTMLElement>this._slider_track.querySelector("[data-slider-el-index='1']");
 
         if (!el) return;
 
-        this.Set_pos_by_el(el);
+        await this.Set_pos_by_el(el);
     }
+
     private Check_options() {
-        if(!this._swipe_controller) return
+        if (!this._swipe_controller) return
 
         if (!this._autoplay_option.swipe) {
             this._swipe_controller?.Autoplay_Unsub()
@@ -372,10 +384,11 @@ export class SliderBaseController {
     // </Set Options>
 
     // <Events>
-    public onChildrenChanges() {
-        this.Set_by_default();
+    public async onChildrenChanges() {
+        await this.Set_by_default();
         this.Check_options();
     }
+
     public onCheckIndex(i: number): number {
         if (i < 0) {
             if (this._infinite_pos == "main")
@@ -397,13 +410,14 @@ export class SliderBaseController {
 
         return i;
     }
-    public onChangeIndex(i: number, event: EventType): void {
+
+    public async onChangeIndex(i: number, event: EventType) {
         if (event != EventType.AUTOPLAY && this._autoplay_controller) {
             this._autoplay_controller.Stop();
             this._autoplay_controller.Waiting();
         }
 
-        if(this._autoplay_option.smooth) {
+        if (this._autoplay_option.smooth) {
             this._progressbar_controller.Set_Progress(i, true);
 
             return;
@@ -411,7 +425,7 @@ export class SliderBaseController {
 
         this._index = this.onCheckIndex(i);
 
-        this._change_index(this._index);
+        await this._change_index(this._index);
 
         if (this._arrow_controller) this._arrow_controller.index = this._index;
         if (this._swipe_controller) this._swipe_controller.index = this._index;
@@ -421,27 +435,28 @@ export class SliderBaseController {
             this._progressbar_controller.Set_Progress(this._index, false)
         }
 
-        this.onChangeOffset();
+        await this.onChangeOffset();
     }
-    private onChangeOffset() {
+
+    private async onChangeOffset() {
         if (!this._slider_track || !this._slider) return;
 
         const generator = this.Find_slider_el();
 
-        const el = generator.next();
+        const el = await generator.next();
         if (!el.value) return;
 
-        if (el.value instanceof HTMLElement) this.Set_pos_by_el(<HTMLElement>el.value);
+        if (el.value instanceof HTMLElement) await this.Set_pos_by_el(<HTMLElement>el.value);
 
         if (this.focus != "no" && el.value instanceof HTMLElement) {
-            this.Set_focus_on_el(<HTMLElement>el.value);
+            await this.Set_focus_on_el(<HTMLElement>el.value);
         }
 
-        setTimeout(() => {
-            const el_2 = generator.next();
+        setTimeout(async () => {
+            const el_2 = await generator.next();
             if (!el_2.value) return;
-            this.Set_pos_by_el(el_2.value);
-            this.Set_focus_on_el(el_2.value, true);
+            await this.Set_pos_by_el(el_2.value);
+            await this.Set_focus_on_el(el_2.value, true);
 
             this.On_transition();
         }, 350);
@@ -482,16 +497,16 @@ export class SliderBaseController {
 
         this.On_transition()
     }
-    private Set_focus_on_el(el: HTMLElement, off = false) {
+
+    private async Set_focus_on_el(el: HTMLElement, off = false) {
         if (!this._slider || !this._slider_track) return;
 
-        const children = this._slider_track.children;
+        const children = await Array.from(this._slider_track.children);
 
         if (!children) return;
 
-        for (let i = 0; i < children.length; ++i) {
-            children[i].classList.remove("current-slider-el");
-        }
+        await children.map(child => child.classList.remove("current-slider-el"))
+
         if (off) el.classList.add("off-transition");
         el.classList.add("current-slider-el");
 
@@ -501,55 +516,55 @@ export class SliderBaseController {
             }, 200);
         }
     }
-    private* Find_slider_el(): any {
+
+    private async * Find_slider_el(): any {
         if (!this._slider_track || !this._slider) return null;
 
         let el = null;
 
         if (this._slider_options.infinite_type == Infinite_Type.NO) {
-            el = this._slider_track.querySelector(`[data-slider-el-index=\"${this._index}\"]`);
+            el = await this._slider_track.querySelector(`[data-slider-el-index=\"${this._index}\"]`);
 
             if (el) return <HTMLElement>el;
         }
 
         if (this._slider_options.infinite_type == Infinite_Type.INFINITE) {
             if (this._infinite_pos == "main") {
-                el = this._slider_track.querySelector(`[data-slider-el-index=\"${this._index}\"]`);
+                el = await this._slider_track.querySelector(`[data-slider-el-index=\"${this._index}\"]`);
             }
             if (this._infinite_pos == "left_copy") {
                 if (this._index == 1) {
-                    const main_el = this._slider_track.querySelector("[data-slider-el-index='1']");
+                    const main_el = await this._slider_track.querySelector("[data-slider-el-index='1']");
 
                     this._infinite_pos = "main";
 
                     if (main_el) return <HTMLElement>main_el;
                 }
 
-                el = this._slider_track.querySelector(`[data-slider-left-el-index=\"${this._index}\"]`);
+                el = await this._slider_track.querySelector(`[data-slider-left-el-index=\"${this._index}\"]`);
                 if (this._index - 1 == 1) {
                     yield el;
 
-                    el = this._slider_track.querySelector(`[data-slider-el-index=\'${this._index}\']`);
+                    el = await this._slider_track.querySelector(`[data-slider-el-index=\'${this._index}\']`);
                     this.Off_transition();
                 }
             }
             if (this._infinite_pos == "right_copy") {
                 if (this._index == this._element_length - 1) {
-                    const main_el = this._slider_track.querySelector(
+                    const main_el = await this._slider_track.querySelector(
                         `[data-slider-el-index=\'${this._element_length - 1}\']`
                     );
-
 
                     this._infinite_pos = "main";
 
                     if (main_el) return <HTMLElement>main_el;
                 }
 
-                el = this._slider_track.querySelector(`[data-slider-right-el-index=\"${this._index}\"]`);
+                el = await this._slider_track.querySelector(`[data-slider-right-el-index=\"${this._index}\"]`);
                 if (this._index + 1 == this._element_length - 1) {
                     yield el;
 
-                    el = this._slider_track.querySelector(`[data-slider-el-index=\'${this._index}\']`);
+                    el = await this._slider_track.querySelector(`[data-slider-el-index=\'${this._index}\']`);
                     this.Off_transition();
                 }
             }
@@ -558,11 +573,13 @@ export class SliderBaseController {
 
         return el;
     }
+
     private Off_transition() {
         if (!this._slider_track) return;
 
         this._slider_track.style.transition = "none";
     }
+
     private On_transition() {
         setTimeout(() => {
             if (!this._slider_track) return;
@@ -580,20 +597,25 @@ export class SliderBaseController {
     public set el_length(l: number) {
         this._element_length = l;
     }
+
     public get el_length(): number {
         return this._element_length;
     }
+
     public set slider(slider: HTMLElement) {
         this._slider = slider;
 
         this.Observer.setObserver(this._slider, 'clientWidth')
     }
+
     public set slider_track(slider_track: HTMLElement) {
         this._slider_track = slider_track;
     }
+
     public set gap(g: number) {
         this._gap = g;
     }
+
     public set change_index(callback: (i: number) => void) {
         this._change_index = callback;
         this._change_index(this._index);
