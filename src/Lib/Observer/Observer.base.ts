@@ -13,8 +13,8 @@ export class ObserverBase {
     }
 
 
-    private CallCbcks() {
-        this.callback.forEach(async cb => await cb())
+    private async CallCbcks() {
+       await this.callback.forEach(async cb => await cb())
     }
 
     public async Watch() {

@@ -1,12 +1,11 @@
 import React, {useEffect, useRef, useState} from "react";
 
+import SliderPagination from "./Slider.pagination/Slider.pagination";
+import SliderProgressbar from "./Slider.progressbar/Slider.progressbar";
+
 import {ISlider} from "./Slider.interface/Slider.interface.option";
 
-import SliderPagination from "./Slider.pagination/Slider.pagination";
-
 import {SliderBaseController} from "./Slider.controller/Slider.base.controller";
-
-import SliderProgressbar from "./Slider.progressbar/Slider.progressbar";
 
 import {Slider_Type, SliderBack_Type, SliderElement_Type} from "./Slider.type/Slider_Type";
 

@@ -37,16 +37,16 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
     this.Smooth_Motion = this.Smooth_Motion.bind(this)
   }
 
-  Start(): NodeJS.Timeout {
+  async Start() {
     if(!this._slider_track) return
     if (this._delay == 0) return this._timeout;
 
     if (this.options.smooth) {
       this._slider_track.style.transition = 'all 3s'
-      this._timeout = setInterval(this.Smooth_Motion, 100);
+      this._timeout = setInterval(async () => await this.Smooth_Motion(), 100);
     } else {
-      this._timeout = setInterval(() => {
-        this.change_index(this._index + 1, EventType.AUTOPLAY);
+      this._timeout = setInterval(async () => {
+         await this.change_index(this._index + 1, EventType.AUTOPLAY);
       }, this._delay);
     }
 

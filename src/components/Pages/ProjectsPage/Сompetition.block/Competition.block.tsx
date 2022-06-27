@@ -1,8 +1,10 @@
 import React from 'react';
 
-import './Competition.block.scss'
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
+
+import './Competition.block.scss'
+
 import citg_plug from "../../../../assets/icons/citg-icons.svg";
 
 const CompetitionBlock = () => {

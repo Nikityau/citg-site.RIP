@@ -1,14 +1,17 @@
 export class Logger {
-  static Success(message: string): void {
-    console.log("SUCCESS", message);
-  }
-  static Warning(message: string): void {
-    console.warn("WARNING", message);
-  }
-  static Error(message: string): void {
-    console.error("ERROR", message);
-  }
-  static Info(message: any): void {
-    console.log("INFO", message);
-  }
+    static async Success(message: string) {
+        await console.log("SUCCESS", message);
+    }
+
+    static async Warning(message: string) {
+        await console.warn("WARNING", message);
+    }
+
+    static async Error(message: string) {
+        await console.error("ERROR", message);
+    }
+
+    static async Info(message: any) {
+        await console.log("INFO", message);
+    }
 }

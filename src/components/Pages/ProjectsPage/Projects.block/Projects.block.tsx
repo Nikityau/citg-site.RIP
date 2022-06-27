@@ -20,9 +20,8 @@ import {
     ISliderProgressBarPosition
 } from "../../../../Lib/Slider/Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.interface.option";
 import SliderBoxElements from "../../../../Lib/Slider/Slider.box.elements/Slider.box.elements";
-import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
-import Party from "../../../UI/Background/Party/Party";
+
 import {GoUp} from "../../../../Utils/GoUp";
 
 import plug from "../../../../assets/icons/citg-icons.svg";
@@ -32,26 +31,30 @@ const ProjectsBlock = () => {
     const projectsBlock = useRef<HTMLDivElement>(null)
     const [isExpand, setIsExpand] = useState<boolean>(false)
 
-    const changeExpand = () => {
+    const changeExpand = async () => {
         setIsExpand(prev => !prev)
 
         if(!isExpand) {
 
-            const lastChild = projectsBlock.current.children[projectsBlock.current.children.length - 1] as HTMLElement
-            const h = lastChild.offsetTop + lastChild.clientHeight
+            const lastChild = await projectsBlock.current.children[projectsBlock.current.children.length - 1] as HTMLElement
+            const h = lastChild.offsetTop + lastChild.clientHeight;
 
-            projectsBlock.current.style.height = h + 20 + 'px'
+            await changeByHeight(h)
 
         } else {
-            const lastChild = projectsBlock.current.children[2] as HTMLElement
+            const lastChild = await projectsBlock.current.children[2] as HTMLElement
             const h = lastChild.offsetTop + lastChild.clientHeight
 
             GoUp()
 
-            setTimeout(() => {
-                projectsBlock.current.style.height = h + 20 + 'px'
+            setTimeout(async () => {
+                await changeByHeight(h)
             }, 300)
         }
+    }
+
+    const changeByHeight = (h:number) => {
+        projectsBlock.current.style.height = h + 20 + 'px'
     }
 
     return (

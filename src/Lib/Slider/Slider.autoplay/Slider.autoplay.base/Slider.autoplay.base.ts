@@ -11,7 +11,7 @@ export interface ISliderAutoplayBase {
   _timeout: NodeJS.Timeout;
   _delay: number;
 
-  Start(): NodeJS.Timeout;
+  Start(): void;
   Stop(): void;
   Waiting(): NodeJS.Timeout;
 

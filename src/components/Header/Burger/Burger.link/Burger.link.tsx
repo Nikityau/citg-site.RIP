@@ -10,9 +10,9 @@ const BurgerLink = ({ path, text, onClickCallback }: { path: string; text: strin
 
   return (
     <div
-      onClick={() => {
-        GoUp()
-        onClickCallback()
+      onClick={async () => {
+        await GoUp()
+        await onClickCallback()
       }}
       className={burgerLink.container}
       style={{ background: location.pathname.includes(path) ? "rgba(0, 0, 0, 0.37)" : "" }}

@@ -1,4 +1,5 @@
 import { ISliderSwipeBase } from "./Slider.swipe.base/Slider.swipe.base";
+
 import { Slider_Type } from "../Slider.type/Slider_Type";
 import { Subber } from "../../../Utils/Subber/Subber";
 import { TypeEvent } from "../../../Utils/Subber/Subber.TypeEvent.enum";
@@ -92,36 +93,36 @@ export class SliderSwipeController implements ISliderSwipeBase {
     this._swipe_x_direction = "none";
   }
 
-  On_Swipe(e: Event) {
+  async On_Swipe(e: Event) {
     if (!this._is_down) return;
 
     if (this._swipe_type == Slider_Type.VERTICAL) {
-      this.Vertical_Swipe(e);
+      await this.Vertical_Swipe(e);
 
       return;
     }
     if (this._swipe_type == Slider_Type.HORIZONTAL) {
-      this.Horizontal_Swipe(e);
+      await this.Horizontal_Swipe(e);
 
       return;
     }
   }
-  On_Mouse_move(e: Event) {
+  async On_Mouse_move(e: Event) {
     if (!this._is_down) return;
 
     if (this._swipe_type == Slider_Type.VERTICAL) {
-      this.Vertical_Swipe(e);
+      await this.Vertical_Swipe(e);
 
       return;
     }
     if (this._swipe_type == Slider_Type.HORIZONTAL) {
-      this.Horizontal_Swipe(e);
+      await this.Horizontal_Swipe(e);
 
       return;
     }
   }
 
-  On_Mouse_up(e: Event) {
+  async On_Mouse_up(e: Event) {
     this._is_down = false;
 
     this.UnPreventLinks()
@@ -129,13 +130,13 @@ export class SliderSwipeController implements ISliderSwipeBase {
     if (this._swipe_x_direction == "none" && this._swipe_y_direction == "none") return;
 
     if (this._swipe_x_direction == "left" || this._swipe_y_direction == "up") {
-      this.change_index(this._index + 1, EventType.SWIPE);
+       await this.change_index(this._index + 1, EventType.SWIPE);
     }
     if (this._swipe_x_direction == "right" || this._swipe_y_direction == "down") {
-      this.change_index(this._index - 1, EventType.SWIPE);
+      await this.change_index(this._index - 1, EventType.SWIPE);
     }
   }
-  On_Touch_end(e: Event) {
+  async On_Touch_end(e: Event) {
     this._is_down = false;
 
     this.UnPreventLinks()
@@ -143,19 +144,19 @@ export class SliderSwipeController implements ISliderSwipeBase {
     if (this._swipe_x_direction == "none" && this._swipe_y_direction == "none") return;
 
     if (this._swipe_x_direction == "left" || this._swipe_y_direction == "up") {
-      this.change_index(this._index + 1, EventType.SWIPE);
+      await this.change_index(this._index + 1, EventType.SWIPE);
     }
     if (this._swipe_x_direction == "right" || this._swipe_y_direction == "down") {
-      this.change_index(this._index - 1, EventType.SWIPE);
+      await this.change_index(this._index - 1, EventType.SWIPE);
     }
   }
 
-  private PreventLinks() {
+  private async PreventLinks() {
     if(!this.swipe_el) return
 
-    const children = this.swipe_el.children[0].children
+    const children = await Array.from(this.swipe_el.children[0].children)
 
-    Array.from(children).map(child => {
+    await children.map(child => {
       const el = <HTMLElement>child
       el.style.pointerEvents = 'none'
     })

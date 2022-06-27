@@ -24,18 +24,16 @@ function Footer() {
   const match_project = useRouteMatch('/projects/:id')
 
   useEffect(() => {
-    ArrowUpController.FindArrow()
-    ArrowUpController.FindFooter()
-    ArrowUpController.SubEvents()
+     (async () => {
+      await ArrowUpController.FindArrow()
+      await ArrowUpController.FindFooter()
+      await ArrowUpController.SubEvents()
+    })()
 
     return () => {
       ArrowUpController.UnsubEvents()
     }
   }, [])
-
-  useEffect(() => {
-
-  }, [location])
 
   return (
     <div className={[footer.container, (match_project || match_team_member) ? footer.less : ''].join(' ')} id={'footer'}>

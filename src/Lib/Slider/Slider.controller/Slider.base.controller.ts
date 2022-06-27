@@ -295,7 +295,7 @@ export class SliderBaseController {
     private Clear_old() {
         if (!this._slider_track) return;
 
-        const copy =  this._slider_track.querySelectorAll("[data-copy-slider-el='true']");
+        const copy = this._slider_track.querySelectorAll("[data-copy-slider-el='true']");
         for (let i = 0; i < copy.length; ++i) {
              this._slider_track.removeChild(copy[i]);
         }
@@ -306,7 +306,7 @@ export class SliderBaseController {
     private async Update_main_els() {
         if (!this._slider_track) return;
 
-        const children = Array.from(this._slider_track.children);
+        const children = await Array.from(this._slider_track.children);
 
         let inc_index = 0;
         await children.map(child => {
@@ -432,7 +432,7 @@ export class SliderBaseController {
         if (this._autoplay_controller) this._autoplay_controller._index = this._index;
 
         if (this._progressbar_controller) {
-            this._progressbar_controller.Set_Progress(this._index, false)
+             this._progressbar_controller.Set_Progress(this._index, false)
         }
 
         await this.onChangeOffset();
@@ -441,7 +441,7 @@ export class SliderBaseController {
     private async onChangeOffset() {
         if (!this._slider_track || !this._slider) return;
 
-        const generator = this.Find_slider_el();
+        const generator = await this.Find_slider_el();
 
         const el = await generator.next();
         if (!el.value) return;
@@ -460,9 +460,6 @@ export class SliderBaseController {
 
             this.On_transition();
         }, 350);
-
-
-        //console.log(this._slider, this._slider.clientWidth)
 
         this.Observer.Watch()
     }

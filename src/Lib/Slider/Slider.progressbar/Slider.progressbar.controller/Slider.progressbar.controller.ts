@@ -52,12 +52,12 @@ export class SliderProgressbarController implements ISliderProgressbarBase {
             return  this._back_bar.clientHeight;
         }
     }
-    private Progress(progress:number):void {
+    private async Progress(progress:number):Promise<void> {
         if(this._option.direction == ISliderProgressBarDirection.HORIZONTAL) {
-            this._bar_line.setAttribute("style", `width:${progress}px`)
+            await this._bar_line.setAttribute("style", `width:${progress}px`)
         }
         if(this._option.direction == ISliderProgressBarDirection.VERTICAL) {
-            this._bar_line.setAttribute("style", `height:${progress}px`)
+            await this._bar_line.setAttribute("style", `height:${progress}px`)
         }
     }
 }
