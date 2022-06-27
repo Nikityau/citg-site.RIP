@@ -81,6 +81,10 @@ const Slider = ({
         slider_base_controller.onChildrenChanges();
     }, [children]);
 
+    useEffect(() => {
+        console.log('render')
+    })
+
     const getSliderClass = (): string => {
         switch (slider_options.slider_type) {
             case Slider_Type.DEFAULT:

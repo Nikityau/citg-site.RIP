@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ESLintWebpackPlugin = require("eslint-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
     entry: path.resolve(__dirname, 'src',"index.tsx"),
@@ -16,6 +17,12 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         publicPath: "/",
         clean: true,
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin()
+        ]
     },
     devServer: {
         static: {

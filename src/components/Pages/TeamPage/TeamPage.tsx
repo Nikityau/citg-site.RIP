@@ -2,7 +2,7 @@ import React from 'react';
 
 import MemberCard from "./Member.card/Member.card";
 
-import {GoUp} from "../../../Utils/GoUp";
+//import {GoUp} from "../../../Utils/GoUp";
 import {Array_by_number} from "../../../Utils/Func/Array_by_number";
 
 import './Team.page.scss'
@@ -12,9 +12,9 @@ import ded_img from '../../../assets/images/team-member/ded.png'
 
 
 const TeamPage = () => {
-    const onClick = async () => {
+   /* const onClick = async () => {
         await GoUp()
-    }
+    }*/
 
     return (
         <div className={'team-page'}>
@@ -30,7 +30,7 @@ const TeamPage = () => {
                     {
                         Array_by_number(8).map(item => (
                             <MemberCard key={item} photo={ded_img} link={'001'} full_name={'Ded A.K.A Byiniй'}
-                                        skills={['illustrator', 'UI/UX-designer']} onClick={onClick}/>
+                                        skills={['illustrator', 'UI/UX-designer']} onClick={() => {}}/>
                         ))
                     }
                 </div>
