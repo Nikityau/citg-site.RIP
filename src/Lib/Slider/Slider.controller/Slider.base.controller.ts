@@ -257,14 +257,14 @@ export class SliderBaseController {
             }
         }
 
-        Array.from(children).map(child => {
+        Array.from(children).map( child => {
             if(child.getAttribute('data-slider-box-els')) {
-                const width = child.clientWidth / 3 - this._gap
-                const height= child.clientHeight / 2 - this._gap
-                Array.from(child.children).map(box_child => {
+                const width = (child.clientWidth / 3 - this._gap)
+                const height= (child.clientHeight / 2 - this._gap)
+                Array.from(child.children).map( box_child => {
                     const el = <HTMLElement>box_child;
-                    el.style.width = width + 'px';
-                    el.style.height = height + 'px'
+                    el.style.width = (width + 'px');
+                    el.style.height = (height + 'px')
                 });
             }
         })
@@ -300,7 +300,7 @@ export class SliderBaseController {
         const children = this._slider_track.children;
 
         let inc_index = 0;
-        Array.from(children).map(child => {
+        Array.from(children).map( child => {
             if(child.getAttribute("data-slider-main-element")) {
                 child.setAttribute('data-slider-el-index', `${inc_index}`)
                 ++inc_index;
@@ -311,7 +311,7 @@ export class SliderBaseController {
     }
     private Slider_type_init() {
         if (!this._slider || !this._slider_track) return;
-        this.Clear_old();
+         this.Clear_old();
 
         if (this._slider_options.infinite_type == Infinite_Type.INFINITE) {
             const main = this._slider_track.children;

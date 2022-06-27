@@ -1,7 +1,9 @@
 import React from 'react';
 
 import AboutMePart from "./AboutMe.part/AboutMe.part";
-import Slider from "../../../../Lib/Slider/Slider";
+
+const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
+
 import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
 import {
     Infinite_Type,

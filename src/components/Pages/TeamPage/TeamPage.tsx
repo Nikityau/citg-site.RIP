@@ -9,8 +9,6 @@ import './Team.page.scss'
 
 import ded_img from '../../../assets/images/team-member/ded.png'
 
-
-
 const TeamPage = () => {
 
     useEffect(() => {

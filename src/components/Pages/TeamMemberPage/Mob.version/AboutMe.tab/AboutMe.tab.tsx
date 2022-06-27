@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 import './AboutMe.tab.scss'
 
 import {MobVerMemberContext, tab_state} from "../Mob.version";
-import Slider from "../../../../../Lib/Slider/Slider";
+
+const Slider = React.lazy(() => import('../../../../../Lib/Slider/Slider'))
+
 import {
     Infinite_Type,
     Slider_Type,

@@ -5,6 +5,7 @@ import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
 import PageNumber from "../../../UI/PageNumber/PageNumber";
 
 import {SynteticAPI} from "../../../../SynteticData/SynteticAPI";
+
 import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
@@ -13,7 +14,7 @@ import projectsbock from "./ProjectsBlock.module.scss";
 
 import citg_plug from "../../../../assets/images/citg_plug.png";
 
-import Slider from "../../../../Lib/Slider/Slider";
+const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
 
 import {
     Infinite_Type,

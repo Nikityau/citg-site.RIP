@@ -15,12 +15,12 @@ import "./App.scss";
 function App() {
   return (
     <BrowserRouter>
-      <Mouse
+     {/* <Mouse
         devMode={false}
         childrenCallback={(mouse: IMouse) => {
           return <CustomMouse x={mouse.x} y={mouse.y} />;
         }}
-      />
+      />*/}
       <Header />
       <Router />
       <Footer />

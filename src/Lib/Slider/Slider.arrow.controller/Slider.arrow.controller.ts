@@ -56,14 +56,14 @@ export class SliderArrowController implements ISliderArrowBase {
 
   //<Event>
 
-  on_Arrow_Click(e: Event) {
+  async on_Arrow_Click(e: Event) {
     if (e.target instanceof HTMLElement) {
       const attr = e.target.getAttribute("data-arrow");
       if (attr == "left") {
-        this._change_index(this._index - 1, EventType.ARROWS);
+        await this._change_index(this._index - 1, EventType.ARROWS);
       }
       if (attr == "right") {
-        this._change_index(this._index + 1, EventType.ARROWS);
+        await this._change_index(this._index + 1, EventType.ARROWS);
       }
     }
 

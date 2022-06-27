@@ -1,20 +1,15 @@
 import React, {useState} from 'react';
-import {useLocation} from 'react-router-dom'
 
 import './Mob.version.scss'
 
-import ded_img from '../../../../assets/images/team-member/ded.png'
 import arrow_img from '../../../../assets/icons/aroow-circle.svg'
-
-import f_icon from '../../../../assets/icons/project/figma.svg'
-import ps_icon from '../../../../assets/icons/project/ps.svg'
-import ai_icon from '../../../../assets/icons/project/ai.svg'
 
 import back_img from '../../../../assets/images/member-page-mob-back.png'
 
 import Tabs from "./Tabs/ITabs";
 
 import {MemberInfo} from "../../../../SynteticData/Syntetic.data.type";
+
 import {TabWatcher} from "../TabWatcher";
 
 export type tab_state = 'about-me' | 'gallery' | 'skills';

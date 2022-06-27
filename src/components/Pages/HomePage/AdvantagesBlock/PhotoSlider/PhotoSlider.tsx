@@ -10,7 +10,9 @@ import evolve from '../../../../../assets/images/evolve.png';
 import sm_img from '../../../../../assets/images/create.png'
 import makeDream from '../../../../../assets/images/makeDream.png';
 
-import Slider from "../../../../../Lib/Slider/Slider";
+
+const Slider = React.lazy(() => import('../../../../../Lib/Slider/Slider'))
+
 import {
     Infinite_Type,
     Slider_Type,

@@ -7,7 +7,8 @@ import {Array_by_number} from "../../../../Utils/Func/Array_by_number";
 
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 
-import Slider from "../../../../Lib/Slider/Slider";
+const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
+
 import {
     Infinite_Type,
     Slider_Type,

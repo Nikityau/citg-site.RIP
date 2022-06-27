@@ -1,5 +1,4 @@
 import React, {useEffect, useState, createContext} from 'react';
-
 import {useParams} from 'react-router-dom'
 
 import ProjectsBlock from "./Projects.block/Projects.block";

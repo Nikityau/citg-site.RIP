@@ -2,8 +2,9 @@ import React from 'react';
 
 import SupportedDevicesPart from "./SupportedDevices.part/SupportedDevices.part";
 import ProjectLinkPart from "./ProjectLinks.part/ProjectLink.part";
-import Slider from "../../../../Lib/Slider/Slider";
 import SliderElement from "../../../../Lib/Slider/Slider.element/Slider.element";
+
+const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
 
 import {
     Infinite_Type,
