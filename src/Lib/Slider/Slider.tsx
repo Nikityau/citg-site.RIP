@@ -13,8 +13,6 @@ import slider from "./Slider.module.scss";
 import "./Slider.scss";
 
 
-
-
 const Slider = ({
                     slider_options,
                     pagination,

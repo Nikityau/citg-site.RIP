@@ -62,7 +62,7 @@ const ProjectsBlock = () => {
             <div className={'projects-block_title'}>
                 <BlockTitle title={'01'} subtitle={'Реализованые проекты'}/>
             </div>
-            {
+            {/*{
                 window.screen.width >= 500 &&
                 <div className={'projects-block_projects-container'}>
                     <Slider
@@ -223,7 +223,7 @@ const ProjectsBlock = () => {
                        <span>show more</span>
                     </button>
                 </div>
-            </div>
+            </div>*/}
         </div>
     );
 };
