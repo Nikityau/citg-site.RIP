@@ -13,7 +13,7 @@ import slider from "./Slider.module.scss";
 import "./Slider.scss";
 
 
-let current_el_index: number = 0;
+
 
 const Slider = ({
                     slider_options,
@@ -31,6 +31,7 @@ const Slider = ({
                     onClick
                 }: ISlider) => {
     const [slider_base_controller, set_slider_base_controller] = useState<SliderBaseController>(new SliderBaseController())
+    const [current_el_index, set_current_el_index] = useState<number>()
 
     const [children_length, set_children_length] = useState<number>(0);
 
@@ -58,9 +59,7 @@ const Slider = ({
         slider_base_controller.Set_Swipes();
         slider_base_controller.Set_Autoplay();
 
-        slider_base_controller.change_index = (i:number) => {
-            current_el_index = i
-        };
+        slider_base_controller.change_index = set_current_el_index
 
         slider_base_controller.Options(
             slider_options,
@@ -84,10 +83,6 @@ const Slider = ({
         slider_base_controller.el_length = l;
         slider_base_controller.onChildrenChanges();
     }, [children]);
-
-    useEffect(() => {
-        console.log('render')
-    })
 
     const getSliderClass = (): string => {
         switch (slider_options.slider_type) {
