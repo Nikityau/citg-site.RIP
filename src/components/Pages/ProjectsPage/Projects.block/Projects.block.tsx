@@ -17,10 +17,10 @@ import {
 import SliderBoxElements from "../../../../Lib/Slider/Slider.box.elements/Slider.box.elements";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 
-import plug from "../../../../assets/icons/citg-icons.svg";
-
 import {ProjectsMiniInfo} from "../../../../SynteticData/Syntetic.data.type";
+
 import {BoxDivided} from "../../../../Lib/Slider/Slider.utils/BoxDivided";
+import {GoUp} from "../../../../Utils/GoUp";
 
 const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
 
@@ -45,7 +45,7 @@ const ProjectsBlock = ({ projects }:IProjectsBlock) => {
             const lastChild = await projectsBlock.current.children[2] as HTMLElement
             const h = lastChild.offsetTop + lastChild.clientHeight
 
-            window.scrollTo(0,0)
+            GoUp()
 
             setTimeout(async () => {
                 await changeByHeight(h)
