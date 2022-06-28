@@ -1,5 +1,5 @@
-import React, { Suspense }  from "react";
-import { BrowserRouter } from "react-router-dom";
+import React, {Suspense, useState} from "react";
+import {BrowserRouter} from "react-router-dom";
 
 
 const Router = React.lazy(() => import('../Router/Router'))
@@ -15,21 +15,21 @@ import "./App.scss";
 import Loader from "../Loader/Loader";
 
 function App() {
-  return (
-    <BrowserRouter>
-        <Suspense fallback={<Loader/>}>
-            {/* <Mouse
+    return (
+        <BrowserRouter>
+            <Suspense fallback={<Loader/>}>
+                {/* <Mouse
         devMode={false}
         childrenCallback={(mouse: IMouse) => {
           return <CustomMouse x={mouse.x} y={mouse.y} />;
         }}
       />*/}
-            <Header />
-            <Router />
-            <Footer />
-        </Suspense>
-    </BrowserRouter>
-  );
+                <Header/>
+                <Router/>
+                <Footer/>
+            </Suspense>
+        </BrowserRouter>
+    );
 }
 
 export default App;
