@@ -11,8 +11,8 @@ function ProjectsPage() {
     <div className={'projects-page-container'}>
         <div className={'projects-page-container_inner'}>
             <ProjectsBlock/>
-           {/* <CompetitionBlock/>*/}
-            {/*<DevBlock/>*/}
+            <CompetitionBlock/>
+            <DevBlock/>
         </div>
     </div>
   );

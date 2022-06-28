@@ -27,22 +27,6 @@ const CompetitionBlock = () => {
                             project={ProjectType.COMPETITION}/>
                     ))
                 }
-
-                {/*<ProjectCard id={`syntetic-id-${Math.ceil(Math.random() * 1000)}`}
-                             name={'citg-plug'}
-                             img={citg_plug}
-                             text={'text'}
-                             project={ProjectType.COMPETITION}/>
-                <ProjectCard id={`syntetic-id-${Math.ceil(Math.random() * 1000)}`}
-                             name={'citg-plug'}
-                             img={citg_plug}
-                             text={'text'}
-                             project={ProjectType.COMPETITION}/>
-                <ProjectCard id={`syntetic-id-${Math.ceil(Math.random() * 1000)}`}
-                             name={'citg-plug'}
-                             img={citg_plug}
-                             text={'text'}
-                             project={ProjectType.COMPETITION}/>*/}
             </div>
         </div>
     );

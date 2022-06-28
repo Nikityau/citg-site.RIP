@@ -32,22 +32,22 @@ const ProjectsBlock = () => {
     const [isExpand, setIsExpand] = useState<boolean>(false)
 
     const changeExpand = async () => {
-        if(!isExpand) {
-            setIsExpand(true)
+        setIsExpand(prev => !prev)
 
-            /*const lastChild = await projectsBlock.current.children[projectsBlock.current.children.length - 1] as HTMLElement
+        if(!isExpand) {
+            const lastChild = await projectsBlock.current.children[projectsBlock.current.children.length - 1] as HTMLElement
             const h = lastChild.offsetTop + lastChild.clientHeight;
 
-            await changeByHeight(h)*/
+            await changeByHeight(h)
 
         } else {
-           /* const lastChild = await projectsBlock.current.children[2] as HTMLElement
-            const h = lastChild.offsetTop + lastChild.clientHeight*/
+            const lastChild = await projectsBlock.current.children[2] as HTMLElement
+            const h = lastChild.offsetTop + lastChild.clientHeight
 
             window.scrollTo(0,0)
 
             setTimeout(async () => {
-                setIsExpand(false)
+                await changeByHeight(h)
             }, 300)
         }
     }
@@ -202,7 +202,7 @@ const ProjectsBlock = () => {
                 </div>
             }
             <div className={'projects-block-mob-ver'}>
-                <div ref={projectsBlock} className={['projects-block-mob-ver_container', isExpand ? 'projects-block-mob-ver_container-open' : ''].join(' ')}>
+                <div ref={projectsBlock} className={['projects-block-mob-ver_container'].join(' ')}>
                     <div className={'projects-block-animations'}>
                         <div className={'projects-block-animations_ball-1'}/>
                         <div className={'projects-block-animations_ball-2'}/>
