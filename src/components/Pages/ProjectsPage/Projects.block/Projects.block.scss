@@ -26,7 +26,7 @@
     height: 500px;
 
     @media screen and (max-width: 500px){
-
+      display: none;
     }
   }
   .projects-block-mob-ver {
@@ -41,7 +41,7 @@
     z-index: 1;
 
     @media screen and (max-width: 500px) {
-      display: none;
+      display: block;
     }
 
 

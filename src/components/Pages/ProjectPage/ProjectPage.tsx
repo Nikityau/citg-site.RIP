@@ -11,7 +11,6 @@ import {ProjectInfo} from "../../../SynteticData/Syntetic.data.type";
 import PopUpGallery from "../../../Lib/PopUpGallery/PopUpGallery";
 
 function ProjectPage() {
-
     const params = useParams()
     const [projectInfo, setProjectInfo] = useState<ProjectInfo>(undefined)
 

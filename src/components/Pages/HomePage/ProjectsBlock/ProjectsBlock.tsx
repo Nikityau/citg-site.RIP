@@ -47,8 +47,6 @@ const ProjectsBlock = () => {
             el.getAttribute('data-slider-left-el-index') ||
             el.getAttribute('data-slider-right-el-index')
 
-
-
         if(!el_index) return
 
         popUpGalleryController.Open(Number.parseInt(el_index))

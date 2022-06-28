@@ -62,7 +62,7 @@ const ProjectsBlock = ({ projects }:IProjectsBlock) => {
                 <BlockTitle title={'01'} subtitle={'Реализованые проекты'}/>
             </div>
             {
-                window.screen.width >= 50 &&
+                window.screen.width >= 500 &&
                 <div className={'projects-block_projects-container'}>
                     <Slider
                         slider_options={{
