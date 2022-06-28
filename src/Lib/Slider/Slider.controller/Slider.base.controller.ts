@@ -26,6 +26,7 @@ import {
 
 import {ObserverBase} from "../../Observer/Observer.base";
 import {log} from "util";
+import {awards} from "../../../SynteticData/Syntetic.data/awards";
 
 
 export class SliderBaseController {
@@ -466,7 +467,7 @@ export class SliderBaseController {
 
     //</Events>
 
-    private Set_pos_by_el(el: HTMLElement) {
+    private async Set_pos_by_el(el: HTMLElement) {
         if (!this._slider || !this._slider_track) return;
 
         if (
@@ -476,20 +477,28 @@ export class SliderBaseController {
             this._slider_options.slider_type == Slider_Type.EXTENDED
         ) {
             if (this.focus == "center" || this.focus == "no") {
-                this._slider_track.style.left =
-                    this._slider.clientWidth / 2 - el.offsetLeft - el.clientWidth / 2 + "px";
+                 await (() => {
+                    this._slider_track.style.left =
+                        this._slider.clientWidth / 2 - el.offsetLeft - el.clientWidth / 2 + "px";
+                })()
             }
             if (this.focus == "left") {
-                this._slider_track.style.left = this._slider.clientLeft - el.offsetLeft + "px";
+                await (() => {
+                    this._slider_track.style.left = this._slider.clientLeft - el.offsetLeft + "px";
+                })()
             }
             if (this.focus == "right") {
-                this._slider_track.style.left =
-                    this._slider.clientWidth - el.offsetLeft - el.clientWidth + "px";
+                await (() => {
+                    this._slider_track.style.left =
+                        this._slider.clientWidth - el.offsetLeft - el.clientWidth + "px";
+                })()
             }
         }
         if (this._slider_options.slider_type == Slider_Type.VERTICAL) {
-            this._slider_track.style.top =
-                this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 + "px";
+            await (() => {
+                this._slider_track.style.top =
+                    this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 + "px";
+            })()
         }
 
         this.On_transition()

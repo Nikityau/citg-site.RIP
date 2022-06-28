@@ -94,8 +94,10 @@ export class AnimationCircle implements IAnimationInterface {
 
       const coord = await MathUtils.PointsCoordsOnCircle(this.angle, this._r, this.cx, this.cy);
 
-      this.element.style.top = coord.y + "px";
-      this.element.style.left = coord.x + "px";
+      await (() => {
+        this.element.style.top = coord.y + "px";
+        this.element.style.left = coord.x + "px";
+      })()
 
       if (this.sun) {
         const angle = await MathUtils.RotateAngle(coord.x, coord.y, this.sun.x, this.sun.y);
