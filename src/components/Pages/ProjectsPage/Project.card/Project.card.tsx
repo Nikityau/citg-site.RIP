@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 
 import './Project.card.scss'
+
 import {GoUp} from "../../../../Utils/GoUp";
 
 export enum ProjectType {

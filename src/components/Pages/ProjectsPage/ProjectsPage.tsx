@@ -23,8 +23,8 @@ function ProjectsPage() {
     <div className={'projects-page-container'}>
         <div className={'projects-page-container_inner'}>
             <ProjectsBlock projects={projects?.released_projects || []}/>
-           {/* <CompetitionBlock/>
-            <DevBlock/>*/}
+            <CompetitionBlock projects={projects?.concourse_projects || []}/>
+            <DevBlock projects={projects?.projects_in_developing || []}/>
         </div>
     </div>
   );

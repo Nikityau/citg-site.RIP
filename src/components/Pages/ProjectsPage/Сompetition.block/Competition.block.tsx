@@ -1,19 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 
 import './Competition.block.scss'
 
-import citg_plug from "../../../../assets/icons/citg-icons.svg";
-import {Array_by_number} from "../../../../Utils/Func/Array_by_number";
+import {IProjectsBlock} from "../Projects.block/Projects.block";
 
-const CompetitionBlock = () => {
-
-
-    useEffect(() => {
-        console.log('comp')
-    })
+const CompetitionBlock = ({ projects }:IProjectsBlock) => {
 
     return (
         <div className={'competition-block'}>
@@ -23,12 +17,12 @@ const CompetitionBlock = () => {
             </div>
             <div className={'competition-block_projects-list'}>
                 {
-                    Array_by_number(4).map(item => (
-                        <ProjectCard key={item}
-                            id={'synt'}
-                            name={'citg-plug'}
-                            img={citg_plug}
-                            text={'text'}
+                    projects?.map(project => (
+                        <ProjectCard key={project.id}
+                            id={project.id}
+                            name={project.title}
+                            img={project.main_img}
+                            text={project.description}
                             project={ProjectType.COMPETITION}/>
                     ))
                 }

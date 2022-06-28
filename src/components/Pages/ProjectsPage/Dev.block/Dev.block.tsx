@@ -1,18 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 
 import './Dev.block.scss'
 
-import plug from '../../../../assets/icons/citg-icons.svg'
-import {Array_by_number} from "../../../../Utils/Func/Array_by_number";
+import {IProjectsBlock} from "../Projects.block/Projects.block";
 
-const DevBlock = () => {
-
-    useEffect(() => {
-        console.log('dev')
-    })
+const DevBlock = ({ projects }:IProjectsBlock) => {
 
     return (
         <div className={'dev-block'}>
@@ -21,12 +16,13 @@ const DevBlock = () => {
             </div>
             <div className={'dev-block_dev-projects'}>
                 {
-                    Array_by_number(4).map(item => (
-                        <ProjectCard key={item}
-                                     id={`syntetic-project-id-${item}`}
-                                     name={'Citg-plug'}
-                                     text={'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.'}
-                                     img={plug} project={ProjectType.IN_DEVELOPING}/>
+                    projects?.map(project => (
+                        <ProjectCard key={project.id}
+                            id={project.id}
+                            name={project.title}
+                            img={project.main_img}
+                            text={project.description}
+                            project={ProjectType.IN_DEVELOPING}/>
                     ))
                 }
             </div>

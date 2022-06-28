@@ -28,7 +28,7 @@ import citg_plug from '../../../../assets/images/citg_plug.png'
 
 import {ProjectsMiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
-interface IProjectsBlock {
+export interface IProjectsBlock {
     projects: ProjectsMiniInfo[]
 }
 
