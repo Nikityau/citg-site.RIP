@@ -23,9 +23,16 @@ import SliderBoxElements from "../../../../Lib/Slider/Slider.box.elements/Slider
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 
 import plug from "../../../../assets/icons/citg-icons.svg";
+
 import citg_plug from '../../../../assets/images/citg_plug.png'
 
-const ProjectsBlock = () => {
+import {ProjectsMiniInfo} from "../../../../SynteticData/Syntetic.data.type";
+
+interface IProjectsBlock {
+    projects: ProjectsMiniInfo[]
+}
+
+const ProjectsBlock = ({ projects }:IProjectsBlock) => {
     const projectsBlock = useRef<HTMLDivElement>(null)
     const [isExpand, setIsExpand] = useState<boolean>(false)
 
@@ -53,10 +60,6 @@ const ProjectsBlock = () => {
     const changeByHeight = (h:number) => {
         projectsBlock.current.style.height = h + 20 + 'px'
     }
-
-    useEffect(() => {
-        console.log('prjcts')
-    })
 
     return (
         <div className={'projects-block'}>
@@ -210,10 +213,10 @@ const ProjectsBlock = () => {
                         <div className={'projects-block-animations_ball-2'}/>
                     </div>
                     {
-                        Array_by_number(10).map((item, index) => (
-                            <div key={index} className={'projects-block-mob-ver_el'}>
-                                <Link to={`/projects/synt-${index}`}>
-                                    <img src={citg_plug}/>
+                        projects?.map(project => (
+                            <div key={project.id} className={'projects-block-mob-ver_el'}>
+                                <Link to={`/projects/synt-${project.id}`}>
+                                    <img src={project?.main_img} alt={'img'}/>
                                 </Link>
                             </div>
                         ))

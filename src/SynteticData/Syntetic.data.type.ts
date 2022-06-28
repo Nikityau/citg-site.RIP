@@ -64,3 +64,16 @@ export type MemberWorksInfo = {
     work_name: string,
     all_works_by_name: Work[]
 }
+
+export type ProjectsMiniInfo = {
+    id: string,
+    title: string,
+    description: string,
+    main_img: string
+}
+
+export type Projects = {
+    released_projects: ProjectsMiniInfo[],
+    concourse_projects: ProjectsMiniInfo[],
+    projects_in_developing: ProjectsMiniInfo[]
+}
