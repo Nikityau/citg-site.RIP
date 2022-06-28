@@ -37,7 +37,10 @@ function Footer() {
 
   return (
     <div className={[footer.container, (match_project || match_team_member) ? footer.less : ''].join(' ')} id={'footer'}>
-      <ArrowUp/>
+      {
+        window.screen.width >= 1200 &&
+          <ArrowUp/>
+      }
       <div className={footer.copyrigth}>
         <Copyright />
       </div>
@@ -54,7 +57,6 @@ function Footer() {
           <div className={footer.addI_City}>Ростов-на-Дону</div>
           <div className={footer.addI_Street}>
             <p>Пл. Народного</p>
-            {' '}
             <p>Ополчения 2</p>
           </div>
           <div className={footer.addI_Imgs}>

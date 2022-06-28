@@ -22,8 +22,6 @@ import {
 import SliderBoxElements from "../../../../Lib/Slider/Slider.box.elements/Slider.box.elements";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 
-import {GoUp} from "../../../../Utils/GoUp";
-
 import plug from "../../../../assets/icons/citg-icons.svg";
 import citg_plug from '../../../../assets/images/citg_plug.png'
 
@@ -56,12 +54,16 @@ const ProjectsBlock = () => {
         projectsBlock.current.style.height = h + 20 + 'px'
     }
 
+    useEffect(() => {
+        console.log('prjcts')
+    })
+
     return (
         <div className={'projects-block'}>
             <div className={'projects-block_title'}>
                 <BlockTitle title={'01'} subtitle={'Реализованые проекты'}/>
             </div>
-            {
+            {/*{
                 window.screen.width >= 500 &&
                 <div className={'projects-block_projects-container'}>
                     <Slider
@@ -200,7 +202,7 @@ const ProjectsBlock = () => {
                         </SliderBoxElements>
                     </Slider>
                 </div>
-            }
+            }*/}
             <div className={'projects-block-mob-ver'}>
                 <div ref={projectsBlock} className={['projects-block-mob-ver_container'].join(' ')}>
                     <div className={'projects-block-animations'}>

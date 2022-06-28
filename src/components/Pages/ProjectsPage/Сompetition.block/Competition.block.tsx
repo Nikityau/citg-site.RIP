@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
@@ -9,6 +9,11 @@ import citg_plug from "../../../../assets/icons/citg-icons.svg";
 import {Array_by_number} from "../../../../Utils/Func/Array_by_number";
 
 const CompetitionBlock = () => {
+
+
+    useEffect(() => {
+        console.log('comp')
+    })
 
     return (
         <div className={'competition-block'}>

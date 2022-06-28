@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 
 import './Project.card.scss'
@@ -35,6 +35,10 @@ const ProjectCard = ({ name,img,id, text, project }:IDevProjectCard) => {
                 return 'dev-project-card__def'
         }
     }
+
+    useEffect(() => {
+        console.log('prjc card')
+    })
 
     return (
         <div className={['dev-project-card', getClassByProjectType()].join(' ')} onClick={onLinkClick}>
