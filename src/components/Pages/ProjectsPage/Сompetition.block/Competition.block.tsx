@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
@@ -6,6 +6,7 @@ import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 import './Competition.block.scss'
 
 import citg_plug from "../../../../assets/icons/citg-icons.svg";
+import {Array_by_number} from "../../../../Utils/Func/Array_by_number";
 
 const CompetitionBlock = () => {
 
@@ -16,6 +17,17 @@ const CompetitionBlock = () => {
                             subtitle={'Конкурсные работы'}/>
             </div>
             <div className={'competition-block_projects-list'}>
+                {
+                    Array_by_number(4).map(item => (
+                        <ProjectCard key={item}
+                            id={'synt'}
+                            name={'citg-plug'}
+                            img={citg_plug}
+                            text={'text'}
+                            project={ProjectType.COMPETITION}/>
+                    ))
+                }
+
                 {/*<ProjectCard id={`syntetic-id-${Math.ceil(Math.random() * 1000)}`}
                              name={'citg-plug'}
                              img={citg_plug}
