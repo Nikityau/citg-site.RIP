@@ -20,7 +20,6 @@ import ProjectCard, {ProjectType} from "../Project.card/Project.card";
 import {ProjectsMiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {BoxDivided} from "../../../../Lib/Slider/Slider.utils/BoxDivided";
-import {GoUp} from "../../../../Utils/GoUp";
 
 const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
 
@@ -45,7 +44,7 @@ const ProjectsBlock = ({ projects }:IProjectsBlock) => {
             const lastChild = await projectsBlock.current.children[2] as HTMLElement
             const h = lastChild.offsetTop + lastChild.clientHeight
 
-            GoUp()
+            window.scrollTo(0,0)
 
             setTimeout(async () => {
                 await changeByHeight(h)
@@ -63,7 +62,7 @@ const ProjectsBlock = ({ projects }:IProjectsBlock) => {
                 <BlockTitle title={'01'} subtitle={'Реализованые проекты'}/>
             </div>
             {
-                window.screen.width >= 500 &&
+                window.screen.width >= 50 &&
                 <div className={'projects-block_projects-container'}>
                     <Slider
                         slider_options={{

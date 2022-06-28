@@ -29,13 +29,17 @@ export type ProjectInfo = {
     links: Link[],
     supported_devices: Device[]
 }
-
 export type Software = {
     id: string
     title: string
     imgSrc: string
 }
-
+export type MemberMiniInfo = {
+    id: string,
+    full_name: string,
+    skills: string[],
+    img: string
+}
 export type MemberInfo = {
     id: string,
     photo: Img
@@ -48,7 +52,6 @@ export type MemberInfo = {
     my_works: MiniInfo[],
     pdf_portfolio_link: string,
 }
-
 export type Work = {
     id: string,
     name: string,
@@ -57,23 +60,21 @@ export type Work = {
     software_used: Software[],
     development_stages: Img[]
 }
-
 export type MemberWorksInfo = {
     man_id: string,
     work_id: string,
     work_name: string,
     all_works_by_name: Work[]
 }
-
 export type ProjectsMiniInfo = {
     id: string,
     title: string,
     description: string,
     main_img: string
 }
-
 export type Projects = {
     released_projects: ProjectsMiniInfo[],
     concourse_projects: ProjectsMiniInfo[],
     projects_in_developing: ProjectsMiniInfo[]
 }
+

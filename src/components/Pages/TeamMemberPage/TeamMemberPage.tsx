@@ -17,13 +17,13 @@ import member_page_back from '../../../assets/images/member-page-back.png'
 export const TeamMemberContext = createContext(null)
 
 function TeamMemberPage() {
-    const {id} = useParams()
+    const params = useParams()
 
     const [member, setMember] = useState<MemberInfo>(null)
 
     useEffect(() => {
         (async () => {
-            const member_data = await CiTG_API.getMemberById(id)
+            const member_data = await CiTG_API.getMemberById(params['id'])
             setMember(member_data)
         })()
     }, [])

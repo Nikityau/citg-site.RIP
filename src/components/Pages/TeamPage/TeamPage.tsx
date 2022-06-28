@@ -1,19 +1,25 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import MemberCard from "./Member.card/Member.card";
 
 import {GoUp} from "../../../Utils/GoUp";
-import {Array_by_number} from "../../../Utils/Func/Array_by_number";
+
+import {CiTG_API} from "../../../API/CiTG_API";
 
 import './Team.page.scss'
 
-import ded_img from '../../../assets/images/team-member/ded.png'
+import {MemberMiniInfo} from "../../../SynteticData/Syntetic.data.type";
+
 
 const TeamPage = () => {
+    const [team, setTeam] = useState<MemberMiniInfo[]>(null)
 
     useEffect(() => {
-        console.log('render')
-    })
+        (async () => {
+            const data = await CiTG_API.getTeam();
+            setTeam(data)
+        })()
+    }, [])
 
     const onClick = async () => {
         await GoUp()
@@ -31,9 +37,12 @@ const TeamPage = () => {
                 </div>
                 <div className={'team-page_team'}>
                     {
-                        Array_by_number(8).map(item => (
-                            <MemberCard key={item} photo={ded_img} link={'001'} full_name={'Ded A.K.A Byiniй'}
-                                        skills={['illustrator', 'UI/UX-designer']} onClick={onClick}/>
+                        team?.map(member => (
+                            <MemberCard key={member.id}
+                                photo={member.img}
+                                full_name={member.full_name}
+                                skills={member.skills}
+                                id={member.id}/>
                         ))
                     }
                 </div>

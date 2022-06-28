@@ -31,7 +31,7 @@ const PreviewInfoBlock = ({ memberInfo }:IPreviewInfoBlock) => {
                     social_media={memberInfo?.social_links || []}
                     photo={memberInfo?.photo?.imgSrc || ''}
                     pdf_portfolio_link={memberInfo?.pdf_portfolio_link || ''}
-                    link={''}
+                    id={''}
                 />
                 <div className={'preview-member-info-block_skill-n-awards'}>
                     <PortfolioSkillsBlock skills={memberInfo?.skills || []}

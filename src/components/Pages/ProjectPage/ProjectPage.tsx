@@ -12,12 +12,12 @@ import PopUpGallery from "../../../Lib/PopUpGallery/PopUpGallery";
 
 function ProjectPage() {
 
-    const {id} = useParams()
+    const params = useParams()
     const [projectInfo, setProjectInfo] = useState<ProjectInfo>(undefined)
 
     useEffect(() => {
         (async () => {
-            const data = await CiTG_API.getProjectById(id)
+            const data = await CiTG_API.getProjectById(params['id'])
             setProjectInfo(data)
         })()
     }, [])
