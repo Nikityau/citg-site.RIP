@@ -12,6 +12,9 @@ import {Slider_Type, SliderBack_Type, SliderElement_Type} from "./Slider.type/Sl
 import slider from "./Slider.module.scss";
 import "./Slider.scss";
 
+
+let current_el_index: number = 0;
+
 const Slider = ({
                     slider_options,
                     pagination,
@@ -30,7 +33,6 @@ const Slider = ({
     const [slider_base_controller, set_slider_base_controller] = useState<SliderBaseController>(new SliderBaseController())
 
     const [children_length, set_children_length] = useState<number>(0);
-    const [current_el_index, set_current_el_index] = useState<number>(0);
 
     const slider_ref = useRef<HTMLDivElement>(undefined)
     const slider_track_ref = useRef<HTMLDivElement>(undefined)
@@ -56,7 +58,9 @@ const Slider = ({
         slider_base_controller.Set_Swipes();
         slider_base_controller.Set_Autoplay();
 
-        slider_base_controller.change_index = set_current_el_index;
+        slider_base_controller.change_index = (i:number) => {
+            current_el_index = i
+        };
 
         slider_base_controller.Options(
             slider_options,
