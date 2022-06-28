@@ -37,10 +37,6 @@ const ProjectCard = ({ name,img,id, text, project }:IDevProjectCard) => {
         }
     }
 
-    useEffect(() => {
-        console.log('prjc card')
-    })
-
     return (
         <div className={['dev-project-card', getClassByProjectType()].join(' ')} onClick={onLinkClick}>
             <Link to={`/projects/${id}`}>
