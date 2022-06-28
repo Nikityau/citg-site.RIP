@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import BlockTitle from "../../../UI/BlockTitle/BlockTitle";
 import ProjectCard, {ProjectType} from "../Project.card/Project.card";
@@ -8,6 +8,7 @@ import './Competition.block.scss'
 import citg_plug from "../../../../assets/icons/citg-icons.svg";
 
 const CompetitionBlock = () => {
+
     return (
         <div className={'competition-block'}>
             <div className={'competition-block_title'}>
@@ -15,7 +16,7 @@ const CompetitionBlock = () => {
                             subtitle={'Конкурсные работы'}/>
             </div>
             <div className={'competition-block_projects-list'}>
-                <ProjectCard id={`syntetic-id-${Math.ceil(Math.random() * 1000)}`}
+                {/*<ProjectCard id={`syntetic-id-${Math.ceil(Math.random() * 1000)}`}
                              name={'citg-plug'}
                              img={citg_plug}
                              text={'text'}
@@ -29,7 +30,7 @@ const CompetitionBlock = () => {
                              name={'citg-plug'}
                              img={citg_plug}
                              text={'text'}
-                             project={ProjectType.COMPETITION}/>
+                             project={ProjectType.COMPETITION}/>*/}
             </div>
         </div>
     );
