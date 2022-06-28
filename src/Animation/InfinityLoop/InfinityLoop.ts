@@ -65,7 +65,7 @@ export class InfinityLoop implements IAnimationInterface {
     return this.timeout;
   };
 
-  Start(): NodeJS.Timeout {
+  async Start(): Promise<void> {
     /* if (this._direction == InfinityLoopDirection.LEFT) {
       return this.LeftDirection();
     }
@@ -74,7 +74,7 @@ export class InfinityLoop implements IAnimationInterface {
       return this.RightDirection();
     }*/
 
-    return this.timeout;
+
   }
   Stop() {
     clearInterval(this.timeout);

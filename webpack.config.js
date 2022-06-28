@@ -73,16 +73,19 @@ module.exports = {
             },
             {
                 test: /\.[cm]?js$/,
+                include: path.resolve(__dirname, 'src'),
                 exclude: /node_modules/,
                 use: ['babel-loader'],
             },
             {
                 test: /\.jsx/,
+                include: path.resolve(__dirname, 'src'),
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
             {
                 test: /\.tsx?$/,
+                include: path.resolve(__dirname, 'src'),
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },

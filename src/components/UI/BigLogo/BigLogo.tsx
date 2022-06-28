@@ -83,22 +83,26 @@ const BigLogo = () => {
     return animation.Stop;
   };
   const mediumCircleAnimation = (): () => void | undefined => {
-    if (window.screen.width <= 500) return;
+   /* if (window.screen.width <= 500) return;
     if (!mediumCircle.current) return;
 
     const animation = new AnimationLevitation(mediumCircle.current, 20, 80);
     animation.Start()
 
-    return animation.Stop;
+    return animation.Stop;*/
+
+    return;
   };
   const smallCircleAnimation = (): () => void | undefined => {
-    if (window.screen.width <= 500) return;
+    /*if (window.screen.width <= 500) return;
     if (!smallCircle.current) return;
 
     const animation = new AnimationLevitation(smallCircle.current, 8, 100, 0.8);
     animation.Start()
 
-    return animation.Stop;
+    return animation.Stop;*/
+
+    return
   };
 
   useEffect(() => {

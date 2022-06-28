@@ -74,15 +74,15 @@
 
       transition: all 0.5s;
 
+      animation: space_2;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+
       @media screen and (max-width: 500px) {
         width: 140px;
         height: 140px;
 
         transition: all 0.3s;
-
-        animation: space_2;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
       }
     }
     .smallCircle {
@@ -102,13 +102,13 @@
 
       transition: all 0.2s;
 
+      animation: space;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+
       @media screen and (max-width: 500px) {
         width: 70px;
         height: 70px;
-
-        animation: space;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
       }
     }
     .rotatingCircle {
@@ -131,10 +131,6 @@
       @media screen and (max-width: 500px) {
         width: 80px;
         height: 80px;
-
-        animation: space_3;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
       }
     }
 

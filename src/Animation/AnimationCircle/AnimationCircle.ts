@@ -1,5 +1,6 @@
 import { CircleTrail } from "./CircleTrail";
 import { MathUtils } from "../../MathUtils/MathUtils";
+
 import { IAnimationInterface } from "../AnimationBase/Animation.interface";
 
 export interface ICoords {
@@ -88,13 +89,6 @@ export class AnimationCircle implements IAnimationInterface {
   }
 
   public async Start(): Promise<void> {
-    if (this.isMobile) {
-      const coord = await MathUtils.PointsCoordsOnCircle(100, this._r, this.cx, this.cy);
-
-      this.element.style.top = coord.y + "px";
-      this.element.style.left = coord.x + "px";
-    }
-
     this.timeout = setInterval( async () => {
       this.angle += 1;
 
@@ -104,7 +98,7 @@ export class AnimationCircle implements IAnimationInterface {
       this.element.style.left = coord.x + "px";
 
       if (this.sun) {
-        const angle = MathUtils.RotateAngle(coord.x, coord.y, this.sun.x, this.sun.y);
+        const angle = await MathUtils.RotateAngle(coord.x, coord.y, this.sun.x, this.sun.y);
         this.element.style.transform = `rotate(-${angle * 2}deg)`;
       }
 
