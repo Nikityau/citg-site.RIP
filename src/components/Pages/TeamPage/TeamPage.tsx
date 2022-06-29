@@ -21,10 +21,6 @@ const TeamPage = () => {
         })()
     }, [])
 
-    const onClick = async () => {
-        await GoUp()
-    }
-
     return (
         <div className={'team-page'}>
             <div className={'team-page__gradient-purple'}/>

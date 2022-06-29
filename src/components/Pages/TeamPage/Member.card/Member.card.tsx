@@ -1,9 +1,7 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 import './Member.card.scss'
-
-import {Link} from "react-router-dom";
-import {GoUp} from "../../../../Utils/GoUp";
 
 export interface IMemberCard {
     photo: string,
