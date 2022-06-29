@@ -30,4 +30,6 @@ export interface ISliderArrowBase {
   set index(i: number);
 
   set change_index(callback: onChangeIndex);
+
+  Destroy():void
 }

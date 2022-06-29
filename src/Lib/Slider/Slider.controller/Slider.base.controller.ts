@@ -58,7 +58,7 @@ export class SliderBaseController {
         slider_back_type: SliderBack_Type.DEFAULT,
         slider_element_type: SliderElement_Type.DEFAULT,
     };
-    private _pagination_option: boolean | { is:boolean, paginationContainer: HTMLElement } = false;
+    private _pagination_option: boolean | { is: boolean, paginationContainer: HTMLElement } = false;
     private _autoplay_option: ISliderAutoplayOptions = {
         autoplay: false,
         smooth: false,
@@ -112,18 +112,21 @@ export class SliderBaseController {
         this._arrow_controller.index = this._index;
         this._arrow_controller.change_index = this.onChangeIndex;
 
-        this.Observer.addCallback(() => {
-            this._arrow_controller.Set_Arrows({
-                left: this._slider.offsetLeft,
-                top: this._slider.offsetTop,
-                width: this._slider.clientWidth,
-                height: this._slider.clientHeight,
-                direction
+
+        if (this._arrow_controller)
+            this.Observer.addCallback(() => {
+                this._arrow_controller.Set_Arrows({
+                    left: this._slider.offsetLeft,
+                    top: this._slider.offsetTop,
+                    width: this._slider.clientWidth,
+                    height: this._slider.clientHeight,
+                    direction
+                })
             })
-        })
 
         this._arrow_controller.Set_Arrows({...slider_style, direction});
     }
+
     public Set_Swipes() {
         if (!this._slider) return;
 
@@ -147,6 +150,7 @@ export class SliderBaseController {
 
         this._swipe_controller.Change_index = this.onChangeIndex;
     }
+
     public Set_Autoplay() {
         if (!this._slider_track || !this._slider) return;
 
@@ -162,6 +166,7 @@ export class SliderBaseController {
         this._autoplay_controller._index = this._index;
         this._autoplay_controller.Change_index = this.onChangeIndex;
     }
+
     public Set_ProgressBar() {
         if (!this._progressbar_controller)
             this._progressbar_controller = new SliderProgressbarController();
@@ -172,10 +177,11 @@ export class SliderBaseController {
         this._progressbar_controller.Options(this._progressbar_option.back_line, progress_line,
             this._progressbar_option.options, this._element_length);
     }
-    public Set_Pagination() {
-        if(!this._pagination_option) return
 
-        if(this._pagination_option['paginationContainer']) {
+    public Set_Pagination() {
+        if (!this._pagination_option) return
+
+        if (this._pagination_option['paginationContainer']) {
             this._pagination_controller = new SliderPaginationController();
             this._pagination_controller.Set_pagination(this._pagination_option['paginationContainer'])
         }
@@ -183,7 +189,7 @@ export class SliderBaseController {
 
     public Options(
         slider_options: ISliderOptions,
-        pagination: boolean | { is:boolean, paginationContainer: HTMLDivElement },
+        pagination: boolean | { is: boolean, paginationContainer: HTMLDivElement },
         autoplay: ISliderAutoplayOptions,
         progressbar: SliderProgressbarEntry,
         focus: focus,
@@ -297,7 +303,7 @@ export class SliderBaseController {
         if (this._progressbar_option.options.appear && !this._progressbar_controller) {
             this.Set_ProgressBar()
         }
-        if(this._pagination_option) {
+        if (this._pagination_option) {
             this.Set_Pagination()
         }
     }
@@ -307,7 +313,7 @@ export class SliderBaseController {
 
         const copy = this._slider_track.querySelectorAll("[data-copy-slider-el='true']");
         for (let i = 0; i < copy.length; ++i) {
-             this._slider_track.removeChild(copy[i]);
+            this._slider_track.removeChild(copy[i]);
         }
 
         this.Update_main_els();
@@ -332,7 +338,7 @@ export class SliderBaseController {
     private async Slider_type_init() {
         if (!this._slider || !this._slider_track) return;
 
-         this.Clear_old();
+        this.Clear_old();
 
         if (this._slider_options.infinite_type == Infinite_Type.INFINITE) {
             const main = Array.from(this._slider_track.children);
@@ -435,7 +441,7 @@ export class SliderBaseController {
 
         this._index = this.onCheckIndex(i);
 
-        if(this._change_index) await this._change_index(this._index);
+        if (this._change_index) await this._change_index(this._index);
 
         if (this._arrow_controller) this._arrow_controller.index = this._index;
         if (this._swipe_controller) this._swipe_controller.index = this._index;
@@ -446,7 +452,7 @@ export class SliderBaseController {
 
         await this.onChangeOffset();
 
-        if(this._pagination_controller) await this._pagination_controller.Set_circle_by_index(this._index)
+        if (this._pagination_controller) await this._pagination_controller.Set_circle_by_index(this._index)
     }
 
     private async onChangeOffset() {
@@ -487,7 +493,7 @@ export class SliderBaseController {
             this._slider_options.slider_type == Slider_Type.EXTENDED
         ) {
             if (this.focus == "center" || this.focus == "no") {
-                 await (() => {
+                await (() => {
                     this._slider_track.style.left =
                         this._slider.clientWidth / 2 - el.offsetLeft - el.clientWidth / 2 + "px";
                 })()
@@ -533,7 +539,7 @@ export class SliderBaseController {
         }
     }
 
-    private async * Find_slider_el(): any {
+    private async* Find_slider_el(): any {
         if (!this._slider_track || !this._slider) return null;
 
         let el = null;
@@ -638,4 +644,36 @@ export class SliderBaseController {
     }
 
     //</Setters/Getters>
+
+
+    public Destroy(): void {
+        if (this._arrow_controller) {
+            this._arrow_controller.Destroy()
+            this._arrow_controller = null;
+        }
+
+        if (this._autoplay_controller) {
+            this._autoplay_controller.Destroy()
+            this._autoplay_controller = null;
+        }
+
+        if (this._swipe_controller) {
+            this._swipe_controller.Destroy()
+            this._swipe_controller = null;
+        }
+
+        if (this._progressbar_controller) {
+            this._progressbar_controller = null;
+        }
+
+        if (this._pagination_controller) {
+            this._pagination_controller = null;
+        }
+
+
+        if(this.Observer) {
+            this.Observer.StopWatch()
+            this.Observer.clearAllCbcks()
+        }
+    }
 }

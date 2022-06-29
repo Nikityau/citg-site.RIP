@@ -37,7 +37,7 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
     this.Smooth_Motion = this.Smooth_Motion.bind(this)
   }
 
-  async Start() {
+  public async Start() {
     if(!this._slider_track) return
     if (this._delay == 0) return this._timeout;
 
@@ -52,9 +52,10 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
 
     return this._timeout;
   }
-  async Stop() {
+  public async Stop() {
     await clearTimeout(this._timeout);
   }
+
   Waiting(): NodeJS.Timeout {
     this.Stop();
     this._timeout = setTimeout(this.Start, this._delay * 1.5);
@@ -67,7 +68,7 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
     this._delay = options.delay;
   }
 
-  private Smooth_Motion() {
+  private async Smooth_Motion() {
     if(!this._first_el || !this._slider_track || !this._slider) return;
 
     this._offset_coeff = 300;
@@ -82,12 +83,16 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
 
     const in_percent = (this._slider_track.offsetLeft + 20) * 100 / (this._slider.clientLeft - this._slider.clientWidth)
 
-    this.change_index(in_percent, EventType.AUTOPLAY);
+    await this.change_index(in_percent, EventType.AUTOPLAY);
 
     this._slider_track.style.left = this._slider_track.offsetLeft - this._offset_coeff + 'px';
   }
 
   set Change_index(callback: onChangeIndex) {
     this.change_index = callback;
+  }
+
+  public Destroy():void {
+    this.Stop();
   }
 }

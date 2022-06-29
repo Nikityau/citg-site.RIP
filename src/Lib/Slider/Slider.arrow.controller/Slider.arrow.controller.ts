@@ -1,6 +1,8 @@
 import {Subber} from "../../../Utils/Subber/Subber";
 import {TypeEvent} from "../../../Utils/Subber/Subber.TypeEvent.enum";
+
 import {ISliderArrowBase} from "./Slider.arrow.base/Slider.arrow.base";
+
 import {EventType, onChangeIndex} from "../Slider.interface/Slider.event.type";
 import {Slider_Type} from "../Slider.type/Slider_Type";
 
@@ -13,7 +15,6 @@ export class SliderArrowController implements ISliderArrowBase {
 
   constructor() {
     this.on_Arrow_Click = this.on_Arrow_Click.bind(this);
-
     this.Set_Arrows = this.Set_Arrows.bind(this)
   }
 
@@ -91,4 +92,9 @@ export class SliderArrowController implements ISliderArrowBase {
   }
 
   //</Setters/Getters>
+
+  public Destroy():void {
+    Subber.Unsubb(this._left_arrow, TypeEvent.CLICK, this.on_Arrow_Click)
+    Subber.Unsubb(this._right_arrow, TypeEvent.CLICK, this.on_Arrow_Click)
+  }
 }

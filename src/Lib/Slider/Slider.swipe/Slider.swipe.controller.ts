@@ -233,4 +233,8 @@ export class SliderSwipeController implements ISliderSwipeBase {
   set Change_index(callback: onChangeIndex) {
     this.change_index = callback;
   }
+
+  Destroy() {
+    this.Autoplay_Unsub()
+  }
 }

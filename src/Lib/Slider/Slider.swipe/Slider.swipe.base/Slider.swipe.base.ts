@@ -24,4 +24,6 @@ export interface ISliderSwipeBase {
   set index(i: number);
 
   set Change_index(callback: onChangeIndex);
+
+  Destroy():void;
 }

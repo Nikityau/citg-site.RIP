@@ -55,8 +55,7 @@ const Slider = ({
         slider_base_controller.Set_Swipes();
         slider_base_controller.Set_Autoplay();
 
-        slider_base_controller.change_index = () => {
-        }
+        slider_base_controller.change_index = () => {}
 
         slider_base_controller.Options(
             slider_options,
@@ -75,11 +74,14 @@ const Slider = ({
             focus,
             elements_on_screen
         );
-    }, []);
 
-    useEffect(() => {
-        console.log('slider-render')
-    })
+        console.log('subb')
+
+        return () => {
+            console.log('unsubb')
+            slider_base_controller.Destroy()
+        };
+    }, []);
 
     useEffect(() => {
         const l = children?.toString().split(",").length || 0;

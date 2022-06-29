@@ -18,4 +18,6 @@ export interface ISliderAutoplayBase {
   Options(options: ISliderAutoplayOptions): void;
 
   set Change_index(callback: onChangeIndex);
+
+  Destroy():void
 }
