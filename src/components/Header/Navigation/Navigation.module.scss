@@ -19,8 +19,7 @@
     &:hover {
       .arrow {
         &:before, &:after {
-          //transform: rotate(180deg);
-          border-top-color: #6C2AF8;
+          transform: rotate(180deg);
         }
         &:after {
           top: 47%;
@@ -61,7 +60,7 @@
 
         transition: all .3s;
       }
-      /*&:after {
+      &:after {
         content: "";
         position: absolute;
         top:44%;
@@ -73,7 +72,7 @@
         border-top: 5px solid #181c21;
 
         transition: all .3s;
-      }*/
+      }
 
       .popUpOpen {
         transform: rotate(180deg);

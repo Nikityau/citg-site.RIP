@@ -496,19 +496,22 @@ export class SliderBaseController {
         ) {
             if (this.focus == "center" || this.focus == "no") {
                 await (() => {
-                    this._slider_track.style.left =
-                        this._slider.clientWidth / 2 - el.offsetLeft - el.clientWidth / 2 + "px";
+                    this._slider_track.style.transform = `translateX(${this._slider.clientWidth / 2 - el.offsetLeft - el.clientWidth / 2}px)`
+                   /* this._slider_track.style.left =
+                        this._slider.clientWidth / 2 - el.offsetLeft - el.clientWidth / 2 + "px";*/
                 })()
             }
             if (this.focus == "left") {
                 await (() => {
-                    this._slider_track.style.left = this._slider.clientLeft - el.offsetLeft + "px";
+                    this._slider_track.style.transform = `translateX(${this._slider.clientLeft - el.offsetLeft}px)`
+                    //this._slider_track.style.left = this._slider.clientLeft - el.offsetLeft + "px";
                 })()
             }
             if (this.focus == "right") {
                 await (() => {
-                    this._slider_track.style.left =
-                        this._slider.clientWidth - el.offsetLeft - el.clientWidth + "px";
+                    this._slider_track.style.transform = `translateX(${this._slider.clientWidth - el.offsetLeft - el.clientWidth})px`;
+                    /*this._slider_track.style.left =
+                        this._slider.clientWidth - el.offsetLeft - el.clientWidth + "px";*/
                 })()
             }
         }
