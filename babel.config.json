@@ -4,8 +4,11 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "current"
-        }
+          "ios": "12",
+          "safari": "12"
+        },
+        "useBuiltIns": "entry",
+        "corejs": "3.22"
       }
     ],
     "@babel/preset-react",
