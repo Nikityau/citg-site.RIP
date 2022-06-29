@@ -26,6 +26,7 @@
   }
 
   transition: all .3s;
+  -webkit-transition: all .3s;
 
   @media screen and (max-width: 500px) {
     width: 46%;
@@ -53,11 +54,21 @@
       width: 150px;
       height: 150px;
 
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
       border-radius: 50%;
 
       overflow: hidden;
 
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
       display: flex;
+
+      -webkit-justify-content: center;
+      -webkit-align-items: center;
+
       justify-content: center;
       align-items: center;
 

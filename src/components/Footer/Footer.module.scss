@@ -10,9 +10,16 @@
 
   .copyrigth {
     position: absolute;
+
+    display: -webkit-flex;
     display: flex;
+
+    -webkit-flex-direction: column;
+    -webkit-justify-content: flex-end;
+
     flex-direction: column;
     justify-content: end;
+
     height: 100%;
     padding-left: 40px;
     padding-bottom: 15px;
