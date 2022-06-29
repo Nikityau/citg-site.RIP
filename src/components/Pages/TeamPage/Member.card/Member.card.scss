@@ -6,6 +6,9 @@
 
   background: rgba(12, 17, 23, 0.5);
 
+  -webkit-transition: all .3s;
+  transition: all .3s;
+
   &:hover {
 
     background: #fff;
@@ -14,20 +17,16 @@
       h5 {
         color: #201B1B;
       }
+
       p {
         color: #848484;
       }
     }
+
     .member-card_button {
       opacity: 1;
-
-      pointer-events: auto;
     }
   }
-
-  -webkit-transition: all .3s;
-  transition: all .3s;
-
 
   @media screen and (max-width: 500px) {
     width: 46%;
@@ -134,7 +133,6 @@
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
       opacity: 0;
-      pointer-events: none;
 
       transition: all .3s;
 
