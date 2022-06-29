@@ -20,6 +20,7 @@ const SliderBoxElements = ({children, tiles, gap}: ISliderBoxEls) => {
              style={{
                  gap: `${gap}px`
              }}
+
         >
             {children}
         </div>

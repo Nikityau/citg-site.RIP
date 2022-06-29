@@ -75,10 +75,7 @@ const Slider = ({
             elements_on_screen
         );
 
-        console.log('subb')
-
         return () => {
-            console.log('unsubb')
             slider_base_controller.Destroy()
         };
     }, []);
@@ -88,6 +85,7 @@ const Slider = ({
         set_children_length(l);
         slider_base_controller.el_length = l;
         slider_base_controller.onChildrenChanges();
+        console.log('test')
     }, [children]);
 
     const getSliderClass = (): string => {

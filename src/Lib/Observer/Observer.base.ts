@@ -12,7 +12,6 @@ export class ObserverBase {
         this.Watch = this.Watch.bind(this)
     }
 
-
     private async CallCbcks() {
        await this.callback.forEach(async cb => await cb())
     }

@@ -28,6 +28,7 @@ import {
 import {ObserverBase} from "../../Observer/Observer.base";
 
 import {SliderPaginationController} from '../Slider.pagination/Slider.pagination.controller'
+import logo from "../../../components/UI/Logo/Logo";
 
 export class SliderBaseController {
     private _slider: HTMLElement | null = null;
@@ -263,7 +264,6 @@ export class SliderBaseController {
             child.setAttribute("data-slider-el-index", `${index}`);
 
             el.style.width = el_width + 'px';
-
             if (el_height) {
                 el.style.height = el_height + 'px'
             }
@@ -276,13 +276,13 @@ export class SliderBaseController {
 
         await children.map(async child => {
             if (child.getAttribute('data-slider-box-els')) {
-                const width = (child.clientWidth / 3 - this._gap)
-                const height = (child.clientHeight / 2 - this._gap)
+                const width = (el_width / 3 - this._gap)
+                const height = el_height ? (el_height / 2 - this._gap) : (child.clientHeight / 2 - this._gap)
                 await Array.from(child.children).map(async box_child => {
                     const el = await <HTMLElement>box_child;
                     await (() => {
-                        el.style.width = (width + 'px');
-                        el.style.height = (height + 'px')
+                        el.style.width = width + 'px';
+                        el.style.height = height + 'px'
                     })()
                 });
             }
