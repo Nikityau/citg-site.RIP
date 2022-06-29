@@ -1,4 +1,4 @@
-import React, {Suspense, useState} from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import {BrowserRouter} from "react-router-dom";
 
 
@@ -15,6 +15,10 @@ import "./App.scss";
 import Loader from "../Loader/Loader";
 
 function App() {
+    useEffect(() => {
+        console.log(window.navigator)
+    }, [])
+
     return (
         <BrowserRouter>
             <Suspense fallback={<Loader/>}>
