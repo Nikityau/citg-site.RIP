@@ -263,10 +263,12 @@ export class SliderBaseController {
 
             child.setAttribute("data-slider-el-index", `${index}`);
 
-            el.style.width = el_width + 'px';
-            if (el_height) {
-                el.style.height = el_height + 'px'
-            }
+            await (() => {
+                el.style.width = el_width + 'px';
+                if (el_height) {
+                    el.style.height = el_height + 'px'
+                }
+            })()
 
             if (this.focus != 'no') {
                 await el.classList.add('slider-element-bw')
@@ -475,10 +477,10 @@ export class SliderBaseController {
             await this.Set_pos_by_el(el_2.value);
             await this.Set_focus_on_el(el_2.value, true);
 
-            this.On_transition();
+            await this.On_transition();
         }, 350);
 
-        this.Observer.Watch()
+        await this.Observer.Watch()
     }
 
     //</Events>
@@ -517,7 +519,7 @@ export class SliderBaseController {
             })()
         }
 
-        this.On_transition()
+        await this.On_transition()
     }
 
     private async Set_focus_on_el(el: HTMLElement, off = false) {
@@ -539,7 +541,7 @@ export class SliderBaseController {
         }
     }
 
-    private async* Find_slider_el(): any {
+    private async * Find_slider_el(): any {
         if (!this._slider_track || !this._slider) return null;
 
         let el = null;
