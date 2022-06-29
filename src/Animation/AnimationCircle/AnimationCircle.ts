@@ -95,8 +95,7 @@ export class AnimationCircle implements IAnimationInterface {
       const coord = await MathUtils.PointsCoordsOnCircle(this.angle, this._r, this.cx, this.cy);
 
       await (() => {
-        this.element.style.top = coord.y + "px";
-        this.element.style.left = coord.x + "px";
+        this.element.style.transform = `translate(${coord.x - this.element.offsetLeft}px, ${coord.y - this.element.offsetTop}px)`
       })()
 
       if (this.sun) {
