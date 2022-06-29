@@ -15,9 +15,6 @@ import "./App.scss";
 import Loader from "../Loader/Loader";
 
 function App() {
-    useEffect(() => {
-        console.log(window.navigator)
-    }, [])
 
     return (
         <BrowserRouter>
