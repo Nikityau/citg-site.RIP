@@ -24,10 +24,10 @@ import {
     SliderProgressbarEntry
 } from "../Slider.progressbar/Slider.progressbar.interface.option/Slider.progressbar.entry";
 
-import {ObserverBase} from "../../Observer/Observer.base";
-import {log} from "util";
-import {awards} from "../../../SynteticData/Syntetic.data/awards";
 
+import {ObserverBase} from "../../Observer/Observer.base";
+
+import {SliderPaginationController} from '../Slider.pagination/Slider.pagination.controller'
 
 export class SliderBaseController {
     private _slider: HTMLElement | null = null;
@@ -58,7 +58,7 @@ export class SliderBaseController {
         slider_back_type: SliderBack_Type.DEFAULT,
         slider_element_type: SliderElement_Type.DEFAULT,
     };
-    private _pagination_option = false;
+    private _pagination_option: boolean | { is:boolean, paginationContainer: HTMLElement } = false;
     private _autoplay_option: ISliderAutoplayOptions = {
         autoplay: false,
         smooth: false,
@@ -79,6 +79,7 @@ export class SliderBaseController {
     private _swipe_controller: ISliderSwipeBase | null = null;
     private _autoplay_controller: ISliderAutoplayBase | null = null;
     private _progressbar_controller: ISliderProgressbarBase | null = null;
+    private _pagination_controller: SliderPaginationController | null = null;
 
     constructor() {
         this.onChangeIndex = this.onChangeIndex.bind(this);
@@ -123,7 +124,6 @@ export class SliderBaseController {
 
         this._arrow_controller.Set_Arrows({...slider_style, direction});
     }
-
     public Set_Swipes() {
         if (!this._slider) return;
 
@@ -147,7 +147,6 @@ export class SliderBaseController {
 
         this._swipe_controller.Change_index = this.onChangeIndex;
     }
-
     public Set_Autoplay() {
         if (!this._slider_track || !this._slider) return;
 
@@ -163,7 +162,6 @@ export class SliderBaseController {
         this._autoplay_controller._index = this._index;
         this._autoplay_controller.Change_index = this.onChangeIndex;
     }
-
     public Set_ProgressBar() {
         if (!this._progressbar_controller)
             this._progressbar_controller = new SliderProgressbarController();
@@ -174,10 +172,18 @@ export class SliderBaseController {
         this._progressbar_controller.Options(this._progressbar_option.back_line, progress_line,
             this._progressbar_option.options, this._element_length);
     }
+    public Set_Pagination() {
+        if(!this._pagination_option) return
+
+        if(this._pagination_option['paginationContainer']) {
+            this._pagination_controller = new SliderPaginationController();
+            this._pagination_controller.Set_pagination(this._pagination_option['paginationContainer'])
+        }
+    }
 
     public Options(
         slider_options: ISliderOptions,
-        pagination: boolean,
+        pagination: boolean | { is:boolean, paginationContainer: HTMLDivElement },
         autoplay: ISliderAutoplayOptions,
         progressbar: SliderProgressbarEntry,
         focus: focus,
@@ -290,6 +296,9 @@ export class SliderBaseController {
         }
         if (this._progressbar_option.options.appear && !this._progressbar_controller) {
             this.Set_ProgressBar()
+        }
+        if(this._pagination_option) {
+            this.Set_Pagination()
         }
     }
 
@@ -426,17 +435,18 @@ export class SliderBaseController {
 
         this._index = this.onCheckIndex(i);
 
-        await this._change_index(this._index);
+        if(this._change_index) await this._change_index(this._index);
 
         if (this._arrow_controller) this._arrow_controller.index = this._index;
         if (this._swipe_controller) this._swipe_controller.index = this._index;
         if (this._autoplay_controller) this._autoplay_controller._index = this._index;
 
-        if (this._progressbar_controller) {
-             this._progressbar_controller.Set_Progress(this._index, false)
-        }
+        if (this._progressbar_controller) this._progressbar_controller.Set_Progress(this._index, false)
+
 
         await this.onChangeOffset();
+
+        if(this._pagination_controller) await this._pagination_controller.Set_circle_by_index(this._index)
     }
 
     private async onChangeOffset() {

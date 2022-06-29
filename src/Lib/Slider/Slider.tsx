@@ -6,12 +6,10 @@ import SliderProgressbar from "./Slider.progressbar/Slider.progressbar";
 import {ISlider} from "./Slider.interface/Slider.interface.option";
 
 import {SliderBaseController} from "./Slider.controller/Slider.base.controller";
-
 import {Slider_Type, SliderBack_Type, SliderElement_Type} from "./Slider.type/Slider_Type";
 
 import slider from "./Slider.module.scss";
 import "./Slider.scss";
-
 
 const Slider = ({
                     slider_options,
@@ -29,7 +27,7 @@ const Slider = ({
                     onClick
                 }: ISlider) => {
     const [slider_base_controller, set_slider_base_controller] = useState<SliderBaseController>(new SliderBaseController())
-    const [current_el_index, set_current_el_index] = useState<number>()
+    //const [current_el_index, set_current_el_index] = useState<number>()
 
     const [children_length, set_children_length] = useState<number>(0);
 
@@ -57,11 +55,15 @@ const Slider = ({
         slider_base_controller.Set_Swipes();
         slider_base_controller.Set_Autoplay();
 
-        slider_base_controller.change_index = set_current_el_index
+        slider_base_controller.change_index = () => {
+        }
 
         slider_base_controller.Options(
             slider_options,
-            pagination.is,
+            {
+                is: pagination.is,
+                paginationContainer: slider_pagination_ref.current
+            },
             {
                 ...autoplay,
                 swipe: swipe ? autoplay.swipe ? true : false : false
@@ -74,6 +76,10 @@ const Slider = ({
             elements_on_screen
         );
     }, []);
+
+    useEffect(() => {
+        console.log('slider-render')
+    })
 
     useEffect(() => {
         const l = children?.toString().split(",").length || 0;
@@ -169,7 +175,6 @@ const Slider = ({
             {pagination.is && (
                 <SliderPagination
                     pagination_type={pagination.location}
-                    current_el_index={current_el_index}
                     length={children_length}
                     id={`slider-pagination`}
                     ref={slider_pagination_ref}
