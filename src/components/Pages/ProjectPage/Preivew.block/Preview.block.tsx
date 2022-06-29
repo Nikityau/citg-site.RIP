@@ -14,54 +14,57 @@ const PreviewBlock = () => {
     const previewBlock = useRef<HTMLDivElement>(null)
 
     const prevDef = useCallback(e => {
-        e.preventDefault()
+        if(window.screen.width < 500)
+            e.preventDefault()
     }, [])
 
     const onScroll = useCallback(e => {
-        if(window.scrollY == 0) {
+        if (window.scrollY == 0) {
             GoUp()
-            window.addEventListener('touchmove', prevDef, { passive: false })
+            window.addEventListener('touchmove', prevDef, {passive: false})
 
             previewBlock.current.style.height = 100 + 'vh'
 
-            previewBlock.current.querySelector('h2').style.fontSize = 8 +'rem'
+            previewBlock.current.querySelector('h2').style.fontSize = 8 + 'rem'
         }
     }, [])
 
     let startY = 0;
     let lastY = 0;
+
     const onTouch = (e: React.TouchEvent) => {
         startY = lastY = e.targetTouches[0].pageY;
     }
     const onTouchMove = (e: React.TouchEvent) => {
         lastY = e.touches[e.touches.length - 1].pageY;
 
-        if(Math.abs(lastY - startY) < 50) return
+        if (Math.abs(lastY - startY) < 50) return
 
-        if(lastY < startY) {
+        if (lastY < startY) {
             previewBlock.current.style.height = 18 + 'vh'
 
-            previewBlock.current.querySelector('h2').style.fontSize = 5 +'rem'
+            previewBlock.current.querySelector('h2').style.fontSize = 5 + 'rem'
 
             setTimeout(() => {
                 window.removeEventListener('touchmove', prevDef, false)
             }, 200)
         } else {
             GoUp()
-            window.addEventListener('touchmove', prevDef, { passive: false })
+            window.addEventListener('touchmove', prevDef, {passive: false})
 
             previewBlock.current.style.height = 100 + 'vh'
 
-            previewBlock.current.querySelector('h2').style.fontSize = 8 +'rem'
+            previewBlock.current.querySelector('h2').style.fontSize = 8 + 'rem'
         }
     }
-    const onTouchEnd = (e: React.TouchEvent) => {
-    }
+    const onTouchEnd = (e: React.TouchEvent) => {}
 
 
     useEffect(() => {
+
         window.addEventListener('scroll', onScroll)
-        window.addEventListener('touchmove', prevDef, { passive: false })
+        window.addEventListener('touchmove', prevDef, {passive: false})
+
         return () => {
             window.removeEventListener('touchmove', prevDef, false)
             window.removeEventListener('scroll', onScroll)

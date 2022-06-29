@@ -27,7 +27,6 @@ const Slider = ({
                     onClick
                 }: ISlider) => {
     const [slider_base_controller, set_slider_base_controller] = useState<SliderBaseController>(new SliderBaseController())
-    //const [current_el_index, set_current_el_index] = useState<number>()
 
     const [children_length, set_children_length] = useState<number>(0);
 

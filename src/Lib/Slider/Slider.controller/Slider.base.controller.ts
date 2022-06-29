@@ -549,7 +549,7 @@ export class SliderBaseController {
         if (this._slider_options.infinite_type == Infinite_Type.NO) {
             el = await this._slider_track.querySelector(`[data-slider-el-index=\"${this._index}\"]`);
 
-            if (el) return <HTMLElement>el;
+            if (el) return  <HTMLElement>el;
         }
 
         if (this._slider_options.infinite_type == Infinite_Type.INFINITE) {
