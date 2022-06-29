@@ -100,7 +100,7 @@ export class AnimationCircle implements IAnimationInterface {
 
       if (this.sun) {
         const angle = await MathUtils.RotateAngle(coord.x, coord.y, this.sun.x, this.sun.y);
-        this.element.style.transform = `rotate(-${angle * 2}deg)`;
+        this.element.style.transform = this.element.style.transform + `rotate(-${angle * 2}deg)`;
       }
 
       if (this.angle >= 360) {
