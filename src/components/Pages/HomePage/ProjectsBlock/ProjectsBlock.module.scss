@@ -3,6 +3,12 @@
   width: 100vw;
   height: 100%;
 
+  z-index: 1;
+
+  @media screen and (max-width: 500px){
+
+  }
+
   .innerContainer {
     max-width: 1615px;
     height: 100%;
@@ -108,6 +114,8 @@
 
       pointer-events: none;
 
+      z-index: 1;
+
       @media screen and (max-width: 500px) {
         left: 0;
         right: 0;
@@ -143,6 +151,8 @@
       filter: blur(300px);
 
       pointer-events: none;
+
+      z-index: -1;
 
       @media screen and (max-width: 500px) {
         bottom: -200px;

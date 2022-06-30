@@ -31,7 +31,8 @@
       filter: drop-shadow(28px 31px 60px rgba(0, 0, 0, 0.15));
       background: radial-gradient(circle at center, #3e3c3c, #0a0a0a);
 
-      transition: all 0.5s;
+      will-change: transform;
+      transition: transform 0.5s;
 
       z-index: 2;
 
@@ -78,7 +79,8 @@
         inset 16px 19px 44px -22px rgba(86, 167, 242, 0.25),
         inset -52px -9px 67px -42px rgba(149, 43, 37, 0.51);
 
-      transition: all 0.5s;
+      will-change: transform;
+      transition: transform 0.5s;
 
       animation: space_2;
       animation-duration: 3s;
@@ -107,7 +109,8 @@
         inset 16px 19px 44px -22px rgba(86, 167, 242, 0.25),
         inset -52px -9px 67px -42px rgba(149, 43, 37, 0.51);
 
-      transition: all 0.2s;
+      will-change: transform;
+      transition: transform 0.2s;
 
       animation: space;
       animation-duration: 3s;
@@ -135,7 +138,8 @@
         inset 16px 31px 44px -22px rgba(86, 167, 242, 0.25),
         inset -52px -9px 67px -42px rgba(149, 43, 37, 0.51);
 
-      transition: all 0.1s;
+      will-change: transform;
+      transition: transform 0.1s;
 
       @media screen and (max-width: 500px) {
         width: 80px;
