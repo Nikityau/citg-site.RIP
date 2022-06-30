@@ -21,6 +21,7 @@
     width: 20px;
     height: 20px;
 
+    will-change: tansform;
     transform: scale(100, 100);
 
     background: -webkit-linear-gradient(19.36deg, #33317D -8.78%, rgba(71, 0, 54, 0) 82.01%);
@@ -43,6 +44,7 @@
     width: 20px;
     height: 20px;
 
+    will-change: transform;
     transform: scale(100, 100);
 
     background: rgba(113, 25, 42, 0.3);
