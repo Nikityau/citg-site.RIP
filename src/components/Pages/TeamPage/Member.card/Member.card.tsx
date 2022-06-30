@@ -15,6 +15,7 @@ const MemberCard = ({full_name,skills, photo, id, onClick}:IMemberCard) => {
     return (
         <div className={'member-card'} onClick={onClick}>
             <Link to={`/team/${id}`}>
+                <div className={'member-card-naebka'}/>
                 <div className={'member-card_photo'}>
                     <img src={photo} alt={'img'}/>
                 </div>

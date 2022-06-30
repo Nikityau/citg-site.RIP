@@ -11,9 +11,15 @@
 
   z-index: 1;
 
+  overflow: hidden;
+
   &:hover {
 
-    background: #fff;
+    //background: #fff;
+
+    .member-card-naebka {
+      opacity: 1;
+    }
 
     .member-card_description {
       h5 {
@@ -36,6 +42,8 @@
   }
 
   a {
+    position: relative;
+
     width: 100%;
     height: 100%;
 
@@ -50,6 +58,24 @@
     @media screen and (max-width: 500px){
       gap: 10px;
       padding: 15px 0 0 0;
+    }
+    overflow: hidden;
+
+    .member-card-naebka {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: #fff;
+
+      z-index: -1;
+
+      opacity: 0;
+
+      transition: all .3s;
     }
 
     .member-card_photo {
