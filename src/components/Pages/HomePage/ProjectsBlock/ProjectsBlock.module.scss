@@ -155,8 +155,6 @@
         mix-blend-mode: normal;
         filter: blur(130px);
         transform: matrix(-1, 0, 0, 1, 0, 0);
-
-        z-index: -2;
       }
       @media screen and (min-width: 3000px) {
         bottom: 5%;
@@ -212,7 +210,7 @@
         );
         filter: blur(100px);
 
-        z-index: -10;
+
       }
 
       padding-top: 60px;
