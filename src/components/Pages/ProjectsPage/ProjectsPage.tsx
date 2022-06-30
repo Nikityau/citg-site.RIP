@@ -7,6 +7,7 @@ import CompetitionBlock from "./Сompetition.block/Competition.block";
 import './Projects.page.scss'
 
 import {Projects} from "../../../SynteticData/Syntetic.data.type";
+
 import {CiTG_API} from "../../../API/CiTG_API";
 
 function ProjectsPage() {

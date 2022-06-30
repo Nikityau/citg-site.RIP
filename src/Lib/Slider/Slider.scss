@@ -6,6 +6,10 @@
   transition: none !important;
 }
 
+.slider-track {
+  will-change: transform;
+}
+
 .slider-track__card-el {
   height: 100%;
 

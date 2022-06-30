@@ -54,7 +54,10 @@
     justify-content: center;
     align-items: center;
 
-    transition: all 0.3s;
+    will-change: opacity;
+    transition: opacity 0.3s;
+
+    cursor: pointer;
 
     &:before {
       content: "";
@@ -113,7 +116,10 @@
     justify-content: center;
     align-items: center;
 
-    transition: all 0.3s;
+    will-change: opacity;
+    transition: opacity 0.3s;
+
+    cursor: pointer;
 
     z-index: 10;
 
