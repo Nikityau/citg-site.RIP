@@ -178,6 +178,8 @@
 
     overflow: hidden;
 
+    z-index: 1;
+
     .horizontalTrack {
       height: 100%;
     }
@@ -193,7 +195,7 @@
       height: 100%;
 
       align-items: center;
-      transition: all 0.3s;
+      transition: transform 0.3s;
     }
     .square {
     }
@@ -201,16 +203,12 @@
       height: 100%;
 
       display: flex;
-
-      transition: all 0.3s;
     }
     .trackDefault,
     .horizontalTrack {
       height: 100%;
 
       display: flex;
-
-      transition: all 0.3s;
     }
 
     .track {

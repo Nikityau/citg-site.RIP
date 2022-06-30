@@ -4,6 +4,8 @@
   height: 200px;
   background: #20252c;
 
+  z-index: 1;
+
   @media screen and (max-width: 500px) {
     height: 320px;
   }

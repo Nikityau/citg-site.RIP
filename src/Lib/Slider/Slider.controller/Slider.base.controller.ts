@@ -616,7 +616,7 @@ export class SliderBaseController {
                 return;
             }
 
-            this._slider_track.style.transition = "all .3s";
+            this._slider_track.style.transition = "transform .3s";
         }, 50);
     }
 

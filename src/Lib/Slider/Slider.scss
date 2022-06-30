@@ -8,6 +8,7 @@
 
 .slider-track {
   will-change: transform;
+  transition: transform .3s;
 }
 
 .slider-track__card-el {
