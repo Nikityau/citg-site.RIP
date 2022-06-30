@@ -1,5 +1,3 @@
-import * as http from "http";
-
 export class NavigationClass {
   private circle: HTMLElement | null = null;
 
@@ -57,9 +55,8 @@ export class NavigationClass {
   }
 
   private async SetByPos(pos) {
-    this.circle.style.transform = `translate(${pos.x - this.circle.clientWidth / 2}px, ${pos.y / 4}px)`
-   /* this.circle.style.left = await (pos.x - this.circle.clientWidth / 2 + "px");
-    this.circle.style.top = await (pos.y + this.additionalTopOffset + "px");*/
+    this.circle.style.left = await (pos.x - this.circle.clientWidth / 2 + "px");
+    this.circle.style.top = await (pos.y + this.additionalTopOffset + "px");
   }
 
   public async Change(location: string) {

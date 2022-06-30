@@ -29,9 +29,9 @@ const Header = () => {
 
     if (!headerRef.current?.clientHeight) return;
 
-    const header = headerRef.current;
+    const offsetTop = headerRef.current.clientHeight;
 
-    popUpRef.current.style.transform = `translate(0px, ${header.offsetTop + header.clientHeight}px)`;
+    popUpRef.current.style.top = offsetTop + "px";
     setIsPopUpOpen(true);
   };
   const popUpMouseEnter = () => {
@@ -41,7 +41,7 @@ const Header = () => {
   const popUpMouseLeave = () => {
     if (popUpRef.current == null) return;
 
-    popUpRef.current.style.transform = 'translate(0px, -600px)';
+    popUpRef.current.style.top = "-600px";
     setIsPopUpOpen(false);
   };
 
