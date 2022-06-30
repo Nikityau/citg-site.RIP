@@ -23,17 +23,17 @@
 
   .ball_2 {
     background: radial-gradient(circle at center, #b073ff 10%, #ff5d02, transparent 90%);
-    animation: party_2;
+   /* animation: party_2;
     animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite;*/
   }
   .ball_3 {
     top: 0;
     left: 0;
     background: radial-gradient(circle at center, #ffb673 10%, #5302ff, transparent 90%);
-    animation: party_3;
+    /*animation: party_3;
     animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite;*/
   }
 }
 

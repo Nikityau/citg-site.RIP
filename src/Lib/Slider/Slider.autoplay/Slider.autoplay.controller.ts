@@ -74,8 +74,9 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
     this._offset_coeff = 300;
     if(this._slider_track.offsetLeft + 20 <= this._slider.clientLeft - this._slider.clientWidth) {
       this._slider_track.style.transition = 'none'
-      this._slider_track.style.left = this._slider.clientWidth
-          - this._first_el.offsetLeft + this._first_el.clientWidth - 1.55 + 'px';
+      //this._slider_track.style.transform = `translateX(${this._slider.clientWidth - this._first_el.offsetLeft + this._first_el.clientWidth - 1.55})px`
+      /*this._slider_track.style.left = this._slider.clientWidth
+          - this._first_el.offsetLeft + this._first_el.clientWidth - 1.55 + 'px';*/
       setTimeout(() => {
         this._slider_track.style.transition = 'all 3s'
       }, 10)
@@ -83,9 +84,10 @@ export class SliderAutoplayController implements ISliderAutoplayBase {
 
     const in_percent = (this._slider_track.offsetLeft + 20) * 100 / (this._slider.clientLeft - this._slider.clientWidth)
 
-    await this.change_index(in_percent, EventType.AUTOPLAY);
+    //await this.change_index(in_percent, EventType.AUTOPLAY);
 
-    this._slider_track.style.left = this._slider_track.offsetLeft - this._offset_coeff + 'px';
+    //this._slider_track.style.transform = `translateX(${this._slider_track.offsetLeft - this._offset_coeff}px)`
+    //this._slider_track.style.left = this._slider_track.offsetLeft - this._offset_coeff + 'px';
   }
 
   set Change_index(callback: onChangeIndex) {

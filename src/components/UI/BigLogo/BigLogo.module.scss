@@ -31,6 +31,8 @@
 
       transition: all 0.5s;
 
+      z-index: 2;
+
       @media screen and (max-width: 500px) {
         width: 320px;
         height: 320px;
@@ -56,6 +58,8 @@
     .smallCircle,
     .rotatingCircle {
       position: absolute;
+
+      z-index: -2;
     }
 
     .mediumCircle {
@@ -78,6 +82,8 @@
       animation-duration: 3s;
       animation-iteration-count: infinite;
 
+      z-index: 5;
+
       @media screen and (max-width: 500px) {
         width: 140px;
         height: 140px;
@@ -93,7 +99,6 @@
       height: 95px;
 
       border-radius: 50%;
-      z-index: -1;
 
       background: radial-gradient(91.42% 91.42% at 76.81% 18.8%, #3e3c3c 0%, #0a0a0a 100%);
       box-shadow: 56px -39px 50px rgba(0, 0, 0, 0.1),
@@ -105,6 +110,8 @@
       animation: space;
       animation-duration: 3s;
       animation-iteration-count: infinite;
+
+      z-index: 1;
 
       @media screen and (max-width: 500px) {
         width: 70px;
@@ -119,7 +126,7 @@
       height: 109px;
 
       border-radius: 50%;
-      z-index: -1;
+      z-index: 1;
 
       background: radial-gradient(91.42% 91.42% at 76.81% 18.8%, #3e3c3c 0%, #0a0a0a 100%);
       box-shadow: -42px 30px 20px rgba(0, 0, 0, 0.1),

@@ -22,7 +22,7 @@
           transform: rotate(180deg);
         }
         &:after {
-          top: 47%;
+          transform: rotate(180deg) translateY(-2px);
         }
       }
     }
@@ -59,6 +59,8 @@
         border-top: 5px solid #fff;
 
         transition: all .3s;
+
+        z-index: 1;
       }
       &:after {
         content: "";
@@ -72,6 +74,8 @@
         border-top: 5px solid #181c21;
 
         transition: all .3s;
+
+        z-index: 2;
       }
 
       .popUpOpen {
