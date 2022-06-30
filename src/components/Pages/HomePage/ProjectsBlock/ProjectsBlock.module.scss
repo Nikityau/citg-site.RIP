@@ -103,9 +103,10 @@
       width: 20vw;
       height: 20vw;
       filter: blur(180px);
-      z-index: -1;
       mix-blend-mode: overlay;
       background: linear-gradient(90deg, #bf3fa1, #470036);
+
+      pointer-events: none;
 
       @media screen and (max-width: 500px) {
         left: 0;
@@ -140,7 +141,8 @@
       background: linear-gradient(300.09deg, #71192a 53.97%, rgba(113, 25, 42, 0) 122.69%);
       mix-blend-mode: lighten;
       filter: blur(300px);
-      z-index: -1;
+
+      pointer-events: none;
 
       @media screen and (max-width: 500px) {
         bottom: -200px;

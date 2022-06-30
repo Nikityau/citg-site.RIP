@@ -8,6 +8,8 @@
   display: flex;
   justify-content: center;
 
+  z-index: 1;
+
   .innerContainer {
     position: absolute;
     max-width: 1615px;
@@ -151,7 +153,7 @@
 
       border-radius: 50%;
       border: 50px solid rgba(196, 196, 196, 0);
-      z-index: -10;
+      z-index: 1;
 
       mix-blend-mode: multiply;
 

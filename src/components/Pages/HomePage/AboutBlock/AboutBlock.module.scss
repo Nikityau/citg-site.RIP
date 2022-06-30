@@ -27,7 +27,8 @@
       mix-blend-mode: lighten;
       filter: blur(350px);
       transform: matrix(-1, 0, 0, 1, 0, 0);
-      z-index: -1;
+
+      pointer-events: none;
     }
   }
 
@@ -41,7 +42,8 @@
     background: linear-gradient(40deg, #33317d -8.78%, transparent 82.01%);
     mix-blend-mode: normal;
     filter: blur(110px);
-    z-index: -2;
+
+    pointer-events: none;
 
     @media screen and (max-width: 500px) {
       display: none;
@@ -58,7 +60,8 @@
     background: linear-gradient(300.09deg, #712e19 42.53%, transparent 111.26%);
     mix-blend-mode: normal;
     filter: blur(100px);
-    z-index: -2;
+
+    pointer-events: none;
 
     @media screen and (max-width: 500px) {
       display: none;

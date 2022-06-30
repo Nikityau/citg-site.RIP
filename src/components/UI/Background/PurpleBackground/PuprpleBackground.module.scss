@@ -21,7 +21,6 @@
 
   background: linear-gradient(-160deg, #312d74 20%, #470036 40%, transparent 50%);
   filter: blur(200px);
-  z-index: 0;
 
   @media screen and (max-width: 500px) {
     filter: blur(100px);
@@ -37,5 +36,4 @@
 
   background: linear-gradient(268.13deg, #2945d2 -216.88%, transparent 74.82%);
   filter: blur(100px);
-  z-index: -10;
 }
