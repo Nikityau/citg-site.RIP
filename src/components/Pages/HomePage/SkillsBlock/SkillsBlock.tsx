@@ -12,7 +12,7 @@ function SkillsBlock() {
     <div className={skillsblock.container} data-testid="skills-block">
       <div className={skillsblock.outerContainerWrapper}>
         <div className={[skillsblock.innerContainer].join(' ')}>
-          <Party />
+          {/*<Party />*/}
           <div className={skillsblock.innerWrapper}>
             <div className={skillsblock.title}>
               <h3 data-mouse-focus>Мы Обучаем</h3>

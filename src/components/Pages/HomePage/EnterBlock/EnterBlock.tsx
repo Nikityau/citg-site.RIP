@@ -12,7 +12,7 @@ import enterblock from './EnterBlock.module.scss';
 function EnterBlock() {
   return (
     <div className={enterblock.container} data-testid="enter-block">
-      <PurpleBackground />
+      {/*<PurpleBackground />*/}
       <BigLogo />
       <div className={enterblock.test} />
       <div className={enterblock.innerContainer}>

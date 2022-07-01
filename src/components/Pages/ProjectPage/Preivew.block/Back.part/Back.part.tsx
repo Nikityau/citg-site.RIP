@@ -8,7 +8,7 @@ const BackPart = () => {
     return (
         <div className={'back-part'}
         style={{ backgroundImage: `url(${back_img})` }}>
-            <div className={'back-part__gradient-pink'}/>
+            {/*<div className={'back-part__gradient-pink'}/>*/}
             <div className={'back-part__blur'} />
         </div>
     );

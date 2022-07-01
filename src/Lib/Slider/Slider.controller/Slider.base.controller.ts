@@ -517,8 +517,10 @@ export class SliderBaseController {
         }
         if (this._slider_options.slider_type == Slider_Type.VERTICAL) {
             await (() => {
-                this._slider_track.style.top =
-                    this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 + "px";
+                this._slider_track.style.transform = `translateY(${this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2}px)`
+
+                /*this._slider_track.style.top =
+                    this._slider.clientHeight / 2 - el.offsetTop - el.clientHeight / 2 + "px";*/
             })()
         }
 

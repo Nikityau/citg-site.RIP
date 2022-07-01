@@ -18,17 +18,18 @@ function App() {
 
     return (
         <BrowserRouter>
-            <Suspense fallback={<Loader/>}>
+
+            <Header/>
+
                 {/* <Mouse
         devMode={false}
         childrenCallback={(mouse: IMouse) => {
           return <CustomMouse x={mouse.x} y={mouse.y} />;
         }}
       />*/}
-                <Header/>
+
                 <Router/>
-                <Footer/>
-            </Suspense>
+            <Footer/>
         </BrowserRouter>
     );
 }

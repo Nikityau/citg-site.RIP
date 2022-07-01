@@ -36,7 +36,7 @@ function TeamMemberPage() {
                     <div className={'team-member-page__back'}>
                         <img src={member_page_back} alt={'img'}/>
                     </div>
-                    <div className={'team-member-page__gradient-gray'}/>
+                    {/*<div className={'team-member-page__gradient-gray'}/>*/}
                     <div className={'team-member-page_portfolio'}>
                         <div className={'team-member-page_inner-container'}>
                             <PreviewInfoBlock memberInfo={member}/>
@@ -45,8 +45,8 @@ function TeamMemberPage() {
                                 my_works={member?.my_works || []}
                             />
                         </div>
-                        <div className={'team-member-page__back-gradient-blue'}/>
-                        <div className={'team-member-page__back-gradient-purple'}/>
+                        {/*<div className={'team-member-page__back-gradient-blue'}/>
+                        <div className={'team-member-page__back-gradient-purple'}/>*/}
                     </div>
                 </>
             }

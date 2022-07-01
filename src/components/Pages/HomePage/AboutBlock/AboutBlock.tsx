@@ -11,7 +11,7 @@ import mobPlug from '../../../../assets/images/plug_2.png';
 function AboutBlock() {
   return (
     <div className={[aboutblock.container, aboutblock.container__light].join(' ')}>
-      <div className={aboutblock.mobHack} />
+      {/*<div className={aboutblock.mobHack} />*/}
       <div className={aboutblock.innerContainer}>
         <div className={aboutblock.wrapper}>
           <div className={aboutblock.leftSide}>

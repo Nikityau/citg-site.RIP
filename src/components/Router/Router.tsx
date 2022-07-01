@@ -5,9 +5,9 @@ import Loader from '../Loader/Loader';
 
 function Router() {
   return (
-    <>
+    <Suspense fallback={<Loader/>}>
       <AppRouters />
-    </>
+    </Suspense>
   );
 }
 

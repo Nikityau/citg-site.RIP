@@ -87,8 +87,8 @@ const PreviewBlock = () => {
                  onTouchMove={onTouchMove}
                  onTouchEnd={onTouchEnd}
             >
-                <div className={'preview-block-mob-ver__gradient-purple'}/>
-                <div className={'preview-block-mob-ver__gradient-gray'}/>
+               {/* <div className={'preview-block-mob-ver__gradient-purple'}/>
+                <div className={'preview-block-mob-ver__gradient-gray'}/>*/}
                 <div className={'preview-block-mob-ver_title'}>
                     <h2>Cosmic Driver</h2>
                 </div>

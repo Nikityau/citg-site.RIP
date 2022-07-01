@@ -23,8 +23,8 @@ const TeamPage = () => {
 
     return (
         <div className={'team-page'}>
-            <div className={'team-page__gradient-purple'}/>
-            <div className={'team-page__gradient-red'}/>
+           {/* <div className={'team-page__gradient-purple'}/>
+            <div className={'team-page__gradient-red'}/>*/}
             <div className={'team-page_container'}>
                 <div className={'team-page_title'}>
                     <h1>About team</h1>

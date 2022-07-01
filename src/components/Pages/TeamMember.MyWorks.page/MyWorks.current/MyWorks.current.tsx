@@ -73,13 +73,13 @@ const MyWorksCurrent = ({work}: IMyCurrentWork) => {
                 <div className={'my-works_pop-up-crosshair'} onClick={closePopUp}>
                     <img src={crosshair_icon} alt={'icon'}/>
                 </div>
-                <div className={'my-works_pop-up-img-container'}>
-                    <img src={currentImg} alt={'img'}/>
+                <div className={'my-works_pop-up-img-container'}
+                style={{ backgroundImage: `url(${currentImg})` }}>
                 </div>
             </div>
             <div className={'my-works_container'}>
-                <div className={'my-works_current-el'}>
-                    <img src={currentImg || ''} alt={''}/>
+                <div className={'my-works_current-el'}
+                style={{ backgroundImage: `url(${currentImg})` }}>
                     <div className={'my-works_els-controller-panel'}>
                         {
                             work?.development_stages &&

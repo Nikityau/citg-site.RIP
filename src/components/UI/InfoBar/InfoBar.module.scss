@@ -20,6 +20,8 @@
 
   overflow: hidden;
 
+  z-index: 1;
+
   @media screen and (max-width: 500px) {
     left: 0;
     right: 0;

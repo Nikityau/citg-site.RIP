@@ -12,7 +12,7 @@ import PageNumber from '../../../UI/PageNumber/PageNumber';
 function AdvantagesBlock() {
   return (
     <div className={advantagesblock.container} id="advantages">
-      <RadialGradient />
+     {/* <RadialGradient />*/}
       <div className={advantagesblock.innerContainer}>
         <div className={advantagesblock.page}>
           <PageNumber number="01" />

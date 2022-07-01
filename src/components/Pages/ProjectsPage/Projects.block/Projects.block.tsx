@@ -118,10 +118,10 @@ const ProjectsBlock = ({ projects }:IProjectsBlock) => {
             }
             <div className={'projects-block-mob-ver'}>
                 <div ref={projectsBlock} className={['projects-block-mob-ver_container'].join(' ')}>
-                    <div className={'projects-block-animations'}>
+                   {/* <div className={'projects-block-animations'}>
                         <div className={'projects-block-animations_ball-1'}/>
                         <div className={'projects-block-animations_ball-2'}/>
-                    </div>
+                    </div>*/}
                     {
                         projects?.map(project => (
                             <div key={project.id} className={'projects-block-mob-ver_el'}>

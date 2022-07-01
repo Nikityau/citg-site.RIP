@@ -13,7 +13,7 @@ import MyWorksAddonInfo from "./MyWorks.addonInfo/MyWorks.addonInfo";
 import {getIndexes} from "../../../Utils/getIndexes";
 
 const MyWorksPage = () => {
-    const {man_id, work_id} = useParams()
+    const params = useParams()
 
     const [man, setMan] = useState<MemberInfo>(null)
     const [works, setWorks] = useState<MemberWorksInfo>(null)
@@ -23,15 +23,15 @@ const MyWorksPage = () => {
 
     useEffect(() => {
         (async () => {
-            const resp_man = await CiTG_API.getMemberById(man_id)
-            const resp_works = await CiTG_API.getMemberAllWorks(man_id)
+            const resp_man = await CiTG_API.getMemberById(params['man_id'])
+            const resp_works = await CiTG_API.getMemberAllWorks(params['man_id'])
 
             setWorks(resp_works)
             setMan(resp_man)
         })()
-    }, [man_id, work_id])
+    }, [params['man_id'], params['work_id']])
     useEffect(() => {
-        goToNextWork(work_id)
+        goToNextWork(params['work_id'])
     }, [works])
 
     const goToNextWork = (next_work_id:string) => {

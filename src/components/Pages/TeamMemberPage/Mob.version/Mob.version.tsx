@@ -35,7 +35,6 @@ const MobVersion = ({memberInfo}: IMobVersion) => {
             <div className={'TMP_mob-ver'}>
                 <div className={'TMP_mob-ver__preview-back'}>
                     <div className={'TMP_mob-ver__blur-overhead'}>
-
                     </div>
                     <div className={'TMP_mob-ver__preview-back-img'}>
                         <img src={back_img} alt={''}/>
@@ -47,8 +46,8 @@ const MobVersion = ({memberInfo}: IMobVersion) => {
                             Contact me
                         </a>
                     </div>
-                    <div className={'TMP_mob-ver-main-field__purple-back'}/>
-                    <div className={'TMP_mob-ver-main-field__red-back'}/>
+                   {/* <div className={'TMP_mob-ver-main-field__purple-back'}/>
+                    <div className={'TMP_mob-ver-main-field__red-back'}/>*/}
                     <div className={'TMP_mob-ver-member-img'}>
                         <div className={'TMP_mob-ver-member-img-wrapper'}>
                             <img src={memberInfo?.photo?.imgSrc} alt={'img'}/>
