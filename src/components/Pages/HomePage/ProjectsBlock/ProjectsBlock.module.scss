@@ -5,7 +5,7 @@
 
   z-index: 1;
 
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 500px) {
 
   }
 
@@ -103,33 +103,39 @@
     }
 
     .purpleGradient {
-      /*position: absolute;
-      right: -5%;
-      top: -10%;
-      width: 20vw;
-      height: 20vw;
-      filter: blur(180px);
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      width: 20px;
+      height: 20px;
+
+      will-change: transform;
+      transform: scale(20, 20);
+
+      filter: blur(10px);
+
       mix-blend-mode: overlay;
       background: linear-gradient(90deg, #bf3fa1, #470036);
 
       pointer-events: none;
 
-      z-index: 1;*/
+      z-index: 1;
 
       @media screen and (max-width: 500px) {
-       /* left: 0;
-        right: 0;
-        top: 0;
+        /* left: 0;
+         right: 0;
+         top: 0;
 
-        width: 100vw;
-        height: 100vh;
+         width: 100vw;
+         height: 100vh;
 
-        background: linear-gradient(
-          19.36deg,
-          rgba(51, 49, 125, 0.52) 0,
-          rgba(71, 0, 54, 0) 70%
-        );
-        filter: blur(100px);*/
+         background: linear-gradient(
+           19.36deg,
+           rgba(51, 49, 125, 0.52) 0,
+           rgba(71, 0, 54, 0) 70%
+         );
+         filter: blur(100px);*/
       }
 
       @media screen and (min-width: 3000px) {
@@ -140,19 +146,26 @@
         filter: blur(200px);
       }
     }
+
     .orangeGradient {
-      /*position: absolute;
-      left: -10%;
-      bottom: 20%;
-      width: 30vw;
-      height: 30vw;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: 20px;
+      height: 20px;
+
+      will-change: transform;
+      transform: scale(30,30) translate(0, -75%);
+
+      filter: blur(8px);
+
       background: linear-gradient(300.09deg, #71192a 53.97%, rgba(113, 25, 42, 0) 122.69%);
       mix-blend-mode: lighten;
-      filter: blur(300px);
 
       pointer-events: none;
 
-      z-index: -1;*/
+      z-index: -1;
 
       @media screen and (max-width: 500px) {
         /*bottom: -200px;
@@ -199,6 +212,7 @@
         justify-content: center;
       }
     }
+
     .gamesListMobVer {
       position: relative;
 
@@ -278,6 +292,7 @@
           }
         }
       }
+
       .gamesListMobVerSliderPagination {
         width: 100%;
 
@@ -296,6 +311,7 @@
           background: rgba(12, 17, 23, 0.5);
         }
       }
+
       .gamesListMobVerAdditionalBlocks {
         width: 100%;
         height: 250px;
@@ -313,6 +329,7 @@
           background: rgba(0, 0, 0, 0.18);
         }
       }
+
       .gamesListMobVerButton {
         width: 100%;
 
@@ -327,7 +344,7 @@
       width: 100%;
       height: 550px;
 
-      @media screen and (max-width: 500px){
+      @media screen and (max-width: 500px) {
         display: none;
       }
     }

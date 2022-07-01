@@ -56,8 +56,8 @@ const ProjectsBlock = () => {
         <div className={projectsbock.container}>
             <PopUpGallery images={awards || []}/>
             <div className={projectsbock.innerContainer}>
-                {/*<div className={projectsbock.purpleGradient}/>
-                <div className={projectsbock.orangeGradient}/>*/}
+                <div className={projectsbock.purpleGradient}/>
+                <div className={projectsbock.orangeGradient}/>
                 <div className={projectsbock.title} data-testid={"projects-block-title"}>
                     <h4 data-mouse-focus={true}> У нас есть разные проекты </h4>
                     <p data-mouse-focus={true}> от Казуальных игр до настоящего искусственного интеллекта</p>
