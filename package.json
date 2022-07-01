@@ -12,6 +12,9 @@
   },
   "author": "Nikityau",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/eslint-parser": "^7.18.2",
