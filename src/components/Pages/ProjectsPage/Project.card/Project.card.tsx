@@ -38,15 +38,20 @@ const ProjectCard = ({ name,img,id, text, project }:IDevProjectCard) => {
     }
 
     return (
-        <div className={['dev-project-card', getClassByProjectType()].join(' ')} onClick={onLinkClick}>
+        <div className={['dev-project-card', getClassByProjectType()].join(' ')} onClick={onLinkClick}
+        style={{ backgroundImage: `url(${project !== ProjectType.IN_DEVELOPING ? img : ''})` }}
+        >
             <Link to={`/projects/${id}`}>
                 <div className={'dev-project-card_text'}>
                  <h4>{ name }</h4>
                  <p> { text } </p>
                 </div>
-                <div className={'dev-project-card_img'}>
-                    <img src={img} alt={'img'}/>
-                </div>
+                {
+                    project === ProjectType.IN_DEVELOPING &&
+                    <div className={'dev-project-card_img'}>
+                        <img src={img} alt={'img'}/>
+                    </div>
+                }
             </Link>
         </div>
     );

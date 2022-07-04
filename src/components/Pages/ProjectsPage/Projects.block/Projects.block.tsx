@@ -124,9 +124,11 @@ const ProjectsBlock = ({ projects }:IProjectsBlock) => {
                     </div>*/}
                     {
                         projects?.map(project => (
-                            <div key={project.id} className={'projects-block-mob-ver_el'}>
+                            <div key={project.id} className={'projects-block-mob-ver_el'}
+                            style={{ backgroundImage: `url(${project?.main_img})` }}
+                            >
                                 <Link to={`/projects/synt-${project.id}`}>
-                                    <img src={project?.main_img} alt={'img'}/>
+
                                 </Link>
                             </div>
                         ))

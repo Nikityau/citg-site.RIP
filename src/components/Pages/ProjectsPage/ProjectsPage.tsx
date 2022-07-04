@@ -15,7 +15,7 @@ function ProjectsPage() {
 
     useEffect(() => {
         (async () => {
-            const data = await CiTG_API.getAllProjects()
+            const data = await CiTG_API.getAllFilteredProjects()
             setProjects(data)
         })()
     }, [])

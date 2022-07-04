@@ -4,6 +4,12 @@ import './Info.part.scss'
 
 import img_prj_logo from '../../../../../assets/images/projects/project_synt_logo.png'
 
+interface IInfoPart {
+    logo: string,
+    title: string,
+    description: string
+}
+
 const InfoPart = () => {
     return (
         <div className={'info-part'}>

@@ -4,9 +4,7 @@ import MiniGameImage from "../../../UI/MiniGameImage/MiniGameImage";
 import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
 import PageNumber from "../../../UI/PageNumber/PageNumber";
 
-import {SynteticAPI} from "../../../../SynteticData/SynteticAPI";
-
-import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
+import {MiniInfo, Projects, ProjectsMiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
 
@@ -28,18 +26,27 @@ import PopUpGallery from "../../../../Lib/PopUpGallery/PopUpGallery";
 
 import popUpGalleryController from "../../../../Lib/PopUpGallery/PopUpGallery.controller/PopUpGallery.controller";
 import {AppContext, Browser} from "../../../App/App";
+import {CiTG_API} from "../../../../API/CiTG_API";
+import {Link} from "react-router-dom";
 
 const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
 
 const ProjectsBlock = () => {
     const appContext = useContext(AppContext)
 
-    const [awards, setAwards] = useState<MiniInfo[] | []>([]);
-    const [games, setGames] = useState<MiniInfo[] | []>([]);
+    const [awards, setAwards] = useState<MiniInfo[]>([]);
+    const [projects, setProjects] = useState<ProjectsMiniInfo[]>([]);
 
     useEffect(() => {
-        setAwards(SynteticAPI.getAwards());
-        setGames(SynteticAPI.getGames());
+        (async () => {
+            const awards_res = await CiTG_API.getAllAwards()
+            const projects_res = await CiTG_API.getAllProjects()
+
+            setAwards(awards_res)
+            setProjects(projects_res)
+        })()
+
+        getRandomProject()
     }, []);
 
     const onSliderElementClick = (e:React.MouseEvent<HTMLElement>) => {
@@ -52,6 +59,20 @@ const ProjectsBlock = () => {
         if(!el_index) return
 
         popUpGalleryController.Open(Number.parseInt(el_index))
+    }
+
+
+    const getRandomProject = ():ProjectsMiniInfo[] => {
+        const randomIndex = Math.ceil(Math.random() * ((projects.length || 1) - 1));
+
+        const arr = []
+
+        if(Array.isArray(projects)) {
+            console.log(projects[randomIndex])
+            arr.push(projects[randomIndex])
+        }
+
+        return arr
     }
 
     return (
@@ -77,9 +98,9 @@ const ProjectsBlock = () => {
                             className={projectsbock.gamesListInnerWrapper}
                             data-testid={"projects-block-games-list"}
                         >
-                            {games.map((game) => {
-                                return <MiniGameImage key={game.id} imgSrc={game.imgSrc}
-                                                      game_id={`synt-game-${game.id}`} name={'synt-game'}/>;
+                            {projects?.map((project) => {
+                                return <MiniGameImage key={project.id} imgSrc={project.main_img}
+                                                      game_id={`synt-game-${project.id}`} name={'synt-game'}/>;
                             })}
                         </div>
                         <div className={projectsbock.button}>
@@ -129,35 +150,44 @@ const ProjectsBlock = () => {
                             elements_on_screen={3}
                             width={'default'}
                             title={''}>
-                            <SliderElement title={''}>
-                               <div style={{ backgroundImage: `url(${citg_plug})` }}/>
-                            </SliderElement>
-                            <SliderElement title={''}>
-                                <div style={{ backgroundImage: `url(${citg_plug})` }}/>
-                            </SliderElement>
-                            <SliderElement title={''}>
-                                <div style={{ backgroundImage: `url(${citg_plug})` }}/>
-                            </SliderElement>
-                            <SliderElement title={''}>
-                                <div style={{ backgroundImage: `url(${citg_plug})` }}/>
-                            </SliderElement>
-                            <SliderElement title={''}>
-                                <div style={{ backgroundImage: `url(${citg_plug})` }}/>
-                            </SliderElement>
-                            <SliderElement title={''}>
-                                <div style={{ backgroundImage: `url(${citg_plug})` }}/>
-                            </SliderElement>
+                            {
+                                projects?.map(project => (
+                                    <SliderElement key={project.id} title={''}>
+                                        <Link to={`projects/${project.id}`}>
+                                            <div style={{ backgroundImage: `url(${project.main_img})` }}>
+                                            </div>
+                                        </Link>
+
+                                    </SliderElement>
+                                ))
+                            }
                         </Slider>
                     </div>
                     <div className={projectsbock.gamesListMobVerAdditionalBlocks}>
-                        <div
-                            className={projectsbock.gamesListMobVerAdditionalBlock}
-                            style={{backgroundImage: `url(${citg_plug})`}}
-                        />
-                        <div
-                            className={projectsbock.gamesListMobVerAdditionalBlock}
-                            style={{backgroundImage: `url(${citg_plug})`}}
-                        />
+                        {
+                            getRandomProject().map(project => {
+                                console.log(project?.main_img)
+                                return (
+                                    <div key={project?.id || 'random-key'}
+                                        className={projectsbock.gamesListMobVerAdditionalBlock}
+                                        style={{backgroundImage: `url(${project?.main_img})`}}>
+                                        <Link to={`projects/${project?.id}`}></Link>
+                                    </div>
+                                )
+                            })
+                        }
+                        {
+                            getRandomProject().map(project => {
+                                console.log(project?.main_img)
+                                return (
+                                    <div key={project?.id || 'random-key'}
+                                         className={projectsbock.gamesListMobVerAdditionalBlock}
+                                         style={{backgroundImage: `url(${project?.main_img})`}}>
+                                        <Link to={`projects/${project?.id}`}></Link>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                     <div className={projectsbock.gamesListMobVerButton}>
                         <CommonButton type={TypeButton.Link} data={"/projects"} text={"Больше проектов тут"}/>

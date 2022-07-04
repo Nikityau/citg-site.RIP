@@ -1,28 +1,39 @@
-import {MemberInfo, MemberMiniInfo, MemberWorksInfo, MiniInfo, ProjectInfo, Projects} from "./Syntetic.data.type";
+import {
+  MemberInfo,
+  MemberMiniInfo,
+  MemberWorksInfo,
+  MiniInfo,
+  ProjectInfo,
+  Projects,
+  ProjectsMiniInfo
+} from "./Syntetic.data.type";
 import {nanoid} from 'nanoid'
 
 import {awards} from './Syntetic.data/awards'
-import {games} from './Syntetic.data/games'
-import {project} from './Syntetic.data/project'
 import {member} from "./Syntetic.data/member";
-import { projects } from './Syntetic.data/projects'
 import {team} from "./Syntetic.data/team";
+import { projects } from "./Syntetic.data/projects";
+import {project} from "./Syntetic.data/project";
+import { projects_filtered } from "./Syntetic.data/projects_filtered";
 
 import {GetAllWorks} from './utils/getAllWorks'
-
+import {getDataWithDelay} from "./utils/getDataWithDelay";
 
 export class SynteticAPI {
-  static getAwards(): MiniInfo[] {
-    return awards
+  static getAwards(): Promise<MiniInfo[]> {
+    return getDataWithDelay(awards)
   }
-  static getGames(): MiniInfo[] {
-    return games;
+
+
+  static getAllProjects(): Promise<ProjectsMiniInfo[]> {
+    return getDataWithDelay(projects);
   }
-  static getProject(): ProjectInfo {
-    return project;
+
+  static getProject(): Promise<ProjectInfo> {
+    return getDataWithDelay(project);
   }
-  static getAllProjects(): Projects {
-    return projects;
+  static getAllFilteredProjects(): Promise<Projects> {
+    return getDataWithDelay(projects_filtered);
   }
   static getTeam(): MemberMiniInfo[] {
     return team

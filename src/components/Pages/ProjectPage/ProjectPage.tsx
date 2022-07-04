@@ -16,6 +16,7 @@ function ProjectPage() {
     const appContext = useContext(AppContext)
 
     const params = useParams()
+
     const [projectInfo, setProjectInfo] = useState<ProjectInfo>(undefined)
 
     useEffect(() => {
@@ -32,7 +33,7 @@ function ProjectPage() {
                 : 'project-pageBefore_Default'
         ].join(' ')}>
             <PopUpGallery images={projectInfo?.img_arr || []}/>
-            <PreviewBlock/>
+            <PreviewBlock project={projectInfo}/>
             <div className={['project-page_inner-container-wrapper',
                 appContext.browser !== Browser.SAFARI
                     ? 'project-page_inner-container-wrapperBefore_Safari'

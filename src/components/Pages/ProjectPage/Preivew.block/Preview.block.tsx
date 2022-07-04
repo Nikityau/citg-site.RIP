@@ -10,9 +10,13 @@ import './Preview.block.scss'
 import spaceman_img from '../../../../assets/images/projects/spaceman.png'
 
 import {AppContext, Browser} from "../../../App/App";
+import {ProjectInfo} from "../../../../SynteticData/Syntetic.data.type";
 
+export interface IPreviewBlock {
+    project: ProjectInfo
+}
 
-const PreviewBlock = () => {
+const PreviewBlock = ({ project }:IPreviewBlock) => {
     const appContext = useContext(AppContext)
 
     const previewBlock = useRef<HTMLDivElement>(null)
@@ -102,13 +106,13 @@ const PreviewBlock = () => {
                         : 'preview-block-mob-ver__gradient-gray_Default'
                 }/>
                 <div className={'preview-block-mob-ver_title'}>
-                    <h2>Cosmic Driver</h2>
+                    <h2>{ project?.title || '-' }</h2>
                 </div>
                 <div className={'preview-block-mob-ver_description'}>
                     <p>
-                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        Velit officia consequat duis enim velit mollit.
-                        veniam consequat sunt nostrud amet.
+                        {
+                            project?.description || '-'
+                        }
                     </p>
                 </div>
             </div>
