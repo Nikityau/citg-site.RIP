@@ -1,16 +1,20 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
 
+import PopUpGallery from "../../../Lib/PopUpGallery/PopUpGallery";
 import PreviewBlock from "./Preivew.block/Preview.block";
 import DescriptionBlock from "./Description.block/Description.block";
 
 import './Project.page.scss'
-import {CiTG_API} from "../../../API/CiTG_API";
-import {readdirSync} from "fs";
+
 import {ProjectInfo} from "../../../SynteticData/Syntetic.data.type";
-import PopUpGallery from "../../../Lib/PopUpGallery/PopUpGallery";
+
+import {CiTG_API} from "../../../API/CiTG_API";
+import {AppContext, Browser} from "../../App/App";
 
 function ProjectPage() {
+    const appContext = useContext(AppContext)
+
     const params = useParams()
     const [projectInfo, setProjectInfo] = useState<ProjectInfo>(undefined)
 
@@ -22,10 +26,18 @@ function ProjectPage() {
     }, [])
 
     return (
-        <div className={'project-page'}>
+        <div className={['project-page',
+            appContext.browser === Browser.SAFARI
+                ? 'project-pageBefore_Safari'
+                : 'project-pageBefore_Default'
+        ].join(' ')}>
             <PopUpGallery images={projectInfo?.img_arr || []}/>
             <PreviewBlock/>
-            <div className={'project-page_inner-container-wrapper'}>
+            <div className={['project-page_inner-container-wrapper',
+                appContext.browser !== Browser.SAFARI
+                    ? 'project-page_inner-container-wrapperBefore_Safari'
+                    : 'project-page_inner-container-wrapperBefore_Default'
+            ].join(' ')}>
                 <div className={'project-page_inner-container'}>
                     <DescriptionBlock images={projectInfo?.img_arr || []}/>
                 </div>
