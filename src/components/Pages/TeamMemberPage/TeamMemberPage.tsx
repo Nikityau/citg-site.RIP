@@ -50,12 +50,12 @@ function TeamMemberPage() {
                         </div>
                         <div className={
                             appContext.browser === Browser.SAFARI
-                                ? 'team-member-page__back-gradient-blue_Safari'
+                                ? 'team-member-page__back-gradient-blue_Safari_disabled'
                                 : 'team-member-page__back-gradient-blue_Default'
                         }/>
                         <div className={
                             appContext.browser !== Browser.SAFARI
-                                ? 'team-member-page__back-gradient-purple_Safari'
+                                ? 'team-member-page__back-gradient-purple_Safari_disabled'
                                 : 'team-member-page__back-gradient-purple_Default'
                         }/>
                     </div>

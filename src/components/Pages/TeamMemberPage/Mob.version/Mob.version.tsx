@@ -50,12 +50,12 @@ const MobVersion = ({memberInfo}: IMobVersion) => {
                     </div>
                     <div className={
                         appContext.browser === Browser.SAFARI
-                            ? 'TMP_mob-ver-main-field__purple-back_Safari'
+                            ? 'TMP_mob-ver-main-field__purple-back_Safari_disabled'
                             : 'TMP_mob-ver-main-field__purple-back_Default'
                     }/>
                     <div className={
                         appContext.browser === Browser.SAFARI
-                            ? 'TMP_mob-ver-main-field__red-back_Safari'
+                            ? 'TMP_mob-ver-main-field__red-back_Safari_disabled'
                             : 'TMP_mob-ver-main-field__red-back_Default'
                     }/>
                     <div className={'TMP_mob-ver-member-img'}>
