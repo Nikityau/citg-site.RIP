@@ -13,7 +13,7 @@
 
   overflow: hidden;
 
-  .team-page__gradient-purple {
+  .team-page__gradient-purple_Safari {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -33,7 +33,23 @@
 
     pointer-events: none;
   }
-  .team-page__gradient-red {
+  .team-page__gradient-purple_Default {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80vh;
+
+    background: linear-gradient(19.36deg, #33317D -8.78%, rgba(71, 0, 54, 0) 82.01%);
+
+    filter: blur(180px);
+
+    z-index: 1;
+
+    pointer-events: none;
+  }
+  .team-page__gradient-red_Safari {
     position: absolute;
     top: 0;
     right: 0;
@@ -48,6 +64,22 @@
 
     filter: blur(100px);
     -webkit-filter: blur(10px);
+
+    z-index: 1;
+
+    pointer-events: none;
+  }
+  .team-page__gradient-red_Default {
+    position: absolute;
+    top: 20%;
+    right: -40%;
+
+    width: 100%;
+    height: 80vh;
+
+    background: rgb(113, 25, 42);
+
+    filter: blur(300px);
 
     z-index: 1;
 

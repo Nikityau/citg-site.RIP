@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 
 import MemberCard from "./Member.card/Member.card";
-
-import {GoUp} from "../../../Utils/GoUp";
 
 import {CiTG_API} from "../../../API/CiTG_API";
 
@@ -10,8 +8,12 @@ import './Team.page.scss'
 
 import {MemberMiniInfo} from "../../../SynteticData/Syntetic.data.type";
 
+import {AppContext, Browser} from "../../App/App";
+
 
 const TeamPage = () => {
+    const appContext = useContext(AppContext)
+
     const [team, setTeam] = useState<MemberMiniInfo[]>(null)
 
     useEffect(() => {
@@ -21,10 +23,19 @@ const TeamPage = () => {
         })()
     }, [])
 
+
     return (
         <div className={'team-page'}>
-            <div className={'team-page__gradient-purple'}/>
-            <div className={'team-page__gradient-red'}/>
+            <div className={
+                appContext.browser === Browser.SAFARI
+                    ? 'team-page__gradient-purple_Safari'
+                    : 'team-page__gradient-purple_Default'
+            }/>
+            <div className={
+                appContext.browser === Browser.SAFARI
+                    ? 'team-page__gradient-red_Safari'
+                    : 'team-page__gradient-red_Default'
+            }/>
             <div className={'team-page_container'}>
                 <div className={'team-page_title'}>
                     <h1>About team</h1>
@@ -35,10 +46,10 @@ const TeamPage = () => {
                     {
                         team?.map(member => (
                             <MemberCard key={member.id}
-                                photo={member.img}
-                                full_name={member.full_name}
-                                skills={member.skills}
-                                id={member.id}/>
+                                        photo={member.img}
+                                        full_name={member.full_name}
+                                        skills={member.skills}
+                                        id={member.id}/>
                         ))
                     }
                 </div>
