@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import AboutMePart from "./AboutMe.part/AboutMe.part";
 
@@ -20,6 +20,7 @@ import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import './Projects.block.scss'
 import ProjectCard, {ProjectType} from "../../ProjectsPage/Project.card/Project.card";
+import {AppContext} from "../../../App/App";
 
 interface IProjectsBlock {
     my_works: MiniInfo[],
@@ -27,6 +28,10 @@ interface IProjectsBlock {
 }
 
 const ProjectsBlock = ({ participation_in_projects, my_works }:IProjectsBlock) => {
+    const appContext = useContext(AppContext)
+
+
+
     return (
         <div className={'projects-portfolio-block'}>
             <div className={'projects-portfolio-block_slider'}>

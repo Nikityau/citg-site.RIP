@@ -14,7 +14,6 @@ import './TeamMember.page.scss'
 import member_page_back from '../../../assets/images/member-page-back.png'
 import {AppContext, Browser} from "../../App/App";
 
-
 export const TeamMemberContext = createContext(null)
 
 function TeamMemberPage() {
@@ -54,7 +53,7 @@ function TeamMemberPage() {
                                 : 'team-member-page__back-gradient-blue_Default'
                         }/>
                         <div className={
-                            appContext.browser !== Browser.SAFARI
+                            appContext.browser === Browser.SAFARI
                                 ? 'team-member-page__back-gradient-purple_Safari_disabled'
                                 : 'team-member-page__back-gradient-purple_Default'
                         }/>
