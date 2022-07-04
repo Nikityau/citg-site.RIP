@@ -10,7 +10,7 @@
 
   .tittle {
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 0;
 
     @media screen and (max-width: 500px){
@@ -173,7 +173,7 @@
   .slider {
     position: relative;
     width: 90%;
-    height: 95%;
+    height: 85%;
 
     overflow: hidden;
 
