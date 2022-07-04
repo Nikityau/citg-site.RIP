@@ -6,9 +6,8 @@
   background: rgba(0, 5, 30, 0.3);
   filter: blur(30px);
 
-  .ball_1,
-  .ball_2,
-  .ball_3 {
+
+  .ball_Safari {
     position: absolute;
     top: 0;
     left: 0;
@@ -19,7 +18,19 @@
     transform: scale(3, 3) translate(50%, 50%);
 
     filter: blur(15px);
+  }
+  .ball_Default {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    filter: blur(100px);
+  }
 
+  .ball_1,
+  .ball_2,
+  .ball_3 {
     border-radius: 50%;
 
     transition: all 0.1s;

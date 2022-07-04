@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import AboutButton from '../../../UI/Form/AboutButton/AboutButton';
 import PageNumber from '../../../UI/PageNumber/PageNumber';
@@ -7,11 +7,23 @@ import aboutblock from './AboutBlock.module.scss';
 
 import plug from '../../../../assets/images/plug_2.png';
 import mobPlug from '../../../../assets/images/plug_2.png';
+import {AppContext, Browser} from "../../../App/App";
 
 function AboutBlock() {
+
+  const appContext = useContext(AppContext)
+
   return (
-    <div className={[aboutblock.container, aboutblock.container__light].join(' ')}>
-      {/*<div className={aboutblock.mobHack} />*/}
+    <div className={[aboutblock.container,
+      appContext.browser === Browser.SAFARI
+          ? aboutblock.containerBefore_Safari + ' ' + aboutblock.containerAfter_Safari
+          : aboutblock.containerBefore_Safari + ' ' + aboutblock.containerAfter_Default
+      , aboutblock.container__light].join(' ')}>
+      <div className={
+        appContext.browser === Browser.SAFARI
+            ? aboutblock.mobHack_Safari
+            : aboutblock.mobHack_Default
+      } />
       <div className={aboutblock.innerContainer}>
         <div className={aboutblock.wrapper}>
           <div className={aboutblock.leftSide}>
@@ -41,7 +53,11 @@ function AboutBlock() {
           <PageNumber number="03" />
         </div>
       </div>
-      <div className={aboutblock.mobBack} style={{ backgroundImage: `url(${mobPlug})` }} />
+      <div className={[aboutblock.mobBack,
+        appContext.browser == Browser.SAFARI
+            ? aboutblock.mobBackBefore_Safari
+            : aboutblock.mobBackBefore_Default
+      ].join(' ')} style={{ backgroundImage: `url(${mobPlug})` }} />
     </div>
   );
 }

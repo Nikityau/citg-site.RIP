@@ -1,13 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, {useContext, useEffect, useRef} from "react";
 
 import party from "./Party.module.scss";
 
-import {
-  InfinityLoop,
-  InfinityLoopDirection,
-} from "../../../../Animation/InfinityLoop/InfinityLoop";
+import {InfinityLoopDirection,} from "../../../../Animation/InfinityLoop/InfinityLoop";
+
+import {AppContext, Browser} from "../../../App/App";
 
 const Party = () => {
+  const appContext = useContext(AppContext)
+
   const container = useRef<HTMLDivElement | null>(null);
   const ball1 = useRef<HTMLDivElement | null>(null);
 
@@ -33,11 +34,18 @@ const Party = () => {
     };*/
   }, []);
 
+  const getBallStyle = () => {
+    if(appContext.browser === Browser.SAFARI)
+      return party.ball_Safari
+
+    return party.ball_Default
+  }
+
   return (
     <div className={party.container} ref={container}>
-      <div className={party.ball_1} ref={ball1} />
-      <div className={party.ball_2} />
-      <div className={party.ball_3} />
+      <div className={[party.ball_1, getBallStyle()].join(' ')} ref={ball1} />
+      <div className={[party.ball_2, getBallStyle()].join(' ')} />
+      <div className={[party.ball_3, getBallStyle()].join(' ')} />
     </div>
   );
 };

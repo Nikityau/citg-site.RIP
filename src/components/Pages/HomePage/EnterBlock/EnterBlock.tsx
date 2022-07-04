@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 
 import PageNumber from '../../../UI/PageNumber/PageNumber';
 import InfoBar from '../../../UI/InfoBar/InfoBar';
@@ -9,27 +9,28 @@ import PurpleBackground from '../../../UI/Background/PurpleBackground/PurpleBack
 
 import enterblock from './EnterBlock.module.scss';
 
+
 function EnterBlock() {
-  return (
-    <div className={enterblock.container} data-testid="enter-block">
-      <PurpleBackground />
-      <BigLogo />
-      <div className={enterblock.test} />
-      <div className={enterblock.innerContainer}>
-        <div className={enterblock.title} data-testid="enter-block-title">
-          <div className={enterblock.titleWrapper}>
-            <h1 data-mouse-focus>Center IT</h1>
-            <h1 data-mouse-focus>Gravity</h1>
-          </div>
-          <h4 data-mouse-focus>Мощная среда для твоего развития</h4>
+
+    return (
+        <div className={enterblock.container} data-testid="enter-block">
+            <PurpleBackground/>
+            <BigLogo/>
+            <div className={enterblock.innerContainer}>
+                <div className={enterblock.title} data-testid="enter-block-title">
+                    <div className={enterblock.titleWrapper}>
+                        <h1 data-mouse-focus>Center IT</h1>
+                        <h1 data-mouse-focus>Gravity</h1>
+                    </div>
+                    <h4 data-mouse-focus>Мощная среда для твоего развития</h4>
+                </div>
+                <div className={enterblock.pageNum}>
+                    <PageNumber number="01"/>
+                </div>
+                <InfoBar/>
+            </div>
         </div>
-        <div className={enterblock.pageNum}>
-          <PageNumber number="01" />
-        </div>
-        <InfoBar />
-      </div>
-    </div>
-  );
+    );
 }
 
 export default EnterBlock;

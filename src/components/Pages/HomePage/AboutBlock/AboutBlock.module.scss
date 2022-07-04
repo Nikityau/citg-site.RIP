@@ -11,7 +11,29 @@
     height: auto;
   }
 
-  .mobHack {
+  .mobHack_Safari {
+    display: none;
+
+    @media screen and (max-width: 500px) {
+      display: block;
+
+      position: absolute;
+      top: -36px;
+      left: -15%;
+
+      width: 130%;
+      height: 200px;
+
+      background: linear-gradient(180.09deg, #581422 70%, rgba(113, 25, 42, 0));
+      mix-blend-mode: normal;
+      filter: blur(16px);
+
+      z-index: 1;
+
+      pointer-events: none;
+    }
+  }
+  .mobHack_Default {
     display: none;
 
     @media screen and (max-width: 500px) {
@@ -34,57 +56,6 @@
     }
   }
 
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-
-    width: 20px;
-    height: 20px;
-
-    will-change: transform;
-    transform: scale(60,20) translate(50%, -50%);
-
-    background: linear-gradient(40deg, #33317d -8.78%, transparent 82.01%);
-    mix-blend-mode: normal;
-    filter: blur(10px);
-
-    pointer-events: none;
-
-    z-index: -1;
-
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    width: 20px;
-    height: 20px;
-
-    will-change: transform;
-    transform: scale(25,25) translate(-100%, -70%);
-
-    background: linear-gradient(300.09deg, #712e19 42.53%, transparent 111.26%);
-
-    mix-blend-mode: normal;
-    filter: blur(10px);
-
-    pointer-events: none;
-
-    z-index: -1;
-
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
-  }
-
   .mobBack {
     display: none;
 
@@ -102,8 +73,13 @@
 
     pointer-events: none;
 
+    @media screen and (max-width: 500px) {
+      display: block;
+    }
+  }
+  .mobBackBefore_Safari {
     &:before {
-      /*content: "";
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -113,11 +89,22 @@
 
       background: linear-gradient(180deg, #0e0737 0%, rgba(0, 0, 0, 0) 427.54%);
 
-      pointer-events: none;*/
+      pointer-events: none;
     }
+  }
+  .mobBackBefore_Default {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
 
-    @media screen and (max-width: 500px) {
-      display: block;
+      width: 100%;
+      height: 100%;
+
+      background: linear-gradient(180deg, #0e0737 0%, rgba(0, 0, 0, 0) 427.54%);
+
+      pointer-events: none;
     }
   }
 
@@ -210,6 +197,7 @@
             }
           }
         }
+
         .button {
           width: 100%;
 
@@ -239,13 +227,14 @@
 
           background: radial-gradient(circle at center, #712E19, transparent);
           mix-blend-mode: difference;
-          filter: blur(100px);*/
+          filter: blur(100px);
 
-        /* background: linear-gradient(0deg, #712E19,
-                 transparent 200%);
-         //mix-blend-mode: difference;
-         filter: blur(200px);
-        z-index: -3;*/
+          background: linear-gradient(0deg, #712E19,
+                  transparent 200%);
+          //mix-blend-mode: difference;
+          filter: blur(200px);
+          z-index: -3;
+        }*/
       }
 
       .imgWrapper {
@@ -264,6 +253,99 @@
           background-size: cover;
         }
       }
+    }
+  }
+}
+
+.containerBefore_Safari {
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 20px;
+    height: 20px;
+
+    will-change: transform;
+    transform: scale(60, 20) translate(50%, -50%);
+
+    background: linear-gradient(40deg, #33317d -8.78%, transparent 82.01%);
+    mix-blend-mode: normal;
+    filter: blur(10px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}
+.containerAfter_Safari {
+  &:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 20px;
+    height: 20px;
+
+    will-change: transform;
+    transform: scale(25, 25) translate(-100%, -70%);
+
+    background: linear-gradient(300.09deg, #712e19 42.53%, transparent 111.26%);
+
+    mix-blend-mode: normal;
+    filter: blur(10px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}
+
+.containerBefore_Default {
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10%;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(40deg, #33317d -8.78%, transparent 82.01%);
+    mix-blend-mode: normal;
+    filter: blur(110px);
+    pointer-events: none;
+    z-index: -1;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}
+.containerAfter_Default {
+  &:after {
+    content: "";
+    position: absolute;
+    left: 24%;
+    bottom: 9%;
+    width: 70%;
+    height: 70%;
+    background: linear-gradient(300.09deg, #712e19 42.53%, transparent 111.26%);
+    mix-blend-mode: normal;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: -1;
+
+    @media screen and (max-width: 500px) {
+      display: none;
     }
   }
 }

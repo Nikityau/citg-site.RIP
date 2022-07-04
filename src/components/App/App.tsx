@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import {BrowserRouter} from "react-router-dom";
 import { isSafari } from 'react-device-detect'
 
@@ -15,33 +15,49 @@ import { IMouse } from "../UtilsComponents/Mouse/Mouse.interface";*/
 import "./App.scss";
 import Loader from "../Loader/Loader";
 
-function DetectBrowser() {
-    console.log(isSafari)
+export enum Browser {
+    SAFARI = 'safari',
+    OTHER = 'other'
 }
+
+export interface IAppContext {
+    browser: Browser
+}
+
+function DetectBrowser() {
+    if(isSafari)
+        return Browser.SAFARI
+
+    return Browser.OTHER
+}
+
+export const AppContext = React.createContext<IAppContext>(null)
 
 function App() {
 
-    const [browser, setBrowser] = useState('')
+    const [browser, setBrowser] = useState<Browser>(Browser.OTHER)
 
     useEffect(() => {
-        DetectBrowser()
+        setBrowser(DetectBrowser())
     }, [])
 
     return (
-        <BrowserRouter>
+       <AppContext.Provider value={{ browser }}>
+           <BrowserRouter>
 
-            <Header/>
+               <Header/>
 
-                {/* <Mouse
+               {/* <Mouse
         devMode={false}
         childrenCallback={(mouse: IMouse) => {
           return <CustomMouse x={mouse.x} y={mouse.y} />;
         }}
       />*/}
 
-                <Router/>
-            <Footer/>
-        </BrowserRouter>
+               <Router/>
+               <Footer/>
+           </BrowserRouter>
+       </AppContext.Provider>
     );
 }
 

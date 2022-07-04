@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 import MiniGameImage from "../../../UI/MiniGameImage/MiniGameImage";
 import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
@@ -13,9 +13,6 @@ import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
 import projectsbock from "./ProjectsBlock.module.scss";
 
 import citg_plug from "../../../../assets/images/citg_plug.png";
-
-const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
-
 import {
     Infinite_Type,
     Slider_Type,
@@ -30,8 +27,13 @@ import {
 import PopUpGallery from "../../../../Lib/PopUpGallery/PopUpGallery";
 
 import popUpGalleryController from "../../../../Lib/PopUpGallery/PopUpGallery.controller/PopUpGallery.controller";
+import {AppContext, Browser} from "../../../App/App";
+
+const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
 
 const ProjectsBlock = () => {
+    const appContext = useContext(AppContext)
+
     const [awards, setAwards] = useState<MiniInfo[] | []>([]);
     const [games, setGames] = useState<MiniInfo[] | []>([]);
 
@@ -56,8 +58,14 @@ const ProjectsBlock = () => {
         <div className={projectsbock.container}>
             <PopUpGallery images={awards || []}/>
             <div className={projectsbock.innerContainer}>
-                <div className={projectsbock.purpleGradient}/>
-                <div className={projectsbock.orangeGradient}/>
+                <div className={appContext.browser === Browser.SAFARI
+                    ? projectsbock.purpleGradient_Safari
+                    : projectsbock.purpleGradient_Default
+                }/>
+                <div className={appContext.browser === Browser.SAFARI
+                    ? projectsbock.orangeGradient_Safari
+                    : projectsbock.orangeGradient_Default
+                }/>
                 <div className={projectsbock.title} data-testid={"projects-block-title"}>
                     <h4 data-mouse-focus={true}> У нас есть разные проекты </h4>
                     <p data-mouse-focus={true}> от Казуальных игр до настоящего искусственного интеллекта</p>
@@ -80,7 +88,11 @@ const ProjectsBlock = () => {
                     </div>
                 }
 
-                <div className={projectsbock.gamesListMobVer}>
+                <div className={[projectsbock.gamesListMobVer,
+                    appContext.browser === Browser.SAFARI
+                        ? projectsbock.gamesListMobVerBefore_Safari
+                        : projectsbock.gamesListMobVerBefore_Default
+                ].join(' ')}>
                     <div className={projectsbock.gamesListMobVerTittle}>
                         <h5>от Казуальных игр до настоящего искусственного интеллекта</h5>
                     </div>
