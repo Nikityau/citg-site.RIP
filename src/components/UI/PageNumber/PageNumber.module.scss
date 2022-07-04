@@ -1,6 +1,9 @@
 .container {
+  position: relative;
   display: flex;
   align-items: center;
+
+  z-index: 2;
 
   .line {
     width: 271px;

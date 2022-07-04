@@ -6,7 +6,7 @@
   height: 40px;
 
   will-change: transform;
-  transform: scale(25, 25) translate(25%, -60%);
+  transform: scale(10, 10) translate(25%, -60%);
 
   z-index: 1;
 
@@ -19,8 +19,10 @@
     bottom: 0;
     left: 0;
 
+    transform: scale(13, 18) translate(40%, -37%);
+
     background: #71192a;
-    filter: blur(70px);
+    filter: blur(2px);
   }
   @media screen and (min-width: 2000px) {
     filter: blur(150px);

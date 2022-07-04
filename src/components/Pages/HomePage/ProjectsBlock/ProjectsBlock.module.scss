@@ -123,19 +123,22 @@
       z-index: 1;
 
       @media screen and (max-width: 500px) {
-        /* left: 0;
+        display: none;
+
+       /* position: absolute;
+         left: 0;
          right: 0;
          top: 0;
 
          width: 100vw;
-         height: 100vh;
+         height: 100vh;*/
 
-         background: linear-gradient(
+        /* background: linear-gradient(
            19.36deg,
            rgba(51, 49, 125, 0.52) 0,
            rgba(71, 0, 54, 0) 70%
-         );
-         filter: blur(100px);*/
+         );*/
+         //filter: blur(100px);
       }
 
       @media screen and (min-width: 3000px) {
@@ -201,16 +204,10 @@
       z-index: -1;
 
       @media screen and (max-width: 500px) {
-        /*bottom: -200px;
-        left: -40%;
-
-        width: 180vw;
-        height: 500px;
-
         background: linear-gradient(0deg, #581422 70%, rgba(113, 25, 42, 0));
         mix-blend-mode: normal;
-        filter: blur(130px);
-        transform: matrix(-1, 0, 0, 1, 0, 0);*/
+        filter: blur(2px);
+        transform: scale(30,30) translate(20%, -10%);
       }
       @media screen and (min-width: 3000px) {
         bottom: 5%;
@@ -386,17 +383,22 @@
       &:before {
         content: '';
         position: absolute;
-        top: -100%;
-        right: -10%;
-        width: 120%;
-        height: 100vh;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+
+        will-change: transform;
+        transform: scale(20, 100) translate(-50%, -10%);
 
         background: linear-gradient(
                         19.36deg,
                         rgba(51, 49, 125, 0.52) 0,
                         rgba(71, 0, 54, 0) 70%
         );
-        filter: blur(100px);
+        filter: blur(2px);
+
+        z-index: -1;
       }
     }
     .gamesListMobVerBefore_Default {

@@ -25,6 +25,7 @@ export interface IAppContext {
 }
 
 function DetectBrowser() {
+    console.log(isSafari)
     if(isSafari)
         return Browser.SAFARI
 
