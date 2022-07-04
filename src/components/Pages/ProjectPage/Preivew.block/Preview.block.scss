@@ -34,7 +34,21 @@
       display: block;
     }
 
-    .preview-block-mob-ver__gradient-purple {
+    .preview-block-mob-ver__gradient-purple_Safari {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 20px;
+      height: 20px;
+
+      will-change: transform;
+      transform: scale(30, 40) translate(-20%, 50%);
+
+      background: linear-gradient(270deg, #BF3FA1 -1.17%, rgba(71, 0, 54, 0) 76.25%);
+      mix-blend-mode: overlay;
+    }
+    .preview-block-mob-ver__gradient-purple_Default {
       position: absolute;
       top: 0;
       right: 0;
@@ -45,7 +59,21 @@
       background: linear-gradient(270deg, #BF3FA1 -1.17%, rgba(71, 0, 54, 0) 76.25%);
       mix-blend-mode: overlay;
     }
-    .preview-block-mob-ver__gradient-gray {
+
+    .preview-block-mob-ver__gradient-gray_Safari {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 30px;
+      height: 30px;
+
+      will-change: transform;
+      transform: scale(30, 30) translate(30%, -30%);
+
+      background: linear-gradient(0deg, #191E24 33.07%, rgba(0, 0, 0, 0) 90%);
+    }
+    .preview-block-mob-ver__gradient-gray_Default {
       position: absolute;
       bottom: -2%;
       left: 0;
@@ -55,6 +83,7 @@
 
       background: linear-gradient(0deg, #191E24 33.07%, rgba(0, 0, 0, 0) 90%);
     }
+
     .preview-block-mob-ver_title {
       width: 100%;
 

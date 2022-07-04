@@ -1,4 +1,4 @@
-import React, {TouchEventHandler, useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useRef} from 'react';
 
 import BackPart from "./Back.part/Back.part";
 import InfoPart from "./Info.part/Info.part";
@@ -9,8 +9,12 @@ import './Preview.block.scss'
 
 import spaceman_img from '../../../../assets/images/projects/spaceman.png'
 
+import {AppContext, Browser} from "../../../App/App";
+
 
 const PreviewBlock = () => {
+    const appContext = useContext(AppContext)
+
     const previewBlock = useRef<HTMLDivElement>(null)
 
     const prevDef = useCallback(e => {
@@ -87,8 +91,16 @@ const PreviewBlock = () => {
                  onTouchMove={onTouchMove}
                  onTouchEnd={onTouchEnd}
             >
-                <div className={'preview-block-mob-ver__gradient-purple'}/>
-                <div className={'preview-block-mob-ver__gradient-gray'}/>
+                <div className={
+                    appContext.browser === Browser.SAFARI
+                        ? 'preview-block-mob-ver__gradient-purple_Safari'
+                        : 'preview-block-mob-ver__gradient-purple_Default'
+                }/>
+                <div className={
+                    appContext.browser === Browser.SAFARI
+                        ? 'preview-block-mob-ver__gradient-gray_Safari'
+                        : 'preview-block-mob-ver__gradient-gray_Default'
+                }/>
                 <div className={'preview-block-mob-ver_title'}>
                     <h2>Cosmic Driver</h2>
                 </div>
