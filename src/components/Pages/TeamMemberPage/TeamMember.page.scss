@@ -3,6 +3,8 @@
 
   width: 100vw;
 
+  overflow: hidden;
+
   .team-member-page__back {
     position: absolute;
     top: 0;
@@ -36,7 +38,29 @@
     }
   }
 
-  .team-member-page__back-gradient-blue {
+  .team-member-page__back-gradient-blue_Safari {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    will-change: transform;
+    transform: scale(50,100) translate(50%, -50%);
+
+    background: linear-gradient(23.98deg, #33317D -0.19%, rgba(71, 0, 54, 0) 80.65%);
+    mix-blend-mode: normal;
+    filter: blur(3px);
+
+    z-index: -5;
+
+    @media screen and (max-width: 500px){
+      display: none;
+    }
+
+  }
+  .team-member-page__back-gradient-blue_Default {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -58,7 +82,27 @@
 
   }
 
-  .team-member-page__back-gradient-purple {
+  .team-member-page__back-gradient-purple_Safari {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 20px;
+    height: 20px;
+
+    will-change: transform;
+    transform: scale(50, 100) translate(-30%, -50%);
+
+    background: rgba(113, 25, 42, 0.51);
+    filter: blur(1px);
+
+    z-index: -5;
+
+    @media screen and (max-width: 500px){
+      display: none;
+    }
+  }
+  .team-member-page__back-gradient-purple_Default {
     position: absolute;
     bottom: 0;
     right: 0;

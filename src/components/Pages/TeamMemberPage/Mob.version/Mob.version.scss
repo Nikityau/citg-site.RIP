@@ -65,7 +65,24 @@
 
     padding-top: 80px;
 
-    .TMP_mob-ver-main-field__purple-back {
+    .TMP_mob-ver-main-field__purple-back_Safari {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 20px;
+      height: 20px;
+
+      will-change: transform;
+      transform: scale(50, 70) translate(30%, 70%);
+
+      background: linear-gradient(30deg, #33317D -8.78%, rgba(71, 0, 54, 0) 82.01%);
+      mix-blend-mode: normal;
+      filter: blur(1px);
+
+      z-index: -1;
+    }
+    .TMP_mob-ver-main-field__purple-back_Default {
       position: absolute;
       top: 0;
       left: 0;
@@ -79,7 +96,23 @@
 
       z-index: -1;
     }
-    .TMP_mob-ver-main-field__red-back {
+    .TMP_mob-ver-main-field__red-back_Safari {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 20px;
+      height: 20px;
+
+      will-change: transform;
+      transform: scale(30, 70) translate(20%, 70%);
+
+      background: #71192A;
+      filter: blur(1px);
+
+      z-index: -1;
+    }
+    .TMP_mob-ver-main-field__red-back_Default {
       position: absolute;
       top: 0;
       right: -50%;

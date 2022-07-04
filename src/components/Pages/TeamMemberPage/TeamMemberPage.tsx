@@ -1,4 +1,4 @@
-import React, {useEffect, useState, createContext} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
 
 import ProjectsBlock from "./Projects.block/Projects.block";
@@ -12,11 +12,14 @@ import {CiTG_API} from "../../../API/CiTG_API";
 import './TeamMember.page.scss'
 
 import member_page_back from '../../../assets/images/member-page-back.png'
+import {AppContext, Browser} from "../../App/App";
 
 
 export const TeamMemberContext = createContext(null)
 
 function TeamMemberPage() {
+    const appContext = useContext(AppContext)
+
     const params = useParams()
 
     const [member, setMember] = useState<MemberInfo>(null)
@@ -36,7 +39,7 @@ function TeamMemberPage() {
                     <div className={'team-member-page__back'}>
                         <img src={member_page_back} alt={'img'}/>
                     </div>
-                    {/*<div className={'team-member-page__gradient-gray'}/>*/}
+                    <div className={'team-member-page__gradient-gray'}/>
                     <div className={'team-member-page_portfolio'}>
                         <div className={'team-member-page_inner-container'}>
                             <PreviewInfoBlock memberInfo={member}/>
@@ -45,8 +48,16 @@ function TeamMemberPage() {
                                 my_works={member?.my_works || []}
                             />
                         </div>
-                        {/*<div className={'team-member-page__back-gradient-blue'}/>
-                        <div className={'team-member-page__back-gradient-purple'}/>*/}
+                        <div className={
+                            appContext.browser === Browser.SAFARI
+                                ? 'team-member-page__back-gradient-blue_Safari'
+                                : 'team-member-page__back-gradient-blue_Default'
+                        }/>
+                        <div className={
+                            appContext.browser !== Browser.SAFARI
+                                ? 'team-member-page__back-gradient-purple_Safari'
+                                : 'team-member-page__back-gradient-purple_Default'
+                        }/>
                     </div>
                 </>
             }

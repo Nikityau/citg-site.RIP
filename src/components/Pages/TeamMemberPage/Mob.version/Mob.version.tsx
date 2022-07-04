@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 
 import './Mob.version.scss'
 
@@ -11,6 +11,7 @@ import Tabs from "./Tabs/ITabs";
 import {MemberInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {TabWatcher} from "../TabWatcher";
+import {AppContext, Browser} from "../../../App/App";
 
 export type tab_state = 'about-me' | 'gallery' | 'skills';
 
@@ -21,6 +22,7 @@ interface IMobVersion {
 export const MobVerMemberContext = React.createContext<MemberInfo>(null)
 
 const MobVersion = ({memberInfo}: IMobVersion) => {
+    const appContext = useContext(AppContext)
 
     const [tab, setCurrentTab] = useState<tab_state>('about-me')
 
@@ -46,8 +48,16 @@ const MobVersion = ({memberInfo}: IMobVersion) => {
                             Contact me
                         </a>
                     </div>
-                   {/* <div className={'TMP_mob-ver-main-field__purple-back'}/>
-                    <div className={'TMP_mob-ver-main-field__red-back'}/>*/}
+                    <div className={
+                        appContext.browser === Browser.SAFARI
+                            ? 'TMP_mob-ver-main-field__purple-back_Safari'
+                            : 'TMP_mob-ver-main-field__purple-back_Default'
+                    }/>
+                    <div className={
+                        appContext.browser === Browser.SAFARI
+                            ? 'TMP_mob-ver-main-field__red-back_Safari'
+                            : 'TMP_mob-ver-main-field__red-back_Default'
+                    }/>
                     <div className={'TMP_mob-ver-member-img'}>
                         <div className={'TMP_mob-ver-member-img-wrapper'}>
                             <img src={memberInfo?.photo?.imgSrc} alt={'img'}/>
