@@ -34,7 +34,7 @@ function ProjectPage() {
         ].join(' ')}>
             <PopUpGallery images={projectInfo?.img_arr || []}/>
             <PreviewBlock project={projectInfo}/>
-            <div className={['project-page_inner-container-wrapper',
+            <div id={'projects-container'} className={['project-page_inner-container-wrapper',
                 appContext.browser !== Browser.SAFARI
                     ? 'project-page_inner-container-wrapperBefore_Safari'
                     : 'project-page_inner-container-wrapperBefore_Default'

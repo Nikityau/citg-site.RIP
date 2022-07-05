@@ -8,6 +8,10 @@
       line-height: 24px;
 
       color: #FFFFFF;
+
+      @media screen and (max-width: 1250px){
+        font-size: 2.8rem;
+      }
     }
   }
   .project-links_links {
@@ -22,8 +26,11 @@
 
     padding: 10px 15px;
 
+    @media screen and (max-width: 1250px){
+      gap: 100px;
+    }
     @media screen and (max-width: 500px){
-      width: 100%;
+      gap: 60px;
 
       display: flex;
       justify-content: space-between;
@@ -32,6 +39,10 @@
     a {
       img {
         width: 36px;
+
+        @media screen and (max-width: 1250px){
+          width: 8rem;
+        }
       }
     }
   }

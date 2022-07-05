@@ -114,6 +114,20 @@ const DescriptionBlock = ({ images }:IDescriptionBlock) => {
                     </div>
                 </div>
             }
+            <div className={'description-tablet-block_description'}>
+                <h3>Description</h3>
+                <p>
+                    Play online or over local WiFi with 4-15 players as you attempt to prep your spaceship for
+                    departure, but beware as one will be an impostor bent on killing everyone!
+                    Crewmates can win by completing all tasks or discovering and voting the impostor off the ship.
+                    Play online or over local WiFi with 4-15 players as you attempt to prep your spaceship for
+                    departure, but beware as one will be an impostor bent on killing everyone!Crewmates can win by
+                    completing all tasks or discovering and voting the impostor off the ship. Play online or over local
+                    WiFi with 4-15 players as you attempt to prep your spaceship for departure, but beware as one will
+                    be an impostor bent on killing everyone!
+                    Crewmates can win by completing all tasks or discovering and voting the impostor off the ship.
+                </p>
+            </div>
             <div className={'description-block_mob-ver'}>
                 <div className={'description-block_mob-ver-slider'}>
                     <Slider
@@ -171,12 +185,15 @@ const DescriptionBlock = ({ images }:IDescriptionBlock) => {
                 <div className={'description-block_mob-ver-descr'}>
                     <div className={'description-block_mob-ver-text-descr'}>
                         <p>
-                            Play online or over local WiFi with 4-15 players as you attempt to prep your spaceship for departure,
-                            but beware as one will be an impostor bent on killing everyone!
-                        </p>
-                        <p>
-                            Crewmates can win by completing all tasks or
-                            discovering and voting the impostor off the ship.
+                            Play online or over local WiFi with 4-15 players as you attempt to prep your spaceship for
+                            departure, but beware as one will be an impostor bent on killing everyone!
+                            Crewmates can win by completing all tasks or discovering and voting the impostor off the ship.
+                            Play online or over local WiFi with 4-15 players as you attempt to prep your spaceship for
+                            departure, but beware as one will be an impostor bent on killing everyone!Crewmates can win by
+                            completing all tasks or discovering and voting the impostor off the ship. Play online or over local
+                            WiFi with 4-15 players as you attempt to prep your spaceship for departure, but beware as one will
+                            be an impostor bent on killing everyone!
+                            Crewmates can win by completing all tasks or discovering and voting the impostor off the ship.
                         </p>
                     </div>
                     <div className={'description-block_mob-ver-btn'}>

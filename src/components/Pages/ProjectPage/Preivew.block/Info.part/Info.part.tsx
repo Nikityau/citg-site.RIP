@@ -26,7 +26,11 @@ const InfoPart = () => {
                     <p className={'info-part__blue-text'}>см.системные требования</p>
                 </div>
                 <div className={'info-part_info_button'}>
-                    <button>show more</button>
+                    <button>
+                        <a href="#projects-container">
+                          show more
+                        </a>
+                    </button>
                 </div>
             </div>
         </div>

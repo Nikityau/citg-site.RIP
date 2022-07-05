@@ -11,6 +11,12 @@
 
       color: #FFFFFF;
     }
+
+    @media screen and (max-width: 1250px){
+      h5 {
+        font-size: 2.8rem;
+      }
+    }
   }
   .supported-devices_devices {
     padding-top: 20px;

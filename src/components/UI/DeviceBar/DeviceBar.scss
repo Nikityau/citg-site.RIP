@@ -13,9 +13,16 @@
   align-items: center;
   gap: 50px;
 
+  @media screen and (max-width: 1250px){
+    height: auto;
+
+    padding: 20px 0;
+  }
   @media screen and (max-width: 500px){
     width: 170px;
     border-radius: 7px;
+
+    padding: 10px;
 
     justify-content: space-around;
 
@@ -39,6 +46,9 @@
     img {
       width: 2.5rem;
 
+      @media screen and (max-width: 1250px){
+        width: 3.5rem;
+      }
       @media screen and (max-width: 500px){
         width: 3rem;
       }
@@ -68,7 +78,9 @@
 
       color: #FFFFFF;
 
-
+      @media screen and (max-width: 1250px){
+        font-size: 2.55rem;
+      }
       @media screen and (max-width: 500px){
         font-size: 2.5rem;
       }
