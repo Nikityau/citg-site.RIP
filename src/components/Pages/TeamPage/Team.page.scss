@@ -93,8 +93,11 @@
 
     padding-top: 150px;
 
-    @media screen and (max-width: 500px){
+
+    @media screen and (max-width: 1250px){
       max-width: 100%;
+    }
+    @media screen and (max-width: 500px){
 
       padding-top: 70px;
     }
@@ -117,6 +120,9 @@
 
         color: #FFFFFF;
 
+        @media screen and (max-width: 1250px){
+          font-size: 8rem;
+        }
         @media screen and (max-width: 500px){
             font-size: 4rem;
         }
@@ -134,8 +140,14 @@
 
         text-align: center;
 
+        @media screen and (max-width: 1250px){
+          width: 75%;
+          line-height: 30px;
+
+          font-size: 3rem;
+        }
         @media screen and (max-width: 500px){
-          width: 95%;
+          line-height: normal;
 
           font-size: 2rem;
         }

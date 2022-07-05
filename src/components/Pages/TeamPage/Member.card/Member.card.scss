@@ -33,6 +33,9 @@
     }
   }
 
+  @media screen and (max-width: 1250px){
+    width: 45%;
+  }
   @media screen and (max-width: 500px) {
     width: 46%;
     height: 224px;
@@ -98,6 +101,10 @@
       justify-content: center;
       align-items: center;
 
+      @media screen and (max-width: 1250px){
+        width: 220px;
+        height: 220px;
+      }
       @media screen and (max-width: 500px){
         width: 120px;
         height: 120px;
@@ -110,6 +117,9 @@
     }
     .member-card_description {
 
+      @media screen and (max-width: 1250px){
+        gap: 20px;
+      }
       @media screen and (max-width: 500px){
         display: grid;
         gap: 10px;
@@ -130,6 +140,9 @@
         will-change: color;
         transition: color .3s;
 
+        @media screen and (max-width: 1250px){
+          font-size: 4rem;
+        }
         @media screen and (max-width: 500px){
           font-size: 2.7rem;
         }
@@ -146,7 +159,19 @@
 
         color: #848484;
 
+        @media screen and (max-width: 1250px){
+          padding-top: 20px;
+
+          width: 60%;
+          margin: 0 auto;
+
+
+          font-size: 3rem;
+          line-height: 25px;
+        }
         @media screen and (max-width: 500px){
+          padding: 0;
+
           font-size: 2rem;
         }
       }
@@ -171,6 +196,9 @@
 
       gap: 2px;
 
+      @media screen and (max-width: 1250px){
+        display: none;
+      }
       @media screen and (max-width: 500px) {
         display: none;
       }

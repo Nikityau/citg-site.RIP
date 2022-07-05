@@ -9,9 +9,12 @@
     display: none;
   }
 
+  @media screen and (max-width: 1250px){
+    left: 0;
+  }
+
   .element {
     position: relative;
-    padding: 0 9%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -34,6 +37,8 @@
       align-items: center;
       justify-content: center;
       outline: none;
+
+      padding: 0 30px;
     }
     a:focus {
       text-decoration: none;
@@ -46,6 +51,10 @@
       height: 100%;
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: 1250px){
+        display: none;
+      }
 
       &:before {
         content: "";
@@ -113,6 +122,12 @@
     @media screen and (min-width: 3800px) {
       h4 {
         font-size: 1.35rem;
+      }
+    }
+
+    @media screen and (max-width: 1250px){
+      h4 {
+        font-size: 2.5rem;
       }
     }
   }

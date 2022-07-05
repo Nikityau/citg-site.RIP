@@ -38,7 +38,7 @@ const TeamPage = () => {
             }/>
             <div className={'team-page_container'}>
                 <div className={'team-page_title'}>
-                    <h1>About team</h1>
+                    <h1>О Команде</h1>
                     <p>Центр IT-притяжения аккумулирует вокруг себя множество талантливых специалистов из разных сфер,
                         многие из них являются бывшими учениками</p>
                 </div>

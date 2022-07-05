@@ -6,6 +6,9 @@
 
   z-index: 1;
 
+  @media screen and (max-width: 1250px){
+    height: 127px;
+  }
   @media screen and (max-width: 500px) {
     height: 320px;
   }
@@ -26,6 +29,11 @@
     padding-left: 40px;
     padding-bottom: 15px;
 
+    @media screen and (max-width: 1250px){
+      justify-content: center;
+
+      padding-bottom: 0;
+    }
     @media screen and (max-width: 500px) {
       display: none;
     }
@@ -41,6 +49,12 @@
     max-width: 1615px;
     margin: 0 auto;
 
+    @media screen and (max-width: 1250px){
+      max-width: 100%;
+
+      padding: 0 40px;
+    }
+
     @media screen and(max-width: 500px) {
       display: none;
     }
@@ -51,6 +65,10 @@
       align-items: end;
       padding-bottom: 15px;
       color: #fff;
+
+      @media screen and (max-width: 1250px){
+        display: none;
+      }
     }
 
     .additionalInfo {
@@ -63,9 +81,17 @@
       padding-bottom: 15px;
       margin-left: 40px;
 
+      @media screen and (max-width: 1250px){
+        padding: 0;
+      }
+
       .addI_City,
       .addI_Street {
         font-family: Inter, sans-serif;
+
+        @media screen and (max-width: 1250px){
+          display: none;
+        }
       }
 
       .addI_City {
@@ -104,6 +130,17 @@
         display: flex;
         justify-content: end;
         gap: 20px;
+
+        @media screen and (max-width: 1250px){
+          height: 100%;
+          align-items: center;
+
+          a {
+            img {
+              width: 9rem;
+            }
+          }
+        }
       }
     }
   }

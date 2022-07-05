@@ -97,14 +97,15 @@
       display: flex;
       justify-content: space-between;
 
+      @media screen and (max-width: 1250px){
+        max-width: 100%;
+        padding: 0 70px;
+      }
       @media screen and (max-width: 500px) {
         max-width: 100%;
         display: none;
       }
-      @media screen and (max-width: 1250px){
-        max-width: 100%;
-        padding: 0 20px;
-      }
+
 
       .contactUs {
         height: 100%;
@@ -137,6 +138,12 @@
           @media screen and (min-width: 3500px) {
             span {
               font-size: 1.2rem;
+            }
+          }
+
+          @media screen and (max-width: 1250px){
+            span {
+              font-size: 2.1rem;
             }
           }
         }
