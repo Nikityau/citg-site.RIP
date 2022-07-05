@@ -11,6 +11,10 @@
 
   z-index: 10;
 
+  @media screen and (max-width: 1250px){
+    padding: 10px 40px;
+  }
+
   .my-works__header-gradient-gray {
     position: absolute;
     left: 0;
@@ -39,6 +43,10 @@
     gap: 20px;
 
     overflow: hidden;
+
+    @media screen and (max-width: 1250px){
+      max-width: 100%;
+    }
 
     .my-works_member-img {
       width: 70px;

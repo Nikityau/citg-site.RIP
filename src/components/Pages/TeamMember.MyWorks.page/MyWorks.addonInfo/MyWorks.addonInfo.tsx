@@ -18,7 +18,7 @@ interface IMyWorksAddonInfo {
 
 const MyWorksAddonInfo = ({currentWork, nextWork, goToNext  }:IMyWorksAddonInfo) => {
 
-    const { man_id } = useParams()
+    const params = useParams()
 
     const Up = async () => {
         await GoUp()
@@ -28,7 +28,7 @@ const MyWorksAddonInfo = ({currentWork, nextWork, goToNext  }:IMyWorksAddonInfo)
         <div className={'my-works_additional-info'}>
             <div className={'my-works_crosshair'}>
                 <div className={'my-works_crosshair-wrapper'} onClick={Up}>
-                    <Link to={`/team/${man_id}`}>
+                    <Link to={`/team/${params['man_id']}`}>
                         <img src={crosshair_img} alt={'img'}/>
                     </Link>
                 </div>
@@ -40,6 +40,20 @@ const MyWorksAddonInfo = ({currentWork, nextWork, goToNext  }:IMyWorksAddonInfo)
                 <div className={'my-works_about-work-text'}>
                     <p> { currentWork?.description  || "description" } </p>
                 </div>
+                <div className={'my-works_software'}>
+                    <div className={'my-works_software-title'}>
+                        <h3>Software Used</h3>
+                    </div>
+                    <div className={'my-works_soft'}>
+                        {
+                            currentWork?.software_used.map(soft => (
+                                <div className={'my-works_soft-el'} key={soft.id}>
+                                    <img src={soft.imgSrc} alt={'img'}/>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
             <div className={'my-works_next-work'}>
                 <div className={'my-works_next-work-title'}>
@@ -49,8 +63,9 @@ const MyWorksAddonInfo = ({currentWork, nextWork, goToNext  }:IMyWorksAddonInfo)
                     <div className={'my-works_arrow'}>
                         <img src={arrow_img} alt={'img'}/>
                     </div>
-                    <div className={'my-works_next-img'}>
-                        <img src={nextWork?.img || ''} alt={'img'}/>
+                    <div className={'my-works_next-img'}
+                         style={{ backgroundImage: `url(${nextWork?.img})` }}
+                    >
                     </div>
                     <div className={'my-works__gray-overhead'}/>
                 </div>
