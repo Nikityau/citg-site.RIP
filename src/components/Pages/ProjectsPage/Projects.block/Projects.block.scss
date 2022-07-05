@@ -9,11 +9,14 @@
 
   .projects-block_title {
     position: relative;
+    top: 50px;
 
-    margin-top: 65px;
+    margin-top: 20px;
+
+
 
     @media screen and (max-width: 500px){
-
+      top: 0;
     }
   }
 

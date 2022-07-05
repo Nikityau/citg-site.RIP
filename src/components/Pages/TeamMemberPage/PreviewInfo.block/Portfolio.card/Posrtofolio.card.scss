@@ -12,6 +12,10 @@
 
   z-index: 2;
 
+  @media screen and (max-width: 1250px){
+    height: 311px;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -47,6 +51,10 @@
     border-radius: 4px;
 
     z-index: 5;
+
+    @media screen and (max-width: 1250px){
+      display: none;
+    }
 
     .portfolio-card_summary-icon {
       position: absolute;
@@ -143,7 +151,7 @@
     z-index: -1;
   }
   .portfolio-card_portfolio {
-    margin-top: 100px;
+    margin-top: 20px;
 
     width: 100%;
 
@@ -151,6 +159,10 @@
     flex-direction: column;
     align-items: center;
     gap: 40px;
+
+    @media screen and (max-width: 1250px){
+      gap: 25px;
+    }
 
     .portfolio-card_photo {
       width: 180px;
@@ -167,6 +179,18 @@
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
       z-index: 5;
+
+      @media screen and (max-width: 1250px){
+        width: 130px;
+        height: 130px;
+
+        align-items: center;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
     .portfolio-card_data {
       text-align: center;
@@ -188,6 +212,9 @@
 
         color: #FFFFFF;
 
+        @media screen and (max-width: 1250px){
+          font-size: 3rem;
+        }
       }
       p {
         font-family: 'Inter', sans-serif;
@@ -201,6 +228,10 @@
         color: #DED9D9;
 
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        @media screen and (max-width: 1250px){
+          font-size: 2rem;
+        }
       }
     }
     .portfolio-card_socials {
@@ -209,6 +240,12 @@
       gap: 20px;
 
       z-index: 5;
+
+      a {
+        img {
+          width: 5rem;
+        }
+      }
     }
   }
 }

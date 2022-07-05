@@ -55,6 +55,10 @@
     gap: 5px;
 
     .portfolio-info-block_skill-tittle {
+      @media screen and (max-width: 1250px){
+        display: none;
+      }
+
       h5 {
         font-family: 'Roboto', sans-serif;
         font-style: normal;

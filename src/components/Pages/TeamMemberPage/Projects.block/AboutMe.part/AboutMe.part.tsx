@@ -13,7 +13,7 @@ interface IAboutMePart {
 }
 
 const AboutMePart = ({works}:IAboutMePart) => {
-    const { id } = useParams()
+    const params = useParams()
 
     const getTemplateType = (index):string => {
         if(index % 10 === 1) return 'about-me_template-item-1'
@@ -45,9 +45,9 @@ const AboutMePart = ({works}:IAboutMePart) => {
                         <div key={work.id} className={['about-me-template-item',
                             getTemplateType(index + 1)].join(' ')}
                             onClick={Up}
+                             style={{ backgroundImage: `url(${work.imgSrc})` }}
                         >
-                            <Link to={`/team/${id}/my-works/${work.id}`}>
-                                <img src={work.imgSrc} alt={'img'}/>
+                            <Link to={`/team/${params['id']}/my-works/${work.id}`}>
                             </Link>
                         </div>
                     ))

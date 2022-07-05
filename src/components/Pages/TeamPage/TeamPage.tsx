@@ -9,6 +9,7 @@ import './Team.page.scss'
 import {MemberMiniInfo} from "../../../SynteticData/Syntetic.data.type";
 
 import {AppContext, Browser} from "../../App/App";
+import {GoUp} from "../../../Utils/GoUp";
 
 
 const TeamPage = () => {
@@ -23,6 +24,9 @@ const TeamPage = () => {
         })()
     }, [])
 
+    const Up = async () => {
+        await GoUp()
+    }
 
     return (
         <div className={'team-page'}>
@@ -49,7 +53,9 @@ const TeamPage = () => {
                                         photo={member.img}
                                         full_name={member.full_name}
                                         skills={member.skills}
-                                        id={member.id}/>
+                                        id={member.id}
+                                        onClick={Up}
+                            />
                         ))
                     }
                 </div>

@@ -21,6 +21,7 @@ import {MiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 import './Projects.block.scss'
 import ProjectCard, {ProjectType} from "../../ProjectsPage/Project.card/Project.card";
 import {AppContext} from "../../../App/App";
+import arrow_circle from "../../../../assets/icons/aroow-circle.svg";
 
 interface IProjectsBlock {
     my_works: MiniInfo[],
@@ -34,6 +35,18 @@ const ProjectsBlock = ({ participation_in_projects, my_works }:IProjectsBlock) =
 
     return (
         <div className={'projects-portfolio-block'}>
+            <div className={'projects-portfolio-block_summary-tablet'}>
+                <a href={'google.com'} target={'_blank'}>
+                    <div className={'projects-portfolio-block_summary-tablet-wrapper'}>
+                        <div className={''}>
+                            <span>Summary</span>
+                        </div>
+                    </div>
+                    <div className={'projects-portfolio-block_summary-tablet-arrow'}>
+                        <img src={arrow_circle} alt={'img'}/>
+                    </div>
+                </a>
+            </div>
             <div className={'projects-portfolio-block_slider'}>
                 <div className={'projects-portfolio-block_slider-title'}>
                     <h3>Participation in projects</h3>
