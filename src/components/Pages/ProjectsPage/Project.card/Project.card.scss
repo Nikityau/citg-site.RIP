@@ -75,7 +75,22 @@
 
 .dev-project-card__in-dev {
 
+  @media screen and (max-width: 1250px){
+    width: 100%;
+
+    .dev-project-card_text {
+      h4 {
+        font-size: 4rem !important;
+      }
+      p {
+        font-size: 3rem !important;
+      }
+    }
+  }
+
   @media screen and (max-width: 500px){
+    width: auto;
+
     .dev-project-card_text {
       width: 85% !important;
 
@@ -107,6 +122,9 @@
 
   background: rgba(255, 255, 255, 0.02);
 
+  @media screen and (max-width: 1250px){
+    width: 48%;
+  }
   @media screen and (max-width: 500px){
     width: 45%;
     height: 200px;
