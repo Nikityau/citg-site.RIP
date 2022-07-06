@@ -221,7 +221,7 @@
         width: 100%;
         height: auto;
 
-        padding: 50px 20px;
+        padding: 10px 20px;
 
         display: flex;
         flex-direction: row-reverse;
@@ -293,6 +293,13 @@
             background: #121518;
 
             width: fit-content;
+
+            .my-works_soft-el{
+              @media screen and (max-width: 1250px){
+                width: 35px;
+                height: 35px;
+              }
+            }
           }
         }
 
@@ -347,7 +354,7 @@
             color: #BFBFBF;
 
             @media screen and (max-width: 1250px) {
-              font-size: 2.5rem;
+              font-size: 2rem;
             }
           }
         }
@@ -398,6 +405,10 @@
           border-radius: 15px 15px 14px 15px;
 
           background: rgba(0, 0, 0, 0.31);
+
+          @media screen and (max-width: 1250px){
+            height: 100px;
+          }
 
           .my-works_arrow {
             position: absolute;
