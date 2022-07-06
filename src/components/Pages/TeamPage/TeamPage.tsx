@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 
 import MemberCard from "./Member.card/Member.card";
 
@@ -11,7 +11,6 @@ import {MemberMiniInfo} from "../../../SynteticData/Syntetic.data.type";
 import {AppContext, Browser} from "../../App/App";
 import {GoUp} from "../../../Utils/GoUp";
 
-
 const TeamPage = () => {
     const appContext = useContext(AppContext)
 
@@ -19,7 +18,7 @@ const TeamPage = () => {
 
     useEffect(() => {
         (async () => {
-            const data = await CiTG_API.getTeam();
+            const data = await CiTG_API.getTeam()
             setTeam(data)
         })()
     }, [])

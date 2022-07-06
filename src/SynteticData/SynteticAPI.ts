@@ -35,11 +35,11 @@ export class SynteticAPI {
   static getAllFilteredProjects(): Promise<Projects> {
     return getDataWithDelay(projects_filtered);
   }
-  static getTeam(): MemberMiniInfo[] {
-    return team
+  static getTeam(): Promise<MemberMiniInfo[]> {
+    return getDataWithDelay(team)
   }
-  static getMemberInfo(): MemberInfo {
-    return member
+  static getMemberInfo(): Promise<MemberInfo> {
+    return getDataWithDelay(member)
   }
   static getMemberWorksInfo(): MemberWorksInfo {
     return {
