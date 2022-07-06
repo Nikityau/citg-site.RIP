@@ -1,0 +1,27 @@
+.loader {
+  position: relative;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loader_svg {
+    .loader_circle {
+      fill: transparent;
+
+      stroke-width: 2px;
+      stroke: red;
+      stroke-dasharray: 70;
+      stroke-dashoffset: 50px;
+    }
+
+    .loader_circle-overhead {
+      fill: #191E24;
+    }
+  }
+}

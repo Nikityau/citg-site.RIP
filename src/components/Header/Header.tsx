@@ -11,8 +11,10 @@ import { DeviceType } from "../UI/Logo/Logo.inteface";
 
 import header from "./Header.module.scss";
 
+import {useToggler} from "../customHooks/useToggler";
+
 const Header = () => {
-  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [isPopUpOpen, setIsPopUpOpen] = useToggler(false);
 
   const headerRef: React.MutableRefObject<HTMLDivElement | null> = useRef(null);
   const popUpRef: React.MutableRefObject<HTMLDivElement | null> = useRef(null);
@@ -32,7 +34,7 @@ const Header = () => {
     const offsetTop = headerRef.current.clientHeight;
 
     popUpRef.current.style.top = offsetTop + "px";
-    setIsPopUpOpen(true);
+    setIsPopUpOpen.On();
   };
   const popUpMouseEnter = () => {
     openPopUp();
@@ -42,17 +44,17 @@ const Header = () => {
     if (popUpRef.current == null) return;
 
     popUpRef.current.style.top = "-600px";
-    setIsPopUpOpen(false);
+    setIsPopUpOpen.Off();
   };
 
   const onBurgerClick = () => {
     if (isPopUpOpen) {
       window.removeEventListener("touchmove", preventCallback, false);
-      setIsPopUpOpen((prev) => !prev);
+      setIsPopUpOpen.Off()
       return;
     }
 
-    setIsPopUpOpen((prev) => !prev);
+    setIsPopUpOpen.On()
     window.addEventListener("touchmove", preventCallback, { passive: false });
   };
 

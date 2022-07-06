@@ -19,9 +19,6 @@ interface IPreviewInfoBlock {
 }
 
 const PreviewInfoBlock = ({ memberInfo }:IPreviewInfoBlock) => {
-
-    console.log()
-
     return (
         <div className={'preview-member-info-block'}>
             <div className={'preview-member-info-block_container'}>

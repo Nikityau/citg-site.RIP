@@ -25,7 +25,6 @@ export interface IAppContext {
 }
 
 function DetectBrowser() {
-    console.log(isSafari)
     if(isSafari)
         return Browser.SAFARI
 
@@ -54,6 +53,8 @@ function App() {
           return <CustomMouse x={mouse.x} y={mouse.y} />;
         }}
       />*/}
+
+               {/*<Loader/>*/}
 
                <Router/>
                <Footer/>

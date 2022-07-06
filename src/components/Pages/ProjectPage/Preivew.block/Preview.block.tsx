@@ -67,7 +67,6 @@ const PreviewBlock = ({ project }:IPreviewBlock) => {
     }
     const onTouchEnd = (e: React.TouchEvent) => {}
 
-
     useEffect(() => {
 
         window.addEventListener('scroll', onScroll)

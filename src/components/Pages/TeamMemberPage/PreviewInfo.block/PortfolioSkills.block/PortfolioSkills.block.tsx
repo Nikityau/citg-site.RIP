@@ -7,9 +7,7 @@ import {Img} from "../../../../../SynteticData/Syntetic.data.type";
 
 import './PortfolioSkills.block.scss'
 
-import figma_img from '../../../../../assets/icons/project/figma.svg'
-import ai_img from '../../../../../assets/icons/project/ai.svg'
-import ps_img from '../../../../../assets/icons/project/ps.svg'
+import {useToggler} from "../../../../customHooks/useToggler";
 
 interface IPortfolioSkillsBlock {
     skills: string[],
@@ -17,13 +15,13 @@ interface IPortfolioSkillsBlock {
 }
 
 const PortfolioSkillsBlock = ({skills, software}:IPortfolioSkillsBlock) => {
-    const [isSkillsPopUpOpen, setIsSkillsPopUpOpen] = useState<boolean>(false)
+    const [isSkillsPopUpOpen, setIsSkillsPopUpOpen] = useToggler(false)
     const [skillsPopUpPos, setSkillsPopUpPos] = useState<{ x: number, y: number }>(null)
 
     const onHover = (e) => {
         const target = e.target as HTMLElement;
 
-        setIsSkillsPopUpOpen(true)
+        setIsSkillsPopUpOpen.On()
 
         setSkillsPopUpPos({
             x: target.offsetLeft + target.clientWidth,
@@ -31,7 +29,7 @@ const PortfolioSkillsBlock = ({skills, software}:IPortfolioSkillsBlock) => {
         })
     }
     const onHoverEnd = (e) => {
-        setIsSkillsPopUpOpen(false)
+        setIsSkillsPopUpOpen.Off()
     }
 
     return (
