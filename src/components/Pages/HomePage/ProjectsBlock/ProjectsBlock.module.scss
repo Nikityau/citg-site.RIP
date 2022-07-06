@@ -28,7 +28,7 @@
       left: 0;
 
       @media screen and (max-width: 1250px) {
-        width: 20%;
+        width: 100%;
       }
       @media screen and (max-width: 500px) {
         width: auto;
@@ -76,14 +76,6 @@
           font-size: 1.5rem;
         }
       }
-      @media screen and (min-width: 1000px) {
-        h4 {
-          font-size: 3.5rem;
-        }
-        p {
-          font-size: 1.8rem;
-        }
-      }
       @media screen and (max-width: 1250px) {
         position: absolute;
         top: 15px;
@@ -100,6 +92,14 @@
         }
         p {
           display: none;
+        }
+      }
+      @media screen and (min-width: 1000px) {
+        h4 {
+          font-size: 3.5rem;
+        }
+        p {
+          font-size: 1.8rem;
         }
       }
       @media screen and (max-width: 500px){
@@ -134,31 +134,33 @@
 
       z-index: 1;
 
-      @media screen and (max-width: 500px) {
-        display: none;
-
-       /* position: absolute;
-         left: 0;
-         right: 0;
-         top: 0;
-
-         width: 100vw;
-         height: 100vh;*/
-
-        /* background: linear-gradient(
-           19.36deg,
-           rgba(51, 49, 125, 0.52) 0,
-           rgba(71, 0, 54, 0) 70%
-         );*/
-         //filter: blur(100px);
-      }
-
       @media screen and (min-width: 3000px) {
         right: -100%;
         width: 28vw;
         height: 28vw;
         border-radius: 50%;
         filter: blur(200px);
+      }
+      @media screen and (max-width: 1250px){
+        display: none;
+      }
+      @media screen and (max-width: 500px) {
+        display: none;
+
+        /* position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+
+          width: 100vw;
+          height: 100vh;*/
+
+        /* background: linear-gradient(
+           19.36deg,
+           rgba(51, 49, 125, 0.52) 0,
+           rgba(71, 0, 54, 0) 70%
+         );*/
+        //filter: blur(100px);
       }
     }
     .purpleGradient_Default {
@@ -173,19 +175,6 @@
        pointer-events: none;
        z-index: 1;
 
-      @media screen and (max-width: 500px) {
-         left: 0;
-         right: 0;
-         top: 0;
-         width: 100vw;
-         height: 100vh;
-         background: linear-gradient(
-           19.36deg,
-           rgba(51, 49, 125, 0.52) 0,
-           rgba(71, 0, 54, 0) 70%
-         );
-         filter: blur(100px);
-      }
 
       @media screen and (min-width: 3000px) {
         right: -100%;
@@ -193,6 +182,32 @@
         height: 28vw;
         border-radius: 50%;
         filter: blur(200px);
+      }
+      @media screen and (max-width: 1250px){
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(
+                        19.36deg,
+                        rgba(51, 49, 125, 0.52) 0,
+                        rgba(71, 0, 54, 0) 70%
+        );
+        filter: blur(100px);
+      }
+      @media screen and (max-width: 500px) {
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(
+                        19.36deg,
+                        rgba(51, 49, 125, 0.52) 0,
+                        rgba(71, 0, 54, 0) 70%
+        );
+        filter: blur(100px);
       }
     }
     .orangeGradient_Safari {
@@ -215,16 +230,23 @@
 
       z-index: -1;
 
-      @media screen and (max-width: 500px) {
+
+      @media screen and (min-width: 3000px) {
+        bottom: 5%;
+        left: -100%;
+        filter: blur(400px);
+      }
+      @media screen and (max-width: 1250px){
         background: linear-gradient(0deg, #581422 70%, rgba(113, 25, 42, 0));
         mix-blend-mode: normal;
         filter: blur(2px);
         transform: scale(30,30) translate(20%, -10%);
       }
-      @media screen and (min-width: 3000px) {
-        bottom: 5%;
-        left: -100%;
-        filter: blur(400px);
+      @media screen and (max-width: 500px) {
+        background: linear-gradient(0deg, #581422 70%, rgba(113, 25, 42, 0));
+        mix-blend-mode: normal;
+        filter: blur(2px);
+        transform: scale(30,30) translate(20%, -10%);
       }
     }
     .orangeGradient_Default {
@@ -239,7 +261,13 @@
       pointer-events: none;
       z-index: -1;
 
-      @media screen and (max-width: 500px) {
+
+      @media screen and (min-width: 3000px) {
+        bottom: 5%;
+        left: -100%;
+        filter: blur(400px);
+      }
+      @media screen and (max-width: 1250px){
         bottom: -200px;
         left: -40%;
         width: 180vw;
@@ -249,10 +277,15 @@
         filter: blur(130px);
         transform: matrix(-1, 0, 0, 1, 0, 0);
       }
-      @media screen and (min-width: 3000px) {
-        bottom: 5%;
-        left: -100%;
-        filter: blur(400px);
+      @media screen and (max-width: 500px) {
+        bottom: -200px;
+        left: -40%;
+        width: 180vw;
+        height: 500px;
+        background: linear-gradient(0deg, #581422 70%, rgba(113, 25, 42, 0));
+        mix-blend-mode: normal;
+        filter: blur(130px);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
       }
     }
 
@@ -491,12 +524,16 @@
         height: 600px;
 
         display: block;
+
+        margin-bottom: 40px;
       }
       @media screen and (max-width: 500px) {
         width: 100%;
         height: 450px;
 
         display: block;
+
+        margin: 0;
       }
     }
   }

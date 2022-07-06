@@ -7,6 +7,11 @@
 
   z-index: 1;
 
+  @media screen and (max-width: 1250px){
+    height: auto;
+
+    padding: 100px 0;
+  }
   @media screen and (max-width: 500px) {
     height: auto;
   }
@@ -14,45 +19,51 @@
   .mobHack_Safari {
     display: none;
 
+    position: absolute;
+    top: -36px;
+    left: -15%;
+
+    width: 130%;
+    height: 200px;
+
+    background: linear-gradient(180.09deg, #581422 70%, rgba(113, 25, 42, 0));
+    mix-blend-mode: normal;
+    filter: blur(16px);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    @media screen and (max-width: 1250px){
+      display: block;
+    }
     @media screen and (max-width: 500px) {
       display: block;
-
-      position: absolute;
-      top: -36px;
-      left: -15%;
-
-      width: 130%;
-      height: 200px;
-
-      background: linear-gradient(180.09deg, #581422 70%, rgba(113, 25, 42, 0));
-      mix-blend-mode: normal;
-      filter: blur(16px);
-
-      z-index: 1;
-
-      pointer-events: none;
     }
   }
   .mobHack_Default {
     display: none;
 
+    position: absolute;
+    top: -36px;
+    left: -15%;
+
+    width: 130%;
+    height: 200px;
+
+    background: linear-gradient(180.09deg, #581422 70%, rgba(113, 25, 42, 0));
+    mix-blend-mode: normal;
+    filter: blur(16px);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    @media screen and (max-width: 1250px){
+      display: block;
+    }
     @media screen and (max-width: 500px) {
       display: block;
-
-      position: absolute;
-      top: -36px;
-      left: -15%;
-
-      width: 130%;
-      height: 200px;
-
-      background: linear-gradient(180.09deg, #581422 70%, rgba(113, 25, 42, 0));
-      mix-blend-mode: normal;
-      filter: blur(16px);
-
-      z-index: 1;
-
-      pointer-events: none;
     }
   }
 
@@ -73,6 +84,9 @@
 
     pointer-events: none;
 
+    @media screen and (max-width: 1250px){
+      display: block;
+    }
     @media screen and (max-width: 500px) {
       display: block;
     }
@@ -118,11 +132,16 @@
 
     z-index: 2;
 
-    @media screen and (max-width: 500px) {
-      padding: 80px 0;
-    }
+
     @media screen and (min-width: 3000px) {
       position: relative;
+    }
+    @media screen and (max-width: 1250px){
+      max-width: 100%;
+      padding: 0 40px;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 80px 0;
     }
 
     .pageNum {
@@ -130,13 +149,19 @@
       top: 5%;
       left: 0;
 
+
+      @media screen and (min-width: 3000px) {
+        top: 0;
+      }
+      @media screen and (max-width: 1250px){
+        width: 100%;
+      }
       @media screen and (max-width: 500px) {
+        width: auto;
+
         span {
           display: none;
         }
-      }
-      @media screen and (min-width: 3000px) {
-        top: 0;
       }
     }
 
@@ -146,10 +171,17 @@
       display: flex;
       justify-content: space-between;
 
+      @media screen and (max-width: 1250px){
+        height: 400px;
+      }
+
       .leftSide {
         width: 40%;
         height: 100%;
 
+        @media screen and (max-width: 1250px){
+          width: 50%;
+        }
         @media screen and (max-width: 500px) {
           width: 100%;
         }
@@ -180,9 +212,11 @@
               line-height: 24px;
             }
 
-            @media screen and (max-width: 500px) {
+
+
+            @media screen and (min-width: 3000px) {
               p {
-                font-size: 2.5rem;
+                font-size: 1.5rem;
               }
             }
             @media screen and (min-width: 2500px) {
@@ -190,9 +224,14 @@
                 font-size: 1.7rem;
               }
             }
-            @media screen and (min-width: 3000px) {
+            @media screen and (max-width: 1250px){
               p {
-                font-size: 1.5rem;
+                font-size: 2.5rem;
+              }
+            }
+            @media screen and (max-width: 500px) {
+              p {
+                font-size: 2.5rem;
               }
             }
           }
@@ -213,6 +252,9 @@
         justify-content: right;
         align-items: center;
 
+        @media screen and (max-width: 1250px){
+          width: 50%;
+        }
         @media screen and (max-width: 500px) {
           display: none;
         }
@@ -245,6 +287,10 @@
         overflow: hidden;
         filter: drop-shadow(0px 50px 50px rgba(0, 0, 0, 0.2));
         background: rgba(10, 10, 10, 0.56);
+
+        @media screen and (max-width: 1250px){
+          width: 95%;
+        }
 
         div {
           width: 100%;
@@ -345,6 +391,20 @@
     z-index: -1;
 
     @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}
+
+.containerBefore_Safari,
+.containerAfter_Safari,
+.containerBefore_Default,
+.containerAfter_Default {
+  @media screen and (max-width: 1250px){
+    &:after {
+      display: none;
+    }
+    &:before {
       display: none;
     }
   }
