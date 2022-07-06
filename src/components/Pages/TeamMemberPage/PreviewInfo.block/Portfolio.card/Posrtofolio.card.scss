@@ -151,7 +151,7 @@
     z-index: -1;
   }
   .portfolio-card_portfolio {
-    margin-top: 20px;
+    margin-top: 70px;
 
     width: 100%;
 
@@ -161,6 +161,7 @@
     gap: 40px;
 
     @media screen and (max-width: 1250px){
+      margin-top: 20px;
       gap: 25px;
     }
 
