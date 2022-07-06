@@ -26,19 +26,23 @@
       font-size: 4.5rem;
       color: #f4672b;
 
-      @media screen and (max-width: 500px) {
-        font-size: 4.5rem;
 
-        font-family: Sansation, sans-serif;
-      }
-      @media screen and (min-width: 2400px) {
-        font-size: 3.8rem;
+      @media screen and (min-width: 3400px) {
+        font-size: 3.4rem;
       }
       @media screen and (min-width: 3000px) {
         font-size: 3.5rem;
       }
-      @media screen and (min-width: 3400px) {
-        font-size: 3.4rem;
+      @media screen and (min-width: 2400px) {
+        font-size: 3.8rem;
+      }
+      @media screen and (max-width: 1250px){
+        font-size: 5rem;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 4.5rem;
+
+        font-family: Sansation, sans-serif;
       }
     }
   }
@@ -54,17 +58,21 @@
       font-weight: 500;
       font-size: 2.3rem;
 
-      @media screen and (max-width: 500px) {
-        font-size: 2.7rem;
-      }
-      @media screen and (min-width: 2400px) {
-        font-size: 2rem;
+
+      @media screen and (min-width: 3400px) {
+        font-size: 1.6rem;
       }
       @media screen and (min-width: 3000px) {
         font-size: 1.8rem;
       }
-      @media screen and (min-width: 3400px) {
-        font-size: 1.6rem;
+      @media screen and (min-width: 2400px) {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: 1250px){
+        font-size: 3rem;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 2.7rem;
       }
     }
 
@@ -74,19 +82,22 @@
       font-weight: 400;
       font-size: 2.2rem;
 
-      @media screen and (max-width: 500px) {
-        width: 100%;
-        font-size: 2.5rem;
-        text-align: left;
-      }
-      @media screen and (min-width: 2400px) {
-        font-size: 2rem;
+      @media screen and (min-width: 3400px) {
+        font-size: 1.55rem;
       }
       @media screen and (min-width: 3000px) {
         font-size: 1.8rem;
       }
-      @media screen and (min-width: 3400px) {
-        font-size: 1.55rem;
+      @media screen and (min-width: 2400px) {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: 1250px){
+        font-size: 3rem;
+      }
+      @media screen and (max-width: 500px) {
+        width: 100%;
+        font-size: 2.5rem;
+        text-align: left;
       }
     }
   }

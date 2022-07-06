@@ -110,7 +110,7 @@ function PhotoSlider() {
                     }}
                     elements_on_screen={3}
                     title={''}
-                    width={"default"}
+                    width={"stretched"}
                 >
                     <SliderElement title={'Создавай мечту'}>
                         <div className={'slider-img-el'} style={{backgroundImage: `url(${makeDream})`}}/>

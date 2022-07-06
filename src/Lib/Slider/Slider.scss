@@ -85,6 +85,9 @@
 
       color: #F6682B;
 
+      @media screen and (max-width: 1250px){
+        font-size: 4rem;
+      }
       @media screen and (max-width: 500px) {
         font-size: 3rem;
       }

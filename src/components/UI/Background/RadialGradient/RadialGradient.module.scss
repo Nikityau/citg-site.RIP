@@ -15,6 +15,31 @@
 
   pointer-events: none;
 
+  @media screen and (min-width: 3400px) {
+    filter: blur(200px);
+    left: -20%;
+  }
+  @media screen and (min-width: 3000px) {
+    filter: blur(180px);
+    left: -25%;
+  }
+  @media screen and (min-width: 2500px) {
+    filter: blur(170px);
+    left: -25%;
+  }
+  @media screen and (min-width: 2000px) {
+    filter: blur(150px);
+    left: -30%;
+  }
+  @media screen and (max-width: 1250px){
+    bottom: 0;
+    left: 0;
+
+    transform: scale(30, 30) translate(40%, -70%);
+
+    background: #71192a;
+    filter: blur(5px);
+  }
   @media screen and (max-width: 500px) {
     bottom: 0;
     left: 0;
@@ -23,25 +48,6 @@
 
     background: #71192a;
     filter: blur(2px);
-  }
-  @media screen and (min-width: 2000px) {
-    filter: blur(150px);
-    left: -30%;
-  }
-
-  @media screen and (min-width: 2500px) {
-    filter: blur(170px);
-    left: -25%;
-  }
-
-  @media screen and (min-width: 3000px) {
-    filter: blur(180px);
-    left: -25%;
-  }
-
-  @media screen and (min-width: 3400px) {
-    filter: blur(200px);
-    left: -20%;
   }
 }
 .gradient_Default {
@@ -55,6 +61,29 @@
 
   pointer-events: none;
 
+  @media screen and (min-width: 3400px) {
+    filter: blur(200px);
+    left: -20%;
+  }
+  @media screen and (min-width: 3000px) {
+    filter: blur(180px);
+    left: -25%;
+  }
+  @media screen and (min-width: 2500px) {
+    filter: blur(170px);
+    left: -25%;
+  }
+  @media screen and (min-width: 2000px) {
+    filter: blur(150px);
+    left: -30%;
+  }
+  @media screen and (max-width: 1250px){
+    bottom: -13%;
+    left: -10%;
+    height: 120%;
+    width: 120%;
+    background: #71192a;
+  }
   @media screen and (max-width: 500px) {
     bottom: -13%;
     left: -10%;
@@ -62,24 +91,5 @@
     width: 120%;
     background: #71192a;
     filter: blur(70px);
-  }
-  @media screen and (min-width: 2000px) {
-    filter: blur(150px);
-    left: -30%;
-  }
-
-  @media screen and (min-width: 2500px) {
-    filter: blur(170px);
-    left: -25%;
-  }
-
-  @media screen and (min-width: 3000px) {
-    filter: blur(180px);
-    left: -25%;
-  }
-
-  @media screen and (min-width: 3400px) {
-    filter: blur(200px);
-    left: -20%;
   }
 }
