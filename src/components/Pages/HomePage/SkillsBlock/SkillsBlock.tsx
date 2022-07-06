@@ -39,7 +39,7 @@ function SkillsBlock() {
                   />
                 )}
                 block_2={<SkillCard number="VIII" title="3D Design" subtitle="Maya" />}
-                block_3={<SkillCard number="IX" title="Python Developer" subtitle="" />}
+                block_3={<SkillCard number="IX" title="Python Developer" subtitle="Web/DataScience" />}
               />
             </div>
             <div className={skillsblock.skillMobVer}>
