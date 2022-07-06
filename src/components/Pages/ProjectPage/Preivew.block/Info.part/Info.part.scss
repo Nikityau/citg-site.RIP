@@ -34,7 +34,9 @@
 
     overflow: hidden;
 
-    background: #0a0a0a;
+    background: #0a0a0a no-repeat;
+    background-size: cover;
+
 
     @media screen and (max-width: 1250px){
       width: 40%;

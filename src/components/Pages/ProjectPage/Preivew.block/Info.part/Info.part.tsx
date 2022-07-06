@@ -13,8 +13,9 @@ interface IInfoPart {
 const InfoPart = () => {
     return (
         <div className={'info-part'}>
-            <div className={'info-part_logo'}>
-                <img src={img_prj_logo} alt={'img'}/>
+            <div className={'info-part_logo'}
+                style={{ backgroundImage: `url(${ img_prj_logo })` }}
+            >
             </div>
             <div className={'info-part_info'}>
                 <div className={'info-part_info_title'}>
