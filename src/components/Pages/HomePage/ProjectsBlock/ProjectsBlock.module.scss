@@ -14,13 +14,12 @@
     height: 100%;
     margin: 0 auto;
 
+    @media screen and (min-width: 3000px) {
+      position: relative;
+    }
     @media screen and (max-width: 500px) {
       max-width: 100vw;
       padding-bottom: 50px;
-    }
-
-    @media screen and (min-width: 3000px) {
-      position: relative;
     }
 
     .pageNum {
@@ -28,7 +27,11 @@
       top: 10px;
       left: 0;
 
+      @media screen and (max-width: 1250px) {
+        width: 20%;
+      }
       @media screen and (max-width: 500px) {
+        width: auto;
         top: 0;
       }
     }
@@ -57,31 +60,12 @@
         color: #fff;
       }
 
-      @media screen and (max-width: 500px) {
-        position: absolute;
-        top: 2px;
-        right: 5%;
-
+      @media screen and (min-width: 3000px) {
         h4 {
-          font-family: "Sansation", sans-serif;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 2.5rem;
-          line-height: 28px;
-
-          color: #f8682a;
+          font-size: 2.8rem;
         }
         p {
-          display: none;
-        }
-      }
-
-      @media screen and (min-width: 1000px) {
-        h4 {
-          font-size: 3.5rem;
-        }
-        p {
-          font-size: 1.8rem;
+          font-size: 1.55rem;
         }
       }
       @media screen and (min-width: 2500px) {
@@ -92,12 +76,40 @@
           font-size: 1.5rem;
         }
       }
-      @media screen and (min-width: 3000px) {
+      @media screen and (min-width: 1000px) {
         h4 {
-          font-size: 2.8rem;
+          font-size: 3.5rem;
         }
         p {
-          font-size: 1.55rem;
+          font-size: 1.8rem;
+        }
+      }
+      @media screen and (max-width: 1250px) {
+        position: absolute;
+        top: 15px;
+        right: 5%;
+
+        h4 {
+          font-family: "Sansation", sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 3rem;
+          line-height: 28px;
+
+          color: #f8682a;
+        }
+        p {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 500px){
+        top: 2px;
+
+        h4 {
+          font-size: 2.5rem;
+
+        }
+        p {;
         }
       }
     }
@@ -251,6 +263,9 @@
       flex-direction: column;
       align-items: center;
 
+      @media screen and (max-width: 1250px){
+        display: none;
+      }
       @media screen and (max-width: 500px) {
         display: none;
       }
@@ -279,6 +294,10 @@
 
       padding-top: 60px;
 
+      @media screen and (max-width: 1250px) {
+        display: block;
+      }
+
       .gamesListMobVerTittle {
         width: 100%;
 
@@ -298,16 +317,19 @@
         }
       }
 
-      @media screen and (max-width: 500px) {
-        display: block;
-      }
-
       .gamesListMobVerSlider {
         position: relative;
 
         width: 100%;
         height: 400px;
         overflow: hidden;
+
+        @media screen and (max-width: 1250px){
+          height: 500px;
+        }
+        @media screen and (max-width: 500px){
+          height: 400px;
+        }
 
         .gamesListMobVerSliderTrack {
           position: absolute;
@@ -362,6 +384,14 @@
         justify-content: space-evenly;
         align-items: center;
 
+        @media screen and (max-width: 1250px){
+          display: none;
+        }
+        @media screen and (max-width: 500px){
+          display: flex;
+        }
+
+
         .gamesListMobVerAdditionalBlock {
           width: 42%;
           height: 75%;
@@ -380,7 +410,16 @@
       }
 
       .gamesListMobVerButton {
+        margin-top: 50px;
+
         width: 100%;
+
+        @media screen and (max-width: 1250px){
+
+        }
+        @media screen and (max-width: 500px){
+          margin-top: 0;
+        }
 
         display: flex;
         justify-content: center;
@@ -423,6 +462,8 @@
                         rgba(71, 0, 54, 0) 70%
         );
         filter: blur(100px);
+
+        z-index: -1;
       }
     }
 
@@ -432,6 +473,9 @@
       width: 100%;
       height: 550px;
 
+      @media screen and (max-width: 1250px){
+        display: none;
+      }
       @media screen and (max-width: 500px) {
         display: none;
       }
@@ -442,6 +486,12 @@
 
       padding: 0 20px;
 
+      @media screen and (max-width: 1250px){
+        width: 100%;
+        height: 600px;
+
+        display: block;
+      }
       @media screen and (max-width: 500px) {
         width: 100%;
         height: 450px;

@@ -21,6 +21,15 @@
   border: none;
   overflow: hidden;
 
+  @media screen and (max-width: 1250px){
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: 0;
+    a {
+      padding: 30px 40px;
+    }
+  }
   @media screen and (max-width: 500px) {
     width: 90%;
     height: auto;
@@ -46,6 +55,15 @@
       font-size: 2rem;
       line-height: 18px;
 
+      @media screen and (max-width: 1250px){
+        font-family: Cabin, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 14px;
+        font-size: 2.6rem;
+
+        color: #ffffff;
+      }
       @media screen and (max-width: 500px) {
         font-family: Cabin, sans-serif;
         font-style: normal;

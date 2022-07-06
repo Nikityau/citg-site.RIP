@@ -1,16 +1,16 @@
 import React, {useContext, useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 import MiniGameImage from "../../../UI/MiniGameImage/MiniGameImage";
 import CommonButton from "../../../UI/Form/CommonButton/CommonButton";
 import PageNumber from "../../../UI/PageNumber/PageNumber";
 
-import {MiniInfo, Projects, ProjectsMiniInfo} from "../../../../SynteticData/Syntetic.data.type";
+import {MiniInfo, ProjectsMiniInfo} from "../../../../SynteticData/Syntetic.data.type";
 
 import {TypeButton} from "../../../UI/Form/CommonButton/TypeButton.enum";
 
 import projectsbock from "./ProjectsBlock.module.scss";
 
-import citg_plug from "../../../../assets/images/citg_plug.png";
 import {
     Infinite_Type,
     Slider_Type,
@@ -25,9 +25,11 @@ import {
 import PopUpGallery from "../../../../Lib/PopUpGallery/PopUpGallery";
 
 import popUpGalleryController from "../../../../Lib/PopUpGallery/PopUpGallery.controller/PopUpGallery.controller";
+
 import {AppContext, Browser} from "../../../App/App";
+
 import {CiTG_API} from "../../../../API/CiTG_API";
-import {Link} from "react-router-dom";
+import {GoUp} from "../../../../Utils/GoUp";
 
 const Slider = React.lazy(() => import('../../../../Lib/Slider/Slider'))
 
@@ -61,7 +63,6 @@ const ProjectsBlock = () => {
         popUpGalleryController.Open(Number.parseInt(el_index))
     }
 
-
     const getRandomProject = ():ProjectsMiniInfo[] => {
         const randomIndex = Math.ceil(Math.random() * ((projects.length || 1) - 1));
 
@@ -73,6 +74,10 @@ const ProjectsBlock = () => {
         }
 
         return arr
+    }
+
+    const Up = async () => {
+        await GoUp()
     }
 
     return (
@@ -152,12 +157,11 @@ const ProjectsBlock = () => {
                             title={''}>
                             {
                                 projects?.map(project => (
-                                    <SliderElement key={project.id} title={''}>
+                                    <SliderElement key={project.id} title={''} onClick={Up}>
                                         <Link to={`projects/${project.id}`}>
                                             <div style={{ backgroundImage: `url(${project.main_img})` }}>
                                             </div>
                                         </Link>
-
                                     </SliderElement>
                                 ))
                             }
@@ -169,6 +173,7 @@ const ProjectsBlock = () => {
                                 console.log(project?.main_img)
                                 return (
                                     <div key={project?.id || 'random-key'}
+                                         onClick={Up}
                                         className={projectsbock.gamesListMobVerAdditionalBlock}
                                         style={{backgroundImage: `url(${project?.main_img})`}}>
                                         <Link to={`projects/${project?.id}`}></Link>
