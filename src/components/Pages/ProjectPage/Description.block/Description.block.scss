@@ -23,6 +23,10 @@
 
       color: #FFFFFF;
 
+      @media screen and (min-width: 3000px){
+        font-size: 2.5rem;
+      }
+
       @media screen and (max-width: 1250px){
         font-size: 5rem;
       }
@@ -33,6 +37,13 @@
       font-weight: 300;
       font-size: 1.8rem;
       line-height: 19px;
+
+      @media screen and (min-width: 3000px){
+        width: 100%;
+
+        font-size: 1.5rem;
+        line-height: normal;
+      }
 
       @media screen and (max-width: 1250px){
         width: 90%;
@@ -54,6 +65,13 @@
         line-height: 29px;
 
         color: #FFFFFF;
+
+        @media screen and (min-width: 2000px){
+          font-size: 3.5rem;
+        }
+        @media screen and (min-width: 3000px){
+          font-size: 2.5rem;
+        }
       }
     }
     .description-block_slider-container {

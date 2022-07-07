@@ -9,6 +9,12 @@
 
       color: #FFFFFF;
 
+      @media screen and (min-width: 2000px){
+        font-size: 2.4rem;
+      }
+      @media screen and (min-width: 3000px){
+        font-size: 2rem;
+      }
       @media screen and (max-width: 1250px){
         font-size: 2.8rem;
       }

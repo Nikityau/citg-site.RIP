@@ -16,17 +16,19 @@ export interface IPreviewBlock {
     project: ProjectInfo
 }
 
-const PreviewBlock = ({ project }:IPreviewBlock) => {
+const PreviewBlock = ({project}: IPreviewBlock) => {
     const appContext = useContext(AppContext)
 
     const previewBlock = useRef<HTMLDivElement>(null)
 
     const prevDef = useCallback(e => {
-        if(window.screen.width < 500)
+        if (window.screen.width < 500)
             e.preventDefault()
     }, [])
 
     const onScroll = useCallback(e => {
+        if (window.screen.width > 500) return
+
         if (window.scrollY == 0) {
             GoUp()
             window.addEventListener('touchmove', prevDef, {passive: false})
@@ -65,7 +67,8 @@ const PreviewBlock = ({ project }:IPreviewBlock) => {
             previewBlock.current.querySelector('h2').style.fontSize = 8 + 'rem'
         }
     }
-    const onTouchEnd = (e: React.TouchEvent) => {}
+    const onTouchEnd = (e: React.TouchEvent) => {
+    }
 
     useEffect(() => {
 
@@ -105,7 +108,7 @@ const PreviewBlock = ({ project }:IPreviewBlock) => {
                         : 'preview-block-mob-ver__gradient-gray_Default'
                 }/>
                 <div className={'preview-block-mob-ver_title'}>
-                    <h2>{ project?.title || '-' }</h2>
+                    <h2>{project?.title || '-'}</h2>
                 </div>
                 <div className={'preview-block-mob-ver_description'}>
                     <p>

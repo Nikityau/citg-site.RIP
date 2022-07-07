@@ -12,6 +12,13 @@
       line-height: 30px;
 
       color: #FFFFFF;
+
+      @media screen and (min-width: 2000px){
+        font-size: 2.3rem;
+      }
+      @media screen and (min-width: 3000px){
+        font-size: 2rem;
+      }
     }
   }
   .about-me_works {

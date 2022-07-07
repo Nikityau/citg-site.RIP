@@ -113,6 +113,14 @@
           line-height: 14px;
 
           color: #FFFFFF;
+
+          @media screen and (min-width: 2000px){
+            font-size: 1.5rem;
+          }
+          @media screen and (min-width: 3000px) {
+            font-size: 1.2rem;
+          }
+
         }
       }
     }
@@ -213,6 +221,13 @@
 
         color: #FFFFFF;
 
+        @media screen and (min-width: 2000px){
+          font-size: 2rem;
+        }
+        @media screen and (min-width: 3000px){
+          font-size: 1.5rem;
+        }
+
         @media screen and (max-width: 1250px){
           font-size: 3rem;
         }
@@ -221,7 +236,7 @@
         font-family: 'Inter', sans-serif;
         font-style: normal;
         font-weight: 400;
-        font-size: 1.3rem;
+        font-size: 1.8rem;
         line-height: 17px;
 
         letter-spacing: 0.045em;
@@ -230,8 +245,17 @@
 
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-        @media screen and (max-width: 1250px){
+        @media screen and (min-width: 2000px){
+          font-size: 1.5rem;
+        }
+        @media screen and (min-width: 3000px){
+          font-size: 1.1rem;
+        }
+        @media screen and (max-width: 1625px){
           font-size: 2rem;
+        }
+        @media screen and (max-width: 1250px){
+          font-size: 2.2rem;
         }
       }
     }
@@ -245,6 +269,13 @@
       a {
         img {
           width: 5rem;
+
+          @media screen and (min-width: 2000px){
+            width: 4rem;
+          }
+          @media screen and (min-width: 3000px){
+            width: 3.5rem;
+          }
         }
       }
     }

@@ -181,6 +181,8 @@
 
             cursor: pointer;
 
+            background-size: cover;
+
             img {
               width: auto;
               height: 100%;
@@ -320,6 +322,13 @@
 
             color: #FFFFFF;
 
+            @media screen and (min-width: 2000px){
+              font-size: 1.5rem;
+            }
+            @media screen and (min-width: 3000px){
+                font-size: 1.3rem;
+            }
+
             @media screen and (max-width: 1250px) {
               font-size: 2.5rem;
             }
@@ -352,6 +361,13 @@
             line-height: 22px;
 
             color: #BFBFBF;
+
+            @media screen and (min-width: 2000px){
+              font-size: 1.5rem;
+            }
+            @media screen and (min-width: 3000px){
+              font-size: 1.4rem;
+            }
 
             @media screen and (max-width: 1250px) {
               font-size: 2rem;
@@ -386,6 +402,13 @@
             letter-spacing: 0.045em;
 
             color: #FFFFFF;
+
+            @media screen and (min-width: 2000px){
+              font-size: 1.65rem;
+            }
+            @media screen and (min-width: 3000px){
+              font-size: 1.5rem;
+            }
 
             @media screen and (max-width: 1250px) {
               font-size: 2.5rem;

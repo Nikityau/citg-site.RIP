@@ -17,10 +17,10 @@
     border-bottom: 1px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(
-      90deg,
-      #813024,
-      rgb(109, 109, 109) 75%,
-      rgba(255, 0, 0, 0) 85%
+                    90deg,
+                    #813024,
+                    rgb(109, 109, 109) 75%,
+                    rgba(255, 0, 0, 0) 85%
     );
     z-index: 72;
 
@@ -75,13 +75,16 @@
           }
         }
       }
+
       .burgerOpen {
         .burgerTopLine {
           transform: rotate(45deg) translate3d(11px, 4px, 0);
         }
+
         .burgerMiddleLine {
           opacity: 0;
         }
+
         .burgerBottomLine {
           transform: rotate(-45deg) translate3d(8px, -2px, 0);
         }
@@ -97,12 +100,14 @@
       display: flex;
       justify-content: space-between;
 
-      @media screen and (max-width: 1250px){
+      @media screen and (max-width: 1615px) {
         max-width: 100%;
+        padding: 0 40px;
+      }
+      @media screen and (max-width: 1250px) {
         padding: 0 70px;
       }
       @media screen and (max-width: 500px) {
-        max-width: 100%;
         display: none;
       }
 
@@ -126,11 +131,9 @@
           }
 
 
-
-
-          @media screen and (min-width: 3500px) {
+          @media screen and (min-width: 1250px) {
             span {
-              font-size: 1.2rem;
+              font-size: 1.6rem;
             }
           }
           @media screen and (min-width: 2000px) {
@@ -138,17 +141,21 @@
               font-size: 1.4rem;
             }
           }
-          @media screen and (max-width: 1250px){
-            padding: 0;
+          @media screen and (min-width: 3500px) {
+            span {
+              font-size: 1.2rem;
+            }
+          }
+
+          @media screen and (max-width: 1615px){
+            padding:0;
+          }
+          @media screen and (max-width: 1250px) {
             span {
               font-size: 2.1rem;
             }
           }
-          @media screen and (min-width: 1250px) {
-            span {
-              font-size: 1.6rem;
-            }
-          }
+
         }
       }
     }

@@ -141,10 +141,14 @@
 
       z-index: 10;
 
-      @media screen and (max-width: 1250px){
+      @media screen and (max-width: 1626px){
         width: 100%;
 
         padding: 0 40px;
+      }
+
+      @media screen and (max-width: 1250px){
+
       }
     }
   }

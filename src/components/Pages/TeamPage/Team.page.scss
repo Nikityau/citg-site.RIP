@@ -95,8 +95,12 @@
     padding-top: 150px;
 
 
-    @media screen and (max-width: 1250px){
+    @media screen and (max-width: 1625px){
       max-width: 100%;
+
+      padding: 150px 40px 0;
+    }
+    @media screen and (max-width: 1250px){
     }
     @media screen and (max-width: 500px){
 
@@ -121,6 +125,13 @@
 
         color: #FFFFFF;
 
+        @media screen and (min-width: 2000px){
+          font-size: 6rem;
+        }
+        @media screen and (min-width: 3000px){
+          font-size: 5rem;
+        }
+
         @media screen and (max-width: 1250px){
           font-size: 8rem;
         }
@@ -140,6 +151,16 @@
         color: #D5D4E6;
 
         text-align: center;
+
+        @media screen and (min-width: 2000px){
+          font-size: 1.7rem;
+
+          line-height: 20px;
+        }
+        @media screen and (min-width: 3000px){
+          font-size: 1.6rem;
+          line-height: 20px;
+        }
 
         @media screen and (max-width: 1250px){
           width: 75%;

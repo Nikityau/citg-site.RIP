@@ -16,9 +16,12 @@
     @media screen and (min-width: 3000px) {
       position: relative;
     }
-    @media screen and (max-width: 1250px){
+    @media screen and (max-width: 1650px){
       max-width: 100%;
       padding: 0 40px;
+    }
+    @media screen and (max-width: 1250px){
+
     }
     @media screen and (max-width: 500px){
       padding: 0;
@@ -50,6 +53,10 @@
 
       z-index: 3;
 
+
+      @media screen and (min-width: 2000px){
+        max-width: 100%;
+      }
       @media screen and (max-width: 1250px){
         max-width: 100%;
 
@@ -58,7 +65,6 @@
       }
 
       @media screen and (max-width: 500px) {
-        max-width: 100%;
         top: 10vh;
         left: 5vw;
 

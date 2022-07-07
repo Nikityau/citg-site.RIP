@@ -108,8 +108,9 @@ const MyWorksCurrent = ({work}: IMyCurrentWork) => {
                     {
                         work?.development_stages.map((stage, index) => (
                             <div className={getClassByIndex(index + 1)} key={stage.id}
-                                 onClick={() => nextImgByClick(currentIndexImg == index ? -1 : index)}>
-                                <img src={currentIndexImg == index ? work?.img : stage?.imgSrc || ''} alt={'img'}/>
+                                 onClick={() => nextImgByClick(currentIndexImg == index ? -1 : index)}
+                                style={{ backgroundImage: `url(${stage.imgSrc})` }}
+                            >
                             </div>
                         ))
                     }
