@@ -52,6 +52,9 @@
       display: flex;
       align-items: center;
 
+      @media screen and (max-width: 1620px){
+        display: none;
+      }
       @media screen and (max-width: 1250px){
         display: none;
       }

@@ -8,6 +8,9 @@
   z-index: -1;
   transition: all 0.3s ease-in-out;
 
+  @media screen and (max-width: 1620px){
+    display: none;
+  }
   @media screen and (max-width: 1250px) {
     display: none;
   }

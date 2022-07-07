@@ -69,7 +69,6 @@ const ProjectsBlock = () => {
         const arr = []
 
         if(Array.isArray(projects)) {
-            console.log(projects[randomIndex])
             arr.push(projects[randomIndex])
         }
 
@@ -170,7 +169,6 @@ const ProjectsBlock = () => {
                     <div className={projectsbock.gamesListMobVerAdditionalBlocks}>
                         {
                             getRandomProject().map(project => {
-                                console.log(project?.main_img)
                                 return (
                                     <div key={project?.id || 'random-key'}
                                          onClick={Up}
@@ -183,7 +181,6 @@ const ProjectsBlock = () => {
                         }
                         {
                             getRandomProject().map(project => {
-                                console.log(project?.main_img)
                                 return (
                                     <div key={project?.id || 'random-key'}
                                          className={projectsbock.gamesListMobVerAdditionalBlock}
